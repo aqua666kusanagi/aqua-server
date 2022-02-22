@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductCategoriesTable extends Migration
+class CreatePhotographsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('photographs', function (Blueprint $table) {
             $table->id();
-            $table->string("description",100);
+            $table->foreignIdFor(Orchard::class)->nullable()->constrained();
+            $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateProductCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('photographs');
     }
 }
