@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\typePhotograph;
+use App\Models\Orchard;
 
 class CreatePhotographsTable extends Migration
 {
@@ -17,6 +19,9 @@ class CreatePhotographsTable extends Migration
             $table->id();
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
             $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
+            $table->string("file",250);
+            $table->date('date');
+
             $table->timestamps();
             $table->softDeletes();
         });
