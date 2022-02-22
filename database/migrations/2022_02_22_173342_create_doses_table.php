@@ -1,12 +1,10 @@
 <?php
 
-use App\Models\Workday;
-use App\Models\TypeJob;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitiesTable extends Migration
+class CreateDosesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +13,12 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('doses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Workday::class)->nullable()->constrained();
-            $table->foreignIdFor(TypeJob::class)->nullable()->constrained();
-
-            $table->double("cost",4,2);
-
+            $table->foreignIdFor(\App\Models\Application::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\ChemicalElement::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\Unit::class)->nullable()->constrained();
+            $table->double("dose",4,2);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +31,6 @@ class CreateActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('doses');
     }
 }
