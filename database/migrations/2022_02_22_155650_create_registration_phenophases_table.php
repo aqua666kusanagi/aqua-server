@@ -17,6 +17,10 @@ class CreateRegistrationPhenophasesTable extends Migration
         Schema::create('registration_phenophases', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Phenophase::class)->nullable()->constrained();
+
+            $table->date('date');
+            $table->string("comments",250);
+
             $table->timestamps();
             $table->softDeletes();
         });

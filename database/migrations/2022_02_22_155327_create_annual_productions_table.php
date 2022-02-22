@@ -17,6 +17,12 @@ class CreateAnnualProductionsTable extends Migration
         Schema::create('annual_productions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
+
+            $table->integer("ton_harvest");
+            $table->date('date_production');
+            $table->integer("sale");
+            $table->integer("damage_percentage");
+
             $table->timestamps();
             $table->softDeletes();
         });
