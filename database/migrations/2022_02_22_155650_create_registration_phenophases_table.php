@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Phenophase;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhotographsTable extends Migration
+class CreateRegistrationPhenophasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,9 @@ class CreatePhotographsTable extends Migration
      */
     public function up()
     {
-        Schema::create('photographs', function (Blueprint $table) {
+        Schema::create('registration_phenophases', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Orchard::class)->nullable()->constrained();
-            $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
+            $table->foreignIdFor(Phenophase::class)->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreatePhotographsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photographs');
+        Schema::dropIfExists('registration_phenophases');
     }
 }

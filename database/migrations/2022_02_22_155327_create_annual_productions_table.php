@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Orchard;
 
-class CreatePhotographsTable extends Migration
+class CreateAnnualProductionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,9 @@ class CreatePhotographsTable extends Migration
      */
     public function up()
     {
-        Schema::create('photographs', function (Blueprint $table) {
+        Schema::create('annual_productions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
-            $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreatePhotographsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photographs');
+        Schema::dropIfExists('annual_productions');
     }
 }
