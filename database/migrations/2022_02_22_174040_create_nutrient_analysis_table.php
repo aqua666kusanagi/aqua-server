@@ -17,7 +17,7 @@ class CreateNutrientAnalysisTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Orchard::class)->nullable()->constrained();
             $table->date("date_sample");
-            $table->string("file",250);
+            $table->string("path",250);
             $table->timestamps();
             $table->softDeletes();
         });
