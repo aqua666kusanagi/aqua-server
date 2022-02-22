@@ -17,7 +17,7 @@ class CreateActiveElementsTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\ChemicalElement::class)->nullable()->constrained();
             $table->foreignIdFor(\App\Models\Supply::class)->nullable()->constrained();
-            $table->double("percentage",4,4);
+            $table->double("percentage",2,2);
             $table->timestamps();
             $table->softDeletes();
         });
