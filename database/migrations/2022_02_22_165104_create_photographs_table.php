@@ -20,6 +20,9 @@ class CreatePhotographsTable extends Migration
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
             $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
 
+            $table->string("file",250);
+            $table->date('date');
+
             $table->timestamps();
             $table->softDeletes();
         });
