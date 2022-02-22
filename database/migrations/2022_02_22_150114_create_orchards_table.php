@@ -26,6 +26,18 @@ class CreateOrchardsTable extends Migration
             $table->foreignIdFor(TypeClimate::class)->nullable()->constrained();
             $table->foreignIdFor(User::class)->nullable()->constrained();
 
+            $table->string("name_orchard",250);
+            $table->string("image",250);
+            $table->string("location_orchard",250);
+            $table->integer("latitude");
+            $table->integer("longitude");
+            $table->integer("length");//extension
+            $table->double("surface",4,2);
+            $table->string("state",250);
+            $table->year('creation_year');
+            $table->integer("planting_density");
+            $table->boolean('irrigation');
+
             $table->timestamps();
             $table->softDeletes();
         });
