@@ -18,7 +18,7 @@ class CreatePhotographsTable extends Migration
         Schema::create('photographs', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
-            $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();
+            $table->foreignIdFor(typePhotograph::class)->nullable()->constrained();////CAMBIAR MODEL CONTROLADOR
 
             $table->string("path",250);
             $table->date('date');

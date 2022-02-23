@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeClimate;
+use App\Models\ClimateType;
 use Illuminate\Http\Request;
 
-class TypeClimateController extends Controller
+class ClimateTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TypeClimateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypeClimate  $typeClimate
+     * @param  \App\Models\ClimateType  $climateType
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeClimate $typeClimate)
+    public function show(ClimateType $climateType)
     {
         //
     }
@@ -52,10 +52,10 @@ class TypeClimateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypeClimate  $typeClimate
+     * @param  \App\Models\ClimateType  $climateType
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeClimate $typeClimate)
+    public function edit(ClimateType $climateType)
     {
         //
     }
@@ -64,10 +64,10 @@ class TypeClimateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypeClimate  $typeClimate
+     * @param  \App\Models\ClimateType  $climateType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeClimate $typeClimate)
+    public function update(Request $request, ClimateType $climateType)
     {
         //
     }
@@ -75,10 +75,10 @@ class TypeClimateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypeClimate  $typeClimate
+     * @param  \App\Models\ClimateType  $climateType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeClimate $typeClimate)
+    public function destroy(ClimateType $climateType)
     {
         //
     }

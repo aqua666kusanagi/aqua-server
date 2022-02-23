@@ -23,7 +23,7 @@ class CreateSampleNutrientsTable extends Migration
             $table->foreignIdFor(ChemicalElement::class)->nullable()->constrained();
 
             $table->double("percentage",4,2);
-            $table->integer("lot");
+            $table->double("lot",4,2);//Cantidad
 
             $table->timestamps();
             $table->softDeletes();

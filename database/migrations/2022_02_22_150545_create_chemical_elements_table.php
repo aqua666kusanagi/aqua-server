@@ -16,7 +16,7 @@ class CreateChemicalElementsTable extends Migration
         Schema::create('chemical_elements', function (Blueprint $table) {
             $table->id();
             $table->string("name", 250);
-            $table->float("code", 4,4);
+            $table->string("chemical_code", 10);
             $table->timestamps();
             $table->softDeletes();
         });

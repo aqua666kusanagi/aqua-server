@@ -3,7 +3,7 @@
 use App\Models\TypeAvocado;
 use App\Models\TypeTopography;
 use App\Models\TypeSoil;
-use App\Models\TypeClimate;
+use App\Models\ClimateType;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,17 +23,20 @@ class CreateOrchardsTable extends Migration
             $table->foreignIdFor(TypeAvocado::class)->nullable()->constrained();
             $table->foreignIdFor(TypeTopography::class)->nullable()->constrained();
             $table->foreignIdFor(TypeSoil::class)->nullable()->constrained();
-            $table->foreignIdFor(TypeClimate::class)->nullable()->constrained();
+            $table->foreignIdFor(ClimateType::class)->nullable()->constrained();
             $table->foreignIdFor(User::class)->nullable()->constrained();
 
             $table->string("name_orchard",250);
-            $table->string("image",250);
-            $table->string("location_orchard",250);
-            $table->integer("latitude");
-            $table->integer("longitude");
-            $table->integer("length");//extension
+            $table->string("path_image",250);
+            $table->text("location_orchard");
+
+            $table->point('point')->nullable();//GUARDAR COORDENADAS
+            // Add a Polygon spatial data field named area
+            $table->polygon('area')->nullable();//GUARDAR EL POLIGONO
+
+            $table->double("altitude",5,2);//Altura sobre nivel del MAR
             $table->double("surface",4,2);
-            $table->string("state",250);
+            $table->integer("state");
             $table->year('creation_year');
             $table->integer("planting_density");
             $table->boolean('irrigation');

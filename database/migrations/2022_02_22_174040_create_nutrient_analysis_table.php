@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Orchard;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +15,7 @@ class CreateNutrientAnalysisTable extends Migration
     {
         Schema::create('nutrient_analysis', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Orchard::class)->nullable()->constrained();
+            $table->foreignIdFor(Orchard::class)->nullable()->constrained();
             $table->date("date_sample");
             $table->string("path",250);
             $table->timestamps();

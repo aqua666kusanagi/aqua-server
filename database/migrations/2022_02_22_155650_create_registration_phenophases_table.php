@@ -21,7 +21,7 @@ class CreateRegistrationPhenophasesTable extends Migration
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
 
             $table->date('date');
-            $table->string("comments",250);
+            $table->text("comments");
 
             $table->timestamps();
             $table->softDeletes();

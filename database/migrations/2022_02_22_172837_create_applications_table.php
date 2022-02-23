@@ -18,7 +18,7 @@ class CreateApplicationsTable extends Migration
             $table->foreignIdFor(\App\Models\Workday::class)->nullable()->constrained();
             $table->foreignIdFor(\App\Models\ApplicationMode::class)->nullable()->constrained();
             $table->date("date");
-            $table->text("grades");
+            $table->text("note");
             $table->timestamps();
             $table->softDeletes();
         });
