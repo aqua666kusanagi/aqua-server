@@ -4,19 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductCategoriesTable extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->string("description",100);
+            $table->foreignIdFor(\App\Models\Workday::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\ApplicationMode::class)->nullable()->constrained();
+            $table->date("date");
+            $table->text("note");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +31,6 @@ class CreateProductCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('applications');
     }
 }

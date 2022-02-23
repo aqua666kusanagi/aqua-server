@@ -20,9 +20,7 @@ class CreateSuppliesTable extends Migration
             $table->integer("registry_number");
             $table->string("data_sheet",250);
             $table->double("security_term",4,2);
-
             $table->foreignIdFor(ProductCategory::class)->nullable()->constrained();
-
             $table->timestamps();
             $table->softDeletes();
         });

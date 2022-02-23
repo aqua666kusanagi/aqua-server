@@ -4,19 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductCategoriesTable extends Migration
+class CreateWorkdaysTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('workdays', function (Blueprint $table) {
             $table->id();
-            $table->string("description",100);
+            $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\Orchard::class)->nullable()->constrained();
+            $table->date('date_work');
+            $table->text('general_expenses');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +31,6 @@ class CreateProductCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('workdays');
     }
 }

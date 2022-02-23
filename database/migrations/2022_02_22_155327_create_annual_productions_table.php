@@ -3,20 +3,26 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Orchard;
 
-class CreateProductCategoriesTable extends Migration
+class CreateAnnualProductionsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('annual_productions', function (Blueprint $table) {
             $table->id();
-            $table->string("description",100);
+            $table->foreignIdFor(Orchard::class)->nullable()->constrained();
+
+            $table->integer("ton_harvest");
+            $table->date('date_production');
+            $table->integer("sale");
+            $table->integer("damage_percentage");
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +35,6 @@ class CreateProductCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('annual_productions');
     }
 }
