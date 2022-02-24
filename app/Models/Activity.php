@@ -10,7 +10,7 @@ class Activity extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
+
     protected $fillable = [
 
         'workday_id',

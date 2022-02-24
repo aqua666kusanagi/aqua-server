@@ -10,7 +10,6 @@ class TypeSoil extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'type_soil',

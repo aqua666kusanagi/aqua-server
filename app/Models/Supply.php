@@ -10,7 +10,6 @@ class Supply extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'name',

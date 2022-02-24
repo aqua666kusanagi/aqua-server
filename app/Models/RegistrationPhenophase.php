@@ -10,7 +10,6 @@ class RegistrationPhenophase extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'phenophase_id',

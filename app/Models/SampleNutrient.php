@@ -10,7 +10,6 @@ class SampleNutrient extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'nutrient_analysi_id',

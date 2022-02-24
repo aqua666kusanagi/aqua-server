@@ -10,7 +10,6 @@ class Orchard extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'type_avocado_id',

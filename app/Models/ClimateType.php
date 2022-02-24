@@ -10,7 +10,6 @@ class ClimateType extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'climate_type',

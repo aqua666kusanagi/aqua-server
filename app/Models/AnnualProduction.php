@@ -10,7 +10,6 @@ class AnnualProduction extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'orchard_id',

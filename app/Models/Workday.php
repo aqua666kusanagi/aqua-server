@@ -10,7 +10,6 @@ class Workday extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //public $timestamps = false;
     protected $fillable = [
 
         'user_id',
