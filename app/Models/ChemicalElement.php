@@ -13,7 +13,7 @@ class ChemicalElement extends Model
     protected $fillable = [
 
         'name',
-        'chemical_mode',
+        'chemical_code',
 
     ];
 }

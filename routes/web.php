@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\ChemicalElementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('test_template',function (){
     return view("layouts.template");
 });
+
+Route::get('chemical_elements', ChemicalElementController::class);
