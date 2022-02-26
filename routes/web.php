@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\ChemicalElementController;
+use App\Http\Livewire\AplicationModeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,4 @@ Route::get('test_template',function (){
 });
 
 Route::get('chemical_elements', ChemicalElementController::class);
+Route::get('aplication_modes', AplicationModeController::class);

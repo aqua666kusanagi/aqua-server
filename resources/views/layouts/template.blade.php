@@ -9,6 +9,7 @@
         rel="stylesheet"
     />
     <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/diseno.css')}}" />
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 </head>
@@ -201,7 +202,7 @@
             </div>
         </aside>
 
-        <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
+        <div class="flex-1 flex flex-col h-screen w-full overflow-x-hidden overflow-y-auto">
             <!-- Navbar -->
             <header class="relative bg-white dark:bg-darker">
                 <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
@@ -691,7 +692,7 @@
             </header>
 
             <!-- Main content -->
-            <main>
+            <main class=" flex-grow-0">
                 <!-- Content header -->
                 <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
                     <h1 class="text-2xl font-semibold">Dashboard</h1>
@@ -707,7 +708,7 @@
                 <!-- Content -->
                 <div class="mt-2">
                     <!-- State cards -->
-
+                    <img src="https://thumbs.dreamstime.com/z/fondo-texturizado-brillo-sombreado-negro-y-azul-wallpaper-p-gina-del-libro-pinturas-impresi-n-fondos-m-viles-cubiertas-protectores-149843821.jpg" alt="" width="300px" height="300px">
 
                     <!-- Charts -->
 
@@ -719,9 +720,9 @@
 
             <!-- Main footer -->
             <footer
-                class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
+                class="flex  items-start justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker termination"
             >
-                <div>K-WD &copy; 2021</div>
+                <div>K-JD &copy; 2021</div>
                 <div>
                     Made by
                     <a href="https://github.com/Kamona-WD" target="_blank" class="text-blue-500 hover:underline"
