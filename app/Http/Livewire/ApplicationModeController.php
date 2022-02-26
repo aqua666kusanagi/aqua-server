@@ -5,15 +5,16 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\ApplicationMode;
 
-class AplicationModeController extends Component
+class ApplicationModeController extends Component
 {
     //DEFINIMOS UNAS VARIABLES A USAR
-    public $aplication, $description, $aplication_mode_id;
+    public $aplication, $description, $application_mode_id;
+    public $isDialogOpen = 0;
 
     public function render()
     {
         $this -> aplication = ApplicationMode::all();
-        return view('livewire.aplication_modes.aplication-mode-controller');
+        return view('livewire.application_modes.application-mode-controller');
     }
 
     public function create()
@@ -42,11 +43,11 @@ class AplicationModeController extends Component
             'description' => 'required',
         ]);
 
-        AplicationMode::updateOrCreate(['id' => $this->aplication_mode_id], [
+        ApplicationMode::updateOrCreate(['id' => $this->application_mode_id], [
             'description' => $this->description,
         ]);
 
-        session()->flash('message', $this->aplication_mode_id ? 'Aplication mode updated!' : 'Aplication mode created!');
+        session()->flash('message', $this->application_mode_id ? 'Aplication mode updated!' : 'Aplication mode created!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -54,8 +55,8 @@ class AplicationModeController extends Component
 
     public function edit($id)
     {
-        $aplication_mode = AplicationMode::findOrFail($id);
-        $this->aplication_mode_id = $id;
+        $aplication_mode = ApplicationMode::findOrFail($id);
+        $this->application_mode_id = $id;
         $this->description = $aplication_mode->description;
 
         $this->openModalPopover();

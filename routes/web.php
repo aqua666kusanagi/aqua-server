@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Livewire\ChemicalElementController;
-use App\Http\Livewire\AplicationModeController;
+use App\Http\Livewire\ApplicationModeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('chemical_elements', ChemicalElementController::class);
+    Route::get('application_modes', ApplicationModeController::class);
+
+});
+
+
 
 Route::get('test_template',function (){
     return view("layouts.template");
 });
 
-Route::get('chemical_elements', ChemicalElementController::class);
-Route::get('aplication_modes', AplicationModeController::class);
+
