@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 </head>
 <body>
-<div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors('teal');" :class="{ 'dark': false}">
+<div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors('teal-dark');" :class="{ 'dark': false}">
     <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <!-- Loading screen -->
         <div
@@ -692,7 +692,7 @@
             </header>
 
             <!-- Main content -->
-            <main class=" flex-grow-0">
+            <main class=" flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
                 <!-- Content header -->
                 <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
                     <h1 class="text-2xl font-semibold">Dashboard</h1>
