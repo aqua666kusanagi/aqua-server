@@ -174,11 +174,12 @@
                 </nav>
 
                 <!-- Sidebar footer -->
+                <!--Para button -openSettingsPanel-->
                 <div class="flex-shrink-0 px-2 py-4 space-y-2">
                     <button
-                        @click="openSettingsPanel"
+                        @click="#"
                         type="button"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
                     >
                 <span aria-hidden="true">
                   <svg
@@ -699,7 +700,7 @@
                     <a
                         href="https://github.com/Kamona-WD/kwd-dashboard"
                         target="_blank"
-                        class="px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                        class="px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
                     >
                         View on github
                     </a>
@@ -708,7 +709,7 @@
                 <!-- Content -->
                 <div class="mt-2">
                     <!-- State cards -->
-                    <img src="https://thumbs.dreamstime.com/z/fondo-texturizado-brillo-sombreado-negro-y-azul-wallpaper-p-gina-del-libro-pinturas-impresi-n-fondos-m-viles-cubiertas-protectores-149843821.jpg" alt="" width="300px" height="300px">
+                    <img src="https://thumbs.dreamstime.com/z/fondo-texturizado-brillo-sombreado-negro-y-azul-wallpaper-p-gina-del-libro-pinturas-impresi-n-fondos-m-viles-cubiertas-protectores-149843821.jpg" alt="" width="900px" height="1000px">
 
                     <!-- Charts -->
 
