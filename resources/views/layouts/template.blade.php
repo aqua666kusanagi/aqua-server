@@ -30,7 +30,7 @@
                 <!-- Sidebar links -->
                 <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
                     <!-- Dashboards links -->
-                    <div x-data="{ isActive: true, open: true}">
+                    <div x-data="{ isActive: true, open: false}">
                         <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                         <a
                             href="#"
@@ -81,6 +81,14 @@
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
                                 Modos de Aplicacion
+                            </a>
+
+                            <a
+                                href="{{asset('chemical_elements')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                Elementos Quimicos
                             </a>
 
                         </div>

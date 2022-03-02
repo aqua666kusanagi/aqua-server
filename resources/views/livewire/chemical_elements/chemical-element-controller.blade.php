@@ -1,6 +1,5 @@
-<x-slot name="header">
-    <h2 class="text-center">Laravel JetStream Livewire CRUD Example</h2>
-</x-slot>
+@extends('layouts.template')
+@section('content')
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
@@ -32,8 +31,7 @@
                 <tbody>
                 @foreach($chemical_elements as $item)
                     <tr>
-
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $item->id }}</td>
                         <td class="border px-4 py-2">{{ $item->name }}</td>
                         <td class="border px-4 py-2">{{ $item->chemical_code }}</td>
 
@@ -50,3 +48,4 @@
         </div>
     </div>
 </div>
+@endsection
