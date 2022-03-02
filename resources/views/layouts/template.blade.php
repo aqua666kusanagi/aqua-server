@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
     <link rel="stylesheet" href="{{asset('/css/diseno.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/all.min.css')}}">
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 </head>
@@ -80,6 +81,7 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
+                                <i class="fa-solid fa-plus"></i>
                                 Modos de Aplicacion
                             </a>
 
@@ -88,6 +90,7 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
+                                <i class="fa-solid fa-plus"></i>
                                 Elementos Quimicos
                             </a>
 
@@ -582,7 +585,7 @@
                         />
                       </svg>
                     </span>
-                                <span class="ml-2 text-sm"> Dashboards </span>
+                                <span class="ml-2 text-sm"> Registrar </span>
                                 <span class="ml-auto" aria-hidden="true">
                       <!-- active class 'rotate-180' -->
                       <svg
@@ -605,7 +608,7 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Default
+                                    Modos de aplicacion
                                 </a>
 
                             </div>
