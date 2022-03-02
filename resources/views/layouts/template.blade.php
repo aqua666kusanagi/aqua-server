@@ -712,7 +712,7 @@
                     @yield('content')
 
                     <!-- State cards -->
-                   
+
                     <!-- Charts -->
 
 
