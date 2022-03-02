@@ -32,13 +32,14 @@
                 <tbody>
                 @foreach($chemical_elements as $item)
                     <tr>
-                        <td class="border px-4 py-2">{{ $item->id }}</td>
+
+                        <td>{{ ++$i }}</td>
                         <td class="border px-4 py-2">{{ $item->name }}</td>
                         <td class="border px-4 py-2">{{ $item->chemical_code }}</td>
 
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $item->id }})"
-                                    class="bg-green-700 text-black font-bold py-2 px-4">Edit</button>
+                                    class="bg-green-700 text-white font-bold py-2 px-4">Edit</button>
                             <button wire:click="delete({{ $item->id }})"
                                     class="bg-red-700 text-white font-bold py-2 px-4">Delete</button>
                         </td>
