@@ -25,6 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('test_template',function (){
+        return view("layouts.template");
+    });
+
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
 
@@ -32,8 +36,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
 
-Route::get('test_template',function (){
-    return view("layouts.template");
-});
+
 
 

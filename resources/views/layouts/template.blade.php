@@ -57,7 +57,7 @@
                       />
                     </svg>
                   </span>
-                            <span class="ml-2 text-sm"> Dashboards </span>
+                            <span class="ml-2 text-sm"> Registros </span>
                             <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -76,11 +76,11 @@
                             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                             <a
-                                href="index.html"
+                                href="{{asset('application_modes')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
-                                Default
+                                Modos de Aplicacion
                             </a>
 
                         </div>
@@ -708,9 +708,11 @@
 
                 <!-- Content -->
                 <div class="mt-2">
-                    <!-- State cards -->
-                    <img src="https://thumbs.dreamstime.com/z/fondo-texturizado-brillo-sombreado-negro-y-azul-wallpaper-p-gina-del-libro-pinturas-impresi-n-fondos-m-viles-cubiertas-protectores-149843821.jpg" alt="" width="900px" height="1000px">
 
+                    @yield('content')
+
+                    <!-- State cards -->
+                   
                     <!-- Charts -->
 
 
