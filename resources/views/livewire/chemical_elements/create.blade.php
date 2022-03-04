@@ -1,3 +1,5 @@
+@extends('layouts.template')
+@section('content')
 <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0">
         <div class="fixed inset-0 transition-opacity">
@@ -37,3 +39,4 @@
         </div>
     </div>
 </div>
+@endsection

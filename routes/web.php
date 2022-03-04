@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         return view('dashboard');
     })->name('dashboard');
 
+
     Route::get('test_template',function (){
         return view("layouts.template");
     });
@@ -33,7 +34,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('application_modes', ApplicationModeController::class);
 
 });
-
 
 
 
