@@ -399,12 +399,16 @@
                                 >
                                     Settings
                                 </a>
-                                <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-                                >
-                                    Logout
+                                <a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                                                   onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </x-jet-responsive-nav-link>
+                                    </form>
                                 </a>
                             </div>
                         </div>
@@ -544,12 +548,16 @@
                                 >
                                     Settings
                                 </a>
-                                <a
-                                    href="#"
-                                    role="menuitem"
-                                    class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
-                                >
-                                    Logout
+                                <a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                                                   onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </x-jet-responsive-nav-link>
+                                    </form>
                                 </a>
                             </div>
                         </div>
