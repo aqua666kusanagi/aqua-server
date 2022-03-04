@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
     Route::get('test_template',function (){
-        return view("layouts.template");
+        return view("layouts.app");
     });
 
     Route::get('chemical_elements', ChemicalElementController::class);

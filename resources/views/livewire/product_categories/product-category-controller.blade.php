@@ -34,11 +34,11 @@
                             <div class="flex justify-between">
                                 <div>
                                     <button wire:click="edit({{ $catego->id }})"
-                                            class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i>EDITAR</button>
                                 </div>
                                 <div>
                                     <button wire:click="delete({{ $catego->id }})"
-                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i>ELIMINAR</button>
                                 </div>
                             </div>
                         </td>
