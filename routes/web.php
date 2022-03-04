@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
+use App\Http\Livewire\ProductCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
-
+    Route::get('product_categories', ProductCategoryController::class);
 });
 
 
