@@ -42,31 +42,6 @@
                                     class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
-<<<<<<< HEAD
-                @endforeach
-                </tbody>
-            </table>
-=======
-                    </thead>
-                    <tbody>
-                    @foreach($chemical_elements as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td class="border px-4 py-2">{{ $item->name }}</td>
-                            <td class="border px-4 py-2">{{ $item->chemical_code }}</td>
-
-                            <td class="border px-4 py-2">
-                                <button wire:click="edit({{ $item->id }})"
-                                        class="bg-green-700 text-white font-bold py-2 px-4">Editar</button>
-                                <button wire:click="delete({{ $item->id }})"
-                                        class="bg-red-700 text-white font-bold py-2 px-4">Eliminar</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
->>>>>>> 1c159cfc1818efcc89e8380b3f7566294564ca69
         </div>
     </div>
 </div>
