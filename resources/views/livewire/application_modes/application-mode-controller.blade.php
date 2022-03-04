@@ -23,7 +23,7 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-300">
-                    <th class="px-4 py-2 w-20">No.</th>
+                    <th class="px-4 py-2 w-20">Numero</th>
                     <th class="px-4 py-2">Description</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
