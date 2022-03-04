@@ -22,7 +22,8 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            
+
+            <!-- NAVIGATION MENU -->
 
 
             <!-- Page Content -->
