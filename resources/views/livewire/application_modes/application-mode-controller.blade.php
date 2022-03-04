@@ -35,9 +35,15 @@
                         <td class="border px-4 py-2">{{ $aplicacion->description }}</td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $aplicacion->id }})"
+<<<<<<< HEAD
                                     class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button wire:click="delete({{ $aplicacion->id }})"
                                     class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+=======
+                                    class="bg-green-700 text-white font-bold py-2 px-4">Editar</button>
+                            <button wire:click="delete({{ $aplicacion->id }})"
+                                    class="bg-red-700 text-white font-bold py-2 px-4">Eliminar</button>
+>>>>>>> 1c159cfc1818efcc89e8380b3f7566294564ca69
                         </td>
                     </tr>
                 @endforeach
