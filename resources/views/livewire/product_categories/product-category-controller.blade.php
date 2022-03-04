@@ -13,7 +13,7 @@
                 </div>
             @endif
             <button wire:click="create()"
-                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Categoria</button>
+                    class="bg-indigo-500 text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Categoria</button>
             @if($isDialogOpen)
                 @include('livewire.product_categories.create')
             @endif
