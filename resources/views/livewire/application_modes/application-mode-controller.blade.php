@@ -16,16 +16,16 @@
                 </div>
             @endif
             <button wire:click="create()"
-                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3">Add Aplication Mode</button>
+                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3">Agregar modo de aplicación</button>
             @if($isDialogOpen)
                 @include('livewire.application_modes.create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-300">
-                    <th class="px-4 py-2 w-20">No.</th>
-                    <th class="px-4 py-2">Description</th>
-                    <th class="px-4 py-2">Actions</th>
+                    <th class="px-4 py-2 w-20">Numero</th>
+                    <th class="px-4 py-2">Descripcion</th>
+                    <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
