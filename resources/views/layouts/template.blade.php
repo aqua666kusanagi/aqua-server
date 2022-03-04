@@ -22,7 +22,7 @@
             x-ref="loading"
             class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker"
         >
-            Loading.....
+            Cargando.....
         </div>
 
         <!-- Sidebar -->
@@ -76,6 +76,9 @@
                         <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
                             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+
+
+                            <!-- BOTONES MENU -->
                             <a
                                 href="{{asset('application_modes')}}"
                                 role="menuitem"
@@ -93,6 +96,8 @@
                                 <i class="fa-solid fa-plus"></i>
                                 Elementos Quimicos
                             </a>
+
+
 
                         </div>
                     </div>
@@ -131,7 +136,7 @@
                       />
                     </svg>
                   </span>
-                            <span class="ml-2 text-sm"> Authentication </span>
+                            <span class="ml-2 text-sm"> Autenticacion </span>
                             <span aria-hidden="true" class="ml-auto">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -154,28 +159,28 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Register
+                                Registrarme
                             </a>
                             <a
                                 href="auth/login.html"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Login
+                                Logearme
                             </a>
                             <a
                                 href="auth/forgot-password.html"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Forgot Password
+                                Olvide Contraseña
                             </a>
                             <a
                                 href="auth/reset-password.html"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                Reset Password
+                                Restaurar contraseña
                             </a>
                         </div>
                     </div>
