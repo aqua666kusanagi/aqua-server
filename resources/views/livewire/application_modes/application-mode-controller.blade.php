@@ -35,9 +35,9 @@
                         <td class="border px-4 py-2">{{ $aplicacion->description }}</td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $aplicacion->id }})"
-                                    class="bg-green-700 text-white font-bold py-2 px-4">Edit</button>
+                                    class="bg-green-700 text-white font-bold py-2 px-4">Editar</button>
                             <button wire:click="delete({{ $aplicacion->id }})"
-                                    class="bg-red-700 text-white font-bold py-2 px-4">Delete</button>
+                                    class="bg-red-700 text-white font-bold py-2 px-4">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach
