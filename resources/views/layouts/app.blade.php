@@ -87,7 +87,7 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                             >
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-angles-right"></i>
                                 Modos de Aplicacion
                             </a>
 
@@ -96,7 +96,7 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-angles-right"></i>
                                 Elementos Quimicos
                             </a>
 
@@ -105,7 +105,7 @@
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-angles-right"></i>
                                 Categoria de Productos
                             </a>
 
@@ -542,7 +542,7 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-angles-right"></i>
                                     Modos de aplicacion
                                 </a>
 
@@ -551,7 +551,7 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-angles-right"></i>
                                     Elementos quimicos
                                 </a>
 
@@ -560,7 +560,7 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
                                 >
-                                    <i class="fa-solid fa-plus"></i>
+                                    <i class="fa-solid fa-angles-right"></i>
                                     Categoria de productos
                                 </a>
 
