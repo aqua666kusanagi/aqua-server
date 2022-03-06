@@ -22,6 +22,14 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
+
+    Route::get('reset-password',function (){
+        return view("auth.reset-password");
+    });
+    Route::get('profile',function (){
+        return view("profile.show");
+    });
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

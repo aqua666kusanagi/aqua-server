@@ -160,29 +160,31 @@
                         <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
                             <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                             <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                            <a href="{{ ('/') }}" role="menuitem" class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">Landing</a>
+
                             <a
-                                href="auth/register.html"
+                                href="{{ route('register') }}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
                                 Registrarme
                             </a>
                             <a
-                                href="auth/login.html"
+                                href="{{ route('login') }}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
                                 Logearme
                             </a>
                             <a
-                                href="auth/forgot-password.html"
+                                href="{{ route('password.email') }}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
                                 Olvide Contraseña
                             </a>
                             <a
-                                href="auth/reset-password.html"
+                                href="{{ route('password.update') }}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
@@ -347,27 +349,27 @@
                                 aria-label="User menu"
                             >
                                 <a
-                                    href="#"
+                                href="{{ ('profile') }}"
                                     role="menuitem"
                                     class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                 >
-                                    Your Profile
+                                    Perfil
                                 </a>
                                 <a
                                     href="#"
                                     role="menuitem"
-                                    class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                                    class=" block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                 >
-                                    Settings
+                                    Configuracion
                                 </a>
-                                <a>
-                                    <form method="POST" action="{{ route('logout') }}">
+                                <a >
+                                    <form  class=" ring-4 ring-green-500 ring-opacity-50" method="POST" action="{{ route('logout') }}">
                                         @csrf
 
                                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                            {{ __('Log Out') }}
+                                            {{ __('Cerrar Sesion') }}
                                         </x-jet-responsive-nav-link>
                                     </form>
                                 </a>
@@ -657,7 +659,7 @@
                 <!-- Content header -->
                 <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
                     @if(isset($header))
-                    <h1 class="text-2xl font-semibold">{{$header}}</h1>
+                        <h1 class="text-2xl font-semibold">{{$header}}</h1>
                     @endif
                     <a
                         href="https://github.com/Kamona-WD/kwd-dashboard"
