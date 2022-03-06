@@ -19,7 +19,7 @@
             @endif
             <table class="table-fixed w-full">
                 <thead>
-                <tr class="bg-gray-100">
+                <tr class="bg-gray-300">
                     <th class="px-4 py-2 w-20">Numero</th>
                     <th class="px-4 py-2">Nombre</th>
                     <th class="px-4 py-2">Código químico</th>
@@ -29,10 +29,9 @@
                 <tbody>
                 @foreach($chemical_elements as $item)
                     <tr>
-                        <td>{{ $item->id }}</td>
+                        <td class="border px-4 py-2">{{ $item->id }}</td>
                         <td class="border px-4 py-2">{{ $item->name }}</td>
                         <td class="border px-4 py-2">{{ $item->chemical_code }}</td>
-
                         <td class="border px-4 py-2 ">
                             <div class="flex justify-between">
                                 <div class="">

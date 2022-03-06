@@ -217,3 +217,19 @@ ____________________________________________________________________________
         </div>
     </div>
 </div>
+-----------------------------------------------LOGO LIVEWIRE------------------------------------------
+<x-jet-autentication-card-logo>
+----------------------------------------------------Fondo Logo-----------------------------------------------
+class="font-sans text-gray-900 antialiased"
+---------------------------------------------------GUEST LOGO------------------------------------------------------
+	<div class="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            {{ $slot }}
+        </div>
+
+        <div class="w-full xl:w-3/5 py-6 overflow-y-hidden">
+            <img class="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src="{{asset('images/devices.svg')}}">
+        </div>
+
+
+
+class="h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('images/bg.svg')}});"
