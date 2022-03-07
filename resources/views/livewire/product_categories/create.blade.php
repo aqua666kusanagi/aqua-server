@@ -1,4 +1,3 @@
-
 <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0">
         <div class="fixed inset-0 transition-opacity">
@@ -10,14 +9,10 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
-                            <input type="text" class="sshadow appearance-none border w-full" placeholder="Name" wire:model="name">
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
+                            <input type="text" class="sshadow appearance-none border w-full" placeholder="description" wire:model="description">
+                            @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-4">
-                            <input type="text" class="shadow appearance-none border w-full" wire:model="chemical_code"
-                                   placeholder="chemical_code">
-                            @error('chemical_code') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
+
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -38,4 +33,3 @@
         </div>
     </div>
 </div>
-

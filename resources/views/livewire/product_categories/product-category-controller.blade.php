@@ -13,9 +13,9 @@
                 </div>
             @endif
             <button wire:click="create()"
-                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Modos de Aplicacion</button>
+                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Categoria</button>
             @if($isDialogOpen)
-                @include('livewire.application_modes.create')
+                @include('livewire.product_categories.create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
@@ -26,21 +26,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($aplication as $aplicacion)
+                @foreach($categorie as $catego)
                     <tr>
-                        <td class="border px-4 py-2">{{ $aplicacion->id }}</td>
-                        <td class="border px-4 py-2">{{ $aplicacion->description }}</td>
+                        <td class="border px-4 py-2">{{ $catego->id }}</td>
+                        <td class="border px-4 py-2">{{ $catego->description }}</td>
                         <td class="border px-4 py-2">
-                        <div class="flex justify-between">
-                            <div>
-                                <button wire:click="edit({{ $aplicacion->id }})"
-                                        class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <div class="flex justify-between">
+                                <div>
+                                    <button wire:click="edit({{ $catego->id }})"
+                                            class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i>EDITAR</button>
+                                </div>
+                                <div>
+                                    <button wire:click="delete({{ $catego->id }})"
+                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i>ELIMINAR</button>
+                                </div>
                             </div>
-                            <div>
-                                <button wire:click="delete({{ $aplicacion->id }})"
-                                        class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                        </div>
                         </td>
                     </tr>
                 @endforeach
@@ -49,4 +49,3 @@
         </div>
     </div>
 </div>
-

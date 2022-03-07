@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
+use App\Http\Livewire\ProductCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,18 +32,26 @@ Route::get('forgot_password',function (){
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
+
+    Route::get('reset-password',function (){
+        return view("auth.reset-password");
+    });
+    Route::get('profile',function (){
+        return view("profile.show");
+    });
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
 
     Route::get('test_template',function (){
-        return view("layouts.template");
+        return view("layouts.app");
     });
 
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
-
+    Route::get('product_categories', ProductCategoryController::class);
 });
 
 
