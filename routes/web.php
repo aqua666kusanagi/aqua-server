@@ -33,11 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-
-    Route::get('test_template',function (){
-        return view("layouts.app");
-    });
+    
 
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
