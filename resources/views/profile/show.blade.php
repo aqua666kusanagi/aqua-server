@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+<x-app-layout >
+    <x-slot name="header" class="bg-red-800">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{__('Bienvenido ')}} {{Auth::user()->name}}
         </h2>
@@ -12,6 +12,7 @@
 
                 <x-jet-section-border />
             @endif
+            
            
             
 

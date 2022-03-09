@@ -13,7 +13,7 @@
         </div>
 
         <div class="mt-5">
-            <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+            <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled" class="flex items-center mt-5 px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
                 {{ __('Borrar cuenta') }}
             </x-jet-danger-button>
         </div>
@@ -43,7 +43,7 @@
                     {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 
-                <x-jet-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                <x-jet-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled" class="flex items-center mt-5 px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
                     {{ __('Borrar cuenta') }}
                 </x-jet-danger-button>
             </x-slot>
