@@ -52,12 +52,12 @@
         @endif
 
         <div>
-            <x-jet-button wire:click="confirmLogout" wire:loading.attr="disabled" class="flex items-center mt-5 px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
+            <x-jet-button wire:click="confirmLogout" wire:loading.attr="disabled" class="rounded-full flex items-center mt-5 px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
                 {{ __('Cerrar sesión de otras sesiones del navegador.') }}
             </x-jet-button>
 
-            <x-jet-action-message class="px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark" on="loggedOut" >
-                {{ __('Hecho.') }}
+            <x-jet-action-message class="rounded-full px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark" on="loggedOut" >
+                {{ __('Hecho') }}
             </x-jet-action-message>
         </div>
 
@@ -82,11 +82,11 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled" >
+                <x-jet-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled" class="rounded-full">
                     {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 
-                <x-jet-button class="px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                <x-jet-button class="rounded-full px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
                             wire:click="logoutOtherBrowserSessions"
                             wire:loading.attr="disabled">
                     {{ __('Cerrar sesión de otras sesiones del navegador') }}
