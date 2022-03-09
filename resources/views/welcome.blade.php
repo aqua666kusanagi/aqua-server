@@ -66,7 +66,7 @@
                                 <!--<a href="{{ route('password.update') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Restaurar Contraseña</a>-->
 
                             @else
-                                <a href="{{ route('login') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Loguearse</a>
+                                <a href="{{ route('login') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Iniciar Sesion</a>
 
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="ml-4 text-sm text-green-600 dark:text-green-600 underline font-bold">Registrarse</a>
