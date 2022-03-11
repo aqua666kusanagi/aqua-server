@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/diseno.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     @livewireStyles
     <script
         src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>

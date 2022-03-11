@@ -31,16 +31,16 @@
                         <td class="border px-4 py-2">{{ $aplicacion->id }}</td>
                         <td class="border px-4 py-2">{{ $aplicacion->description }}</td>
                         <td class="border px-4 py-2">
-                        <div class="flex justify-between">
-                            <div>
-                                <button wire:click="edit({{ $aplicacion->id }})"
-                                        class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <div class="flex justify-between">
+                                <div class="">
+                                    <button wire:click="edit({{ $aplicacion->id }})"
+                                            class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </div>
+                                <div>
+                                    <button wire:click="delete({{ $aplicacion->id }})"
+                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
                             </div>
-                            <div>
-                                <button wire:click="delete({{ $aplicacion->id }})"
-                                        class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                        </div>
                         </td>
                     </tr>
                 @endforeach
