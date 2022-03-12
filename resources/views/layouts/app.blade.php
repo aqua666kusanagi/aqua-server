@@ -529,7 +529,7 @@
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                       >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="6" d="M19 9l-7 7-7-7"/>
                       </svg>
                     </span>
                             </a>
@@ -561,6 +561,15 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Categoria de productos
+                                </a>
+
+                                <a
+                                    href="{{asset('units')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    unidades
                                 </a>
 
                             </div>

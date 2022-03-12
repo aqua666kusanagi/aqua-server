@@ -13,9 +13,9 @@
                 </div>
             @endif
             <button wire:click="create()"
-                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Categoria</button>
+                    class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Unidades</button>
             @if($isDialogOpen)
-                @include('livewire.product_categories.create')
+                @include('livewire.unit.create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
@@ -26,18 +26,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($categorie as $catego)
+                @foreach($unit as $uni)
                     <tr>
-                        <td class="border px-4 py-2">{{ $catego->id }}</td>
-                        <td class="border px-4 py-2">{{ $catego->description }}</td>
+                        <td class="border px-4 py-2">{{ $uni->id }}</td>
+                        <td class="border px-4 py-2">{{ $uni->description }}</td>
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
-                                    <button wire:click="edit({{ $catego->id }})"
+                                    <button wire:click="edit({{ $uni->id }})"
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="delete({{ $catego->id }})"
+                                    <button wire:click="delete({{ $uni->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </div>
