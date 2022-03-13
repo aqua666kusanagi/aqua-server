@@ -107,6 +107,16 @@
                             </a>
 
                             <a
+                                href="{{asset('type_avocado')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Tipos de Aguacate
+                            </a>
+
+                            <a
+
                                 href="{{asset('units')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
@@ -116,13 +126,15 @@
                             </a>
 
                             <a
-                                href="{{asset('type_avocado')}}"
+
+                                href="{{asset('supplies')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
                                 <i class="fa-solid fa-angles-right"></i>
-                                Tipos de Aguacate
+                                Suplementos
                             </a>
+
                         </div>
                     </div>
 
@@ -508,7 +520,7 @@
                 >
                     <nav aria-label="Main" class="px-2 py-4 space-y-2">
                         <!-- Dashboards links -->
-                        <div x-data="{ isActive: true, open: true}">
+                        <div x-data="{ isActive: true, open: false}">
                             <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                             <a
                                 href="#"
@@ -578,6 +590,15 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Categoria de productos
+                                </a>
+
+                                <a
+                                    href="{{asset('type_avocado')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Tipos de Aguacate
                                 </a>
 
                                 <a
