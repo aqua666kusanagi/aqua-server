@@ -3,6 +3,7 @@
 use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
 use App\Http\Livewire\ProductCategoryController;
+use App\Http\Livewire\SupplyController;
 use App\Http\Livewire\UnitController;
 use App\Http\Livewire\TypeAvocadoController;
 use Illuminate\Support\Facades\Route;
@@ -39,9 +40,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
-    Route::get('product_categories', ProductCategoryController::class);
     Route::get('units', UnitController::class);
     Route::get('type_avocado', TypeAvocadoController::class);
+
+
+    Route::get('product_categories', ProductCategoryController::class);
+    Route::get('supplies', SupplyController::class);
 });
 
 
