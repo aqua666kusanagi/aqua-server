@@ -15,8 +15,10 @@ class SupplyController extends Component
     public function render()
     {
         $this->supply = Supply::all();
-        $product_category = ProductCategory :: pluck ('description','id');
-        return view('livewire.supplies.supply-controller',compact('product_category'));
+        //$product_category = ProductCategory :: pluck ('description','id');
+        return view('livewire.supplies.supply-controller', [
+            'produc_category' => ProductCategory::all()
+        ]);
     }
 
     public function create()
@@ -64,7 +66,7 @@ class SupplyController extends Component
             'product_category_id' => $this->product_category_id,
         ]);
 
-        session()->flash('message', $this->unit_id ? 'Suministro actualizado!' : 'Suministro Creado!');
+        session()->flash('message', $this->supply_id ? 'Suministro actualizado!' : 'Suministro Creado!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();

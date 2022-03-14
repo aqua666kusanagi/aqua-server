@@ -36,7 +36,10 @@
                         </div>
                     </div>
                     
-
+                    <div class="col-sm-3">
+                        {{$produc_category}}
+                    </div>
+                    
                     <div class="">
                         <div class="mb-4">
                             <input 
