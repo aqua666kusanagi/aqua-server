@@ -10,14 +10,13 @@ class SupplyController extends Component
     public $supply, $supply_id, $name, $registry_number, $data_sheet, $security_term, $product_category_id;
     public $isDialogOpen = 0;
 
-    
 
     public function render()
     {
         $this->supply = Supply::all();
-        //$product_category = ProductCategory :: pluck ('description','id');
+
         return view('livewire.supplies.supply-controller', [
-            'produc_category' => ProductCategory::all()
+            'product_categories' => ProductCategory::all()
         ]);
     }
 
@@ -50,6 +49,7 @@ class SupplyController extends Component
 
     public function store()
     {
+        
         $this->validate([
             'name' => 'required',
             'registry_number' => 'required',
@@ -57,6 +57,7 @@ class SupplyController extends Component
             'security_term' => 'required',
             'product_category_id' => 'required',
         ]);
+
 
         Supply::updateOrCreate(['id' => $this->supply_id], [
             'name' => $this->name,

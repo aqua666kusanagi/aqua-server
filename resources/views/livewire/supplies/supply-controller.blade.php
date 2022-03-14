@@ -25,7 +25,7 @@
                     <th class="px-4 py-2">Numero de registro</th>
                     <th class="px-4 py-2">hoja de datos</th>
                     <th class="px-4 py-2">termino de seguridad</th>
-                    <th class="px-4 py-2">categoria de producto id</th>
+                    <th class="px-4 py-2">categoria de producto </th>
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
@@ -37,7 +37,9 @@
                         <td class="border px-4 py-2">{{ $supplies->registry_number }}</td>
                         <td class="border px-4 py-2">{{ $supplies->data_sheet }}</td>
                         <td class="border px-4 py-2">{{ $supplies->security_term }}</td>
-                        <td class="border px-4 py-2">{{ $supplies->product_category_id }}</td>
+                        
+                        <td class="border px-4 py-2">{{ $supplies->$product_categories->description }}</td>
+                        
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>

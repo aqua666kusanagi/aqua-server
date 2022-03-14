@@ -36,24 +36,17 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-3">
-                        {{$produc_category}}
-                    </div>
+
                     
-                    <div class="">
-                        <div class="mb-4">
-                            <input 
-                                type="text" 
-                                class="sshadow appearance-none border w-full" 
-                                placeholder="Categoria De Producto " 
-                                wire:model="product_category_id"
-                                form="select";
-                            >
-                            @error('product_category_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
 
+                    <select wire:model="product_category_id" class="form-control">
+                        <option value="">--CATEGORIA DE PRODUCTO--</option>
+                        @foreach($product_categories as $product_category)
 
+                        <option type="int" value="{{$product_category->id}}">{{$product_category->description}}
+                        </option>
+                        @endforeach
+                    </select>
 
                 </div>
 
