@@ -19,6 +19,7 @@ class SupplyController extends Component
             'product_categories' => ProductCategory::all()
         ]);
     }
+    
 
     public function create()
     {

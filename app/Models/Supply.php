@@ -19,4 +19,8 @@ class Supply extends Model
         'product_category_id',
 
     ];
+
+    public function product_categori(){
+        return $this->hasOne('App\Models\ProductCategory','id','product_category_id');
+    }
 }
