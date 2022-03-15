@@ -10,6 +10,7 @@ use App\Http\Livewire\SupplyController;
 use App\Http\Livewire\ActiveElementController;
 
 use App\Http\Livewire\TypeSoilController;
+use App\Http\Livewire\ClimateTypeController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('active_elements', ActiveElementController::class);
 
     Route::get('type_soil', TypeSoilController::class);
+    Route::get('climate_type', ClimateTypeController::class);
 });
 
 
