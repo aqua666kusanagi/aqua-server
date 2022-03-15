@@ -17,6 +17,7 @@ class Orchard extends Model
         'type_soil_id',
         'climate_type_id',
         'user_id',
+        
         'name_orchard',
         'path_image',
         'location_orchard',
@@ -30,4 +31,23 @@ class Orchard extends Model
         'irrigation',
 
     ];
+    public function type_avo(){
+        return $this->hasOne('App\Models\TypeAvocado','id','type_avocado_id');
+    }
+
+    public function type_topo(){
+        return $this->hasOne('App\Models\TypeTopography','id','type_topography_id');
+    }
+    public function type_soi(){
+        return $this->hasOne('App\Models\TypeSoil','id','type_soil_id');
+    }
+
+    public function climate_typ(){
+        return $this->hasOne('App\Models\ClimateType','id','climate_type_id');
+    }
+    public function us(){
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
+
+
 }

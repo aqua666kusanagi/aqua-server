@@ -18,4 +18,12 @@ class Workday extends Model
         'general_expenses',
 
     ];
+
+    public function user(){
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
+
+    public function orchard(){
+        return $this->hasOne('App\Models\Orchard','id','orchard_id');
+    }
 }

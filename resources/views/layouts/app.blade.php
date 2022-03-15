@@ -179,6 +179,34 @@
                                 <i class="fa-solid fa-angles-right"></i>
                                 Tipo de Suelo
                             </a>
+                            <a
+
+                                href="{{asset('climate_type')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Tipo de Climas
+                            </a>
+                            <a
+
+                                href="{{asset('orchard')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Huertas
+                            </a>
+
+                            <a
+
+                                href="{{asset('workday')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Dias de Trabajo
+                            </a>
 
                         </div>
                     </div>

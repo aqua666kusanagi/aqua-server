@@ -7,15 +7,15 @@ use App\Models\ClimateType;
 
 class ClimateTypeController extends Component
 {
-    public $type_soils, $type_soils_id, $type_soil;
+    public $climate_types, $climate_types_id, $climate_type;
     public $isDialogOpen = 0;
 
 
     public function render()
     {
-        $this->type_soils = ClimateType::all();
+        $this->climate_types = ClimateType::all();
 
-        return view('livewire.type_soils.type-soil-controller');
+        return view('livewire.climate_types.climate-type-controller');
     }
     
 
@@ -47,16 +47,16 @@ class ClimateTypeController extends Component
     {
         
         $this->validate([
-            'type_soil' => 'required',
+            'climate_type' => 'required',
         ]);
 
 
-        ClimateType::updateOrCreate(['id' => $this->type_soils_id], [
-            'type_soil' => $this->type_soil,
+        ClimateType::updateOrCreate(['id' => $this->climate_types_id], [
+            'climate_type' => $this->climate_type,
 
         ]);
 
-        session()->flash('message', $this->type_soils_id ? 'Tipo de Suelo actualizado!' : 'Tipo de Suelo Creado!');
+        session()->flash('message', $this->climate_types_id ? 'Tipo de Climas actualizado!' : 'Tipo de Climas Creado!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -65,9 +65,9 @@ class ClimateTypeController extends Component
 
     public function edit($id)
     {
-        $type_soils = ClimateType::findOrFail($id);
-        $this->type_soils_id = $id;
-        $this->type_soil = $type_soils->type_soil;
+        $climate_types = ClimateType::findOrFail($id);
+        $this->climate_types_id = $id;
+        $this->climate_type = $climate_types->climate_type;
 
 
         $this->openModalPopover();
@@ -76,6 +76,6 @@ class ClimateTypeController extends Component
     public function delete($id)
     {
         ClimateType::find($id)->delete();
-        session()->flash('message', 'Tipo de Suelo eliminado!');
+        session()->flash('message', 'Tipo de Climas eliminado!');
     }
 }
