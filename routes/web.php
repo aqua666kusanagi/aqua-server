@@ -13,6 +13,8 @@ use App\Http\Livewire\ActiveElementController;
 
 use App\Http\Livewire\TypeSoilController;
 use App\Http\Livewire\ClimateTypeController;
+use App\Http\Livewire\OrchardController;
+use App\Http\Livewire\WorkdayController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -59,6 +61,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('type_soil', TypeSoilController::class);
     Route::get('climate_type', ClimateTypeController::class);
+    Route::get('orchard', OrchardController::class);
+    Route::get('workday', WorkdayController::class);
 });
 
 
