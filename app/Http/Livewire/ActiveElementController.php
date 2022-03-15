@@ -75,10 +75,10 @@ class ActiveElementController extends Component
     public function edit($id)
     {
         $active_element = ActiveElement::findOrFail($id);
-        $this->active_element_id = $active_element;
-        $this->chemical_element_id = $active_element->name;
-        $this->supply_id = $active_element->registry_number;
-        $this->percentage = $active_element->data_sheet;
+        $this->active_element_id = $id;
+        $this->chemical_element_id = $active_element->chemical_element_id;
+        $this->supply_id = $active_element->supply_id;
+        $this->percentage = $active_element->percentage;
 
         $this->openModalPopover();
     }

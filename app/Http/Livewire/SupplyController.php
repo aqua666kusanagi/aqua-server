@@ -78,7 +78,7 @@ class SupplyController extends Component
     public function edit($id)
     {
         $supply = Supply::findOrFail($id);
-        $this->suppli_id = $id;
+        $this->supply_id = $id;
         $this->name = $supply->name;
         $this->registry_number = $supply->registry_number;
         $this->data_sheet = $supply->data_sheet;
