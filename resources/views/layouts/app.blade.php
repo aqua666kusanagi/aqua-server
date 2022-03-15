@@ -143,6 +143,25 @@
                                 Suplementos
                             </a>
 
+                            <a
+                                href="{{asset('active_elements')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Elemento activo
+                            </a>
+
+                            <a
+
+                                href="{{asset('type_soil')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Tipo de Suelo
+                            </a>
+
                         </div>
                     </div>
 

@@ -18,4 +18,12 @@ class ActiveElement extends Model
         'percentage',
 
     ];
+
+    public function chemical_elemen(){
+        return $this->hasOne('App\Models\ChemicalElement','id','chemical_element_id');
+    }
+
+    public function suppli(){
+        return $this->hasOne('App\Models\Supply','id','supply_id');
+    }
 }

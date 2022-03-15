@@ -2,11 +2,17 @@
 
 use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
-use App\Http\Livewire\ProductCategoryController;
-use App\Http\Livewire\SupplyController;
 use App\Http\Livewire\UnitController;
 use App\Http\Livewire\TypePhotograpController;
 use App\Http\Livewire\TypeAvocadoController;
+
+use App\Http\Livewire\ProductCategoryController;
+use App\Http\Livewire\SupplyController;
+use App\Http\Livewire\ActiveElementController;
+
+use App\Http\Livewire\TypeSoilController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +53,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('product_categories', ProductCategoryController::class);
     Route::get('supplies', SupplyController::class);
+    Route::get('active_elements', ActiveElementController::class);
+
+    Route::get('type_soil', TypeSoilController::class);
 });
 
 
