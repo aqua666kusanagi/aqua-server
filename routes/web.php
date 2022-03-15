@@ -4,6 +4,7 @@ use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
 use App\Http\Livewire\UnitController;
 use App\Http\Livewire\TypePhotograpController;
+use App\Http\Livewire\TypeTopographicController;
 use App\Http\Livewire\TypeAvocadoController;
 
 use App\Http\Livewire\ProductCategoryController;
@@ -50,7 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('units', UnitController::class);
     Route::get('type_avocado', TypeAvocadoController::class);
     Route::get('type_photograps', TypePhotograpController::class);
-
+    Route::get('type_topograps', TypeTopographicController::class);
     Route::get('product_categories', ProductCategoryController::class);
     Route::get('supplies', SupplyController::class);
     Route::get('active_elements', ActiveElementController::class);

@@ -134,6 +134,15 @@
                             </a>
 
                             <a
+                                href="{{asset('type_topograps')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Tipos de Topografia
+                            </a>
+
+                            <a
 
                                 href="{{asset('supplies')}}"
                                 role="menuitem"
@@ -644,6 +653,15 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Tipos de Fotografia
+                                </a>
+
+                                <a
+                                    href="{{asset('type_topograps')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Tipos de Topografia
                                 </a>
 
                             </div>
