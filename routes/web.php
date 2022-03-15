@@ -6,6 +6,7 @@ use App\Http\Livewire\UnitController;
 use App\Http\Livewire\TypePhotograpController;
 use App\Http\Livewire\TypeTopographicController;
 use App\Http\Livewire\TypeAvocadoController;
+use App\Http\Livewire\TypeJobController;
 
 use App\Http\Livewire\ProductCategoryController;
 use App\Http\Livewire\SupplyController;
@@ -52,6 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('type_avocado', TypeAvocadoController::class);
     Route::get('type_photograps', TypePhotograpController::class);
     Route::get('type_topograps', TypeTopographicController::class);
+    Route::get('type_jobs', TypeJobController::class);
     Route::get('product_categories', ProductCategoryController::class);
     Route::get('supplies', SupplyController::class);
     Route::get('active_elements', ActiveElementController::class);
