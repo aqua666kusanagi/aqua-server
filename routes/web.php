@@ -2,6 +2,8 @@
 
 use App\Http\Livewire\ChemicalElementController;
 use App\Http\Livewire\ApplicationModeController;
+use App\Http\Livewire\ApplicationController;
+use App\Http\Livewire\DoseController;
 use App\Http\Livewire\UnitController;
 use App\Http\Livewire\TypePhotograpController;
 use App\Http\Livewire\TypeTopographicController;
@@ -69,6 +71,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('workday', WorkdayController::class);
 
     Route::get('phenophase', phenophaseController::class);
+
+    Route::get('application', ApplicationController::class);
+    Route::get('doses', DoseController::class);
+
 });
 
 

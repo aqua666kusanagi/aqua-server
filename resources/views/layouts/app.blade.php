@@ -89,6 +89,24 @@
                             </a>
 
                             <a
+                                href="{{asset('application')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Aplicacion
+                            </a>
+
+                            <a
+                                href="{{asset('doses')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Dosis
+                            </a>
+
+                            <a
                                 href="{{asset('chemical_elements')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
@@ -655,6 +673,24 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Modos de aplicacion
+                                </a>
+
+                                <a
+                                    href="{{asset('application')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Aplicacion
+                                </a>
+
+                                <a
+                                    href="{{asset('doses')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Dosis
                                 </a>
 
                                 <a
