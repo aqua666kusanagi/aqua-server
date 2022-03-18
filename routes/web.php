@@ -18,9 +18,9 @@ use App\Http\Livewire\TypeSoilController;
 use App\Http\Livewire\ClimateTypeController;
 use App\Http\Livewire\OrchardController;
 use App\Http\Livewire\WorkdayController;
-
+use App\Http\Livewire\ActivitieController;
+use App\Http\Livewire\RegistrationPhenofaseController;
 use App\Http\Livewire\PhenophaseController;
-use App\Http\Livewire\AnnualProductionController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -70,12 +70,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('climate_type', ClimateTypeController::class);
     Route::get('orchard', OrchardController::class);
     Route::get('workday', WorkdayController::class);
-
-    Route::get('phenophase', phenophaseController::class);
-    Route::get('annual_production', AnnualProductionController::class);
-
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);
+    Route::get('activities', ActivitieController::class);
+    Route::get('registro_phenophases', RegistrationPhenofaseController::class);
+    Route::get('phenophase', PhenophaseController::class);
 
 });
 

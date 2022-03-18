@@ -170,13 +170,21 @@
                             </a>
 
                             <a
-
                                 href="{{asset('supplies')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
                                 <i class="fa-solid fa-angles-right"></i>
                                 Suplementos
+                            </a>
+
+                            <a
+                                href="{{asset('nutrient_analysis')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Analicis Nutricional
                             </a>
 
                             <a
@@ -197,8 +205,8 @@
                                 <i class="fa-solid fa-angles-right"></i>
                                 Tipo de Suelo
                             </a>
-                            <a
 
+                            <a
                                 href="{{asset('climate_type')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
@@ -206,6 +214,16 @@
                                 <i class="fa-solid fa-angles-right"></i>
                                 Tipo de Climas
                             </a>
+
+                            <a
+                                href="{{asset('registro_phenophases')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Registro de phenophases
+                            </a>
+
                             <a
 
                                 href="{{asset('orchard')}}"
@@ -244,6 +262,15 @@
                                 >
                                 <i class="fa-solid fa-angles-right"></i>
                                 Dias de Trabajo
+                            </a>
+
+                            <a
+                                href="{{asset('activities')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Actividad
                             </a>
 
                         </div>
@@ -740,6 +767,15 @@
                                 </a>
 
                                 <a
+                                    href="{{asset('nutrient_analysis')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Analicis Nutricional
+                                </a>
+
+                                <a
                                     href="{{asset('type_photograps')}}"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
@@ -773,6 +809,24 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Tipos de Trabajo
+                                </a>
+
+                                <a
+                                    href="{{asset('activities')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Actividades
+                                </a>
+
+                                <a
+                                    href="{{asset('registro_phenophases')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Registro de phenophases
                                 </a>
 
                             </div>
