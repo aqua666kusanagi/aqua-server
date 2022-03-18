@@ -39,7 +39,7 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                <x-jet-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled" class="ring-4 ring-green-500 ring-opacity-50">
                     {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 

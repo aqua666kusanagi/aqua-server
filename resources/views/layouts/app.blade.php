@@ -200,10 +200,20 @@
 
                             <a
 
-                                href="{{asset('workday')}}"
+                                href="{{asset('phenophase')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                             >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Fenofase
+                            </a>
+
+                            <a
+
+                                href="{{asset('workday')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                                >
                                 <i class="fa-solid fa-angles-right"></i>
                                 Dias de Trabajo
                             </a>
@@ -561,23 +571,23 @@
                                     role="menuitem"
                                     class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                 >
-                                    Your Profile
+                                    Perfil
                                 </a>
                                 <a
                                     href="#"
                                     role="menuitem"
                                     class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                                 >
-                                    Settings
+                                    Configuracion
                                 </a>
                                 <a>
-                                    <form method="POST" action="{{ route('logout') }}">
+                                    <form method="POST" action="{{ route('logout') }}" class="ring-4 ring-green-500 ring-opacity-50">
                                         @csrf
 
                                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                            {{ __('Log Out') }}
+                                            {{ __('Cerrar Sesion') }}
                                         </x-jet-responsive-nav-link>
                                     </form>
                                 </a>
@@ -777,21 +787,21 @@
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Login
+                                    Iniciar Sesion
                                 </a>
                                 <a
                                     href="auth/forgot-password.html"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Forgot Password
+                                    Olvide Contraseña
                                 </a>
                                 <a
                                     href="auth/reset-password.html"
                                     role="menuitem"
                                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                                 >
-                                    Reset Password
+                                    Restaurar Contraseña
                                 </a>
                             </div>
                         </div>

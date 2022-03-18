@@ -17,6 +17,8 @@ use App\Http\Livewire\ClimateTypeController;
 use App\Http\Livewire\OrchardController;
 use App\Http\Livewire\WorkdayController;
 
+use App\Http\Livewire\PhenophaseController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +67,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('climate_type', ClimateTypeController::class);
     Route::get('orchard', OrchardController::class);
     Route::get('workday', WorkdayController::class);
+
+    Route::get('phenophase', phenophaseController::class);
 });
 
 

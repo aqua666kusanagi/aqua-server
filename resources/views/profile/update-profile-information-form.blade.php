@@ -76,7 +76,7 @@
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo" 
-        class=" rounded-full px-4 py-2  text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white " >
+        class="rounded-full bg-green-100 px-4 py-2  text-sm text-white ring-4 ring-green-500 ring-opacity-50 focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white " >
             {{ __('Guardar') }}
         </x-jet-button>
     </x-slot>
