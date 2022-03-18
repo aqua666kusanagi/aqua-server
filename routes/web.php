@@ -20,6 +20,7 @@ use App\Http\Livewire\OrchardController;
 use App\Http\Livewire\WorkdayController;
 
 use App\Http\Livewire\PhenophaseController;
+use App\Http\Livewire\AnnualProductionController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('workday', WorkdayController::class);
 
     Route::get('phenophase', phenophaseController::class);
+    Route::get('annual_production', AnnualProductionController::class);
 
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);

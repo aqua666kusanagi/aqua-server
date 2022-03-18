@@ -19,4 +19,8 @@ class AnnualProduction extends Model
         'damage_percentage',
 
     ];
+
+    public function orchard_ann(){
+        return $this->hasOne('App\Models\Orchard','id','orchard_id');
+    }
 }

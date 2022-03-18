@@ -228,6 +228,16 @@
 
                             <a
 
+                                href="{{asset('annual_production')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Produccion Anual
+                            </a>
+
+                            <a
+
                                 href="{{asset('workday')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
@@ -745,6 +755,15 @@
                                 >
                                     <i class="fa-solid fa-angles-right"></i>
                                     Tipos de Topografia
+                                </a>
+                                <a
+
+                                    href="{{asset('phenophase')}}"
+                                    role="menuitem"
+                                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                                >
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Fenofase
                                 </a>
 
                                 <a
