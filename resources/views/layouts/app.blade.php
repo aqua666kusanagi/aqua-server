@@ -8,10 +8,10 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
         rel="stylesheet"
     />
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/diseno.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     @livewireStyles
     <script
         src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
@@ -928,13 +928,9 @@
                     @if(isset($header))
                         <h1 class="text-2xl font-semibold">{{$header}}</h1>
                     @endif
-                    <a
-                        href="https://github.com/Kamona-WD/kwd-dashboard"
-                        target="_blank"
-                        class="px-4 py-2 text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                    >
-                        AYUDA
-                    </a>
+                        <a>
+
+                        </a>
                 </div>
 
                 <!-- Content -->
