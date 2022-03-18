@@ -1,4 +1,4 @@
-<x-jet-form-section submit="updateProfileInformation " >
+<x-jet-form-section name="form" submit="updateProfileInformation " class="rounded-full px-4 py-2 rounded-md">
     <x-slot name="title">
         {{ __('Informacion del Perfil') }}
     </x-slot>
@@ -71,11 +71,12 @@
     </x-slot>
 
     <x-slot name="actions" >
-        <x-jet-action-message class="mr-3 pr-4" on="saved" >
+        <x-jet-action-message class="mr-3 pr-4 " on="saved" >
             {{ __('Guardado') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo" class="rounded-full pt-6  text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark" >
+        <x-jet-button wire:loading.attr="disabled" wire:target="photo" 
+        class=" rounded-full px-4 py-2  text-sm text-white rounded-md bg-primary  focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white " >
             {{ __('Guardar') }}
         </x-jet-button>
     </x-slot>

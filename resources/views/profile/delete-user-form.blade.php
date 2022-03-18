@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-jet-action-section class="rounded-full px-4 py-2 rounded-md">
     <x-slot name="title" class="transition duration-150 ease-in-out">
         {{ __('Borrar cuenta') }}
     </x-slot>
