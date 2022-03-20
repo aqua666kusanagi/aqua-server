@@ -47,7 +47,7 @@
                     @livewire('profile.logout-other-browser-sessions-form')
                 </div>
 
-                <div class="bg-green-100 rounded-lg">
+                <div class="bg-green-100 ">
                     @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
                        
 
