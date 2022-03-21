@@ -188,6 +188,15 @@
                             </a>
 
                             <a
+                                href="{{asset('sample_nutrients')}}"
+                                role="menuitem"
+                                class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                            >
+                                <i class="fa-solid fa-angles-right"></i>
+                                Muestra Nutricional
+                            </a>
+
+                            <a
                                 href="{{asset('active_elements')}}"
                                 role="menuitem"
                                 class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
