@@ -12,10 +12,6 @@
                 </div>
 
                 <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-
-
-
-
                     <div class="flex ">
                         <h3 class="items-center pt-2 pr-4">Fenofase</h3>
                         <select wire:model="phenophase_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
@@ -42,7 +38,7 @@
                     <div class="flex ">
                         <h3 class="items-center pt-2 pr-4">Fecha</h3>
                         <div class="sshadow appearance-none border w-full rounded-full">
-                            <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="fecha" wire:model="date">
+                            <input type="date" class="sshadow appearance-none border w-full rounded-full" placeholder="fecha" wire:model="date">
                             @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
@@ -54,10 +50,6 @@
                             @error('comments') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
