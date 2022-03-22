@@ -1,5 +1,6 @@
 <div class="py-12 rounded-lg">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
         <div class="py-4">
             <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
                 <h3 class="text-center px-2 py-2 ">CATEGORIA DE PRODUCTOS </h3>
@@ -25,7 +26,7 @@
                 <thead>
                     <tr class="bg-gray-300">
                         <th class="px-4 py-2 w-20">Numero</th>
-                        <th class="px-4 py-2">Descripccion</th>
+                        <th class="px-4 py-2">Descripcion</th>
                         <th class="px-4 py-2">Actions</th>
                     </tr>
                 </thead>
