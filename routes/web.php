@@ -9,6 +9,7 @@ use App\Http\Livewire\TypePhotograpController;
 use App\Http\Livewire\TypeTopographicController;
 use App\Http\Livewire\TypeAvocadoController;
 use App\Http\Livewire\TypeJobController;
+use App\Http\Livewire\NutrientAnalysiController;
 
 use App\Http\Livewire\ProductCategoryController;
 use App\Http\Livewire\SupplyController;
@@ -21,6 +22,8 @@ use App\Http\Livewire\WorkdayController;
 use App\Http\Livewire\ActivitieController;
 use App\Http\Livewire\RegistrationPhenofaseController;
 use App\Http\Livewire\PhenophaseController;
+use App\Http\Livewire\AnnualProductionController;
+use App\Http\Livewire\SampleNutrientController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -75,6 +78,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('activities', ActivitieController::class);
     Route::get('registro_phenophases', RegistrationPhenofaseController::class);
     Route::get('phenophase', PhenophaseController::class);
+    Route::get('annual_production', AnnualProductionController::class);
+    Route::get('sample_nutrients', SampleNutrientController::class);
+    Route::get('nutrient_analysis', NutrientAnalysiController::class);
 
 });
 

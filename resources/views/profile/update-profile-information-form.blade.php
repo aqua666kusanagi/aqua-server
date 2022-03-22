@@ -52,7 +52,7 @@
             </div>
         @endif
 
-        
+
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Nombre') }}" />
@@ -67,7 +67,7 @@
             <x-jet-input-error for="email" class="mt-2" />
         </div>
 
-        
+
     </x-slot>
 
     <x-slot name="actions" >
@@ -75,8 +75,8 @@
             {{ __('Guardado') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo" 
-        class="rounded-full bg-green-100 px-4 py-2  text-sm text-white ring-4 ring-green-500 ring-opacity-50 focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white " >
+        <x-jet-button wire:loading.attr="disabled" wire:target="photo"
+        class="rounded-full  px-4 py-2  text-sm text-white ring-4 ring-green-500 ring-opacity-50 focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white " >
             {{ __('Guardar') }}
         </x-jet-button>
     </x-slot>

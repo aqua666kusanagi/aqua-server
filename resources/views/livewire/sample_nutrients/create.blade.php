@@ -14,16 +14,45 @@
                     {{--<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>--}}
-                    <h3 class="items-center">NUEVO MODO DE APLICACION</h3>
+                    <h3 class="items-center">Nueva Muestra de nutrientes </h3>
                 </div>
                 <div class="mt-3 text-center sm:mt-5">
                     <div class="mt-2">
                         <form>
                             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                 <div class="">
+                                    <select wire:model="nutrient_analysi_id" class="form-control">
+                                        <option value="">--Analisis--</option>
+                                        @foreach($nutrient_analysis as $nutri_anali)
+                                            <option type="int" value="{{$nutri_anali->id}}">{{$nutri_anali->date_sample}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <select wire:model="unit_id" class="form-control">
+                                        <option value="">--Unidades--</option>
+                                        @foreach($units as $uni)
+                                            <option type="int" value="{{$uni->id}}">{{$uni->description}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <select wire:model="chemical_element_id" class="form-control">
+                                        <option value="">--Elementos Quimicos--</option>
+                                        @foreach($chemical_elements as $che_ele)
+                                            <option type="int" value="{{$che_ele->id}}">{{$che_ele->chemical_code}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
                                     <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="description" wire:model="description">
-                                        @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
+                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="" wire:model="percentege">
+                                        @error('percentege') <span class="text-red-500">{{ $message }}</span>@enderror
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="" wire:model="lot">
+                                        @error('lot') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
                             </div>
