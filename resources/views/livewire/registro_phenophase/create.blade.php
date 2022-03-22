@@ -17,11 +17,11 @@
 
 
                     <div class="flex ">
-                        <h3 class="items-center pt-2 pr-4">Periodos</h3>
+                        <h3 class="items-center pt-2 pr-4">Fenofase</h3>
                         <select wire:model="phenophase_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
                             <option value="">Periodos</option>
                             @foreach($phenophases as $pheno)
-                            <option type="int" value="{{$pheno->id}}">{{$pheno->$phenophase}}
+                            <option type="int" value="{{$pheno->id}}">{{$pheno->phenophase}}
                             </option>
                             @endforeach
                         </select>

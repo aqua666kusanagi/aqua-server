@@ -8,7 +8,7 @@
         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
             <div>
                 <div class="justify-center   rounded-full bg-gray-100">
-                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO REGISTRO DE FENOFASE</h3>
+                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO DIA DE TRABAJO</h3>
                 </div>
 
                 <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
