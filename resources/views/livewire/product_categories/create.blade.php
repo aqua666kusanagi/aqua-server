@@ -5,26 +5,28 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
         
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+        <div class="text-center relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
             <div>
-                <div class="mx-auto flex items-center justify-center h-12 w-48 rounded-full bg-gray-100">
-                    <!-- Heroicon name: outline/check -->
-                    {{--<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>--}}
-                    <h3 class="items-center px-4 py-2 ">NUEVA CATEGORIA DE PRODUCTO</h3>
+                <div class="justify-center   rounded-full bg-gray-100">
+                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVA CATEGORIA DE PRODUCTO</h3>
                 </div>
+
+
+
                 <div class="mt-3 text-center sm:mt-5">
                     <div class="mt-2">
                         <form>
                             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                 <div class="">
                                     <div class="mb-4">
+                                        <h3 class="items-center px-4 py-2 ">Descripcion</h3>
                                         <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="descripcion" wire:model="description">
                                         @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
                                 <div class="mt-5 sm:mt-6">
                                     <button wire:click.prevent="store()" type="button"
@@ -42,8 +44,10 @@
                         </form>
                     </div>
                 </div>
-            </div>
 
+
+
+            </div>
         </div>
     </div>
 </div>
