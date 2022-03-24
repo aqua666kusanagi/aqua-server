@@ -443,7 +443,7 @@
                                     </a>
 
 
-                                    <div class="rounded-full  px-4 py-2  text-sm text-white ring-4 ring-green-500">
+                                    <div class="rounded-full  px-4 py-2  text-sm text-dark ring-4 ring-green-500">
                                         <h6>Tablas Debiles</h6>
                                     </div>
                                     <!--  TABLAS DEBILES           ---------------------   -->
