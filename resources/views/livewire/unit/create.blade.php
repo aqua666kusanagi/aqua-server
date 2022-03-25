@@ -19,7 +19,6 @@
                             <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Descripcion" wire:model="description">
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-
                     </div>
 
 

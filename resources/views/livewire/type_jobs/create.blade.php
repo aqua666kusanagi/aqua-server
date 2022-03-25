@@ -13,8 +13,6 @@
 
                 <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
-
-
                     <div class="flex">
                     <h3 class="items-center pt-2 pr-4">Descripcion</h3>
                         <div class="sshadow appearance-none border w-full rounded-full">
@@ -22,8 +20,6 @@
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
-
-
 
                 </div>
 

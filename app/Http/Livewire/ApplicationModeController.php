@@ -38,7 +38,7 @@ class ApplicationModeController extends Component
     }
 
     protected $messages = [
-        'description.required' => 'Este campo deve estar lleno',
+        'description.required' => 'Este campo debe estar lleno',
     ];
 
     public function store()
