@@ -11,6 +11,9 @@ class ProductCategoryController extends Component
     public $categorie, $description, $product_categorie_id;
     public $isDialogOpen = 0;
 
+    protected $listeners = ['delete'];/////////////escuchador
+    public $id_pc;////////////variable
+
     public function render()
     {
         $this->categorie=ProductCategory::all();
@@ -47,7 +50,7 @@ class ProductCategoryController extends Component
             'description' => $this->description,
         ]);
 
-        session()->flash('message', $this->product_categorie_id ? 'product_categorie updated!' : 'product categorie created!');
+        session()->flash('message', $this->product_categorie_id ? 'Categoria de Producto Actualizado!' : 'Categoria de Producto Creado!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -62,9 +65,10 @@ class ProductCategoryController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function delete($id_pc)
     {
-        ProductCategory::find($id)->delete();
-        session()->flash('message', 'Product categorie removed!');
+        $id_pc->delete();////////video
+        ProductCategory::find($id_pc)->delete();
+        session()->flash('message', 'Categoria de Producto Eliminado!');
     }
 }

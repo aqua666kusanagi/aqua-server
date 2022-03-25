@@ -40,9 +40,12 @@
                                 <div>
                                     <button wire:click="edit({{ $catego->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
-                                <div>
-                                    <button wire:click="delete({{ $catego->id }})" class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                                </div>
+
+
+                                <button wire:click="$emit('deleteId',{{ $catego->id }})" class="formulario-eliminar bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+
+
+
                             </div>
                         </td>
                     </tr>
@@ -52,3 +55,37 @@
         </div>
     </div>
 </div>
+
+@section('js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    livewire.on('deleteId', id_pc => {
+        Swal.fire({
+            title: '¿Estas Seguro?',
+            text: "¡Se eliminara permanentemente!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, Eliminar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                livewire.emitTo('show-id','delete', id_pc);
+
+                Swal.fire(
+                    '¡Eliminado!',
+                    'Tu Categoria de Producto ha sido eliminado.',
+                    'Continuar'
+                )
+
+            }
+        })
+    });
+
+</script>
+
+@endsection
