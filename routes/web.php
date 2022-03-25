@@ -24,6 +24,7 @@ use App\Http\Livewire\RegistrationPhenofaseController;
 use App\Http\Livewire\PhenophaseController;
 use App\Http\Livewire\AnnualProductionController;
 use App\Http\Livewire\SampleNutrientController;
+use App\Http\Livewire\PhotographController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('annual_production', AnnualProductionController::class);
     Route::get('sample_nutrients', SampleNutrientController::class);
     Route::get('nutrient_analysis', NutrientAnalysiController::class);
+    Route::get('photographs', PhotographController::class);
 
 });
 

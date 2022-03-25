@@ -1,3 +1,13 @@
+<script type="text/javascript">
+    function confirmdelete(){
+        var resp = confirm("Estas seguro que deseas eliminar?")
+        if (resp == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
@@ -44,7 +54,7 @@
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="delete({{ $aplicacion->id }})"
+                                    <button onclick="confirmdelete()" wire:click="delete({{ $aplicacion->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </div>

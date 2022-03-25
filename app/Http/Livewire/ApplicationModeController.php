@@ -37,6 +37,10 @@ class ApplicationModeController extends Component
         $this->description = '';
     }
 
+    protected $messages = [
+        'description.required' => 'Este campo deve estar lleno',
+    ];
+
     public function store()
     {
         $this->validate([
