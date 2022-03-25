@@ -1,5 +1,12 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        <div class="py-4">
+            <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
+                <h3 class="text-center px-2 py-2 ">FENOFACE </h3>
+            </div>
+        </div>
+
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <!-- ALgo de seccion-->
             @if (session()->has('message'))
