@@ -15,11 +15,11 @@
                 <div class="bg-white space-y-6 ">
 
 
-                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div class="">
-                            <div class="flex">
-                                <h3 class="items-center pt-2 pr-4">Descripcion</h3>
-                                <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="descripcion" wire:model="description">
+                    <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="flex">
+                            <h3 class="items-center pt-4 pr-4">Descripcion</h3>
+                            <div class="px-4 pl-6 py-2 w-full">
+                                <input type="text" class="rounded-full  px-4 pl-6 py-2 border w-full" placeholder="descripcion" wire:model="description">
                                 @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                             </div>
                         </div>
