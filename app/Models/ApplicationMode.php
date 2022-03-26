@@ -15,5 +15,4 @@ class ApplicationMode extends Model
         'description',
 
     ];
-    public $timestamps = false;
 }

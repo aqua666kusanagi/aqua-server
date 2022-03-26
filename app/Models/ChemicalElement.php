@@ -16,5 +16,4 @@ class ChemicalElement extends Model
         'chemical_code',
 
     ];
-    public $timestamps = false;
 }

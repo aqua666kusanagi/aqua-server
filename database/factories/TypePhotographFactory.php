@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ChemicalElementFactory extends Factory
+class TypePhotographFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,7 @@ class ChemicalElementFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'chemical_code' => $this->faker->numberBetween(1000, 9000),
+            'type_photograph' => $this->faker->word(),
         ];
     }
 }

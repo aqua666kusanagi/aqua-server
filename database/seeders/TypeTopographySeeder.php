@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\ChemicalElement;
-
-class ChemicalElementSeeder extends Seeder
+use App\Models\TypeTopography;
+class TypeTopographySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class ChemicalElementSeeder extends Seeder
      */
     public function run()
     {
-        ChemicalElement::factory(10)->create();
+        TypeTopography::factory(10)->create();
     }
 }
