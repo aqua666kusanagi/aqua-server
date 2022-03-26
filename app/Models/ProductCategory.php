@@ -15,4 +15,5 @@ class ProductCategory extends Model
         'description',
 
     ];
+    public $timestamps =false;
 }

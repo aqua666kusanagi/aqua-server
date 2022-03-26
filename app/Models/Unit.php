@@ -15,4 +15,5 @@ class Unit extends Model
         'description',
 
     ];
+    public $timestamps = false;
 }
