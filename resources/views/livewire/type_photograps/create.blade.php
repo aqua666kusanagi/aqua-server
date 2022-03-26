@@ -16,9 +16,9 @@
 
                     <div class="flex">
                         <h3 class="items-center pt-4 pr-4">Descripcion</h3>
-                        <div class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="description" wire:model="type_photograph">
-                            @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
+                        <div class=" px-4 pl-6 py-2 w-full">
+                            <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="descripcion" wire:model="type_photograph">
+                            @error('type_photograph') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
