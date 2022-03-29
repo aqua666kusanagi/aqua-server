@@ -282,3 +282,8 @@ class="h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('im
         background-color: rgb(220 252 231 / var(--tw-bg-opacity));
         }
     </style>
+    **********************************************************ORCHARDS*************************************************
+    INSERT INTO `orchards` (`id`, `type_avocado_id`, `type_topography_id`, `type_soil_id`, `climate_type_id`, `user_id`, `name_orchard`, `path_image`, `location_orchard`, `point`, `area`, `altitude`, `surface`, `state`, `creation_year`, `planting_density`, `irrigation`, `created_at`, `updated_at`, `deleted_at`) VALUES ('2', '1', '6', '1', '1', '1', 'san pedro donayaca', 'sin img', 'valle de bravo', NULL, NULL, '100', '500.50', '1', '2015', '10', '1', NULL, NULL, NULL);
+    https://documentation.help/MySQL-5.0-es/ch18s04.html
+
+

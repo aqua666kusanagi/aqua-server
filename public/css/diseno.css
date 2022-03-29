@@ -2,3 +2,29 @@
     /*position: absolute;*/
     bottom: 0;
 }
+
+.item_container{
+    display: grid;
+    /*grid-template-columns: 300px 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fill, minmax(250px, 330px));
+    grid-auto-rows: auto;
+}
+
+.subitem{
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #1a202c;
+    border-radius: 15%;
+    /*background: #0d9488;*/
+    padding: 2%;
+    text-align: center;
+    margin: 1%;
+}
+
+.padd{
+    padding: 1%;
+}
+
+.redont{
+    border-radius: 25%;
+}
