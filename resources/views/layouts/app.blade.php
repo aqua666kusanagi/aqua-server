@@ -174,6 +174,88 @@
                             </div>
                         </div>
 
+
+
+
+                        <div x-data="{ isActive: true, open: false}">
+                            <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                            <a href="#" @click="$event.preventDefault(); open = !open" class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary" :class="{'bg-primary-100 dark:bg-primary': isActive || open}" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'">
+                                <span aria-hidden="true">
+                                    <i class="fa-solid fa-registered"></i>
+
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+
+                                    </svg>
+                                </span>
+                                <span class="ml-2 text-sm"> Tablas Debiles </span>
+                                <span class="ml-auto" aria-hidden="true">
+                                    <!-- active class 'rotate-180' -->
+                                    <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
+
+
+
+                                <a href="{{asset('application')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Aplicacion
+                                </a>
+
+                                <a href="{{asset('doses')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Dosis
+                                </a>
+
+                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Suplementos
+                                </a>
+
+                                <a href="{{asset('nutrient_analysis')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Analicis Nutricional
+                                </a>
+
+                                <a href="{{asset('sample_nutrients')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Muestra Nutricional
+                                </a>
+
+                                <a href="{{asset('active_elements')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Elemento activo
+                                </a>
+
+                                <a href="{{asset('registro_phenophases')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Registro de phenophases
+                                </a>
+
+                                <a href="{{asset('orchard')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Huertas
+                                </a>
+
+                                <a href="{{asset('annual_production')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Produccion Anual
+                                </a>
+
+                                <a href="{{asset('workday')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Dias de Trabajo
+                                </a>
+
+                                <a href="{{asset('activities')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Actividad
+                                </a>
+
+                            </div>
+                        </div>
                         <!-- Components links -->
 
 
@@ -666,15 +748,7 @@
 
         }
     </script>
-
-
-
-
-
     @yield('js')
-
-
-    
 </body>
 
 </html>

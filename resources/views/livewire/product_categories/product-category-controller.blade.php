@@ -6,7 +6,7 @@
                 <h3 class="text-center px-2 py-2 ">CATEGORIA DE PRODUCTOS </h3>
             </div>
         </div>
-
+    
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <!-- ALgo de seccion-->
             @if (session()->has('message'))
