@@ -17,7 +17,9 @@ use App\Http\Livewire\ActiveElementController;
 
 use App\Http\Livewire\TypeSoilController;
 use App\Http\Livewire\ClimateTypeController;
+
 use App\Http\Livewire\OrchardController;
+
 use App\Http\Livewire\WorkdayController;
 use App\Http\Livewire\ActivitieController;
 use App\Http\Livewire\RegistrationPhenofaseController;
@@ -58,6 +60,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('orchard', OrchardController::class);
+
 
     Route::get('chemical_elements', ChemicalElementController::class);
     Route::get('application_modes', ApplicationModeController::class);
@@ -72,7 +76,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('type_soil', TypeSoilController::class);
     Route::get('climate_type', ClimateTypeController::class);
-    Route::get('orchard', OrchardController::class);
     Route::get('workday', WorkdayController::class);
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);

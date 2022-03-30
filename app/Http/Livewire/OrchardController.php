@@ -35,6 +35,7 @@ class OrchardController extends Component
         $this->orchard = Orchard::all();
 
         return view('livewire.orchards.orchard-controller', [
+        //return view('show_orchards.index', [
             'type_avocados' => TypeAvocado::all(),
             'type_topographies' => TypeTopography::all(),
             'type_soils' => TypeSoil::all(),

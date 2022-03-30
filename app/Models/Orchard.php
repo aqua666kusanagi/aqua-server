@@ -30,7 +30,8 @@ class Orchard extends Model
         'planting_density',
         'irrigation',
 
-    ];
+    ]; 
+    
     public function type_avo(){
         return $this->hasOne('App\Models\TypeAvocado','id','type_avocado_id');
     }
