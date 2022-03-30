@@ -108,69 +108,6 @@
                                     <i class="fa-solid fa-angles-right"></i>
                                     Categoria de Productos
                                 </a>
-
-
-                                <div class="rounded-full  px-4 py-2  text-sm text-dark ring-4 ring-green-500">
-                                    <h6>Tablas Debiles</h6>
-                                </div>
-                                <!--  TABLAS DEBILES           ---------------------   -->
-
-
-                                <a href="{{asset('application')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Aplicacion
-                                </a>
-
-                                <a href="{{asset('doses')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Dosis
-                                </a>
-
-                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Suplementos
-                                </a>
-
-                                <a href="{{asset('nutrient_analysis')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Analicis Nutricional
-                                </a>
-
-                                <a href="{{asset('sample_nutrients')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Muestra Nutricional
-                                </a>
-
-                                <a href="{{asset('active_elements')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Elemento activo
-                                </a>
-
-                                <a href="{{asset('registro_phenophases')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Registro de phenophases
-                                </a>
-
-                                <a href="{{asset('orchard')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Huertas
-                                </a>
-
-                                <a href="{{asset('annual_production')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Produccion Anual
-                                </a>
-
-                                <a href="{{asset('workday')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Dias de Trabajo
-                                </a>
-
-                                <a href="{{asset('activities')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Actividad
-                                </a>
-
                             </div>
                         </div>
 

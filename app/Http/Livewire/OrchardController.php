@@ -9,10 +9,14 @@ use App\Models\TypeSoil;
 use App\Models\ClimateType;
 use App\Models\User;
 
+use Livewire\WithFileUploads;
+
 use function Ramsey\Uuid\v1;
 
 class OrchardController extends Component
 {
+    use WithFileUploads;
+    
     public $orchard, $orchard_id, 
         $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id , 
         $name_orchard , 
@@ -28,6 +32,7 @@ class OrchardController extends Component
         $irrigation;
 
     public $isDialogOpen = 0;
+
 
 
     public function render()
