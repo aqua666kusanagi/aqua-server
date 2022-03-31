@@ -19,7 +19,7 @@
 
 
 
-                    <div class="py-2 shadow-lg rounded-lg">
+                    <div class="border-b lg:py-6 dark:border-primary-darker">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Aguacate</h3>
                             <select wire:model="type_avocado_id" class="sshadow appearance-none border rounded-full ">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="py-2  shadow-lg rounded-lg">
+                    <div class="border-b lg:py-6 dark:border-primary-darker">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Topografia</h3>
                             <select wire:model="type_topography_id" class="sshadow appearance-none border rounded-full ">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
 
-                    <div class="py-2 shadow-lg rounded-lg">
+                    <div class="border-b lg:py-6 dark:border-primary-darker">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Suelo</h3>
                             <select wire:model="type_soil_id" class="sshadow appearance-none border rounded-full ">
