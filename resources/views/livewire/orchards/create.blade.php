@@ -5,16 +5,18 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
+
         <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle  w-full">
+            
             <div class="">
+
+
+
                 <div class="mx-auto flex items-center justify-center h-12 w-full rounded-full bg-green-100 shadow-lg ">
                     <h3 class="items-center">HUERTO</h3>
                 </div>
 
-
-
-
-                <div class="md:grid md:grid-cols-3 md:gap-6 px-4   ">
+                <div class="md:grid md:grid-cols-3 md:gap-6    px-4   ">
 
 
 
