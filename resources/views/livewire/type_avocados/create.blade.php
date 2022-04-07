@@ -17,7 +17,7 @@
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="flex">
                             <h3 class="items-center pt-2 pr-4">Tipo de Aguacate</h3>
-                            <div  class="sshadow appearance-none border w-full rounded-full">
+                            <div  class="sshadow appearance-none w-full">
                                 <input type="text"  class="sshadow appearance-none border w-full rounded-full" wire:model="type_avocado" placeholder="Tipo de Aguacate">
                                 @error('type_avocado') <span class="text-red-500">{{ $message }}</span>@enderror
                             </div>

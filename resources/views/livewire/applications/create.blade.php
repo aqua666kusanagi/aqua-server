@@ -40,7 +40,7 @@
 
                                 <div class="">
                                     <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full" placeholder="Fecha" wire:model="date">
+                                        <input type="date" class="sshadow appearance-none border w-full" placeholder="Fecha" wire:model="date">
                                         @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>

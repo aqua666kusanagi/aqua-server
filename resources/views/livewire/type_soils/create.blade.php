@@ -18,7 +18,7 @@
 
                     <div class="flex">
                         <h3 class="items-center pt-2 pr-4">Tipos de Suelo</h3>
-                        <div class=" rounded-full  px-4 pl-6 py-2 border w-full">
+                        <div class="px-4 pl-6 py-2 w-full">
                             <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Tipo de Suelo" wire:model="type_soil">
                             @error('type_soil') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>

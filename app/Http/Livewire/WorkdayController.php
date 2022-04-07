@@ -28,11 +28,11 @@ class WorkdayController extends Component
             'orchard' => Orchard::all(),
         ]);
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -58,7 +58,7 @@ class WorkdayController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'user_id' => 'required',
             'orchard_id' => 'required',
@@ -70,6 +70,7 @@ class WorkdayController extends Component
         Workday::updateOrCreate(['id' => $this->workday_id], [
             'user_id' => $this->user_id,
             'orchard_id' => $this->orchard_id,
+            'date_work' => $this->date_work,
             'general_expenses' => $this->general_expenses,
         ]);
 

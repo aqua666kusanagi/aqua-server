@@ -35,7 +35,7 @@
                         <td class="border px-4 py-2">{{ $app->workday->date_work}}</td>
                         <td class="border px-4 py-2">{{ $app->application_mode->description }}</td>
                         <td class="border px-4 py-2">{{ $app->date }}</td>
-                        <td class="border px-4 py-2">{{$app->note}}</td>
+                        <td class="border px-4 py-2">{{ $app->note}}</td>
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
