@@ -8,6 +8,12 @@ class ChemicalElementController extends Component
 {
     public $chemical_elements, $name, $chemical_code,$chemical_element_id;
     public $isDialogOpen = 0;
+    protected $messages = [
+        'name.required' => 'Este campo no debe de estar vacio',
+        'chemical_code.required' => 'Este campo no debe de estar vacio',
+        'chemical_code.alpha_num'=>"Solo Alfanumerico",
+
+    ];
 
     public function render()
     {
@@ -36,16 +42,11 @@ class ChemicalElementController extends Component
         $this->chemical_code = '';
     }
 
-    protected $messages = [
-        'name.required' => 'Este campo no debe de estar vacio',
-        'chemical_code.required' => 'Este campo no debe de estar vacio'
-    ];
-
     public function store()
     {
         $this->validate([
             'name' => 'required',
-            'chemical_code' => 'required',
+            'chemical_code' => 'required|alpha_num',
         ]);
 
         ChemicalElement::updateOrCreate(['id' => $this->chemical_element_id], [

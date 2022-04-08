@@ -77,13 +77,14 @@ class OrchardController extends Component
 
     public function store()
     {
-        
+        //return("ok");
         $this->validate([
-            'type_avocado_id' => 'required',
+            /*'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
             'type_soil_id' => 'required',
             'climate_type_id' => 'required',
-            'user_id' => 'required',
+            'user_id' => 'required',//obtenerlo de la sesion*/
+
 
             'name_orchard' => 'required',
             'path_image' => 'required',
