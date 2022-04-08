@@ -18,4 +18,11 @@ class Activity extends Model
         'cost',
 
     ];
+
+    public function workday(){
+        return $this->hasOne('App\Models\Workday', 'id', 'workday_id');
+    }
+    public function typejob(){
+        return $this->hasOne('App\Models\TypeJob','id','type_job_id');
+    }
 }

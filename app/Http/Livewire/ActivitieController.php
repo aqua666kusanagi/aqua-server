@@ -15,6 +15,7 @@ class ActivitieController extends Component
     public function render()
     {
         $this->activiti = Activity::all();
+
         return view('livewire.activities.activitie-controller',[
             'workdays' => Workday::all(),
             'type_jobs' => TypeJob::all()

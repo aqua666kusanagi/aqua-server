@@ -17,6 +17,10 @@
             @if($isDialogOpen)
                 @include('livewire.activities.create')
             @endif
+            <div>
+                <h1>Trabajos pendientes</h1>
+
+            </div>
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-300">
@@ -31,17 +35,17 @@
                 @foreach($activiti as $acti)
                     <tr>
                         <td class="border px-4 py-2">{{ $acti->id }}</td>
-                        <td class="border px-4 py-2">{{ $acti->worday->date_work}}</td>
-                        <td class="border px-4 py-2">{{ $acti->type_job->type_job}}</td>
+                        <td class="border px-4 py-2">{{ $acti->workday->date_work}}</td>
+                        <td class="border px-4 py-2">{{ $acti->typejob->type_job}}</td>
                         <td class="border px-4 py-2">{{ $acti->cost}}</td>
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
-                                    <button wire:click="edit({{ $dosis->id }})"
+                                    <button wire:click="edit({{ $acti->id }})"
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="delete({{ $dosis->id }})"
+                                    <button wire:click="delete({{ $acti->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </div>

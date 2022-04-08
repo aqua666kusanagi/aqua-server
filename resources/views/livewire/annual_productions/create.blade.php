@@ -23,10 +23,9 @@
                             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
                                 <select wire:model="orchard_id" class="form-control">
-                                    <option value="">--Huerto--</option>
-                                    @foreach($orchard as $orchard_annuals)
-
-                                        <option type="int" value="{{$orchard_annuals->id}}">{{$orchard_annuals->name}}
+                                    <option value="">--HUERTO--</option>
+                                    @foreach($orchards as $orcha)
+                                        <option type="int" value="{{$orcha->id}}">{{$orcha->name_orchard}}
                                         </option>
                                     @endforeach
                                 </select>
@@ -41,7 +40,7 @@
 
                                 <div class="">
                                     <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full" placeholder="Fecha de produccion" wire:model="date_production">
+                                        <input type="date" class="sshadow appearance-none border w-full" placeholder="Fecha de produccion" wire:model="date_production">
                                         @error('date_production') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>

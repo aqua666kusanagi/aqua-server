@@ -18,4 +18,12 @@ class Application extends Model
         'note',
 
     ];
+
+    public function workday(){
+        return $this->hasOne('App\Models\Workday','id','workday_id');
+    }
+
+    public function applicationmode(){
+        return $this->hasOne('App\Models\ApplicationMode','id','application_mode_id');
+    }
 }

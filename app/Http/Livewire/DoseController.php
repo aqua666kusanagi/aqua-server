@@ -16,7 +16,7 @@ class DoseController extends Component
 
     public function render()
     {
-        $this->dose = Dose::all();
+        $this->doses = Dose::all();
         return view('livewire.doses.dose-controller',[
             'applications' => Application::all(),
             'chemical_elements' => ChemicalElement::all(),
@@ -45,7 +45,7 @@ class DoseController extends Component
         $this->application_id = '';
         $this->chemical_element_id = '';
         $this->unit_id = '';
-        $this->doses = '';
+        $this->dose = '';
     }
 
     public function store()
@@ -61,7 +61,7 @@ class DoseController extends Component
             'application_id' => $this->application_id,
             'chemical_element_id' => $this->chemical_element_id,
             'unit_id' => $this->unit_id,
-            'dose' => $this->doses
+            'dose' => $this->dose
         ]);
 
         session()->flash('message', $this->dose_id ? 'Dosis actualizado!' : 'Dosis Creado!');
@@ -77,7 +77,7 @@ class DoseController extends Component
         $this->application_id = $dosis->application_id;
         $this->chemical_element_id = $dosis->chemical_element_id;
         $this->unit_id = $dosis->unit_id;
-        $this->doses = $dosis->dose;
+        $this->dose = $dosis->dose;
         $this->openModalPopover();
     }
 
