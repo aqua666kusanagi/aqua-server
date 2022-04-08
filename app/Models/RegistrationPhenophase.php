@@ -18,4 +18,11 @@ class RegistrationPhenophase extends Model
         'comments',
 
     ];
+
+    public function phenophase(){
+        return $this->hasOne('App\Models\Phenophase','id','phenophase_id');
+    }
+    public function  orchard(){
+        return $this->hasOne('App\Models\Orchard','id','orchard_id');
+    }
 }

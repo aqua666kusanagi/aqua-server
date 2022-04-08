@@ -20,7 +20,7 @@ class AnnualProduction extends Model
 
     ];
 
-    public function orchard_ann(){
+    public function orchard(){
         return $this->hasOne('App\Models\Orchard','id','orchard_id');
     }
 }

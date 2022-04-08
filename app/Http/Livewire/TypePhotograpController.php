@@ -34,6 +34,10 @@ class TypePhotograpController extends Component
         $this->type_photograph = '';
     }
 
+    protected $messages = [
+        'type_photograph.required' => 'Este campo debe ser llenado',
+    ];
+
     public function store(){
         $this->validate([
             'type_photograph' => 'required',

@@ -51,13 +51,13 @@ class RegistrationPhenofaseController extends Component
             'phenophase_id' => 'required',
             'orchard_id' => 'required',
             'date' => 'required',
-            'coments' => 'required'
+            'comments' => 'required'
         ]);
 
         RegistrationPhenophase::updateOrCreate(['id' => $this->registration_phenophases_id], [
-            'workday_id' => $this->phenophase_id,
-            'type_job_id' => $this->orchard_id,
-            'cost' => $this->date,
+            'phenophase_id' => $this->phenophase_id,
+            'orchard_id' => $this->orchard_id,
+            'date' => $this->date,
             'comments' => $this->comments
         ]);
 

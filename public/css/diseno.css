@@ -2,3 +2,36 @@
     /*position: absolute;*/
     bottom: 0;
 }
+
+.item_container{
+    display: grid;
+    /*grid-template-columns: 300px 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fill, minmax(250px, 330px));
+    grid-auto-rows: auto;
+}
+
+.flexin{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.subitem{
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #2dd4bf;
+    border-radius: 10%;
+    color: white;
+    padding: 2%;
+    margin: 1%;
+}
+
+.textin{
+    text-align: center;
+}
+
+.padd{
+    padding: 1%;
+}
+.redont{
+    border-radius: 25%;
+}

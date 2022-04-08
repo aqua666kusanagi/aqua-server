@@ -34,6 +34,10 @@ class TypeTopographicController extends Component
         $this->type_topography = '';
     }
 
+    protected $messages = [
+        'type_topography.required' => 'Este campo debe ser llenado',
+    ];
+
     public function store(){
         $this->validate([
             'type_topography' => 'required',

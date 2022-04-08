@@ -36,6 +36,10 @@ class ChemicalElementController extends Component
         $this->chemical_code = '';
     }
 
+    protected $messages = [
+        'name.required' => 'Este campo no debe de estar vacio',
+        'chemical_code.required' => 'Este campo no debe de estar vacio'
+    ];
 
     public function store()
     {

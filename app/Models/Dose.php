@@ -18,4 +18,14 @@ class Dose extends Model
         'dose',
 
     ];
+
+    public function application(){
+        return $this->hasOne('App\Models\Application','id','application_id');
+    }
+    public function chemicalelement(){
+        return $this->hasOne('App\Models\ChemicalElement','id','chemical_element_id');
+    }
+    public function unit(){
+        return $this->hasOne('App\Models\Unit','id','unit_id');
+    }
 }

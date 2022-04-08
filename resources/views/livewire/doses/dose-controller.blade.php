@@ -29,11 +29,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($dose as $dosis)
+                @foreach($doses as $dosis)
                     <tr>
                         <td class="border px-4 py-2">{{ $dosis->id }}</td>
                         <td class="border px-4 py-2">{{ $dosis->application->date}}</td>
-                        <td class="border px-4 py-2">{{ $dosis->chemical_element->chemical_code}}</td>
+                        <td class="border px-4 py-2">{{ $dosis->chemicalelement->chemical_code}}</td>
                         <td class="border px-4 py-2">{{ $dosis->unit->description}}</td>
                         <td class="border px-4 py-2">{{$dosis->dose}}</td>
                         <td class="border px-4 py-2">

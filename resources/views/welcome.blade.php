@@ -45,7 +45,7 @@
     </head>
     <body class="antialiased leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
 
-        <div class="h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('images/bg.svg')}});">
+        <div class="h-screen pb-14 bg-right bg-cover" >
             <!--Nav-->
             <div class="w-full container mx-auto p-6">
 

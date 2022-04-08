@@ -17,14 +17,14 @@ class AnnualProductionController extends Component
         $this->annual_production = AnnualProduction::all();
 
         return view('livewire.annual_productions.annual-production-controller', [
-            'orchard' => Orchard::all(),
+            'orchards' => Orchard::all(),
         ]);
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -51,7 +51,7 @@ class AnnualProductionController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'orchard_id' => 'required',
             'ton_harvest' => 'required',

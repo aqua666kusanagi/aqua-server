@@ -34,7 +34,7 @@
                 @foreach($annual_production as $annual_productions)
                     <tr>
                         <td class="border px-4 py-2">{{ $annual_productions->id }}</td>
-                        <td class="border px-4 py-2">{{ $annual_productions->orchard->orchard_id }}</td>
+                        <td class="border px-4 py-2">{{ $annual_productions->orchard->name_orchard}}</td>
                         <td class="border px-4 py-2">{{ $annual_productions->ton_harvest }}</td>
                         <td class="border px-4 py-2">{{ $annual_productions->date_production }}</td>
                         <td class="border px-4 py-2">{{ $annual_productions->sale }}</td>

@@ -34,6 +34,10 @@ class TypeJobController extends Component
         $this->type_job = '';
     }
 
+    protected $messages = [
+        'type_job.required' => 'Este campo debe estar lleno',
+    ];
+
     public function store(){
         $this->validate([
             'type_job' => 'required',

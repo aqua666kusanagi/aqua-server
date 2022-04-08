@@ -1,5 +1,12 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        <div class="py-4">
+            <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
+                <h3 class="text-center px-2 py-2 ">TIPO DE AGUACATES</h3>
+            </div>
+        </div>
+
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <!-- ALgo de seccion-->
             @if (session()->has('message'))
@@ -11,18 +18,18 @@
                 </div>
             </div>
             @endif
-            <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i> Elementos Quimicos</button>
+            <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i>Agregar</button>
             @if($isDialogOpen)
             @include('livewire.type_avocados.create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
 
-                <tr class="bg-gray-300">
-                    <th class="px-4 py-2 w-20">Numero</th>
-                    <th class="px-4 py-2">Tipo de aguacate</th>
-                    <th class="px-4 py-2">Acciones</th>
-                </tr>
+                    <tr class="bg-gray-300">
+                        <th class="px-4 py-2 w-20">Numero</th>
+                        <th class="px-4 py-2">Tipo de aguacate</th>
+                        <th class="px-4 py-2">Acciones</th>
+                    </tr>
 
                 </thead>
                 <tbody>
@@ -34,15 +41,13 @@
                         <td class="border px-4 py-2 ">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <button wire:click="edit({{ $item->id }})"
-                                            class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button wire:click="edit({{ $item->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="delete({{ $item->id }})"
-                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button wire:click="delete({{ $item->id }})" class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </div>
-                            
+
                         </td>
                     </tr>
                     @endforeach

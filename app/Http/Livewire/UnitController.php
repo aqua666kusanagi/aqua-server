@@ -35,6 +35,9 @@ class UnitController extends Component
         $this->description = '';
     }
 
+    protected $messages = [
+      'description.required' => 'Este campo no debe de estar vacio',
+    ];
 
     public function store()
     {
