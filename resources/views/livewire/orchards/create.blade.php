@@ -12,18 +12,26 @@
 
 
                 <div class=" ">
-                    <div class="mt-6 border-b lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500 ring-opacity-50 shadow-lg ">
+                    <div class="mt-6 border-b lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500  shadow-lg ">
                         <h3 class="items-center">HUERTO</h3>
                     </div>
                 </div>
 
 
-                <div class="mb-8  md:grid md:grid-cols-3 md:gap-6  mt-6 border-b lg:py-6   px-6  ring-4 ring-green-500 ring-opacity-50 ">
+                <div class="bg-green-500 grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4 ring-green-500  ">
+
+                    <div class="col-span-3 ">
+                        <div class="pt-2 pr-4">
+                            <h3 class="block text-sm font-medium text-gray-700">Nombre del Huerto</h3>
+                            <div class="">
+                                <input type="text" class="sshadow appearance-none border  rounded-full w-full" placeholder="Nombre de Huerto" wire:model="name_orchard">
+                            </div>
+                            @error('name_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
 
 
-
-
-                    <div class="   ">
+                    <div class="col-span-2  ">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Aguacate</h3>
                             <select wire:model="type_avocado_id" class="sshadow appearance-none border rounded-full w-full ">
@@ -69,7 +77,7 @@
 
 
 
-                    <div class="">
+                    <div class="col-span-2">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Clima</h3>
                             <select wire:model="climate_type_id" class="sshadow appearance-none border rounded-full w-full">
@@ -82,7 +90,7 @@
                         </div>
                     </div>
 
-
+                    <!-- USUARIO
                     <div class="">
                         <div class="pt-2 pr-4 flex">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Usuario</h3>
@@ -95,6 +103,7 @@
                             </select>
                         </div>
                     </div>
+                    -->
 
 
 
@@ -103,19 +112,11 @@
 
 
 
-                    <div class="">
-                        <div class="pt-2 pr-4">
-                            <h3 class="block text-sm font-medium text-gray-700">Nombre del Huerto</h3>
-                            <div class="">
-                                <input type="text" class="sshadow appearance-none border  rounded-full w-full" placeholder="Nombre de Huerto" wire:model="name_orchard">
-                            </div>
-                            @error('name_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
 
 
 
-                    <div class="">
+
+                    <div class="col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
                         <label class="block text-sm font-medium text-gray-700"> Cargar Imagen </label>
                         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div class="space-y-1 text-center">
@@ -135,7 +136,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="col-span-2">
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Ubicacion</h3>
                             <div class="">
@@ -166,7 +167,7 @@
                     </div>
 
 
-                    <div class="">
+                    <div class="col-span-2">
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Altitud</h3>
                             <div class="">
