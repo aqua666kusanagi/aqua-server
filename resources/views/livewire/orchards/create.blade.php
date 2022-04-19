@@ -20,7 +20,7 @@
 
 
 
-                <div class="bg-green-500 grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4 ring-green-500  ">
+                <div class="bg-green-500 grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4   ">
 
                     <div class="col-span-3 ">
                         <div class="pt-2 pr-4">
