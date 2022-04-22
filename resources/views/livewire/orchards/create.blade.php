@@ -44,7 +44,7 @@
                                 </option>
                                 @endforeach
                             </select>
-                            
+
                         </div>
                         @error('type_avocado_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -61,7 +61,7 @@
                                 </option>
                                 @endforeach
                             </select>
-                           
+
                         </div>
                         @error('type_topography_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -78,7 +78,7 @@
                                 </option>
                                 @endforeach
                             </select>
-                            
+
                         </div>
                         @error('type_soil_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -101,7 +101,7 @@
                                 </option>
                                 @endforeach
                             </select>
-                            
+
                         </div>
                         @error('climate_type_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -128,10 +128,19 @@
 
 
 
+<!--
+                    <div class="col-span-3">
 
-
-
-
+                        <div class="pt-2 pr-4 ">
+                            <h3 class="block text-sm font-medium text-gray-700">foto</h3>
+                            <div class="">
+                                <input type="text" class="sshadow appearance-none border  rounded-full w-full" placeholder="Localizacion de Huerto" wire:model="path_image">
+                            </div>
+                            @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+-->
+                    
                     <div class="rounded-lg col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
 
                         <label class="block text-sm font-medium text-gray-700"> Cargar Imagen </label>
@@ -256,7 +265,7 @@
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
                             <select type="text" wire:model="irrigation" class="sshadow appearance-none border rounded-full w-full">
-                                <option  value="">Seleccionar</option>
+                                <option value="">Seleccionar</option>
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
@@ -264,17 +273,23 @@
                         </div>
                         @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
+
+                    <!-- 
+                    <div class="flex">
+                        <h3>Si</h3>
+                    <input type="checkbox" name="is_featured" class="switch-input" value="1" {{ old('is_featured') ? 'checked="checked"' : '' }}/>
+                    </div>-->
                 </div>
 
 
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 flex">
-                    <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                    <span class="bg-green-700 text-white font-bold flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Guardar
                         </button>
                     </span>
-                    <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-bold text-gray-700 shadow-sm hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                    <span class=" bg-red-700 mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Cerrar
                         </button>
                     </span>

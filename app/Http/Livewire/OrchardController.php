@@ -100,13 +100,10 @@ class OrchardController extends Component
             
             'type_soil_id' => 'required',
             'climate_type_id' => 'required',
-<<<<<<< HEAD
-            'user_id' => 'required',//obtenerlo de la sesion
-            */
-=======
-            'user_id' => 'required',
 
->>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
+            //'user_id' => 'required',//obtenerlo de la sesion
+        
+
 
             'name_orchard' => 'required',
             /*'path_image' => 'required',*/
@@ -124,13 +121,13 @@ class OrchardController extends Component
 
 
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
-            /*'type_avocado_id' => $this->type_avocado_id,
+            'type_avocado_id' => $this->type_avocado_id,
             'type_topography_id' => $this->type_topography_id,
             
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->type_soil_id,
-            'user_id' => $this->type_soil_id,
-*/
+            //'user_id' => $this->type_soil_id,
+
 
             'name_orchard' => $this->type_soil_id,
             /*'path_image' => $this->type_soil_id,*/
@@ -156,13 +153,13 @@ class OrchardController extends Component
     {
         $orchard = Orchard::findOrFail($id);
         $this->orchard_id = $id;
-        /*$this->type_avocado_id = $orchard->type_avocado_id;
+        $this->type_avocado_id = $orchard->type_avocado_id;
         $this->type_topography_id = $orchard->type_topography_id;
         
         $this->type_soil_id = $orchard->type_soil_id;
         $this->climate_type_id = $orchard->climate_type_id;
-        $this->user_id = $orchard->user_id;
-        */
+        //$this->user_id = $orchard->user_id;
+        
 
         $this->name_orchard = $orchard->name_orchard;
         /*$this->path_image = $orchard->path_image;*/
