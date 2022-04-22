@@ -50,7 +50,7 @@ class WorkdayController extends Component
     private function resetCreateForm(){
 
         $this->user_id = '';
-        $this->orchard_id = '';
+        //$this->orchard_id = '';
         $this->date_work = '';
         $this->general_expenses = '';
     }
@@ -61,7 +61,7 @@ class WorkdayController extends Component
 
         $this->validate([
             'user_id' => 'required',
-            'orchard_id' => 'required',
+            //'orchard_id' => 'required',
             'date_work' => 'required',
             'general_expenses' => 'required',
         ]);
@@ -69,7 +69,7 @@ class WorkdayController extends Component
 
         Workday::updateOrCreate(['id' => $this->workday_id], [
             'user_id' => $this->user_id,
-            'orchard_id' => $this->orchard_id,
+            //'orchard_id' => $this->orchard_id,
             'date_work' => $this->date_work,
             'general_expenses' => $this->general_expenses,
         ]);

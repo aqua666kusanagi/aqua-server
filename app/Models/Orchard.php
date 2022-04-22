@@ -16,13 +16,13 @@ class Orchard extends Model
         'type_topography_id',
         'type_soil_id',
         'climate_type_id',
-        'user_id',
+        //'user_id',
         
         'name_orchard',
-        'path_image',
+        /*'path_image',*/
         'location_orchard',
-        'point',
-        'area',
+        /*'point',
+        'area',*/
         'altitude',
         'surface',
         'state',

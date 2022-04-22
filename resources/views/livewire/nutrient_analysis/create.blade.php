@@ -25,7 +25,7 @@
                                 <select wire:model="orchard_id" class="form-control">
                                     <option value="">--Nombre de Huerto--</option>
                                     @foreach($orchards as $orchar)
-                                        <option type="int" value="{{$orchar->id}}">{{$aapl->name_orchard}}
+                                        <option type="int" value="{{$orchar->id}}">{{$orchar->name_orchard}}
                                         </option>
                                     @endforeach
                                 </select>
