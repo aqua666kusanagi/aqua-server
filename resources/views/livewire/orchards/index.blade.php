@@ -1,6 +1,6 @@
 <div class="h-screen pb-14 bg-right bg-cover padd" style="background-image:url({{asset('images/fondo2.jpg')}});">
     <div class="flex items-center justify-between  dark:border-primary-darker">
-        <h1 class="text-2xl font-semibold">HUERTOS HAS</h1>
+        <h1 class="text-2xl font-semibold">HUERTOS HASS</h1>
         <button wire:click="create()"
                 class="bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
     </div>

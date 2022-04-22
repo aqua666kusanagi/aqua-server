@@ -15,7 +15,7 @@
         <!--<button wire:click="create()"
                     class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>-->
             <div class="flex items-center justify-between  dark:border-primary-darker">
-                <h1 class="text-2xl font-semibold text-gray-200">HUERTOS HAS</h1>
+                <h1 class="text-2xl font-semibold text-gray-200">HUERTOS HASS</h1>
                 <button wire:click="create()"
                         class="bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
             </div>
