@@ -6,14 +6,14 @@
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
 
-        <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle  w-full">
+        <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle  w-full" >
 
             <div class="px-4 rounded-lg">
 
 
 
                 <div class=" ">
-                    <div class="mt-6 border-b lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500  shadow-lg ">
+                    <div class="mt-6 border-b lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500  shadow-lg " >
                         <h3 class="items-center">HUERTO</h3>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
 
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 flex">
                     <span class="bg-green-700 text-white font-bold flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:text-gray-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Guardar
                         </button>
                     </span>
