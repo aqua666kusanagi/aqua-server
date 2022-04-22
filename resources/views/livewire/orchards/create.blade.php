@@ -11,6 +11,7 @@
             <div class="px-4 rounded-lg">
 
 
+
                 <div class=" ">
                     <div class="mt-6 border-b lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500  shadow-lg ">
                         <h3 class="items-center">HUERTO</h3>
@@ -18,7 +19,12 @@
                 </div>
 
 
+<<<<<<< HEAD
                 <div class="rounded-lg grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4 ring-green-500  ">
+=======
+
+                <div class="bg-green-500 grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4   ">
+>>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
 
                     <div class="col-span-3 ">
                         <div class="pt-2 pr-4">
@@ -33,6 +39,7 @@
 
                     <div class="col-span-2  ">
                         <div class="pt-2 pr-4 flex">
+
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Aguacate</h3>
                             <select wire:model="type_avocado_id" class="sshadow appearance-none border rounded-full w-full ">
                                 <option value="">--seleccionar--</option>
@@ -41,12 +48,15 @@
                                 </option>
                                 @endforeach
                             </select>
+                            
                         </div>
                         @error('type_avocado_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
 
+
                     <div class="">
                         <div class="pt-2 pr-4 flex">
+
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Topografia</h3>
                             <select wire:model="type_topography_id" class="sshadow appearance-none border rounded-full w-full">
                                 <option value="">--seleccionar--</option>
@@ -55,13 +65,15 @@
                                 </option>
                                 @endforeach
                             </select>
-
+                           
                         </div>
                         @error('type_topography_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
 
+
                     <div class="">
                         <div class="pt-2 pr-4 flex">
+
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Suelo</h3>
                             <select wire:model="type_soil_id" class="sshadow appearance-none border rounded-full w-full">
                                 <option value="">--seleccionar--</option>
@@ -70,6 +82,7 @@
                                 </option>
                                 @endforeach
                             </select>
+                            
                         </div>
                         @error('type_soil_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -80,8 +93,10 @@
 
 
 
+
                     <div class="col-span-2">
                         <div class="pt-2 pr-4 flex">
+
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Tipo de Clima</h3>
                             <select wire:model="climate_type_id" class="sshadow appearance-none border rounded-full w-full">
                                 <option value="">--seleccionar--</option>
@@ -90,13 +105,16 @@
                                 </option>
                                 @endforeach
                             </select>
+                            
                         </div>
                         @error('climate_type_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
 
+
                     <!-- USUARIO
                     <div class="">
                         <div class="pt-2 pr-4 flex">
+
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">Usuario</h3>
                             <select wire:model="user_id" class="sshadow appearance-none border rounded-full w-full">
                                 <option value="">--seleccionar--</option>
@@ -105,7 +123,9 @@
                                 </option>
                                 @endforeach
                             </select>
+                            
                         </div>
+                        @error('user_id') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     -->
 
@@ -116,13 +136,18 @@
 
 
 
+<<<<<<< HEAD
 
 
 
 
                     <div class="rounded-lg col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
+=======
+                    <div class="col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
+
+>>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         <label class="block text-sm font-medium text-gray-700"> Cargar Imagen </label>
-                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                             <div class="space-y-1 text-center">
                                 <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                     <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -136,12 +161,18 @@
                                 </div>
                                 <p class="text-xs text-gray-500">PNG, JPG, GIF hasta 10MB</p>
                             </div>
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         </div>
                         @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
 
+
                     <div class="col-span-2">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Ubicacion</h3>
                             <div class="">
@@ -151,7 +182,9 @@
                         </div>
                     </div>
 
+
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Punto</h3>
                             <div class="">
@@ -161,7 +194,9 @@
                         </div>
                     </div>
 
+
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Area</h3>
                             <div class="">
@@ -172,7 +207,9 @@
                     </div>
 
 
+
                     <div class="col-span-2">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Altitud</h3>
                             <div class="">
@@ -183,7 +220,9 @@
                     </div>
 
 
+
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Superficie</h3>
                             <div class="">
@@ -194,6 +233,7 @@
                     </div>
 
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Estado</h3>
                             <div class="">
@@ -203,7 +243,9 @@
                         </div>
                     </div>
 
+
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Año de Creacion</h3>
                             <div class="">
@@ -213,7 +255,9 @@
                         </div>
                     </div>
 
+
                     <div class="">
+
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700">Densidad de plantado</h3>
                             <div class="">
@@ -224,6 +268,7 @@
                     </div>
 
 
+<<<<<<< HEAD
                     <div class="col-span-2 ">
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
@@ -232,6 +277,17 @@
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
+=======
+
+                    <div class="">
+                        <div class="pt-2 pr-4">
+                            <h3 class="block text-sm font-medium text-gray-700">Irrigacion</h3>
+                            <div class="">
+                                <input type="text" class="sshadow appearance-none border  rounded-full w-full" placeholder="Irrigacion" wire:model="irrigation">
+                            </div>
+
+                            @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
+>>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         </div>
                         @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>

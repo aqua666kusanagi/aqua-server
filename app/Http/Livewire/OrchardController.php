@@ -95,13 +95,18 @@ class OrchardController extends Component
     {
         //return("ok");
         $this->validate([
-            /*'type_avocado_id' => 'required',
+            'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
             
             'type_soil_id' => 'required',
             'climate_type_id' => 'required',
+<<<<<<< HEAD
             'user_id' => 'required',//obtenerlo de la sesion
             */
+=======
+            'user_id' => 'required',
+
+>>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
 
             'name_orchard' => 'required',
             /*'path_image' => 'required',*/
