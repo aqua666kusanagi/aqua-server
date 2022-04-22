@@ -28,7 +28,7 @@ use App\Http\Livewire\AnnualProductionController;
 use App\Http\Livewire\SampleNutrientController;
 use App\Http\Livewire\PhotographController;
 
-
+use App\Http\Livewire\UsuerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,7 +87,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('nutrient_analysis', NutrientAnalysiController::class);
     Route::get('photographs', PhotographController::class);
 
+    Route::get('usuario', UsuerController::class);
+
 });
+Route::get('cliente',function (){
+   return view('layouts.appuser');
+});
+
 
 
 
