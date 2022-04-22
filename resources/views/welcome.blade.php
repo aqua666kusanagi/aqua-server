@@ -51,7 +51,7 @@
 
                 <div class="w-full flex items-center justify-between">
                     <a class="flex items-center text-green-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#">
-                        <img src="{{asset('images/logo.jpeg')}}" alt="" width="5%" height="5%"> AvoApp
+                        <img src="{{asset('images/logo.jpeg')}}" alt="" width="5%" height="5%"> HANUC
                     </a>
 
                     <div class="flex w-1/2 justify-end content-center">

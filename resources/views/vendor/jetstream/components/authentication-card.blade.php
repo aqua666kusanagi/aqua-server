@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('images/bg.svg')}})">
+<div class="w-full min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('images/bg.svg')}})">
     <div>
         {{ $logo }}
     </div>

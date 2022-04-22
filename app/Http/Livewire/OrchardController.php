@@ -93,7 +93,10 @@ class OrchardController extends Component
 
     public function store()
     {
-        //return("ok");
+
+        $path=$this->path_image->store('images', 'public');
+        dd($path);
+        /*
         $this->validate([
             'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
@@ -106,10 +109,10 @@ class OrchardController extends Component
 
 
             'name_orchard' => 'required',
-            /*'path_image' => 'required',*/
+            //'path_image' => 'required',
             'location_orchard' => 'required',
-            /*'point' => 'required',
-            'area' => 'required',*/
+            //'point' => 'required',
+            'area' => 'required',
             'altitude' => 'required',
             'surface' => 'required',
             'state' => 'required',
@@ -118,6 +121,7 @@ class OrchardController extends Component
             'irrigation' => 'required',
 
         ]);
+*/
 
 
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
