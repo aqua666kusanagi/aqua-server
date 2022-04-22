@@ -19,12 +19,8 @@
                 </div>
 
 
-<<<<<<< HEAD
                 <div class="rounded-lg grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4 ring-green-500  ">
-=======
 
-                <div class="bg-green-500 grid grid-cols-3 gap-4  mt-6 border-b lg:py-6  mb-8  px-6  ring-4   ">
->>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
 
                     <div class="col-span-3 ">
                         <div class="pt-2 pr-4">
@@ -136,16 +132,8 @@
 
 
 
-<<<<<<< HEAD
-
-
-
-
                     <div class="rounded-lg col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
-=======
-                    <div class="col-span-3  ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
 
->>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         <label class="block text-sm font-medium text-gray-700"> Cargar Imagen </label>
                         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                             <div class="space-y-1 text-center">
@@ -161,11 +149,6 @@
                                 </div>
                                 <p class="text-xs text-gray-500">PNG, JPG, GIF hasta 10MB</p>
                             </div>
-<<<<<<< HEAD
-
-=======
-                            
->>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         </div>
                         @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -268,7 +251,7 @@
                     </div>
 
 
-<<<<<<< HEAD
+
                     <div class="col-span-2 ">
                         <div class="pt-2 pr-4">
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
@@ -277,17 +260,7 @@
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
-=======
 
-                    <div class="">
-                        <div class="pt-2 pr-4">
-                            <h3 class="block text-sm font-medium text-gray-700">Irrigacion</h3>
-                            <div class="">
-                                <input type="text" class="sshadow appearance-none border  rounded-full w-full" placeholder="Irrigacion" wire:model="irrigation">
-                            </div>
-
-                            @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
->>>>>>> 7585e82ba082a109c2cd9dcd2e70acf4617f25a4
                         </div>
                         @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
