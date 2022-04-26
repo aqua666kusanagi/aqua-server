@@ -265,8 +265,8 @@
                             <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
                             <select type="text" wire:model="irrigation" class="sshadow appearance-none border rounded-full w-full">
                                 <option value="">Seleccionar</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
 
                         </div>

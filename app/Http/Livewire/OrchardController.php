@@ -69,14 +69,14 @@ class OrchardController extends Component
     private function resetCreateForm(){
 
         $this->orchard_id = '';
-        /*$this->type_avocado_id = '';
+        $this->type_avocado_id = '';
         $this->type_topography_id = '';
        
         $this->type_soil_id = '';
         $this->climate_type_id = '';
-        $this->user_id = '';//obtenerlo de la sesion
+        //$this->user_id = '';//obtenerlo de la sesion
 
-*/
+
         $this->name_orchard = '';
         /*$this->path_image = '';*/
         $this->location_orchard = '';
@@ -95,8 +95,8 @@ class OrchardController extends Component
     {
 
         $path=$this->path_image->store('images', 'public');
-        dd($path);
-        /*
+        //dd($path);
+        
         $this->validate([
             'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
@@ -121,7 +121,7 @@ class OrchardController extends Component
             'irrigation' => 'required',
 
         ]);
-*/
+
 
 
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
@@ -129,21 +129,21 @@ class OrchardController extends Component
             'type_topography_id' => $this->type_topography_id,
             
             'type_soil_id' => $this->type_soil_id,
-            'climate_type_id' => $this->type_soil_id,
+            'climate_type_id' => $this->climate_type_id,
             //'user_id' => $this->type_soil_id,
 
 
-            'name_orchard' => $this->type_soil_id,
+            'name_orchard' => $this->name_orchard,
             /*'path_image' => $this->type_soil_id,*/
-            'location_orchard' => $this->type_soil_id,
+            'location_orchard' => $this->location_orchard,
             /*'point' => $this->type_soil_id,
             'area' => $this->type_soil_id,*/
-            'altitude' => $this->type_soil_id,
-            'surface' => $this->type_soil_id,
-            'state' => $this->type_soil_id,
-            'creation_year' => $this->type_soil_id,
-            'planting_density' => $this->type_soil_id,
-            'irrigation' => $this->type_soil_id,
+            'altitude' => $this->altitude,
+            'surface' => $this->surface,
+            'state' => $this->state,
+            'creation_year' => $this->creation_year,
+            'planting_density' => $this->planting_density,
+            'irrigation' => $this->irrigation,
         ]);
 
         session()->flash('message', $this->orchard_id ? 'Huerta Actualizado!' : 'Huerta Creada!');
