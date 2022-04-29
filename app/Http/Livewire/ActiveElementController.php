@@ -11,6 +11,8 @@ class ActiveElementController extends Component
 {
     public $active_element, $active_element_id, $chemical_element_id, $supply_id,$percentage;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
     public function render()
@@ -22,11 +24,11 @@ class ActiveElementController extends Component
             'supplies' => Supply::all(),
         ]);
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -41,6 +43,16 @@ class ActiveElementController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->chemical_element_id = '';
@@ -51,7 +63,7 @@ class ActiveElementController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'chemical_element_id' => 'required',
             'supply_id' => 'required',
@@ -83,9 +95,15 @@ class ActiveElementController extends Component
         $this->openModalPopover();
     }
 
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
     public function delete($id)
     {
-        ActiveElement::find($id)->delete();
+        ActiveElement::find($this->getid)->delete();
         session()->flash('message', 'Elemento Activo eliminado!');
+        $this->closeModaldelete();
     }
 }

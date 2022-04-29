@@ -13,6 +13,9 @@
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+
+
+
 </head>
 
 <body>
@@ -585,6 +588,7 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     @livewireScripts
+    @livewire('livewire-ui-modal')
     <script type="text/javascript">
         const setup = () => {
             const setTheme = (value) => {

@@ -10,6 +10,8 @@ class AnnualProductionController extends Component
 {
     public $annual_production, $annual_production_id, $orchard_id, $ton_harvest, $date_production, $sale, $damage_percentage;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
     public function render()
@@ -37,6 +39,16 @@ class AnnualProductionController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -90,9 +102,15 @@ class AnnualProductionController extends Component
         $this->openModalPopover();
     }
 
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
     public function delete($id)
     {
-        AnnualProduction::find($id)->delete();
+        AnnualProduction::find($this->getid)->delete();
         session()->flash('message', 'Elemento Activo eliminado!');
+        $this->closeModaldelete();
     }
 }

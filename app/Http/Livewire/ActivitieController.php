@@ -11,6 +11,8 @@ class ActivitieController extends Component
 {
     public $activiti, $activities_id, $workday_id, $type_job_id, $cost;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -35,6 +37,21 @@ class ActivitieController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -76,7 +93,8 @@ class ActivitieController extends Component
 
     public function delete($id)
     {
-        Activity::find($id)->delete();
+        Activity::find($this->getid)->delete();
         session()->flash('message', 'Actividad eliminado!');
+        $this->closeModaldelete();
     }
 }

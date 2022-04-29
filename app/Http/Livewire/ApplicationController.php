@@ -12,6 +12,8 @@ class ApplicationController extends Component
     //Agregamos la variables a usar
     public $application, $application_id, $workday_id, $application_mode_id, $date, $note;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -36,6 +38,16 @@ class ApplicationController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -78,9 +90,15 @@ class ApplicationController extends Component
         $this->openModalPopover();
     }
 
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
     public function delete($id)
     {
-        Application::find($id)->delete();
+        Application::find($this->getid)->delete();
         session()->flash('message', 'Aplicacion eliminado!');
+        $this->closeModaldelete();
     }
 }

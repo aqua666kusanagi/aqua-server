@@ -1,55 +1,3 @@
-{{--<script type="text/javascript">
-    function confirmdelete(){
-        var resp = confirm("Estas seguro que deseas eliminar?")
-        if (resp == true){
-            return true;
-        }else{
-            return false;
-        }
-    }
-</script>--}}
-{{--<script>
-    $('.comfir').submit(function (e){
-        e.preventDefault();
-
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
-
-        swalWithBootstrapButtons.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-                this.submit();
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'Your imaginary file is safe :)',
-                    'error'
-                )
-            }
-        })
-
-    })
-</script>--}}
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
@@ -96,8 +44,12 @@
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button onclick="confirmdelete()" wire:click="delete({{ $aplicacion->id }})"
+                                    <button wire:click="ConfirmaDelete({{ $aplicacion->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                            {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
+                                    @if($isconfirm)
+                                        @include('livewire.confirm-delete')
+                                    @endif
                                 </div>
                             </div>
                         </td>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 use App\Models\ApplicationMode;
 
 class ApplicationModeController extends Component
@@ -10,6 +11,8 @@ class ApplicationModeController extends Component
     //DEFINIMOS UNAS VARIABLES A USAR
     public $aplication, $description, $application_mode_id;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -32,6 +35,17 @@ class ApplicationModeController extends Component
     {
         $this->isDialogOpen = false;
     }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
 
     private function resetCreateForm(){
         $this->description = '';
@@ -66,9 +80,15 @@ class ApplicationModeController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        ApplicationMode::find($id)->delete();
+        ApplicationMode::find($this->getid)->delete();
         session()->flash('message', 'Aplication Mode removed!');
+        $this->closeModaldelete();
     }
 }
