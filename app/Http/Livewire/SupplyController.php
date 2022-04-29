@@ -9,6 +9,8 @@ class SupplyController extends Component
 {
     public $supply, $supply_id, $name, $registry_number, $data_sheet, $security_term, $product_category_id;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
     public function render()
@@ -19,11 +21,11 @@ class SupplyController extends Component
             'product_categories' => ProductCategory::all()
         ]);
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -38,6 +40,16 @@ class SupplyController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->name = '';
@@ -50,7 +62,7 @@ class SupplyController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'name' => 'required',
             'registry_number' => 'required',
@@ -88,9 +100,15 @@ class SupplyController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        Supply::find($id)->delete();
+        Supply::find($this->getid)->delete();
         session()->flash('message', 'Suministro eliminado!');
+        $this->closeModaldelete();
     }
 }

@@ -10,6 +10,8 @@ class NutrientAnalysiController extends Component
 {
     public $nutrient, $nutrient_analysis_id, $orchar_id, $date_sample, $path;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -33,6 +35,16 @@ class NutrientAnalysiController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -72,9 +84,15 @@ class NutrientAnalysiController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        NutrientAnalysi::find($id)->delete();
+        NutrientAnalysi::find($this->getid)->delete();
         session()->flash('message', 'Analicis Nutricional eliminado!');
+        $this->closeModaldelete();
     }
 }

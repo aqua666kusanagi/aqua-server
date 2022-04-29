@@ -10,6 +10,8 @@ class TypePhotograpController extends Component
     //Definimos variables a usar
     public $photograp, $type_photograph, $type_photograph_id;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -28,6 +30,16 @@ class TypePhotograpController extends Component
 
     public function closeModalPopover(){
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     public function resetCreateForm(){
@@ -60,8 +72,14 @@ class TypePhotograpController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id){
-        TypePhotograph::find($id)->delete();
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete(){
+        TypePhotograph::find($this->getid)->delete();
         session()->flash('message', 'Fotografia removida!');
+        $this->closeModaldelete();
     }
 }

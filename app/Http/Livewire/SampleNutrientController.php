@@ -12,6 +12,8 @@ class SampleNutrientController extends Component
 {
     public $sample, $sample_nutrients_id, $nutrient_analysi_id, $unit_id, $chemical_element_id, $percentage, $lot;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -37,6 +39,16 @@ class SampleNutrientController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -84,9 +96,15 @@ class SampleNutrientController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        SampleNutrient::find($id)->delete();
+        SampleNutrient::find($this->getid)->delete();
         session()->flash('message', 'Muestra Nutricional eliminado!');
+        $this->closeModaldelete();
     }
 }

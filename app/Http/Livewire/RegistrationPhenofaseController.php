@@ -11,6 +11,8 @@ class RegistrationPhenofaseController extends Component
 {
     public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -35,6 +37,16 @@ class RegistrationPhenofaseController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -78,9 +90,15 @@ class RegistrationPhenofaseController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        RegistrationPhenophase::find($id)->delete();
+        RegistrationPhenophase::find($this->getid)->delete();
         session()->flash('message', 'Registro eliminado!');
+        $this->closeModaldelete();
     }
 }

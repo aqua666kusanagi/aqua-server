@@ -15,10 +15,10 @@ use Livewire\WithFileUploads;
 class OrchardController extends Component
 {
     use WithFileUploads;
-    
-    public $orchard, $orchard_id, 
-        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id , 
-        $name_orchard , 
+
+    public $orchard, $orchard_id,
+        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id ,
+        $name_orchard ,
         $path_image,
         $location_orchard,
         $point,
@@ -31,6 +31,8 @@ class OrchardController extends Component
         $irrigation;
 
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
 
@@ -47,11 +49,11 @@ class OrchardController extends Component
             'users' => User::all(),
         ]);
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -66,12 +68,22 @@ class OrchardController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->orchard_id = '';
         $this->type_avocado_id = '';
         $this->type_topography_id = '';
-       
+
         $this->type_soil_id = '';
         $this->climate_type_id = '';
         //$this->user_id = '';//obtenerlo de la sesion
@@ -96,16 +108,16 @@ class OrchardController extends Component
 
         $path=$this->path_image->store('images', 'public');
         //dd($path);
-        
+
         $this->validate([
             'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
-            
+
             'type_soil_id' => 'required',
             'climate_type_id' => 'required',
 
             //'user_id' => 'required',//obtenerlo de la sesion
-        
+
 
 
             'name_orchard' => 'required',
@@ -127,7 +139,7 @@ class OrchardController extends Component
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
             'type_avocado_id' => $this->type_avocado_id,
             'type_topography_id' => $this->type_topography_id,
-            
+
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->climate_type_id,
             //'user_id' => $this->type_soil_id,
@@ -159,11 +171,11 @@ class OrchardController extends Component
         $this->orchard_id = $id;
         $this->type_avocado_id = $orchard->type_avocado_id;
         $this->type_topography_id = $orchard->type_topography_id;
-        
+
         $this->type_soil_id = $orchard->type_soil_id;
         $this->climate_type_id = $orchard->climate_type_id;
         //$this->user_id = $orchard->user_id;
-        
+
 
         $this->name_orchard = $orchard->name_orchard;
         /*$this->path_image = $orchard->path_image;*/
@@ -176,14 +188,20 @@ class OrchardController extends Component
         $this->creation_year = $orchard->creation_year;
         $this->planting_density = $orchard->planting_density;
         $this->irrigation = $orchard->irrigation;
-        
+
 
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        Orchard::find($id)->delete();
+        Orchard::find($this->getid)->delete();
         session()->flash('message', 'Huerta eliminada!');
+        $this->closeModaldelete();
     }
 }

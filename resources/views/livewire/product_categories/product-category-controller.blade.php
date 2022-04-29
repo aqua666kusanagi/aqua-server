@@ -6,7 +6,7 @@
                 <h3 class="text-center px-2 py-2 ">CATEGORIA DE PRODUCTOS </h3>
             </div>
         </div>
-    
+
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <!-- ALgo de seccion-->
             @if (session()->has('message'))
@@ -40,12 +40,14 @@
                                 <div>
                                     <button wire:click="edit({{ $catego->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
-
-
-                                <button wire:click="$emit('deleteId',{{ $catego->id }})" class="formulario-eliminar bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-
-
-
+                                <div>
+                                    <button wire:click="ConfirmaDelete({{ $catego->id }})"
+                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                    {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
+                                    @if($isconfirm)
+                                        @include('livewire.confirm-delete')
+                                    @endif
+                                </div>
                             </div>
                         </td>
                     </tr>

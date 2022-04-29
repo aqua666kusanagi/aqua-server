@@ -9,6 +9,8 @@ class TypeSoilController extends Component
 {
     public $type_soils, $type_soils_id, $type_soil;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
     public function render()
@@ -17,11 +19,11 @@ class TypeSoilController extends Component
 
         return view('livewire.type_soils.type-soil-controller');
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -36,6 +38,16 @@ class TypeSoilController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->type_soil = '';
@@ -45,7 +57,7 @@ class TypeSoilController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'type_soil' => 'required',
         ]);
@@ -73,9 +85,15 @@ class TypeSoilController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        TypeSoil::find($id)->delete();
+        TypeSoil::find($this->getid)->delete();
         session()->flash('message', 'Tipo de Suelo eliminado!');
+        $this->closeModaldelete();
     }
 }

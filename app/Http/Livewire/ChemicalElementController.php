@@ -8,6 +8,9 @@ class ChemicalElementController extends Component
 {
     public $chemical_elements, $name, $chemical_code,$chemical_element_id;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
+
     protected $messages = [
         'name.required' => 'Este campo no debe de estar vacio',
         'chemical_code.required' => 'Este campo no debe de estar vacio',
@@ -35,6 +38,16 @@ class ChemicalElementController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -71,9 +84,15 @@ class ChemicalElementController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        ChemicalElement::find($id)->delete();
+        ChemicalElement::find($this->getid)->delete();
         session()->flash('message', 'Chemical Element removed!');
+        $this->closeModaldelete();
     }
 }

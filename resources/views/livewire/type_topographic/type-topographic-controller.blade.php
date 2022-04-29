@@ -41,7 +41,12 @@
                                     <button wire:click="edit({{ $topografia->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="delete({{ $topografia->id }})" class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button wire:click="ConfirmaDelete({{ $topografia->id }})"
+                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                    {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
+                                    @if($isconfirm)
+                                        @include('livewire.confirm-delete')
+                                    @endif
                                 </div>
                             </div>
                         </td>

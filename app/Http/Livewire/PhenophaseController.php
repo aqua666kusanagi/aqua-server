@@ -9,6 +9,8 @@ class PhenophaseController extends Component
 {
     public $pheno, $pheno_id, $phenophase;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
 
     public function render()
@@ -17,11 +19,11 @@ class PhenophaseController extends Component
 
         return view('livewire.phenophases.phenophase-controller');
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -36,6 +38,16 @@ class PhenophaseController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->phenophase = '';
@@ -44,7 +56,7 @@ class PhenophaseController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'phenophase' => 'required',
         ]);
@@ -70,9 +82,15 @@ class PhenophaseController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        Phenophase::find($id)->delete();
+        Phenophase::find($this->getid)->delete();
         session()->flash('message', 'Fenofase eliminado!');
+        $this->closeModaldelete();
     }
 }

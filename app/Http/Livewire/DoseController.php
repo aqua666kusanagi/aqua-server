@@ -13,6 +13,8 @@ class DoseController extends Component
     //Agregamos la variables a usar
     public $dose, $dose_id, $application_id, $chemical_element_id, $unit_id, $doses;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -38,6 +40,16 @@ class DoseController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     private function resetCreateForm(){
@@ -81,9 +93,15 @@ class DoseController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        Dose::find($id)->delete();
+        Dose::find($this->getid)->delete();
         session()->flash('message', 'Dosis eliminado!');
+        $this->closeModaldelete();
     }
 }

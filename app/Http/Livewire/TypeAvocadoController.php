@@ -8,6 +8,8 @@ class TypeAvocadoController extends Component
 {
     public $typeavocado, $typeavocado_id, $type_avocado;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -33,6 +35,16 @@ class TypeAvocadoController extends Component
 
     private function resetCreateForm(){
         $this->type_avocado = '';
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
 
@@ -62,9 +74,15 @@ class TypeAvocadoController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        TypeAvocado::find($id)->delete();
+        TypeAvocado::find($this->getid)->delete();
         session()->flash('message', 'Tipo de aguacate eliminado!');
+        $this->closeModaldelete();
     }
 }

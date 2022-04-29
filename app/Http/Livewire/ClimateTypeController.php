@@ -9,7 +9,8 @@ class ClimateTypeController extends Component
 {
     public $climate_types, $climate_types_id, $climate_type;
     public $isDialogOpen = 0;
-
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -17,11 +18,11 @@ class ClimateTypeController extends Component
 
         return view('livewire.climate_types.climate-type-controller');
     }
-    
+
 
     public function create()
     {
-        
+
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -36,6 +37,16 @@ class ClimateTypeController extends Component
         $this->isDialogOpen = false;
     }
 
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+
     private function resetCreateForm(){
 
         $this->type_soil = '';
@@ -45,7 +56,7 @@ class ClimateTypeController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'climate_type' => 'required',
         ]);
@@ -73,9 +84,15 @@ class ClimateTypeController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id)
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete()
     {
-        ClimateType::find($id)->delete();
+        ClimateType::find($this->getid)->delete();
         session()->flash('message', 'Tipo de Climas eliminado!');
+        $this->closeModaldelete();
     }
 }

@@ -31,7 +31,7 @@
                                 <div class="flex-1 truncate">
                                     <div class="flex items-center space-x-3">
                                         <div class="ml-6 truncate ">{{ $orchards->name_orchard }}</div>
-                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{Auth::user()->name}}</span> 
+                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{Auth::user()->name}}</span>
                                     </div>
                                     <div class=" ml-6 text-gray-500 text-sm truncate">{{ $orchards->location_orchard }}</div>
                                 </div>
@@ -48,8 +48,12 @@
                                     </div>
                                     <div class="w-0 flex-1 flex">
                                         <a  class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
-
-                                            <button wire:click="delete({{ $orchards->id }})" class="bg-red-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-trash-can"> ELIMINAR</i></button>
+                                            <button wire:click="ConfirmaDelete({{ $orchards->id }})"
+                                                    class="bg-red-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-trash-can"> ELIMINAR</i></button>
+                                            {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
+                                            @if($isconfirm)
+                                                @include('livewire.confirm-delete')
+                                            @endif
                                         </a>
                                     </div>
                                 </div>

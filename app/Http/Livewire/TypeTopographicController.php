@@ -10,6 +10,8 @@ class TypeTopographicController extends Component
     //Definimos variables a usar
     public $topograp, $type_topography, $type_topography_id;
     public $isDialogOpen = 0;
+    public $isconfirm =0;
+    public $getid =0;
 
     public function render()
     {
@@ -28,6 +30,16 @@ class TypeTopographicController extends Component
 
     public function closeModalPopover(){
         $this->isDialogOpen = false;
+    }
+
+    public function openModaldelete()
+    {
+        $this->isconfirm = true;
+    }
+
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
     }
 
     public function resetCreateForm(){
@@ -60,8 +72,14 @@ class TypeTopographicController extends Component
         $this->openModalPopover();
     }
 
-    public function delete($id){
-        TypeTopography::find($id)->delete();
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
+    }
+
+    public function delete(){
+        TypeTopography::find($this->getid)->delete();
         session()->flash('message', 'Topografia removida!');
+        $this->closeModaldelete();
     }
 }
