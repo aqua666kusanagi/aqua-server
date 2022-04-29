@@ -35,7 +35,7 @@
                                         </div>
                                         <div class=" ml-6 text-gray-500 text-sm truncate">{{ $orchards->location_orchard }}</div>
                                     </div>
-                                    <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                    <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="{{url("storage/".$orchards->path_image)}}" alt="">
                                 </div>
                                 <div>
                                     <div class="-mt-px flex divide-x divide-gray-200">

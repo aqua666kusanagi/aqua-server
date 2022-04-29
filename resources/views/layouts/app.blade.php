@@ -588,7 +588,7 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     @livewireScripts
-    @livewire('livewire-ui-modal')
+
     <script type="text/javascript">
         const setup = () => {
             const setTheme = (value) => {

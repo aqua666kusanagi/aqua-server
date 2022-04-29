@@ -17,9 +17,9 @@ class Orchard extends Model
         'type_soil_id',
         'climate_type_id',
         //'user_id',
-        
+
         'name_orchard',
-        /*'path_image',*/
+        'path_image',
         'location_orchard',
         /*'point',
         'area',*/
@@ -30,8 +30,8 @@ class Orchard extends Model
         'planting_density',
         'irrigation',
 
-    ]; 
-    
+    ];
+
     public function type_avo(){
         return $this->hasOne('App\Models\TypeAvocado','id','type_avocado_id');
     }
