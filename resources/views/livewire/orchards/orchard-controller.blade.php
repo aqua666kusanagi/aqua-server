@@ -25,17 +25,18 @@
                 @foreach($orchard as $orchards)
                 <div class="rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50" wire:click="edit({{ $orchards->id }})">
 
-                    <ul role="list" class="grid grid-cols-1 gap-6 ">
+                    <ul role="list" class="lg:grid grid grid-cols-1 gap-6 ">
                         <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 ">
-                            <div class="w-full flex items-center justify-between p-6 space-x-6">
-                                <div class="flex-1 truncate">
-                                    <div class="flex items-center space-x-3">
+                            <div class="w-full  items-center justify-between p-6 space-x-6">
+                            <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                <div class=" truncate">
+                                    <div class=" items-center space-x-3">
                                         <div class="ml-6 truncate ">{{ $orchards->name_orchard }}</div>
-                                        <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{Auth::user()->name}}</span> 
+                                        <!--   <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{Auth::user()->name}}</span>   -->
                                     </div>
                                     <div class=" ml-6 text-gray-500 text-sm truncate">{{ $orchards->location_orchard }}</div>
                                 </div>
-                                <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                
                             </div>
                             <div>
                                 <div class="-mt-px flex divide-x divide-gray-200">
