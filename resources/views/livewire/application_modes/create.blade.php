@@ -1,7 +1,7 @@
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0" >
 
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" aria-hidden="true"></div>
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:keydown.escape="closeModalPopover" wire:click="closeModalPopover()" aria-hidden="true"></div>
 
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
@@ -19,7 +19,7 @@
                                 <div class="flex">
                                     <h3 class="items-center pt-2 pr-4">Descripcion</h3>
                                     <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="description" wire:model="description">
+                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="descripcion" wire:model="description">
                                         @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
@@ -28,13 +28,13 @@
                                 <div class="mt-5 sm:mt-6">
                                     <button wire:click.prevent="store()" type="button"
                                             class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-primary text-base leading-6 font-bold text-white shadow-sm hover:border-gray-900 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                        Save
+                                        Guardar
                                     </button>
                                 </div>
                                 <div class="mt-5 sm:mt-6">
                                     <button wire:click="closeModalPopover()" type="button"
                                             class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2  bg-red-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                                        Close
+                                        Cerrar
                                     </button>
                                 </div>
                             </div>

@@ -30,6 +30,9 @@ class TypeTopographicController extends Component
 
     public function closeModalPopover(){
         $this->isDialogOpen = false;
+        $this->validate([
+            'type_topography.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -52,7 +55,7 @@ class TypeTopographicController extends Component
 
     public function store(){
         $this->validate([
-            'type_topography' => 'required',
+            'type_topography' => 'required|alpha',
         ]);
 
         TypeTopography::updateOrCreate(['id' => $this->type_topography_id], [

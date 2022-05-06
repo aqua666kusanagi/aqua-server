@@ -54,7 +54,7 @@ class UnitController extends Component
     public function store()
     {
         $this->validate([
-            'description' => 'required',
+            'description' => 'required|alpha',
         ]);
 
         Unit::updateOrCreate(['id' => $this->unit_id], [

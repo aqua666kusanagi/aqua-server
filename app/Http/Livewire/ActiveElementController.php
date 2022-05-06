@@ -60,6 +60,11 @@ class ActiveElementController extends Component
         $this->percentage = '';
     }
 
+    protected $messages = [
+        'chemical_element_id.required' => 'Este campo debe estar lleno',
+        'supply_id.required' => 'Este campo debe estar lleno',
+        'percentage.required' => 'Este campo debe estar lleno',
+    ];
 
     public function store()
     {

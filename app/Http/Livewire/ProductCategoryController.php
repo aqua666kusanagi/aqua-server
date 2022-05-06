@@ -33,6 +33,9 @@ class ProductCategoryController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'description.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -56,7 +59,7 @@ class ProductCategoryController extends Component
     public function store()
     {
         $this->validate([
-            'description' => 'required',
+            'description' => 'required|string',
         ]);
 
         ProductCategory::updateOrCreate(['id' => $this->product_categorie_id], [

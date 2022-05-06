@@ -279,6 +279,10 @@
                             Hanuc
                         </a>
 
+                        <h2 class="font-semibold text-xl  leading-tight rounded-full bg-green-100 px-4  py-4 border  text-center">
+                            {{__('Bienvenido ')}} {{Auth::user()->name}}
+                        </h2>
+
                         <!-- Mobile sub menu button -->
                         <button @click="isMobileSubMenuOpen = !isMobileSubMenuOpen" class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring">
                             <span class="sr-only">Open sub manu</span>
@@ -549,7 +553,7 @@
                 <!-- Main content -->
                 <main class=" flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
                     <!-- Content header -->
-                    <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+                    <div class="flex items-center justify-between px-4 border-b  dark:border-primary-darker">
                         @if(isset($header))
                         <h1 class="text-2xl font-semibold">{{$header}}</h1>
                         @endif

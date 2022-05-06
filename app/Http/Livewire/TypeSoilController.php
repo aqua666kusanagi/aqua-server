@@ -36,6 +36,9 @@ class TypeSoilController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'type_soil.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -54,12 +57,15 @@ class TypeSoilController extends Component
 
     }
 
+    protected $messages = [
+        'type_soil.required' => 'Este campo debe estar lleno',
+    ];
 
     public function store()
     {
 
         $this->validate([
-            'type_soil' => 'required',
+            'type_soil' => 'required|alpha',
         ]);
 
 

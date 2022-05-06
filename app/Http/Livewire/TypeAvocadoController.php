@@ -31,6 +31,9 @@ class TypeAvocadoController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'type_avocado.required' => '',
+        ]);
     }
 
     private function resetCreateForm(){
@@ -47,11 +50,14 @@ class TypeAvocadoController extends Component
         $this->isconfirm = false;
     }
 
+    protected $messages = [
+      'type_avocado.required' =>'Este campo debe estar lleno'
+    ];
 
     public function store()
     {
         $this->validate([
-            'type_avocado' => 'required',
+            'type_avocado' => 'required|alpha',
         ]);
 
         TypeAvocado::updateOrCreate(['id' => $this->typeavocado_id], [

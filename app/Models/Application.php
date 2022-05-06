@@ -23,7 +23,7 @@ class Application extends Model
         return $this->hasOne('App\Models\Workday','id','workday_id');
     }
 
-    public function applicationmode(){
+    public function applicationmodee(){
         return $this->hasOne('App\Models\ApplicationMode','id','application_mode_id');
     }
 }

@@ -30,6 +30,9 @@ class TypeJobController extends Component
 
     public function closeModalPopover(){
         $this->isDialogOpen = false;
+        $this->validate([
+            'type_job.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -52,7 +55,7 @@ class TypeJobController extends Component
 
     public function store(){
         $this->validate([
-            'type_job' => 'required',
+            'type_job' => 'required|alpha',
         ]);
 
         TypeJob::updateOrCreate(['id' => $this->type_job_id], [
@@ -79,7 +82,7 @@ class TypeJobController extends Component
 
     public function delete(){
         TypeJob::find($this->getid)->delete();
-        session()->flash('message', 'Trabajo removida!');
+        session()->flash('message', 'Trabajo removido!');
         $this->closeModaldelete();
     }
 }

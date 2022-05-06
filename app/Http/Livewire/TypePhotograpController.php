@@ -30,6 +30,9 @@ class TypePhotograpController extends Component
 
     public function closeModalPopover(){
         $this->isDialogOpen = false;
+        $this->validate([
+            'type_photograph.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -52,7 +55,7 @@ class TypePhotograpController extends Component
 
     public function store(){
         $this->validate([
-            'type_photograph' => 'required',
+            'type_photograph' => 'required|alpha',
         ]);
 
         TypePhotograph::updateOrCreate(['id' => $this->type_photograph_id], [

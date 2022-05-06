@@ -35,6 +35,9 @@ class ClimateTypeController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'climate_type.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -49,16 +52,19 @@ class ClimateTypeController extends Component
 
     private function resetCreateForm(){
 
-        $this->type_soil = '';
+        $this->climate_type = '';
 
     }
 
+    protected $messages = [
+        'climate_type.required' => 'Este campo debe estar lleno',
+    ];
 
     public function store()
     {
 
         $this->validate([
-            'climate_type' => 'required',
+            'climate_type' => 'required|alpha',
         ]);
 
 

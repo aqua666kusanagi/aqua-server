@@ -36,6 +36,9 @@ class PhenophaseController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'phenophase.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -53,12 +56,15 @@ class PhenophaseController extends Component
         $this->phenophase = '';
     }
 
+    protected $message = [
+        'phenophase.required' => 'Este campo debe estar lleno',
+    ];
 
     public function store()
     {
 
         $this->validate([
-            'phenophase' => 'required',
+            'phenophase' => 'required|alpha_num',
         ]);
 
 

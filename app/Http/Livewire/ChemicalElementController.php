@@ -38,6 +38,10 @@ class ChemicalElementController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'name.required' => '',
+            'chemical_code.required' =>'',
+        ]);
     }
 
     public function openModaldelete()
@@ -58,7 +62,7 @@ class ChemicalElementController extends Component
     public function store()
     {
         $this->validate([
-            'name' => 'required',
+            'name' => 'required|string',
             'chemical_code' => 'required|alpha_num',
         ]);
 

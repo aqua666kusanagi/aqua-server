@@ -34,6 +34,9 @@ class ApplicationModeController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
+        $this->validate([
+            'description.required' => '',
+        ]);
     }
 
     public function openModaldelete()
@@ -58,7 +61,7 @@ class ApplicationModeController extends Component
     public function store()
     {
         $this->validate([
-            'description' => 'required',
+            'description' => 'required|string',
         ]);
 
         ApplicationMode::updateOrCreate(['id' => $this->application_mode_id], [

@@ -32,8 +32,8 @@
                 @foreach($application as $app)
                     <tr>
                         <td class="border px-4 py-2">{{ $app->id }}</td>
-                        <td class="border px-4 py-2">{{ $app->workday->date_work}}</td>
-                        <td class="border px-4 py-2">{{ $app->applicationmode->description }}</td>
+                        <td class="border px-4 py-2">{{ $app->workdayy->date_work }}</td>
+                        <td class="border px-4 py-2">{{ $app->applicationmodee->description }}</td>
                         <td class="border px-4 py-2">{{ $app->date }}</td>
                         <td class="border px-4 py-2">{{ $app->note}}</td>
                         <td class="border px-4 py-2">
