@@ -13,8 +13,8 @@
                     <form enctype="multipart/form-data">
 
                         <div class=" bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                            <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-full ring-4 ring-green-500  shadow-lg "  style="background-image:url({{asset('images/fondoaguacate.jpg')}});">
-                                <h3 class="items-center text-white text-2xl">HUERTO</h3>
+                            <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-lg ring-4 ring-green-500 ring-opacity-50 " >
+                                <h3 class="items-center text-black text-2xl">HUERTO</h3>
                             </div>
                             <p class="mt-1 text-sm text-gray-500 items-center">Una vez creado, podras ver la informacion en cada momento que lo desees</p>
                         </div>
@@ -248,12 +248,12 @@
 
                             <div class="px-4 py-3 bg-gray-100 sm:px-6 flex">
                                 <span class="bg-green-700 text-white font-bold flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <button {{----}} wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:text-gray-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <button {{----}} wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-light focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                         Guardar
                                     </button>
                                 </span>
                                 <span class=" bg-red-700 mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                    <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                         Cerrar
                                     </button>
                                 </span>

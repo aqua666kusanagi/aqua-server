@@ -23,7 +23,7 @@
             @endif
             <div class="padd grid gap-4 grid-cols-3 ">
                 @foreach($orchard as $orchards)
-                    <div class="rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50" wire:click="edit({{ $orchards->id }})">
+                    <div class="rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
 
                         <ul role="list" class="lg:grid grid grid-cols-1 gap-6 ">
                             <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 ">
