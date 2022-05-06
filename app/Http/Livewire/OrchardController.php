@@ -146,6 +146,7 @@ class OrchardController extends Component
 
 
             'name_orchard' => $this->name_orchard,
+
             'path_image' => $this->path_image,
             'location_orchard' => $this->location_orchard,
             /*'point' => $this->type_soil_id,
@@ -178,7 +179,7 @@ class OrchardController extends Component
 
 
         $this->name_orchard = $orchard->name_orchard;
-        /*$this->path_image = $orchard->path_image;*/
+        $this->path_image = $orchard->path_image;
         $this->location_orchard = $orchard->location_orchard;
         /*$this->point = $orchard->point;
         $this->area = $orchard->area;*/
