@@ -279,7 +279,7 @@
                             Hanuc
                         </a>
 
-                        <h2 class="font-semibold text-xl  leading-tight rounded-full bg-green-100 px-4  py-4 border  text-center">
+                        <h2 class="font-semibold text-xl  leading-tight rounded-l-md rounded-r-md bg-green-100 px-4  py-4 border  text-center">
                             {{__('Bienvenido ')}} {{Auth::user()->name}}
                         </h2>
 
