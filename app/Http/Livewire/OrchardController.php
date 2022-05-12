@@ -112,14 +112,9 @@ class OrchardController extends Component
         $this->validate([
             'type_avocado_id' => 'required',
             'type_topography_id' => 'required',
-
             'type_soil_id' => 'required',
             'climate_type_id' => 'required',
-
             //'user_id' => 'required',//obtenerlo de la sesion
-
-
-
             'name_orchard' => 'required',
             'path_image' => 'required',
             'location_orchard' => 'required',
@@ -131,7 +126,6 @@ class OrchardController extends Component
             'creation_year' => 'required',
             'planting_density' => 'required',
             'irrigation' => 'required',
-
         ]);
 
     //dd($this->path_image);
@@ -181,8 +175,8 @@ class OrchardController extends Component
         $this->name_orchard = $orchard->name_orchard;
         $this->path_image = $orchard->path_image;
         $this->location_orchard = $orchard->location_orchard;
-        /*$this->point = $orchard->point;
-        $this->area = $orchard->area;*/
+        $this->point = $orchard->point;
+        $this->area = $orchard->area;
         $this->altitude = $orchard->altitude;
         $this->surface = $orchard->surface;
         $this->state = $orchard->state;
@@ -202,7 +196,7 @@ class OrchardController extends Component
     public function delete()
     {
         Orchard::find($this->getid)->delete();
-        session()->flash('message', 'Huerta eliminada!');
+        session()->flash('message', 'Huerto Removido!');
         $this->closeModaldelete();
     }
 }

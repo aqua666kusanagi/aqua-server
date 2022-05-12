@@ -48,7 +48,7 @@ class OrchardController extends Controller
         $orchard = Orchard::create($request->all());
 
         return redirect()->route('orchards.index')
-            ->with('success', 'Orchard created successfully.');
+            ->with('success', 'HUERTO CREADO EXISTOSAMENTE');
     }
 
     /**
@@ -91,7 +91,7 @@ class OrchardController extends Controller
         $orchard->update($request->all());
 
         return redirect()->route('orchards.index')
-            ->with('success', 'Orchard updated successfully');
+            ->with('success', 'HUERTO ACTUALIZADO EXISTOSAMENTE');
     }
 
     /**
@@ -104,6 +104,6 @@ class OrchardController extends Controller
         $orchard = Orchard::find($id)->delete();
 
         return redirect()->route('orchards.index')
-            ->with('success', 'Orchard deleted successfully');
+            ->with('success', 'HUERTO ELIMINADO EXITOSAMENTE');
     }
 }

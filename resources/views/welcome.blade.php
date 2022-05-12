@@ -61,7 +61,7 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-4 right-0 px-6 py-4 sm:block">
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">HOME</a>
+                                <a href="{{ url('orchard') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">HOME</a>
 
                                 <!--<a href="{{ route('password.update') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Restaurar Contraseña</a>-->
 
