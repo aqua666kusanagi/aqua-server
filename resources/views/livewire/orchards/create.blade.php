@@ -16,7 +16,7 @@
                             <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-lg ring-4 ring-green-500 ring-opacity-50 ">
                                 <h3 class="items-center text-black text-2xl">HUERTO</h3>
                             </div>
-                            <p class="mt-1 text-sm text-blue-600 items-center text-center">Una vez creado, podras ver la informacion en cada momento que lo desees</p>
+                            <p class="mt-1 text-sm text-blue-600 items-center text-center">-----------------------------Una vez creado, podras ver la informacion en cada momento que lo desees-----------------------------</p>
                         </div>
 
                         <div class="shadow sm:rounded-md sm:overflow-hidden ">
@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-start-1 col-span-2">
+                                        <div class="col-start-1 col-span-3">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Aguacate</h3>
                                                 <select wire:model="type_avocado_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -48,7 +48,7 @@
                                             @error('type_avocado_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
 
-                                        <div class=" col-start-1 col-span-2">
+                                        <div class=" col-start-4 col-span-3">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Topografia</h3>
                                                 <select wire:model="type_topography_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -63,7 +63,7 @@
                                         </div>
 
 
-                                        <div class=" col-start-1 col-span-2">
+                                        <div class=" col-start-1 col-span-3">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Suelo</h3>
                                                 <select wire:model="type_soil_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -77,7 +77,7 @@
                                             @error('type_soil_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
 
-                                        <div class="col-span-6 sm:col-span-3">
+                                        <div class="col-start-4 col-span-3 sm:col-span-3">
                                             <div class="pt-2 pr-4 flex">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Clima</h3>
                                                 <select wire:model="climate_type_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -92,7 +92,7 @@
                                         </div>
 
 
-                                        <!--
+                                        {{--
                                             <div class="">
                                                 <div class="pt-2 pr-4 flex">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Usuario</h3>
@@ -106,22 +106,7 @@
                                                 </div>
                                                 @error('user_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-
--->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <div class="pt-2 pr-4 flex">
-                                                <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de  Phenophase</h3>
-                                                <select wire:model="climate_type_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                    <option value="">Selecciona Opción</option>
-                                                    @foreach($phenophases as $phenophase)
-                                                    <option type="int" value="{{$phenophase->id}}">{{$phenophase->phenophase}}
-                                                    </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            @error('climate_type_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                                        </div>
-
+                                            --}}
 
 
                                         <div class="rounded-lg col-span-6  ">
@@ -129,7 +114,7 @@
                                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                                                 <div class="space-y-1 text-center items-center">
                                                     @if ($path_image)
-                                                    <img src="{{ $path_image->TemporaryUrl()}}" alt="preview image" width="100px" height="100px">
+                                                    <img src="{{$path_image->TemporaryUrl() }}" alt="preview image" width="100px" height="100px">
                                                     @else
                                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -149,7 +134,7 @@
                                             @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
-
+                                    {{--****************************************************************************--}}
                                     <div class="grid grid-cols-6 gap-4  px-7 w-full">
                                         <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4">
@@ -272,7 +257,7 @@
                                 </span>
                                 <span class="px-7"></span>
                                 <span class="bg-green-700 hover:bg- text-white font-bold flex   rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <button {{----}} wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                         Guardar
                                     </button>
                                 </span>

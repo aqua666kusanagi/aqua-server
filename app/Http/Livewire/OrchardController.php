@@ -18,7 +18,7 @@ class OrchardController extends Component
     use WithFileUploads;
 
     public $orchards, $orchard_id,
-        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id ,$phenophase_id ,
+        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id,
         $name_orchard ,
         $path_image,
         $location_orchard,
@@ -88,7 +88,6 @@ class OrchardController extends Component
         $this->type_soil_id = '';
         $this->climate_type_id = '';
         //$this->user_id = '';//obtenerlo de la sesion
-        $this->phenophase_id = '';
         $this->name_orchard = '';
         $this->path_image = '';
         $this->location_orchard = '';
@@ -105,9 +104,7 @@ class OrchardController extends Component
 
     public function store()
     {
-
-        //$this->path_image=$this->path_image->store('images', 'public');
-      //  dd($path);
+        //dd($this->path_image);
 
         $this->validate([
             'type_avocado_id' => 'required|integer',
@@ -115,9 +112,9 @@ class OrchardController extends Component
             'type_soil_id' => 'required|integer',
             'climate_type_id' => 'required|integer',
             //'user_id' => 'required',//obtenerlo de la sesion
-            'phenophase_id' => 'required|integer',
+            //'phenophase_id' => 'required|integer',//la fenofase se captura desde el monitoreo del huerto
             'name_orchard' => 'required|string',
-            //'path_image' => 'required|string',
+            'path_image' => 'required',
             'location_orchard' => 'required|string',
             'point' => 'required',
             'area' => 'required',
@@ -128,8 +125,10 @@ class OrchardController extends Component
             'planting_density' => 'required|integer',
             'irrigation' => 'required',
         ]);
+        $this->path_image=$this->path_image->store('images', 'public');
+        //dd($this->path_image);
 
-    //dd($this->path_image);
+
 
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
             'type_avocado_id' => $this->type_avocado_id,
@@ -137,7 +136,7 @@ class OrchardController extends Component
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->climate_type_id,
             //'user_id' => $this->type_soil_id,
-            'phenophase_id' => $this->phenophase_id,
+            //'phenophase_id' => $this->phenophase_id,
             'name_orchard' => $this->name_orchard,
             'path_image' => $this->path_image,
             'location_orchard' => $this->location_orchard,
