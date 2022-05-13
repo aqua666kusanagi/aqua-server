@@ -28,21 +28,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($active_element as $active_elements)
+                @foreach($active_elements as $active_element)
                     <tr>
-                        <td class="border px-4 py-2">{{ $active_elements->id }}</td>
-                        <td class="border px-4 py-2">{{ $active_elements->chemical_elemen->name }}</td>
-                        <td class="border px-4 py-2">{{ $active_elements->suppli->name }}</td>
-                        <td class="border px-4 py-2">{{ $active_elements->percentage }}</td>
+                        <td class="border px-4 py-2">{{ $active_element->id }}</td>
+                        <td class="border px-4 py-2">{{ $active_element->chemical_elemen->name }}</td>
+                        <td class="border px-4 py-2">{{ $active_element->suppli->name }}</td>
+                        <td class="border px-4 py-2">{{ $active_element->percentage }}</td>
 
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
-                                    <button wire:click="edit({{ $active_elements->id }})"
+                                    <button wire:click="edit({{ $active_element->id }})"
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="ConfirmaDelete({{ $active_elements->id }})"
+                                    <button wire:click="ConfirmaDelete({{ $active_element->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
                                     {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
                                     @if($isconfirm)

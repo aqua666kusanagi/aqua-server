@@ -13,6 +13,6 @@ class ClimateType extends Model
     protected $fillable = [
 
         'climate_type',
-
+        'description',
     ];
 }

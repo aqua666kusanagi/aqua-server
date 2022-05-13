@@ -13,6 +13,6 @@ class TypeJob extends Model
     protected $fillable = [
 
         'type_job',
-
+        'description',
     ];
 }

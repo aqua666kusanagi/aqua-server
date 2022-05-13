@@ -17,21 +17,27 @@ class TypeSoilSeeder extends Seeder
         $type_soils=[
             [
                 'type_soil' => 'Arcilloso',
+                'description' => '',
             ],
             [
                 'type_soil' => 'Limosa',
+                'description' => '',
             ],
             [
                 'type_soil' => 'Arenoso',
+                'description' => '',
             ],
             [
                 'type_soil' => 'Luvisoles',
+                'description' => '',
             ],
             [
                 'type_soil' => 'Nitisoles',
+                'description' => '',
             ],
             [
                 'type_soil' => 'Calcisoles',
+                'description' => '',
             ],
         ];
         DB::table('type_soils')->insert ($type_soils);

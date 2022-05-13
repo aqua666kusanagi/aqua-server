@@ -17,12 +17,15 @@ class PhenophaseSeeder extends Seeder
         $phenophases=[
             [
                 'phenophase' => 'Crecimiento De Raices',
+                'description' => '',
             ],
             [
                 'phenophase' => 'Brote Floral',
+                'description' => '',
             ],
             [
                 'phenophase' => 'Crecimieno Fruto ',
+                'description' => '',
             ],
         ];
         DB::table('phenophases')->insert ($phenophases);

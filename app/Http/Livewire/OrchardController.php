@@ -8,6 +8,7 @@ use App\Models\TypeTopography;
 use App\Models\TypeSoil;
 use App\Models\ClimateType;
 use App\Models\User;
+use App\Models\Phenophase;
 
 use Livewire\WithFileUploads;
 
@@ -16,8 +17,8 @@ class OrchardController extends Component
 {
     use WithFileUploads;
 
-    public $orchard, $orchard_id,
-        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id ,
+    public $orchards, $orchard_id,
+        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id ,$phenophase_id ,
         $name_orchard ,
         $path_image,
         $location_orchard,
@@ -38,7 +39,7 @@ class OrchardController extends Component
 
     public function render()
     {
-        $this->orchard = Orchard::all();
+        $this->orchards = Orchard::all();
 
         return view('livewire.orchards.orchard-controller', [
         //return view('show_orchards.index', [
@@ -47,6 +48,7 @@ class OrchardController extends Component
             'type_soils' => TypeSoil::all(),
             'climate_types' => ClimateType::all(),
             'users' => User::all(),
+            'phenophases' => Phenophase::all(),
         ]);
     }
 
@@ -86,6 +88,7 @@ class OrchardController extends Component
         $this->type_soil_id = '';
         $this->climate_type_id = '';
         //$this->user_id = '';//obtenerlo de la sesion
+        $this->phenophase_id = '';
         $this->name_orchard = '';
         $this->path_image = '';
         $this->location_orchard = '';
@@ -112,11 +115,12 @@ class OrchardController extends Component
             'type_soil_id' => 'required|integer',
             'climate_type_id' => 'required|integer',
             //'user_id' => 'required',//obtenerlo de la sesion
+            'phenophase_id' => 'required|integer',
             'name_orchard' => 'required|string',
-            'path_image' => 'required|string',
+            //'path_image' => 'required|string',
             'location_orchard' => 'required|string',
             'point' => 'required',
-            'area' => 'required|',
+            'area' => 'required',
             'altitude' => 'required',
             'surface' => 'required',
             'state' => 'required|integer',
@@ -133,8 +137,9 @@ class OrchardController extends Component
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->climate_type_id,
             //'user_id' => $this->type_soil_id,
+            'phenophase_id' => $this->phenophase_id,
             'name_orchard' => $this->name_orchard,
-            //'path_image' => $this->path_image,
+            'path_image' => $this->path_image,
             'location_orchard' => $this->location_orchard,
             /*'point' => $this->type_soil_id,
             'area' => $this->type_soil_id,*/
@@ -155,27 +160,27 @@ class OrchardController extends Component
 
     public function edit($id)
     {
-        $orchard = Orchard::findOrFail($id);
+        $orchards = Orchard::findOrFail($id);
         $this->orchard_id = $id;
-        $this->type_avocado_id = $orchard->type_avocado_id;
-        $this->type_topography_id = $orchard->type_topography_id;
+        $this->type_avocado_id = $orchards->type_avocado_id;
+        $this->type_topography_id = $orchards->type_topography_id;
 
-        $this->type_soil_id = $orchard->type_soil_id;
-        $this->climate_type_id = $orchard->climate_type_id;
-        //$this->user_id = $orchard->user_id;
+        $this->type_soil_id = $orchards->type_soil_id;
+        $this->climate_type_id = $orchards->climate_type_id;
+        //$this->user_id = $orchards->user_id;
+        $this->phenophase_id = $orchards->phenophase_id;
 
-
-        $this->name_orchard = $orchard->name_orchard;
-        //$this->path_image = $orchard->path_image;
-        $this->location_orchard = $orchard->location_orchard;
-        $this->point = $orchard->point;
-        $this->area = $orchard->area;
-        $this->altitude = $orchard->altitude;
-        $this->surface = $orchard->surface;
-        $this->state = $orchard->state;
-        $this->creation_year = $orchard->creation_year;
-        $this->planting_density = $orchard->planting_density;
-        $this->irrigation = $orchard->irrigation;
+        $this->name_orchard = $orchards->name_orchard;
+        $this->path_image = $orchards->path_image;
+        $this->location_orchard = $orchards->location_orchard;
+        $this->point = $orchards->point;
+        $this->area = $orchards->area;
+        $this->altitude = $orchards->altitude;
+        $this->surface = $orchards->surface;
+        $this->state = $orchards->state;
+        $this->creation_year = $orchards->creation_year;
+        $this->planting_density = $orchards->planting_density;
+        $this->irrigation = $orchards->irrigation;
 
 
         $this->openModalPopover();

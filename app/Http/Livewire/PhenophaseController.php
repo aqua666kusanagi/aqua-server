@@ -7,7 +7,7 @@ use App\Models\Phenophase;
 
 class PhenophaseController extends Component
 {
-    public $pheno, $pheno_id, $phenophase;
+    public $phenophases, $phenophase_id, $phenophase;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -15,7 +15,7 @@ class PhenophaseController extends Component
 
     public function render()
     {
-        $this->pheno = Phenophase::all();
+        $this->phenophases = Phenophase::all();
 
         return view('livewire.phenophases.phenophase-controller');
     }
@@ -81,9 +81,9 @@ class PhenophaseController extends Component
 
     public function edit($id)
     {
-        $pheno = Phenophase::findOrFail($id);
-        $this->pheno_id = $id;
-        $this->phenophase = $pheno->phenophase;
+        $phenophases = Phenophase::findOrFail($id);
+        $this->phenophase_id = $id;
+        $this->phenophase = $phenophases->phenophase;
 
         $this->openModalPopover();
     }

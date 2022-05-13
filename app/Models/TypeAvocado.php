@@ -13,6 +13,6 @@ class TypeAvocado extends Model
     protected $fillable = [
 
         'type_avocado',
-
+        'description',
     ];
 }

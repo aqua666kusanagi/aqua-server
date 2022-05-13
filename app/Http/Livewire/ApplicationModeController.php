@@ -9,14 +9,14 @@ use App\Models\ApplicationMode;
 class ApplicationModeController extends Component
 {
     //DEFINIMOS UNAS VARIABLES A USAR
-    public $aplication, $description, $application_mode_id;
+    public $aplications, $description, $application_mode_id;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this -> aplication = ApplicationMode::all();
+        $this -> aplications = ApplicationMode::all();
         return view('livewire.application_modes.application-mode-controller');
     }
 
@@ -76,9 +76,9 @@ class ApplicationModeController extends Component
 
     public function edit($id)
     {
-        $aplication_mode = ApplicationMode::findOrFail($id);
+        $aplications = ApplicationMode::findOrFail($id);
         $this->application_mode_id = $id;
-        $this->description = $aplication_mode->description;
+        $this->description = $aplications->description;
 
         $this->openModalPopover();
     }

@@ -16,6 +16,7 @@ class CreatePhenophasesTable extends Migration
         Schema::create('phenophases', function (Blueprint $table) {
             $table->id();
             $table->string("phenophase",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

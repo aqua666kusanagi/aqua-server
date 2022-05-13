@@ -16,6 +16,7 @@ class CreateTypeJobsTable extends Migration
         Schema::create('type_jobs', function (Blueprint $table) {
             $table->id();
             $table->string("type_job",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

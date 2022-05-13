@@ -26,6 +26,7 @@ class CreateOrchardsTable extends Migration
             $table->foreignIdFor(ClimateType::class)->nullable()->constrained();
             $table->foreignIdFor(User::class)->nullable()->constrained();
 
+
             $table->string("name_orchard",250);
             $table->string("path_image",250)->nullable();
             $table->text("location_orchard");

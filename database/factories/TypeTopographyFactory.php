@@ -15,6 +15,7 @@ class TypeTopographyFactory extends Factory
     {
         return [
             'type_topography' => $this->faker->word(),
+            'description' => $this->faker->word(),
         ];
     }
 }

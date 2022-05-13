@@ -16,6 +16,7 @@ class CreateTypeSoilsTable extends Migration
         Schema::create('type_soils', function (Blueprint $table) {
             $table->id();
             $table->string("type_soil",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

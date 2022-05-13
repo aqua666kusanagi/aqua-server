@@ -13,6 +13,6 @@ class Phenophase extends Model
     protected $fillable = [
 
         'phenophase',
-
+        'description',
     ];
 }

@@ -13,6 +13,7 @@ class TypeTopography extends Model
     protected $fillable = [
 
         'type_topography',
+        'description',
 
     ];
 }

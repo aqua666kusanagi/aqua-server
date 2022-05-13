@@ -10,14 +10,14 @@ use App\Models\ApplicationMode;
 class ApplicationController extends Component
 {
     //Agregamos la variables a usar
-    public $application, $application_id, $workday_id, $application_mode_id, $date, $note;
+    public $applications, $application_id, $workday_id, $application_mode_id, $date, $note;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->application = Application::all();
+        $this->applications = Application::all();
         return view('livewire.applications.application-controller',[
             'workdays' => Workday::all(),
             'application_modes' => ApplicationMode::all()
@@ -81,12 +81,12 @@ class ApplicationController extends Component
 
     public function edit($id)
     {
-        $aplicacion = Application::findOrFail($id);
+        $aplicacions = Application::findOrFail($id);
         $this->application_id = $id;
-        $this->workday_id = $aplicacion->workday_id;
-        $this->application_mode_id = $aplicacion->application_mode_id;
-        $this->date = $aplicacion->date;
-        $this->note = $aplicacion->note;
+        $this->workday_id = $aplicacions->workday_id;
+        $this->application_mode_id = $aplicacions->application_mode_id;
+        $this->date = $aplicacions->date;
+        $this->note = $aplicacions->note;
         $this->openModalPopover();
     }
 

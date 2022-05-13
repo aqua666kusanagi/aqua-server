@@ -17,21 +17,27 @@ class ClimateTypeSeeder extends Seeder
         $climate_types=[
             [
                 'climate_type' => 'Calido',
+                'description' => '',
             ],
             [
                 'climate_type' => 'frio',
+                'description' => '',
             ],
             [
                 'climate_type' => 'Humedo',
+                'description' => '',
             ],
             [
                 'climate_type' => 'Templado',
+                'description' => '',
             ],
             [
                 'climate_type' => 'tropical',
+                'description' => '',
             ],
             [
                 'climate_type' => 'subtropical',
+                'description' => '',
             ],
         ];
         DB::table('climate_types')->insert ($climate_types);

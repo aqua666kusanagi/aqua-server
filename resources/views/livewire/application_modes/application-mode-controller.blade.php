@@ -33,7 +33,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($aplication as $aplicacion)
+                @foreach($aplications as $aplicacion)
                     <tr>
                         <td class="border px-4 py-2">{{ $aplicacion->id }}</td>
                         <td class="border px-4 py-2">{{ $aplicacion->description }}</td>

@@ -13,6 +13,5 @@ class TypePhotograph extends Model
     protected $fillable = [
 
         'type_photograph',
-
     ];
 }

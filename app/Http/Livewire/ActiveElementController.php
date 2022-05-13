@@ -9,7 +9,7 @@ use App\Models\Supply;
 
 class ActiveElementController extends Component
 {
-    public $active_element, $active_element_id, $chemical_element_id, $supply_id,$percentage;
+    public $active_elements, $active_element_id, $chemical_element_id, $supply_id,$percentage;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -17,7 +17,7 @@ class ActiveElementController extends Component
 
     public function render()
     {
-        $this->active_element = ActiveElement::all();
+        $this->active_elements = ActiveElement::all();
 
         return view('livewire.active_elements.active-element-controller', [
             'chemical_elements' => ChemicalElement::all(),

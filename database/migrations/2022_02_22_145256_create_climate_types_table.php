@@ -16,6 +16,7 @@ class CreateClimateTypesTable extends Migration
         Schema::create('climate_types', function (Blueprint $table) {
             $table->id();
             $table->string("climate_type",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

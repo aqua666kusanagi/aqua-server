@@ -15,6 +15,7 @@ class TypePhotographFactory extends Factory
     {
         return [
             'type_photograph' => $this->faker->word(),
+            'description' => $this->faker->word(),
         ];
     }
 }

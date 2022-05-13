@@ -16,6 +16,7 @@ class CreateTypeTopographiesTable extends Migration
         Schema::create('type_topographies', function (Blueprint $table) {
             $table->id();
             $table->string("type_topography",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

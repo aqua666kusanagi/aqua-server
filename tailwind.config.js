@@ -13,11 +13,12 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-            colors: {
-                'green-500 ': '#10eb81',
-              },
+            
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins:{
+        tailwindcss: {},
+        autoprefixer: {},
+    } [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

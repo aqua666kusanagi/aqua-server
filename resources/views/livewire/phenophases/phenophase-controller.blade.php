@@ -33,21 +33,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($pheno as $phenophas)
+                @foreach($phenophases as $phenophase)
                     <tr>
-                        <td class="border px-4 py-2">{{ $phenophas->id }}</td>
-                        <td class="border px-4 py-2">{{ $phenophas->phenophase }}</td>
+                        <td class="border px-4 py-2">{{ $phenophase->id }}</td>
+                        <td class="border px-4 py-2">{{ $phenophase->phenophase }}</td>
+                        <td class="border px-4 py-2">{{ $phenophase->description }}</td>
 
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
-                                    <button wire:click="edit({{ $phenophas->id }})"
+                                    <button wire:click="edit({{ $phenophase->id }})"
                                             class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
-                                    <button wire:click="ConfirmaDelete({{ $phenophas->id }})"
+                                    <button wire:click="ConfirmaDelete({{ $phenophase->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                                    {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
+                                    <button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>
                                     @if($isconfirm)
                                         @include('livewire.confirm-delete')
                                     @endif

@@ -13,6 +13,6 @@ class TypeSoil extends Model
     protected $fillable = [
 
         'type_soil',
-
+        'description',
     ];
 }

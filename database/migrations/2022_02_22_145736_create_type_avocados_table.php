@@ -16,6 +16,7 @@ class CreateTypeAvocadosTable extends Migration
         Schema::create('type_avocados', function (Blueprint $table) {
             $table->id();
             $table->string("type_avocado",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,7 +15,8 @@ class CreateTypePhotographsTable extends Migration
     {
         Schema::create('type_photographs', function (Blueprint $table) {
             $table->id();
-            $table->string("type_photograph",250);;
+            $table->string("type_photograph",250);
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });
