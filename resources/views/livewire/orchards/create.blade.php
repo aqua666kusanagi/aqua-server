@@ -16,7 +16,7 @@
                             <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-lg ring-4 ring-green-500 ring-opacity-50 " >
                                 <h3 class="items-center text-black text-2xl">HUERTO</h3>
                             </div>
-                            <p class="mt-1 text-sm text-gray-500 items-center">Una vez creado, podras ver la informacion en cada momento que lo desees</p>
+                            <p class="mt-1 text-sm text-blue-600 items-center">----------------Una vez creado, podras ver la informacion en cada momento que lo desees----------------</p>
                         </div>
 
                         <div class="shadow sm:rounded-md sm:overflow-hidden mb-8">
@@ -92,7 +92,7 @@
                                         </div>
 
 
-                                        <!-- USUARIO
+                                        {{--USUARIO
                                             <div class="">
                                                 <div class="pt-2 pr-4 flex">
 
@@ -120,18 +120,14 @@
                                                     @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>
-                                            -->
+                                            --}}
 
                                         <div class="rounded-lg col-span-6  ">
                                             <label class="block text-sm font-medium text-gray-700"> Cargar Imagen </label>
                                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
-                                                <div class="space-y-1 text-center">
+                                                <div class="space-y-1 text-center items-center">
                                                     @if ($path_image)
-
-                                                        Photo Preview:
-                                                        Juan Diego
-
-                                                        <img src="{{ $path_image }}" alt="preview image" width="100px" height="100px">
+                                                        <img src="{{ $path_image->TemporaryUrl()}}" alt="preview image" width="100px" height="100px">
                                                     @else
                                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -150,100 +146,105 @@
                                             </div>
                                             @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
-
-
-                                        <div class="col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Ubicacion</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Localizacion de Huerto" wire:model="location_orchard">
-                                                </div>
-                                                @error('location_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-4">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Punto</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Point" wire:model="point">
-                                                </div>
-                                                @error('point') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-4">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Area</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Area" wire:model="area">
-                                                </div>
-                                                @error('area') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Altitud</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Altitud" wire:model="altitude">
-                                                </div>
-                                                @error('altitude') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Superficie</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Superficie" wire:model="surface">
-                                                </div>
-                                                @error('surface') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-4">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Estado</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Estado" wire:model="state">
-                                                </div>
-                                                @error('state') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Año de Creacion</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Año de Creacion" wire:model="creation_year">
-                                                </div>
-                                                @error('creation_year') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700">Densidad de plantado</h3>
-                                                <div class="">
-                                                    <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Densidad de Plantado" wire:model="planting_density">
-                                                </div>
-                                                @error('planting_density') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                            <div class="pt-2 pr-4">
-                                                <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
-                                                <select type="text" wire:model="irrigation" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="1">Si</option>
-                                                    <option value="0">No</option>
-                                                </select>
-                                            </div>
-                                            @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
-                                        </div>
                                     </div>
+                                        {{--************************************************************************--}}
+                                        <div class="grid grid-cols-6 gap-4  px-7 w-full">
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Ubicacion</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Localizacion de Huerto" wire:model="location_orchard">
+                                                    </div>
+                                                    @error('location_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Punto</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Point" wire:model="point">
+                                                    </div>
+                                                    @error('point') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Area</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Area" wire:model="area">
+                                                    </div>
+                                                    @error('area') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Altitud</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Altitud" wire:model="altitude">
+                                                    </div>
+                                                    @error('altitude') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Superficie</h3>
+                                                    <div class="grid grid-cols-3 gap-4">
+                                                    <div class="col-start-1 col-span-2">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Superficie" wire:model="surface">
+                                                    </div>
+                                                    <h3 class="font-medium text-gray-700 py-4 ">hect</h3>
+                                                    </div>
+                                                    @error('surface') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Estado</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Estado" wire:model="state">
+                                                    </div>
+                                                    @error('state') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Año de Creacion</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Año de Creacion" wire:model="creation_year">
+                                                    </div>
+                                                    @error('creation_year') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700">Densidad de plantado</h3>
+                                                    <div class="">
+                                                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Densidad de Plantado" wire:model="planting_density">
+                                                    </div>
+                                                    @error('planting_density') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-start-1 col-span-2">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
+                                                    <select type="text" wire:model="irrigation" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Seleccionar</option>
+                                                        <option value="1">Si</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+                                                </div>
+                                                @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
+                                            </div>
+                                        </div>
+
                                 </div>
                             </div>
 
@@ -255,7 +256,7 @@
                                 </span>
                                 <span class="px-7"></span>
                                 <span class="bg-green-700 hover:bg- text-white font-bold flex   rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <button {{----}} wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm   focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <button {{----}} wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-indigo-600 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                         Guardar
                                     </button>
                                 </span>

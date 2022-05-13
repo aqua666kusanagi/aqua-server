@@ -83,12 +83,9 @@ class OrchardController extends Component
         $this->orchard_id = '';
         $this->type_avocado_id = '';
         $this->type_topography_id = '';
-
         $this->type_soil_id = '';
         $this->climate_type_id = '';
         //$this->user_id = '';//obtenerlo de la sesion
-
-
         $this->name_orchard = '';
         $this->path_image = '';
         $this->location_orchard = '';
@@ -106,25 +103,25 @@ class OrchardController extends Component
     public function store()
     {
 
-        $this->path_image=$this->path_image->store('images', 'public');
+        //$this->path_image=$this->path_image->store('images', 'public');
       //  dd($path);
 
         $this->validate([
-            'type_avocado_id' => 'required',
-            'type_topography_id' => 'required',
-            'type_soil_id' => 'required',
-            'climate_type_id' => 'required',
+            'type_avocado_id' => 'required|integer',
+            'type_topography_id' => 'required|integer',
+            'type_soil_id' => 'required|integer',
+            'climate_type_id' => 'required|integer',
             //'user_id' => 'required',//obtenerlo de la sesion
-            'name_orchard' => 'required',
-            'path_image' => 'required',
-            'location_orchard' => 'required',
-            //'point' => 'required',
-            'area' => 'required',
+            'name_orchard' => 'required|string',
+            'path_image' => 'required|string',
+            'location_orchard' => 'required|string',
+            'point' => 'required',
+            'area' => 'required|',
             'altitude' => 'required',
             'surface' => 'required',
-            'state' => 'required',
-            'creation_year' => 'required',
-            'planting_density' => 'required',
+            'state' => 'required|integer',
+            'creation_year' => 'required|numeric',
+            'planting_density' => 'required|integer',
             'irrigation' => 'required',
         ]);
 
@@ -133,15 +130,11 @@ class OrchardController extends Component
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
             'type_avocado_id' => $this->type_avocado_id,
             'type_topography_id' => $this->type_topography_id,
-
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->climate_type_id,
             //'user_id' => $this->type_soil_id,
-
-
             'name_orchard' => $this->name_orchard,
-
-            'path_image' => $this->path_image,
+            //'path_image' => $this->path_image,
             'location_orchard' => $this->location_orchard,
             /*'point' => $this->type_soil_id,
             'area' => $this->type_soil_id,*/
@@ -153,7 +146,7 @@ class OrchardController extends Component
             'irrigation' => $this->irrigation,
         ]);
 
-        session()->flash('message', $this->orchard_id ? 'Huerta Actualizado!' : 'Huerta Creada!');
+        session()->flash('message', $this->orchard_id ? 'Huerto Actualizado!' : 'Huerto Creado!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -173,7 +166,7 @@ class OrchardController extends Component
 
 
         $this->name_orchard = $orchard->name_orchard;
-        $this->path_image = $orchard->path_image;
+        //$this->path_image = $orchard->path_image;
         $this->location_orchard = $orchard->location_orchard;
         $this->point = $orchard->point;
         $this->area = $orchard->area;
