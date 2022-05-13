@@ -106,7 +106,7 @@
                                                 </div>
                                                 @error('user_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-                                            
+
 -->
                                         <div class="col-span-6 sm:col-span-3">
                                             <div class="pt-2 pr-4 flex">
@@ -194,11 +194,15 @@
                                         <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Superficie</h3>
-                                                <div class="grid grid-cols-3 gap-4">
-                                                    <div class="col-start-1 col-span-2">
-                                                        <input type="text" class="text-center block w-full border border-gray-300 rounded-md shadow-sm py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Superficie" wire:model="surface">
+                                                <div class="">
+                                                    <div class="">
+                                                        <select wire:model="surface" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                            <option value="">Superficie</option>
+                                                            @for($var=1; $var<=200;$var=$var+1)
+                                                                <option type="int" value="{{$var}}"> {{$var}} mts</option>
+                                                            @endfor
+                                                        </select>
                                                     </div>
-                                                    <h3 class="font-medium text-gray-700 py-4 ">hectareas</h3>
                                                 </div>
                                                 @error('surface') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
@@ -218,7 +222,12 @@
                                             <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Año de Creacion</h3>
                                                 <div class="">
-                                                    <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Año de Creacion" wire:model="creation_year">
+                                                    <select wire:model="creation_year" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Año de creacion</option>
+                                                        @for($var=1980; $var<=2022;$var=$var+1)
+                                                            <option type="int" value="{{$var}}"> {{$var}}</option>
+                                                        @endfor
+                                                    </select>
                                                 </div>
                                                 @error('creation_year') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
@@ -228,7 +237,12 @@
                                             <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Densidad de plantado</h3>
                                                 <div class="">
-                                                    <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Densidad de Plantado" wire:model="planting_density">
+                                                    <select wire:model="planting_density" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Densidad de Plantado</option>
+                                                        @for($var=1; $var<=10;$var=$var+1)
+                                                            <option type="int" value="{{$var}}"> {{$var}} hectareas</option>
+                                                        @endfor
+                                                    </select>
                                                 </div>
                                                 @error('planting_density') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
