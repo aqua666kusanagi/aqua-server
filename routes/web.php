@@ -56,9 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         return view("profile.show");
     });
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', OrchardController::class);
 
     Route::get('orchard', OrchardController::class);
 

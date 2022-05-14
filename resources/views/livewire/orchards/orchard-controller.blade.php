@@ -15,7 +15,7 @@
                     class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>-->
             <div class="flex items-center justify-between  dark:border-primary-darker px- py-4 sm:rounded-lg padd" style="background-image:url({{asset('images/fondoaguacate.jpg')}});">
                 <h1 class="text-2xl font-semibold text-gray-200">HUERTOS HASS</h1>
-                <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
+                <button wire:click="create()" class="hover:bg-green-800 bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
             </div>
 
             @if($isDialogOpen)
@@ -43,13 +43,13 @@
                                             <a  class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
 
 
-                                                <button wire:click="edit({{ $orchard->id }})" class="bg-green-700 text-white py-2 px-4 rounded-full ml-3"><i class="fa-solid fa-pen-to-square"> EDITAR</i></button>
+                                                <button wire:click="edit({{ $orchard->id }})" class="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-full ml-3"><i class="fa-solid fa-pen-to-square"> EDITAR</i></button>
                                             </a>
                                         </div>
                                         <div class="w-0 flex-1 flex">
                                             <a  class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                                 <button wire:click="ConfirmaDelete({{ $orchard->id }})"
-                                                        class="bg-red-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-trash-can"> ELIMINAR</i></button>
+                                                        class="bg-red-700 text-white font-bold py-2 px-4 rounded-full hover:bg-red-600"><i class="fa-solid fa-trash-can"> ELIMINAR</i></button>
                                                 {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
                                                 @if($isconfirm)
                                                     @include('livewire.confirm-delete')
