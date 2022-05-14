@@ -8,7 +8,7 @@
 
         <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle  w-full">
 
-            <div class="">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
                     <div class="space-y-2 sm:px-6 lg:px-0 lg:col-span-9">
                     <form enctype="multipart/form-data">
 
