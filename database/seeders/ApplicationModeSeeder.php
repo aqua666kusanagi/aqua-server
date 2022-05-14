@@ -15,12 +15,21 @@ class ApplicationModeSeeder extends Seeder
      */
     public function run()
     {
-        ApplicationMode::factory(10)->create();
-        /*$data = [
+        //ApplicationMode::factory(10)->create();
+        $data = [
             [
-                'description' => 'en la pata de la planta'
+                'description' =>    'En la pata de la planta',
+            ],
+            [
+                'description' =>   'Riego de liquido en la raiz',
+            ],
+            [
+                'description' =>    'Fumigacion Base agua en bombeo',
+            ],
+            [
+                'description' =>    'Polvo alrededor del arbol',
             ]
         ];
-        DB::table('application_modes')->insert($data);*/
+        DB::table('application_modes')->insert($data);
     }
 }

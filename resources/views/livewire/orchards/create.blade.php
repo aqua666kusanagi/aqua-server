@@ -8,11 +8,11 @@
 
         <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle  w-full">
 
-            <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
-                <div class="space-y-2 sm:px-6 lg:px-0 lg:col-span-9">
+            <div class="">
+                    <div class="space-y-2 sm:px-6 lg:px-0 lg:col-span-9">
                     <form enctype="multipart/form-data">
 
-                        <div class=" bg-white py-6 px-4 space-y-6 sm:p-6 ">
+                        <div class=" bg-white py-6 px-4 space-y-6 sm:p-6">
                             <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-lg ring-4 ring-green-500 ring-opacity-50 ">
                                 <h3 class="items-center text-black text-2xl">HUERTO</h3>
                             </div>
@@ -22,7 +22,7 @@
                         <div class="shadow sm:rounded-md sm:overflow-hidden ">
                             <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                 <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                                    <div class="grid grid-cols-6 gap-6">
+                                    <div class="grid grid-cols-6 gap-4  px-7 w-full">
 
                                         <div class="col-span-6 ">
                                             <div class="pt-2 pr-4">
@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-start-1 col-span-3">
+                                        <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Aguacate</h3>
                                                 <select wire:model="type_avocado_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -48,7 +48,7 @@
                                             @error('type_avocado_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
 
-                                        <div class=" col-start-4 col-span-3">
+                                        <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Topografia</h3>
                                                 <select wire:model="type_topography_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -63,7 +63,7 @@
                                         </div>
 
 
-                                        <div class=" col-start-1 col-span-3">
+                                        <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4 ">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Suelo</h3>
                                                 <select wire:model="type_soil_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -77,8 +77,8 @@
                                             @error('type_soil_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
 
-                                        <div class="col-start-4 col-span-3 sm:col-span-3">
-                                            <div class="pt-2 pr-4 flex">
+                                        <div class="col-start-1 col-span-2">
+                                            <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Clima</h3>
                                                 <select wire:model="climate_type_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <option value="">Selecciona Opción</option>
@@ -115,7 +115,7 @@
                                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                                                 <div class="space-y-1 text-center items-center">
                                                     @if ($path_image)
-                                                    <img src="{{method_exists($path_image, 'TemporaryUrl')?$path_image->TemporaryUrl():asset("storage/".$path_image)}}" alt="preview image" width="100px" height="100px">
+                                                    <img src="{{method_exists($path_image, 'TemporaryUrl')?$path_image->TemporaryUrl():asset("storage/". $path_image)}}" alt="preview image" width="100px" height="100px">
                                                     @else
                                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -180,12 +180,13 @@
                                         <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Superficie</h3>
-                                                <div class="w-full border">
+                                                <div class="w-full">
                                                     <div class="flex">
-                                                        <input type="text" class=" w-full text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Estado" wire:model="surface">
-                                                        <select wire:model="surface" class="w-full col-span-2 text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                            <option value=""></option>
-                                                            <option type="int" value="">  mts</option>
+                                                        <input name="area" type="text" class=" w-48 text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Superficie" wire:model="surface">
+                                                        <select name="tipo" class="w-full col-span-2 text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                            <option value="">area</option>
+                                                            <option value="metro">mts²</option>
+                                                            <option value="hectarea">hect²</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -195,9 +196,29 @@
 
                                         <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4">
+                                                <h3 class="text-center block text-sm font-medium text-gray-700">Dist. de plantado</h3>
+                                                <div class="w-full">
+                                                    <div class="">
+                                                        <select name="distancia" class="w-full text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                            <option value="">Selecione una opción</option>
+                                                            <option value="3.5">a 3.5 mtrs</option>
+                                                            <option value="4">a 4 mtrs</option>
+                                                            <option value="4.5">a 4.5 mtrs</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-start-1 col-span-2">
+                                            <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Estado</h3>
                                                 <div class="">
-                                                    <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Estado" wire:model="state">
+                                                    <select wire:model="state" class="w-full col-span-2 text-center mt-1 block border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Seleccione Una Opcion</option>
+                                                        <option type="int" value="1">Activo</option>
+                                                        <option type="int" value="0">Sin Seguimiento</option>
+                                                    </select>
                                                 </div>
                                                 @error('state') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
@@ -217,17 +238,13 @@
                                                 @error('creation_year') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
                                         </div>
-
+                                        {{--*********************CALCULO DE SI ES HECT O MTRS*******************--}}
+                                        {{--<script src="{{asset('js/operaciones.js')}}"></script>--}}
                                         <div class="col-start-1 col-span-2">
                                             <div class="pt-2 pr-4">
                                                 <h3 class="text-center block text-sm font-medium text-gray-700">Densidad de plantado</h3>
                                                 <div class="">
-                                                    <select wire:model="planting_density" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Densidad de Plantado</option>
-                                                        @for($var=1; $var<=10;$var=$var+1)
-                                                            <option type="int" value="{{$var}}"> {{$var}} hectareas</option>
-                                                        @endfor
-                                                    </select>
+                                                    <input name="densidad" type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Densidad" wire:model="planting_density">
                                                 </div>
                                                 @error('planting_density') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>

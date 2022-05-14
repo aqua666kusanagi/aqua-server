@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TypeSoil;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -41,6 +42,5 @@ class TypeSoilSeeder extends Seeder
             ],
         ];
         DB::table('type_soils')->insert ($type_soils);
-
     }
 }

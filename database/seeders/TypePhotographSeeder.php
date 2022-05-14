@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\TypePhotograph;
 class TypePhotographSeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class TypePhotographSeeder extends Seeder
      */
     public function run()
     {
-        TypePhotograph::factory(10)->create();
+        //TypePhotograph::factory(10)->create();
+        $data = [
+            [
+                'type_photograph' =>    '',
+                'description' =>    '',
+            ],
+        ];
+        DB::table('type_photographs')->insert($data);
     }
 }
