@@ -12,20 +12,23 @@
                 </div>
 
                 <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-
-
-
-
                     <div class="flex">
-                    <h3 class="items-center pt-4 pr-4">Descripcion</h3>
+                    <h3 class="items-center pt-4 pr-4">Topografia</h3>
                         <div  class="   px-4 pl-6 py-2 w-full">
-                            <input type="text"  class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="description" wire:model="type_topography">
+                            <input type="text"  class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Topografia" wire:model="type_topography">
                             @error('type_topography') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
+                </div>
 
-
-
+                <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex">
+                        <h3 class="items-center pt-4 pr-4">Descripcion</h3>
+                        <div  class="   px-4 pl-6 py-2 w-full">
+                            <input type="text"  class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Descripcion" wire:model="description">
+                            @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
