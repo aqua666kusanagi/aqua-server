@@ -18,18 +18,18 @@
                         <select wire:model="orchard_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
                             <option value="">Huerto</option>
                             @foreach($orchards as $huerto)
-                                <option type="int" value="{{$huerto->id}}">{{$pheno->name_orchard}}
+                                <option type="int" value="{{$huerto->id}}">{{$huerto->name_orchard}}
                                 </option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="flex">
-                        <h3 class="items-center pt-4 pr-4">Tipo</h3>
+                        <h3 class="items-center pt-4 pr-4">Tipo de Foto</h3>
                         <select wire:model="type_photograph_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <option value="">Foto</option>
-                            @foreach($type_photographs as $tipo)
-                                <option type="int" value="{{$tipo->id}}">{{$tipo->type_photograph}}
+                            <option value="">Tipo de Foto</option>
+                            @foreach($type_photographs as $type_photograp)
+                                <option type="int" value="{{$type_photograp->id}}">{{$type_photograp->type_photograph}}
                                 </option>
                             @endforeach
                         </select>
@@ -39,7 +39,7 @@
                         <h3 class="items-center pt-4 pr-4">Archivo</h3>
                         <div class=" rounded-full  px-4 pl-6 py-2 border w-full">
                             <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Archivo" wire:model="file">
-                            @error('filr') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('file') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
 

@@ -11,57 +11,76 @@
                     <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO REGISTRO DE FENOFASE</h3>
                 </div>
 
-                <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="flex ">
-                        <h3 class="items-center pt-2 pr-4">Fenofase</h3>
-                        <select wire:model="phenophase_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <option value="">Periodos</option>
-                            @foreach($phenophases as $pheno)
-                            <option type="int" value="{{$pheno->id}}">{{$pheno->phenophase}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="flex ">
-                        <h3 class="items-center pt-2 pr-4">Huertos</h3>
-                        <select wire:model="orchard_id" class=" rounded-full px-4 pl-6 py-2 border w-full">
-                            <option value="">Huertos</option>
-                            @foreach($orchards as $orcha)
-                            <option type="int" value="{{$orcha->id}}">{{$orcha->name_orchard}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-                    <div class="flex ">
-                        <h3 class="items-center pt-2 pr-4">Fecha</h3>
-                        <div class="sshadow appearance-none border w-full rounded-full">
-                            <input type="date" class="sshadow appearance-none border w-full rounded-full" placeholder="fecha" wire:model="date">
-                            @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-
-                    <div class="flex ">
-                        <h3 class="items-center pt-2 pr-4">Comentario</h3>
-                        <div class="sshadow appearance-none border w-full rounded-full">
-                            <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="comentario" wire:model="comments">
-                            @error('comments') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
-                    <div class="mt-5 sm:mt-6">
-                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-primary text-base leading-6 font-bold text-white shadow-sm hover:border-gray-900 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                            Guardar
-                        </button>
-                    </div>
-                    <div class="mt-5 sm:mt-6">
-                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2  bg-red-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                            Cerrar
-                        </button>
+                <div class="mt-3 text-center sm:mt-5">
+                    <div class="mt-2">
+                        <!--FORMULARIO-->
+                        <form enctype="multipart/form-data">
+                            <div class="shadow sm:rounded-md sm:overflow-hidden ">
+                                <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
+                                    <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
+                                        <div class="grid grid-cols-6 gap-6">
+                                            <div class="col-span-6  ">
+                                                <div class="pt-2 pr-4 ">
+                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Fenofase </h3>
+                                                    <select wire:model="phenophase_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Selecciona Opción</option>
+                                                        @foreach($phenophases as $pheno)
+                                                        <option type="int" value="{{$pheno->id}}">{{$pheno->phenophase}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
+                                            </div>
+                                            <div class="col-span-6  ">
+                                                <div class="pt-2 pr-4 ">
+                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
+                                                    <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                        <option value="">Huertos </option>
+                                                        @foreach($orchards as $orcha)
+                                                        <option type="int" value="{{$orcha->id}}">{{$orcha->name_orchard}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
+                                            </div>
+                                            <div class="col-span-6 ">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
+                                                    <div class=" ">
+                                                        <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Fecha" wire:model="date">
+                                                    </div>
+                                                    @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-span-6 ">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Comentario</h3>
+                                                    <div class=" ">
+                                                        <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Comentarios" wire:model="comments">
+                                                    </div>
+                                                    @error('comments') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3 bg-gray-100 sm:px-6 flex justify-center">
+                                    <span class=" bg-red-700 mt-3 flex  rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                            Cerrar
+                                        </button>
+                                    </span>
+                                    <span class="px-7"></span>
+                                    <span class="bg-green-700 hover:bg- text-white font-bold flex   rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                            Guardar
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($photograph as $foto)
+                @foreach($photographs as $foto)
                     <tr>
                         <td class="border px-4 py-2">{{ $foto->id }}</td>
                         <td class="border px-4 py-2">{{ $foto->orchard->name_orchard }}</td>

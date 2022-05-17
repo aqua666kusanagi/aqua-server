@@ -23,10 +23,7 @@
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors('teal-dark');" :class="{ 'dark': false}">
         <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
             <!-- Loading screen -->
-            <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker">
-                Cargando.....
-            </div>
-
+            
             <!-- Sidebar -->
             <aside class="flex-shrink-0 hidden w-64  border-r dark:border-primary-darker dark:bg-darker md:block">
                 <div class="flex flex-col h-full">
@@ -150,11 +147,6 @@
                                     Dosis
                                 </a>
 
-                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Suplementos
-                                </a>
-
                                 <a href="{{asset('nutrient_analysis')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Analicis Nutricional
@@ -163,27 +155,13 @@
                                 <a href="{{asset('sample_nutrients')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Muestra Nutricional
-                                </a>
-
-                                <a href="{{asset('active_elements')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Elemento activo
-                                </a>
-
-                                <a href="{{asset('registro_phenophases')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Registro de phenophases
-                                </a>
+                                </a>                                
 
                                 <a href="{{asset('orchard')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Huertas
                                 </a>
-
-                                <a href="{{asset('annual_production')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                    Produccion Anual
-                                </a>
+                                
 
                                 <a href="{{asset('workday')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
@@ -195,6 +173,26 @@
                                     Actividad
                                 </a>
 
+                                <a href="{{asset('annual_production')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Produccion Anual
+                                </a>
+                                <a href="{{asset('registro_phenophases')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Registro de phenophases
+                                </a>
+                                <a href="{{asset('photographs')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Fotografias
+                                </a>
+                                <a href="{{asset('active_elements')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Elemento activo
+                                </a>
+                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <i class="fa-solid fa-angles-right"></i>
+                                    Suplementos
+                                </a>
                             </div>
                         </div>
 

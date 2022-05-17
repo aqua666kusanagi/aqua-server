@@ -17,7 +17,15 @@ class TypePhotographSeeder extends Seeder
         //TypePhotograph::factory(10)->create();
         $data = [
             [
-                'type_photograph' =>    '',
+                'type_photograph' =>    'Normal',
+                'description' =>    '',
+            ],
+            [
+                'type_photograph' =>    'grande',
+                'description' =>    '',
+            ],
+            [
+                'type_photograph' =>    'peque',
                 'description' =>    '',
             ],
         ];

@@ -181,7 +181,6 @@ class OrchardController extends Component
         $this->planting_density = $orchards->planting_density;
         $this->irrigation = $orchards->irrigation;
 
-
         $this->openModalPopover();
     }
 

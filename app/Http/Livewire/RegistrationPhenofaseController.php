@@ -83,10 +83,11 @@ class RegistrationPhenofaseController extends Component
     {
         $registro = RegistrationPhenophase::findOrFail($id);
         $this->registration_phenophases_id = $id;
-        $this->phenophase_id = $registro->phenophases_id;
+        $this->phenophase_id = $registro->phenophase_id;
         $this->orchard_id = $registro->orchard_id;
         $this->date = $registro->date;
         $this->comments = $registro->comments;
+
         $this->openModalPopover();
     }
 

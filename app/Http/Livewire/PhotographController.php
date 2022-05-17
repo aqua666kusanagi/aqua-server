@@ -9,14 +9,14 @@ use App\Models\TypePhotograph;
 
 class PhotographController extends Component
 {
-    public $photograph, $photograph_id, $orchard_id, $type_photopgraph_id, $file, $date;
+    public $photographs, $photograph_id, $orchard_id, $type_photopgraph_id, $file, $date;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->photograph = Photograph::all();
+        $this->photographs = Photograph::all();
         return view('livewire.photographs.photograph-controller', [
             'orchards' => Orchard::all(),
             'type_photographs' => TypePhotograph::all()
@@ -60,14 +60,14 @@ class PhotographController extends Component
     {
         $this->validate([
             'orchard_id' => 'required',
-            'type_photograph_id' => 'required',
+            'type_photopgraph_id' => 'required',
             'file' => 'required',
             'date' => 'required',
         ]);
 
         Photograph::updateOrCreate(['id' => $this->photograph_id], [
             'orchard_id' => $this->orchard_id,
-            'type_photograph_id' => $this->orchard_id,
+            'type_photograph_id' => $this->type_photopgraph_id,
             'file' => $this->file,
             'date' => $this->date
         ]);
@@ -80,12 +80,12 @@ class PhotographController extends Component
 
     public function edit($id)
     {
-        $fotografia = Photograph::findOrFail($id);
+        $photographs = Photograph::findOrFail($id);
         $this->photograph_id = $id;
-        $this->orchard_id = $fotografia->orchard_id;
-        $this->type_photopgraph_id = $fotografia->type_photograph_id;
-        $this->file = $fotografia->file;
-        $this->date = $fotografia->date;
+        $this->orchard_id = $photographs->orchard_id;
+        $this->type_photopgraph_id = $photographs->type_photopgraph_id;
+        $this->file = $photographs->file;
+        $this->date = $photographs->date;
         $this->openModalPopover();
     }
 

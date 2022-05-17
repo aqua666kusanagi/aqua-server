@@ -8,7 +8,7 @@ use App\Models\Orchard;
 
 class AnnualProductionController extends Component
 {
-    public $annual_production, $annual_production_id, $orchard_id, $ton_harvest, $date_production, $sale, $damage_percentage;
+    public $annual_productions, $annual_production_id, $orchard_id, $ton_harvest, $date_production, $sale, $damage_percentage;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -16,8 +16,7 @@ class AnnualProductionController extends Component
 
     public function render()
     {
-        $this->annual_production = AnnualProduction::all();
-
+        $this -> annual_productions = AnnualProduction::all();
         return view('livewire.annual_productions.annual-production-controller', [
             'orchards' => Orchard::all(),
         ]);
@@ -81,7 +80,7 @@ class AnnualProductionController extends Component
             'damage_percentage' => $this->damage_percentage,
         ]);
 
-        session()->flash('message', $this->annual_production_id ? 'Elemento Activo Actualizado!' : 'Elemento Activo Creado!');
+        session()->flash('message', $this->annual_production_id ? 'Produccion Anual Actualizada!' : 'Produccion Anual Creado!');
 
         $this->closeModalPopover();
         $this->resetCreateForm();
@@ -90,14 +89,13 @@ class AnnualProductionController extends Component
 
     public function edit($id)
     {
-        $annual_production = AnnualProduction::findOrFail($id);
+        $annual_productions = AnnualProduction::findOrFail($id);
         $this->annual_production_id = $id;
-
-        $this->orchard_id = $annual_production->orchard_id;
-        $this->ton_harvest = $annual_production->ton_harvest;
-        $this->date_production = $annual_production->date_production;
-        $this->sale = $annual_production->sale;
-        $this->damage_percentage = $annual_production->damage_percentage;
+        $this->orchard_id = $annual_productions->orchard_id;
+        $this->ton_harvest = $annual_productions->ton_harvest;
+        $this->date_production = $annual_productions->date_production;
+        $this->sale = $annual_productions->sale;
+        $this->damage_percentage = $annual_productions->damage_percentage;
 
         $this->openModalPopover();
     }
@@ -107,7 +105,7 @@ class AnnualProductionController extends Component
         $this->getid = $id;
     }
 
-    public function delete($id)
+    public function delete()
     {
         AnnualProduction::find($this->getid)->delete();
         session()->flash('message', 'Elemento Activo eliminado!');
