@@ -9,7 +9,7 @@ use App\Models\TypePhotograph;
 
 class PhotographController extends Component
 {
-    public $photographs, $photograph_id, $orchard_id, $type_photopgraph_id, $file, $date;
+    public $photographs, $photograph_id, $orchard_id, $type_photograph_id, $path, $date;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -52,23 +52,26 @@ class PhotographController extends Component
     private function resetCreateForm(){
         $this->orchard_id = '';
         $this->type_photopgraph_id = '';
-        $this->file = '';
+        $this->path = '';
         $this->date = '';
     }
 
     public function store()
     {
+        
         $this->validate([
             'orchard_id' => 'required',
-            'type_photopgraph_id' => 'required',
-            'file' => 'required',
+            'type_photograph_id' => 'required',
+            'path' => 'required',
             'date' => 'required',
         ]);
+        $this->path=$this->path->store('images/photographs', 'public');
+        dd($this->path);
 
         Photograph::updateOrCreate(['id' => $this->photograph_id], [
             'orchard_id' => $this->orchard_id,
             'type_photograph_id' => $this->type_photopgraph_id,
-            'file' => $this->file,
+            'path' => $this->path,
             'date' => $this->date
         ]);
 
@@ -83,8 +86,8 @@ class PhotographController extends Component
         $photographs = Photograph::findOrFail($id);
         $this->photograph_id = $id;
         $this->orchard_id = $photographs->orchard_id;
-        $this->type_photopgraph_id = $photographs->type_photopgraph_id;
-        $this->file = $photographs->file;
+        $this->type_photograph_id = $photographs->type_photograph_id;
+        $this->path = $photographs->path;
         $this->date = $photographs->date;
         $this->openModalPopover();
     }

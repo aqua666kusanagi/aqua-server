@@ -18,4 +18,8 @@ class Photograph extends Model
         'date',
 
     ];
+
+    public function type_photo(){
+        return $this->hasOne('App\Models\TypePhotograph','id','type_photograph_id');
+    }
 }

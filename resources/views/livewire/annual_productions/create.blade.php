@@ -22,6 +22,7 @@
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
                                         <div class="grid grid-cols-6 gap-6">
+                                            
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4 ">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
