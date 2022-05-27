@@ -1,5 +1,4 @@
-
-<div class="py-12">
+<div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <div class="py-4">
@@ -11,60 +10,48 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <!-- ALgo de seccion-->
             @if (session()->has('message'))
-            <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-                <div class="flex">
-                    <div>
-                        <p class="text-sm">{{ session('message') }}</p>
+                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                    <div class="flex">
+                        <div>
+                            <p class="text-sm">{{ session('message') }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isDialogOpen)
-            @include('livewire.supplies.create')
+                @include('livewire.supplies.create')
             @endif
-            <table class="table-fixed w-full">
-                <thead>
-                    <tr class="bg-gray-300">
-                        <th class="px-4 py-2 w-20">Numero</th>
-                        <th class="px-4 py-2">Nombre</th>
-                        <th class="px-4 py-2">Numero de registro</th>
-                        <th class="px-4 py-2">hoja de datos</th>
-                        <th class="px-4 py-2">termino de seguridad</th>
-                        <th class="px-4 py-2">categoria de producto </th>
-                        <th class="px-4 py-2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($supply as $supplies)
-                    <tr>
-                        <td class="border px-4 py-2">{{ $supplies->id }}</td>
-                        <td class="border px-4 py-2">{{ $supplies->name }}</td>
-                        <td class="border px-4 py-2">{{ $supplies->registry_number }}</td>
-                        <td class="border px-4 py-2">{{ $supplies->data_sheet }}</td>
-                        <td class="border px-4 py-2">{{ $supplies->security_term }}</td>
-
-                        <td class="border px-4 py-2">{{ $supplies->product_categori->description }}</td>
-
-                        <td class="border px-4 py-2">
+            {{--****FERTILIZANTES, INZECTICIDASA, AGUA, ABONO************************************************************************************************--}}
+            <div class="container border py-4 my-4 grid grid-cols-3 gap-4 px-2 py-2">
+                @foreach($supply as $supplies)
+                    <div class="border grid grid-cols-3 gap-4 rounded border-teal-500">
+                        <div class="col-start-1 col-span-2 text-center">
+                            <div>{{ $supplies->name }}</div>
+                            <div>{{ $supplies->registry_number }}</div>
+                            <div>{{ $supplies->data_sheet }}</div>
+                            <div>{{ $supplies->security_term }}</div>
+                            <div>{{ $supplies->product_categori->description}}</div>
                             <div class="flex justify-between">
                                 <div>
-                                    <button wire:click="edit({{ $supplies->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button wire:click="edit({{ $supplies->id }})" class="bg-green-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                                 <div>
                                     <button wire:click="ConfirmaDelete({{ $supplies->id }})"
-                                            class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
+                                            class="bg-red-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-trash-can"></i></button>
                                     {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
                                     @if($isconfirm)
                                         @include('livewire.confirm-delete')
                                     @endif
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                        </div>
+                        <div class="py-10 px-4">
+                            <img class="rounded-full" src="{{url('images/avatar.jpg')}}" alt="" width="70px" height="70px">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

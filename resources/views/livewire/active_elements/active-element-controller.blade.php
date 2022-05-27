@@ -20,7 +20,6 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-300">
-                    <th class="px-4 py-2 w-20">Numero</th>
                     <th class="px-4 py-2">Elemento Quimico</th>
                     <th class="px-4 py-2">Suplemento</th>
                     <th class="px-4 py-2">Porcentaje</th>
@@ -30,10 +29,9 @@
                 <tbody>
                 @foreach($active_elements as $active_element)
                     <tr>
-                        <td class="border px-4 py-2">{{ $active_element->id }}</td>
                         <td class="border px-4 py-2">{{ $active_element->chemical_elemen->name }}</td>
                         <td class="border px-4 py-2">{{ $active_element->suppli->name }}</td>
-                        <td class="border px-4 py-2">{{ $active_element->percentage }}</td>
+                        <td class="border px-4 py-2">{{ $active_element->percentage }}%</td>
 
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
