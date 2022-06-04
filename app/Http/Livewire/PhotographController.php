@@ -58,7 +58,7 @@ class PhotographController extends Component
 
     public function store()
     {
-        
+
         $this->validate([
             'orchard_id' => 'required',
             'type_photograph_id' => 'required',
@@ -66,7 +66,7 @@ class PhotographController extends Component
             'date' => 'required',
         ]);
         $this->path=$this->path->store('images/photographs', 'public');
-        dd($this->path);
+        //dd($this->path);
 
         Photograph::updateOrCreate(['id' => $this->photograph_id], [
             'orchard_id' => $this->orchard_id,

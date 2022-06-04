@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>HANUC</title>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -11,6 +11,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+        <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/diseno.css')}}">
 
         <!-- Styles -->
         <style>
@@ -44,6 +46,10 @@
         </style>
     </head>
     <body class="antialiased leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
+
+        <div class="w-full text-center bg-green-400 py-4 font-semibold">
+            HANUC - Una version mejorada
+        </div>
 
         <div class="h-screen pb-14 bg-right bg-cover" >
             <!--Nav-->
@@ -113,9 +119,115 @@
                     <img class="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src="{{asset('images/devices.svg')}}">
                 </div>
 
+                <!--SOBRE NOSOTROS-->
+                <div class="bg-gray-200 rounded-lg">
+                    <figure class="md:flex bg-slate-100 py-4 px-6 p-8 md:p-0 dark:bg-slate-800">
+                    <img class="w-60 h-24 md:w-60 md:h-auto md:rounded-none rounded-full mx-auto" src="{{asset('images/nosotros.jpg')}}" alt="" width="384" height="512">
+                    <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+                        <blockquote>
+                            <p class="text-lg font-medium">
+                                “HANUC es una plataforma que le da seguimineto de la produccion de aguacate y monitororeo de los huertos
+                                , asi mismo con la implementación del software se mejorara el seguimiento y monitoreo fenológicos de dichos cultivos de aguacate Hass
+                                incrementando un 15% la producción y reducir sus perdidas de aguacate.
+                            </p>
+                        </blockquote>
+                        <figcaption class="font-medium">
+                            <div class="text-sky-500 dark:text-sky-400">
+                                Desarrolladores
+                            </div>
+                            <div class="text-slate-700 dark:text-slate-500">
+                                M.ISC. Cesar Primero Huerta,
+                                Juan Diego Estrada Marcelino y Miguel Axel Cejudo Hernandez
+                            </div>
+                        </figcaption>
+                    </div>
+                    </figure>
+                </div>
+                <!--Plataforma web-->
+                <div class="w-full flex items-center justify-between my-4">
+                    <div>
+                        <a class="flex items-center text-green-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#">
+                            <i class="fa-brands fa-weebly"></i>
+                        </a>
+                        <p class="px-10 text-green-600 font-semibold">HANUC</p>
+                    </div>
+                </div>
+                <div class="footer-links w-full">
+                    <div class="footer-container">
+                        <ul >
+                            <li>
+                                <a href="#" id="Ind">
+                                    <h3 class="font-semibold">APP</h3>
+                                </a>
+                            </li>
+                            <LI>
+                                <a href="#">____________</a>
+                            </LI>
+                            <li>
+                                <a href="#">Para Dueños</a>
+                            </li>
+                            <li>
+                                <a href="#">Socios</a>
+                            </li>
+                            <li>
+                                <a href="#">Guia de Usuario</a>
+                            </li>
+                            <li>
+                                <a href="#">Ayuda</a>
+                            </li>
+                        </ul>
+
+                        <ul >
+                            <li>
+                                <a href="#" id="Ind">
+                                    <h3 class="font-semibold">DISPOSITIVOS</h3>
+                                </a>
+                            </li>
+                            <LI>
+                                <a href="#">____________</a>
+                            </LI>
+                            <li>
+                                <a href="#">Empresa</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobil</a>
+                            </li>
+                            <li>
+                                <a href="#">Computadora</a>
+                            </li>
+                            <li>
+                                <a href="#">Tablet</a>
+                            </li>
+                        </ul>
+
+                        <ul >
+                            <li>
+                                <a href="#" id="Ind">
+                                    <h3 class="font-semibold">IDIOMA</h3>
+                                </a>
+                            </li>
+                            <LI>
+                                <a href="#">____________</a>
+                            </LI>
+                            <li>
+                                <a href="#">Español</a>
+                            </li>
+                            <li>
+                                <a href="#">Ingles</a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
                 <!--Footer-->
                 <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-                    <a class="text-gray-900 no-underline hover:no-underline" href="#">&copy; AvoApp 2022</a>
+                    <a class="text-gray-900 no-underline hover:no-underline font-semibold" href="#">-------------------> &copy; HANUC 2022 <-------------------</a>
                 </div>
 
             </div>

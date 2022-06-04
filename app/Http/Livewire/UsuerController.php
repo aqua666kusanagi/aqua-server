@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class UsuerController extends Component
 {
-    public $Usuario, $user_id, $username, $email;
+    public $Usuario, $user_id, $username, $email, $profile_photo_path;
     public $idDialogOpen = 0;
     public function render()
     {
@@ -22,22 +22,26 @@ class UsuerController extends Component
     public function store()
     {
         $this->validate([
+
             'name' => 'required',
             'email' => 'required'
         ]);
 
-        Unit::updateOrCreate(['id' => $this->unit_id], [
+        //$this->profile_photo_path=$this->profile_photo_path->store('users','images', 'public');
+
+        User::updateOrCreate(['id' => $this->user_id], [
+
             'name' => $this->username,
             'email' => $this->email,
         ]);
 
-        session()->flash('message', $this->unit_id ? '------!' : '---!');
+        session()->flash('message', $this->user_id ? '------!' : '---!');
         $this->resetCreateForm();
     }
 
     public function delete($id)
     {
-        Unit::find($id)->delete();
+        User::find($id)->delete();
         session()->flash('message', 'Usuario eliminado!');
     }
 }

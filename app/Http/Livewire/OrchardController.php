@@ -125,7 +125,7 @@ class OrchardController extends Component
             'planting_density' => 'required|integer',
             'irrigation' => 'required',
         ]);
-        $this->path_image=$this->path_image->store('images/orchards', 'public');
+        $this->path_image=$this->path_image->store('images', 'public');
         //dd($this->path_image);
 
 

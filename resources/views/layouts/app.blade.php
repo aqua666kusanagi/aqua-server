@@ -27,7 +27,7 @@
                 Cargando.....
             </div>
             <!-- Sidebar -->
-            <aside class="flex-shrink-0 hidden w-64  border-r dark:border-primary-darker dark:bg-darker md:block">
+            <aside class="flex-shrink-0 hidden w-60  border-r dark:border-primary-darker dark:bg-darker md:block">
                 <div class="flex flex-col h-full">
                     <!-- Sidebar links -->
                     <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
@@ -157,13 +157,13 @@
                                 <a href="{{asset('sample_nutrients')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Muestra Nutricional
-                                </a>                                
+                                </a>
 
                                 <a href="{{asset('orchard')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Huertas
                                 </a>
-                                
+
 
                                 <a href="{{asset('workday')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>

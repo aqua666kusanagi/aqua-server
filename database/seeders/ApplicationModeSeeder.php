@@ -18,16 +18,19 @@ class ApplicationModeSeeder extends Seeder
         //ApplicationMode::factory(10)->create();
         $data = [
             [
-                'description' =>    'En la pata de la planta',
+                'description' =>    'Aplicacion Radicular o al suelo',
             ],
             [
-                'description' =>   'Riego de liquido en la raiz',
+                'description' =>   'Aplicacion localizada',
             ],
             [
-                'description' =>    'Fumigacion Base agua en bombeo',
+                'description' =>    'Aplicacion a voleo',
             ],
             [
-                'description' =>    'Polvo alrededor del arbol',
+                'description' =>    'Aplicacion foliar',
+            ],
+            [
+                'description' =>    'Aplicacion por fertirriego',
             ]
         ];
         DB::table('application_modes')->insert($data);

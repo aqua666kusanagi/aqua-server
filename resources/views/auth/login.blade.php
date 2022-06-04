@@ -31,7 +31,7 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
                 </label>
             </div>
-            
+
 
             <div class="flex items-center justify-end mt-4">
                 <!--

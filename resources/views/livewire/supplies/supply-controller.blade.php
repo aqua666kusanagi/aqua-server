@@ -25,14 +25,17 @@
             {{--****FERTILIZANTES, INZECTICIDASA, AGUA, ABONO************************************************************************************************--}}
             <div class="container border py-4 my-4 grid grid-cols-3 gap-4 px-2 py-2">
                 @foreach($supply as $supplies)
-                    <div class="border grid grid-cols-3 gap-4 rounded border-teal-500">
-                        <div class="col-start-1 col-span-2 text-center">
-                            <div>{{ $supplies->name }}</div>
-                            <div>{{ $supplies->registry_number }}</div>
-                            <div>{{ $supplies->data_sheet }}</div>
-                            <div>{{ $supplies->security_term }}</div>
-                            <div>{{ $supplies->product_categori->description}}</div>
-                            <div class="flex justify-between">
+                    <div class="border rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50 my-4">
+                        <div class="py-10 px-7">
+                            <img class="rounded-lg" src="{{url('images/avatar.jpg')}}" alt="" width="150px" height="150px">
+                        </div>
+                        <div class="text-center px-2 grid ">
+                            <div class="flex justify-between"><h4 class="text-blue-600">Nombre: </h4> <h4 class="w-full"> {{ $supplies->name }}</h4></div>
+                            <div class="flex justify-between"><h4 class="text-blue-600">No.Registro:</h4> <h4 class="w-full"> {{ $supplies->registry_number }}</h4></div>
+                            <div class="flex justify-between"><h4 class="text-blue-600">Hoja_Datos:</h4> <h4 class="w-full"> {{ $supplies->data_sheet }}</h4></div>
+                            <div class="flex justify-between"><h4 class="text-blue-600">Termino:</h4> <h4 class="w-full"> {{ $supplies->security_term }}</h4></div>
+                            <div class="flex justify-between"><h4 class="text-blue-600">Categoria:</h4> <h4 class="w-full"> {{ $supplies->product_categori->description}}</h4></div>
+                            <div class="flex justify-between my-3 px-2">
                                 <div>
                                     <button wire:click="edit({{ $supplies->id }})" class="bg-green-700 text-white font-bold py-2 px-4 rounded-full"><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
@@ -46,9 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="py-10 px-4">
-                            <img class="rounded-full" src="{{url('images/avatar.jpg')}}" alt="" width="70px" height="70px">
-                        </div>
+
                     </div>
                 @endforeach
             </div>
