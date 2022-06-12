@@ -29,7 +29,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($application as $app)
+                @foreach($applications as $app)
                     <tr>
                         <td class="border px-4 py-2">{{ $app->id }}</td>
                         <td class="border px-4 py-2">{{ $app->workdayy->date_work }}</td>
