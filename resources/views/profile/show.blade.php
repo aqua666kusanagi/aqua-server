@@ -5,7 +5,7 @@
                 {{__('Bienvenido ')}} {{Auth::user()->name}}
             </h2>--}}
             <div class="bg-green-100 rounded-lg">
-                -->
+                -->parte foto
                 <img src="{{Auth::user()->profile_photo_path}}" alt="" width="100px" height="100px">
             </div>
         </x-slot>
