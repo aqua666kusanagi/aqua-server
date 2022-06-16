@@ -60,20 +60,20 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('orchard', OrchardController::class);
 
-
-    Route::get('chemical_elements', ChemicalElementController::class);
-    Route::get('application_modes', ApplicationModeController::class);
-    Route::get('units', UnitController::class);
-    Route::get('type_avocado', TypeAvocadoController::class);
-    Route::get('type_photograps', TypePhotograpController::class);
-    Route::get('type_topograps', TypeTopographicController::class);
-    Route::get('type_jobs', TypeJobController::class);
-    Route::get('product_categories', ProductCategoryController::class);
-    Route::get('supplies', SupplyController::class);
-    Route::get('active_elements', ActiveElementController::class);
-
-    Route::get('type_soil', TypeSoilController::class);
-    Route::get('climate_type', ClimateTypeController::class);
+    Route::middleware(['canAccess'])->group(function () {
+        Route::get('chemical_elements', ChemicalElementController::class);
+        Route::get('application_modes', ApplicationModeController::class);
+        Route::get('units', UnitController::class);
+        Route::get('type_avocado', TypeAvocadoController::class);
+        Route::get('type_photograps', TypePhotograpController::class);
+        Route::get('type_topograps', TypeTopographicController::class);
+        Route::get('type_jobs', TypeJobController::class);
+        Route::get('product_categories', ProductCategoryController::class);
+        Route::get('supplies', SupplyController::class);
+        Route::get('active_elements', ActiveElementController::class);
+        Route::get('type_soil', TypeSoilController::class);
+        Route::get('climate_type', ClimateTypeController::class);
+    });
     Route::get('workday', WorkdayController::class);
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);
@@ -92,6 +92,9 @@ Route::get('cliente',function (){
    return view('layouts.appuser');
 });
 
+Route::get("404",function(){
+   return view("error.404");
+});
 
 
 
