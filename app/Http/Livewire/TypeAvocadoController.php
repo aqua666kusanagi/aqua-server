@@ -6,7 +6,7 @@ use App\Models\TypeAvocado;
 
 class TypeAvocadoController extends Component
 {
-    public $typeavocado, $typeavocado_id, $type_avocado;
+    public $typeavocado, $typeavocado_id, $type_avocado, $description;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -33,11 +33,13 @@ class TypeAvocadoController extends Component
         $this->isDialogOpen = false;
         $this->validate([
             'type_avocado.required' => '',
+            'description.required' => '',
         ]);
     }
 
     private function resetCreateForm(){
         $this->type_avocado = '';
+        $this->description = '';
     }
 
     public function openModaldelete()
@@ -51,17 +53,20 @@ class TypeAvocadoController extends Component
     }
 
     protected $messages = [
-      'type_avocado.required' =>'Este campo debe estar lleno'
+        'type_avocado.required' =>'Este campo debe estar lleno',
+        'description.required' => 'Este campo es requerido',
     ];
 
     public function store()
     {
         $this->validate([
             'type_avocado' => 'required|alpha',
+            'description' => 'required|string',
         ]);
 
         TypeAvocado::updateOrCreate(['id' => $this->typeavocado_id], [
             'type_avocado' => $this->type_avocado,
+            'description' => $this->description,
         ]);
 
         session()->flash('message', $this->typeavocado_id ? 'Tipo de aguacate actualizado!' : 'Tipo de aguacate Creado!');
@@ -76,7 +81,7 @@ class TypeAvocadoController extends Component
         $typeavocado = TypeAvocado::findOrFail($id);
         $this->typeavocado_id = $id;
         $this->type_avocado = $typeavocado->type_avocado;
-
+        $this->description = $typeavocado->description;
         $this->openModalPopover();
     }
 
