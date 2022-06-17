@@ -16,16 +16,18 @@
                     <div class="mt-2">
                         <!--FORMULARIO-->
                         <form>
-                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <div class="flex">
-                                    <h3 class="items-center pt-4 pr-4">Tipo</h3>
-                                    <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="Tipo de Clima" wire:model="climate_type">
-                                        @error('climate_type') <span class="text-red-500">{{ $message }}</span>@enderror
+                            <div class="shadow sm:rounded-md sm:overflow-hidden ">
+                                <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
+                                    <div class="bg-white px-4 sm:p-6 ">
+                                        <div class="pt-2 pr-4">
+                                            <h3 class="block text-sm font-medium text-gray-700 text-center">Tipo</h3>
+                                            <div class=" ">
+                                                <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Tipo de Clima" wire:model="climate_type">
+                                            </div>
+                                            @error('climate_type') <span class="text-red-500">{{ $message }}</span>@enderror
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
                                 <div class="mt-5 sm:mt-6">
                                     <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-primary text-base leading-6 font-bold text-white shadow-sm hover:border-gray-900 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">

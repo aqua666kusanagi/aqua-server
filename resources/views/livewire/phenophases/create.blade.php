@@ -16,17 +16,18 @@
                     <div class="mt-2">
                         <!--FORMULARIO-->
                         <form>
-                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-
-                                <div class="flex">
-                                    <h3 class="items-center pt-2 pr-4">Fenoface</h3>
-                                    <div class="mb-4">
-                                        <input type="text" class="sshadow appearance-none border w-full rounded-full" placeholder="Fenofase" wire:model="phenophase">
-                                        @error('phenophase') <span class="text-red-500">{{ $message }}</span>@enderror
+                            <div class="shadow sm:rounded-md sm:overflow-hidden ">
+                                <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
+                                    <div class="bg-white px-4 sm:p-6 ">
+                                        <div class="pt-2 pr-4">
+                                            <h3 class="block text-sm font-medium text-gray-700 text-center">Fenofase</h3>
+                                            <div class=" ">
+                                                <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Escribe tu fenologia" wire:model="phenophase">
+                                            </div>
+                                            @error('phenophase') <span class="text-red-500">{{ $message }}</span>@enderror
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
 
 
                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">

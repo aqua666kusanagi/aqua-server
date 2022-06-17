@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <div class="py-4">
@@ -29,6 +29,7 @@
                 <tr class="bg-gray-300">
                     <th class="px-4 py-2 w-20">Numero</th>
                     <th class="px-4 py-2">Fenofase</th>
+                    <th class="px-4 py-2">Descripccion</th>
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
@@ -48,7 +49,6 @@
                                 <div>
                                     <button wire:click="ConfirmaDelete({{ $phenophase->id }})"
                                             class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                                    <button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>
                                     @if($isconfirm)
                                         @include('livewire.confirm-delete')
                                     @endif

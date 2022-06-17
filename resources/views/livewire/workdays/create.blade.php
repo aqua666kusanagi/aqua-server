@@ -10,68 +10,65 @@
                 <div class="justify-center   rounded-full bg-gray-100">
                     <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO DIA DE TRABAJO</h3>
                 </div>
+                <form>
+                        <div class="shadow sm:rounded-md sm:overflow-hidden ">
+                            <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
+                                <div class="bg-white py-6 px-4 sm:p-6 ">
+                                    <div class="flex">
+                                        <h3 class="items-center pt-2 pr-4 py-4">Usuario</h3>
+                                        <div class="pt-2 pr-4 w-full">
+                                            <select wire:model="user_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                <option value="">--Usuario--</option>
+                                                @foreach($user as $users)
+                                                    <option type="int" value="{{$users->id}}">{{$users->name}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
-                <div class="bg-white space-y-6  px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <div class="pt-2 pr-4">
+                                        <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            <option value="">--Nombre del Huerto--</option>
+                                            @foreach($orchard as $orchards)
+                                                <option type="int" value="{{$orchards->id}}">{{$orchards->name_orchard }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
+                                    <div class="pt-2 pr-4">
+                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha de trabajo</h3>
+                                        <div class=" ">
+                                            <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Dia a trabajar" wire:model="date_work">
+                                        </div>
+                                        @error('date_work') <span class="text-red-500">{{ $message }}</span>@enderror
+                                    </div>
 
-                    <div class="flex">
-                        <h3 class="items-center pt-2 pr-4">Usuario</h3>
-                        <select wire:model="user_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <option value="">--Usuario--</option>
-                            @foreach($user as $users)
-
-                            <option type="int" value="{{$users->id}}">{{$users->name}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="flex">
-                        <h3 class="items-center pt-2 pr-4">Nombre del Huerto</h3>
-                        <select wire:model="orchard_id" class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <option value="">--Nombre del Huerto--</option>
-                            @foreach($orchard as $orchards)
-
-                            <option type="int" value="{{$orchards->id}}">{{$orchards->name_orchard }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-
-
-                    <div class="flex">
-                        <h3 class="items-center pt-2 pr-4">Fecha de Trabajo</h3>
-                        <div class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <input type="date" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder=" Fecha de Trabajo" wire:model="date_work">
-                            @error('date_work') <span class="text-red-500">{{ $message }}</span>@enderror
+                                    <div class="pt-2 pr-4">
+                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Gastos Generales</h3>
+                                        <div class=" ">
+                                            <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Ingrese Cantidad" wire:model="general_expenses">
+                                        </div>
+                                        @error('general_expenses') <span class="text-red-500">{{ $message }}</span>@enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3 bg-gray-100 sm:px-6 flex justify-center">
+                                            <span class=" bg-red-700 mt-3 flex  rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                                <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                                    Cerrar
+                                                </button>
+                                            </span>
+                                <span class="px-7"></span>
+                                <span class="bg-green-700 hover:bg- text-white font-bold flex   rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                                <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                                    Guardar
+                                                </button>
+                                            </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex">
-                        <h3 class="items-center pt-2 pr-4">Gastos Generales</h3>
-                        <div class=" rounded-full  px-4 pl-6 py-2 border w-full">
-                            <input type="text" class=" rounded-full  px-4 pl-6 py-2 border w-full" placeholder="Gastos Generales  " wire:model="general_expenses">
-                            @error('general_expenses') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex justify-between">
-                    <div class="mt-5 sm:mt-6">
-                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-primary text-base leading-6 font-bold text-white shadow-sm hover:border-gray-900 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                            Guardar
-                        </button>
-                    </div>
-                    <div class="mt-5 sm:mt-6">
-                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2  bg-red-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                            Cerrar
-                        </button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
