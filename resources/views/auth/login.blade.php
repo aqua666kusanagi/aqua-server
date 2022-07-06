@@ -28,7 +28,7 @@
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
+                    <span class="ml-2 text-sm font-bold text-blue-600">{{ __('Recuerdame') }}</span>
                 </label>
             </div>
 
@@ -41,7 +41,7 @@
                     </a>
                 @endif
 -->
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                <a class="underline text-sm text-green-600 hover:text-indigo-500" href="{{ route('register') }}">
                     {{ __('¿No tienes cuenta?') }}
                 </a>
                 <x-jet-button class="ml-4">

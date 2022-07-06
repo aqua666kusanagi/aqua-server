@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <img src="{{asset('images/logo.jpeg')}}" alt=""  class="w-16 h-16"> 
+            <img src="{{asset('images/logo.jpeg')}}" alt=""  class="w-16 h-16">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -11,7 +11,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -53,7 +53,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <a class="underline text-sm text-gray-600 hover:text-indigo-500" href="{{ route('login') }}">
                     {{ __('¿Ya estas registrado?') }}
                 </a>
 

@@ -32,7 +32,7 @@
                     <!-- Sidebar links -->
                     <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
                         <!-- Dashboards links -->
-                    @if(Auth::user()->user_type===1)
+                    @if(Auth::user()->type_user===1)
                         <div x-data="{ isActive: true, open: false}">
                             <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                             <a href="#" @click="$event.preventDefault(); open = !open" class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary" :class="{'bg-primary-100 dark:bg-primary': isActive || open}" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'">

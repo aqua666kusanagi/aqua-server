@@ -16,14 +16,10 @@ class ControlAccessMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        /*$blockAccess=true;
-        if(auth()->user()->user_type===1)
-            $blockAccess=false;
-        if($blockAccess)
-        */
-        if(auth()->user()->user_type!==1)
-            //return redirect()->back()->with("message",["danger","No estas habilitado"]);
-            return redirect("404");
-        return $next($request);
+        //dd("ok");
+        if(auth()->user()->type_user===1)
+            return $next($request);
+        //else
+            return redirect("/home");
     }
 }

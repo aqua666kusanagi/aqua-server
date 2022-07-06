@@ -23,7 +23,7 @@
                 @include('livewire.supplies.create')
             @endif
             {{--****FERTILIZANTES, INZECTICIDASA, AGUA, ABONO************************************************************************************************--}}
-            <div class="container border py-4 my-4 grid grid-cols-3 gap-4 px-2 py-2">
+            <div class="container py-4 my-4 grid grid-cols-3 gap-4 px-2 py-2">
                 @foreach($supply as $supplies)
                     <div class="border rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50 my-4">
                         <div class="py-10 px-7">
