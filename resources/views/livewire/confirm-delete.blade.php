@@ -11,7 +11,7 @@
 
             <div>
                 <div class="justify-center   rounded-full bg-gray-100">
-                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">SEGURO QUE QUIERES ELIMINAR EL REGISTRO</h3>
+                    <h3 class="text-center font-bold text-black px-2 py-2 bg-green-100 rounded-full">SEGURO QUE QUIERES ELIMINAR EL REGISTRO</h3>
                 </div>
                 <div class="mt-3 text-center sm:mt-5">
                     <div class="mt-2">
