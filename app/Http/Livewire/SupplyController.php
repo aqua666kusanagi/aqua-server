@@ -71,6 +71,7 @@ class SupplyController extends Component
             'product_category_id' => 'required',
         ]);
 
+        $this->data_sheet=$this->data_sheet->store('files','public');
 
         Supply::updateOrCreate(['id' => $this->supply_id], [
             'name' => $this->name,

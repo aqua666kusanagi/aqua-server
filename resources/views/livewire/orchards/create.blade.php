@@ -1,15 +1,15 @@
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="overflow-hidden shadow-xl sm:rounded-lg px-4 py-4  place-items-center">
+    <div class="overflow-hidden shadow-xl sm:rounded-lg px-16 py-4  place-items-center">
 
         <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" aria-hidden="true"></div>
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
 
-        <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle max-w-md">
+        <div class="relative rounded-lg inline-block align-bottom bg-white  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-full">
 
-            <div class="py-16 bg-gray-50 overflow-hidden lg:py-24">
-                <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+            <div class="bg-gray-50 overflow-hidden ">
+                <div class="relative ">
                     <form enctype="multipart/form-data">
 
                         <div class=" bg-white py-6 px-4 space-y-6 sm:p-6">
