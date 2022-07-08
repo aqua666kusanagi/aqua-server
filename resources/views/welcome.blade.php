@@ -48,7 +48,9 @@
     <body class="antialiased leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
 
         <div class="w-full text-center bg-green-400 py-4 font-semibold">
-            HANUC - Una version mejorada
+            <div class="text-white">
+                HANUC - Una version mejorada
+            </div>
         </div>
 
         <div class="h-screen pb-14 bg-right bg-cover" >

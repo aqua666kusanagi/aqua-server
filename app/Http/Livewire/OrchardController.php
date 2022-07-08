@@ -195,4 +195,10 @@ class OrchardController extends Component
         session()->flash('message', 'Huerto Removido!');
         $this->closeModaldelete();
     }
+
+    public function acciones(){
+        //$datos = Orchard::findOrFail($id);
+        //dd('HOLA ENTRA A LA FUNCION');
+        return view('livewire.orchards.acciones_huerto');
+    }
 }

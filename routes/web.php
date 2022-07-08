@@ -74,6 +74,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::get('type_soil', TypeSoilController::class);
         Route::get('climate_type', ClimateTypeController::class);
     });
+
     Route::get('workday', WorkdayController::class);
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);
@@ -86,6 +87,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('photographs', PhotographController::class);
 
     Route::get('usuario', UsuerController::class);
+
+    Route::get('acciones', [OrchardController::class,'acciones']);
 
 });
 Route::get('cliente',function (){
