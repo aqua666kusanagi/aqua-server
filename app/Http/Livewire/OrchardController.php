@@ -196,9 +196,22 @@ class OrchardController extends Component
         $this->closeModaldelete();
     }
 
-    public function acciones(){
-        //$datos = Orchard::findOrFail($id);
-        //dd('HOLA ENTRA A LA FUNCION');
-        return view('livewire.orchards.acciones_huerto');
+    public function Acciones($id){
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        return view('livewire.orchards.acciones_huerto',compact('datos'));
     }
+
+    public function Informacion($id){
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        return view('livewire.orchards.informacion',compact('datos'));
+    }
+
+    public function Produccion($id){
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        return view('livewire.orchards.produccion',compact('datos'));
+    }
+
 }

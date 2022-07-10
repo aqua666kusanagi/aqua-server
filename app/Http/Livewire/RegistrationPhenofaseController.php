@@ -102,4 +102,11 @@ class RegistrationPhenofaseController extends Component
         session()->flash('message', 'Registro eliminado!');
         $this->closeModaldelete();
     }
+
+    public function Fenofase($id_orchard){
+        $registros = RegistrationPhenophase::all();
+        $huerto=Orchard::findOrFail($id_orchard);
+        //dd($registros);
+        return view('livewire.orchards.fenofase',compact('huerto','registros'));
+    }
 }
