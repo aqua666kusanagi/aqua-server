@@ -24,17 +24,18 @@
         li a:hover {
             background-color: #111;
         }
+
         /***************************************************/
         .active {
             background-color: #4CAF50;
         }
     </style>
-<ul>
-    <li><a class="active" id="nav1" href="#home">Home</a></li>
-    <li><a class="" id="nav2" href="#news">News</a></li>
-    <li><a class="" id="nav3" href="#contact">Contact</a></li>
-    <li><a class="" id="nav4" href="#about">About</a></li>
-</ul>
+    <ul>
+        <li><a class="active" id="primero" onChange="primero()" href="#home">Home</a></li>
+        <li><a class="" id="nav2" href="#news">News</a></li>
+        <li><a class="" id="nav3" href="#contact">Contact</a></li>
+        <li><a class="" id="nav4" href="#about">About</a></li>
+    </ul>
 
     <div class="pb-5 border-b border-gray-200 sm:pb-0">
         <h3 class="text-lg leading-6 font-medium text-gray-900">Candidates</h3>
