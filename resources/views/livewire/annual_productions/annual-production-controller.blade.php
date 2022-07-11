@@ -61,7 +61,7 @@
                     @endforeach
                 </tbody>
             </table>
-            
+
             <h1>Toneladas cosechadas</h1>
             <div id="chart-container"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>

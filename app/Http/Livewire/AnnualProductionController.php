@@ -17,10 +17,8 @@ class AnnualProductionController extends Component
 
     public function render()
     {
-
         $sales = AnnualProduction::select(DB::raw("sale as count"))
         ->pluck("count");
-        
         $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest AS sum"))
         ->pluck('sum');
         //SELECT Month(date_production ) as month,SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
@@ -37,7 +35,6 @@ class AnnualProductionController extends Component
         foreach ($months as $index => $sale) {
             $datass[$sale] = $sales[$index];
         }
-
         $this -> annual_productions = AnnualProduction::all();
         return view('livewire.annual_productions.annual-production-controller ', [
             'orchards' => Orchard::all(),

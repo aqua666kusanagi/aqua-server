@@ -1,5 +1,8 @@
 <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
-
+<!--@if($isDialogOpen)
+@include('livewire.annual_productions.create')
+@endif-->
+@include('livewire.annual_productions.create')
 
 <h1>Toneladas cosechadas</h1>
 <div id="chart-container"></div>
@@ -15,7 +18,7 @@
             text: 'toneladas y costos de venta'
         },
         xAxis: {
-            categories: ['inicio año','Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+            categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         },
         yAxis: {
             title: {
@@ -70,7 +73,7 @@
             text: 'toneladas y costos de venta'
         },
         xAxis: {
-            categories: ['inicio año','Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+            categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         },
         yAxis: {
             title: {
