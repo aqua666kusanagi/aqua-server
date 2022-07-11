@@ -15,7 +15,7 @@
             text: 'toneladas y costos de venta'
         },
         xAxis: {
-            categories: ['Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+            categories: ['inicio año','Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         },
         yAxis: {
             title: {
@@ -70,7 +70,7 @@
             text: 'toneladas y costos de venta'
         },
         xAxis: {
-            categories: ['Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+            categories: ['inicio año','Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         },
         yAxis: {
             title: {

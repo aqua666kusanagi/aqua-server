@@ -16,39 +16,33 @@ class AnnualProductionController extends Component
 
 
     public function render()
-    {/*
-        $this -> annual_productions = AnnualProduction::all();
-        return view('livewire.orchards.produccion', [
-            'orchards' => Orchard::all(),
-        ]);*/
+    {
 
-
-        $sales = AnnualProduction::select(DB::raw("sale AS count"))
-            ->pluck('count');
-        /*
-        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest  as count"))
-            ->pluck('count');*/
-            
-        $tonHarvest = AnnualProduction::select(DB::raw("count(ton_harvest) AS count"))
-        ->whereYear('date_production', date('Y'))
-        ->groupBy(DB::raw("Month(date_production)"))
-        ->pluck('count');
-
-        //SELECT SUM(`ton_harvest`) from annual_productions GROUP BY Month(date_production); 
+        $sales = AnnualProduction::select(DB::raw("sale as count"))
+        ->pluck("count");
+        
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest AS sum"))
+        ->pluck('sum');
+        //SELECT Month(date_production ) as month,SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
+        //SELECT SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
         $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
             ->whereYear('date_production', date('Y'))
             ->groupBy(DB::raw("Month(date_production)"))
             ->pluck('month');
-        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $datas = array(0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         foreach ($months as $index => $tonHarve) {
             $datas[$tonHarve] = $tonHarvest[$index];
         }
-        $datass = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $datass = array(0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         foreach ($months as $index => $sale) {
             $datass[$sale] = $sales[$index];
         }
 
-        return view('livewire.orchards.produccion', compact( 'datas', 'datass'));
+        $this -> annual_productions = AnnualProduction::all();
+        return view('livewire.annual_productions.annual-production-controller ', [
+            'orchards' => Orchard::all(),
+        ], 
+        compact( 'datas', 'datass'));
     }
 
 
