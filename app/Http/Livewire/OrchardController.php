@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -9,6 +10,8 @@ use App\Models\TypeSoil;
 use App\Models\ClimateType;
 use App\Models\User;
 use App\Models\Phenophase;
+use App\Models\AnnualProduction;
+use Illuminate\Support\Facades\DB;
 
 use Livewire\WithFileUploads;
 
@@ -18,8 +21,8 @@ class OrchardController extends Component
     use WithFileUploads;
 
     public $orchards, $orchard_id,
-        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id,
-        $name_orchard ,
+        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id, $user_id,
+        $name_orchard,
         $path_image,
         $location_orchard,
         $point,
@@ -32,8 +35,8 @@ class OrchardController extends Component
         $irrigation;
 
     public $isDialogOpen = 0;
-    public $isconfirm =0;
-    public $getid =0;
+    public $isconfirm = 0;
+    public $getid = 0;
 
 
 
@@ -42,7 +45,7 @@ class OrchardController extends Component
         $this->orchards = Orchard::all();
 
         return view('livewire.orchards.orchard-controller', [
-        //return view('show_orchards.index', [
+            //return view('show_orchards.index', [
             'type_avocados' => TypeAvocado::all(),
             'type_topographies' => TypeTopography::all(),
             'type_soils' => TypeSoil::all(),
@@ -80,7 +83,8 @@ class OrchardController extends Component
         $this->isconfirm = false;
     }
 
-    private function resetCreateForm(){
+    private function resetCreateForm()
+    {
 
         $this->orchard_id = '';
         $this->type_avocado_id = '';
@@ -125,7 +129,7 @@ class OrchardController extends Component
             'planting_density' => 'required|integer',
             'irrigation' => 'required',
         ]);
-        $this->path_image=$this->path_image->store('images', 'public');
+        $this->path_image = $this->path_image->store('images', 'public');
         //dd($this->path_image);
 
 
@@ -184,7 +188,8 @@ class OrchardController extends Component
         $this->openModalPopover();
     }
 
-    public function ConfirmaDelete($id){
+    public function ConfirmaDelete($id)
+    {
         $this->openModaldelete();
         $this->getid = $id;
     }
@@ -196,9 +201,50 @@ class OrchardController extends Component
         $this->closeModaldelete();
     }
 
-    public function acciones(){
-        //$datos = Orchard::findOrFail($id);
-        //dd('HOLA ENTRA A LA FUNCION');
-        return view('livewire.orchards.acciones_huerto');
+    public function Acciones($id)
+    {
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        return view('livewire.orchards.acciones_huerto', compact('datos'));
+    }
+
+    public function Informacion($id)
+    {
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        return view('livewire.orchards.informacion', compact('datos'));
+    }
+
+    public function Produccion($id)
+    {
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+
+        $sales = AnnualProduction::select(DB::raw("sale AS count"))
+            ->pluck('count');
+        /*
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest  as count"))
+            ->pluck('count');*/
+            
+        $tonHarvest = AnnualProduction::select(DB::raw("count(ton_harvest) AS count"))
+        ->whereYear('date_production', date('Y'))
+        ->groupBy(DB::raw("Month(date_production)"))
+        ->pluck('count');
+
+        //SELECT SUM(`ton_harvest`) from annual_productions GROUP BY Month(date_production); 
+        $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
+            ->whereYear('date_production', date('Y'))
+            ->groupBy(DB::raw("Month(date_production)"))
+            ->pluck('month');
+        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $tonHarve) {
+            $datas[$tonHarve] = $tonHarvest[$index];
+        }
+        $datass = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $sale) {
+            $datass[$sale] = $sales[$index];
+        }
+
+        return view('livewire.orchards.produccion', compact('datos', 'datas', 'datass'));
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnnualProduction;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class AnnualProductionController extends Controller
 {
     /**
@@ -14,7 +14,26 @@ class AnnualProductionController extends Controller
      */
     public function index()
     {
-        //
+        $sales = AnnualProduction::select(DB::raw("sale  as count "))
+            ->pluck('count');
+
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest  as count"))
+            ->pluck('count');
+
+        $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
+            ->whereYear('date_production', date('Y'))
+            ->groupBy(DB::raw("Month(date_production)"))
+            ->pluck('month');
+        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $tonHarve) {
+            $datas[$tonHarve] = $tonHarvest[$index];
+        }
+        $datass = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $sale) {
+            $datass[$sale] = $sales[$index];
+        }
+
+        return view('livewire.orchards.produccion', compact('datas', 'datass'));
     }
 
     /**
