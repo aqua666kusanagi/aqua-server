@@ -91,7 +91,7 @@
                                         </button>
                                     </span>
                                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto bg-green-700  text-white font-bold">
-                                        <a  href="{{route('store_an_prod')}}" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">Agregar</a>
+                                        <a  href="{{route('store_an_prod',)}}" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">Agregar</a>
                                     </span>
                                 </div>
                             </form>

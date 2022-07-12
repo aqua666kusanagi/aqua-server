@@ -28,6 +28,7 @@
     @endif
     <div class="pt-6 px-4">
         <a class="bg-green-700 text-white font-bold py-2 px-4 rounded my-3 w-20" href="{{route('open_an_prod',$datos->id)}}"><i class="fa-solid fa-plus"></i>Agregar</a>
+        @include('livewire.orchards.create_an_prod')
     </div>
 
     <div class="p-4">

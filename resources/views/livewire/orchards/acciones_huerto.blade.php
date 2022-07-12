@@ -30,20 +30,10 @@
             float: right;
         }
     </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
-    <link rel="stylesheet" href="{{asset('/css/diseno.css')}}" />
-    <link rel="stylesheet" href="{{asset('/css/all.min.css')}}">
-    @livewireStyles
-    <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-
     <ul>
         <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
-        <li><a id="active2" href="{{asset('registro_phenophases')}}" target="contenido" onclick="feno1()">Fenofases_url</a></li>
-        <li><a id="active3" href="{{route('fenofase',$datos->id)}}" target="contenido" onclick="feno2()">Fenofases_route</a></li>
+        <li><a id="active2" href="{{url('registro_phenophases')}}" target="contenido" onclick="feno1()">Fenofases_url</a></li>
+        <li><a id="active3" href="#" target="contenido" wire:click.prevent="fenoFase()">Fenofases_route</a></li>
         <li><a id="active4" href="{{route('produccion',$datos->id)}}" target="contenido" onclick="produ()">Producción</a></li>
         {{--<li><a id="active4" href="{{route('recomendacion',$datos->id)}}" target="contenido" onclick="reco()">Recomendaciones</a></li>--}}
         <li class="atras"><a href="{{asset("orchard")}}"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
@@ -55,9 +45,7 @@
 
     <div class="box">
         <iframe src="{{route('informacion',$datos->id)}}" frameborder="0" name="contenido" class="h-screen w-full border border-indigo-400" height="450px">
-            @if(isset($slot))
-                {{$slot}}
-            @endif
+            
         </iframe>
     </div>
 

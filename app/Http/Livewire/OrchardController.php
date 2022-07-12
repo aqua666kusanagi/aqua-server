@@ -262,13 +262,13 @@ class OrchardController extends Component
             ],
         );
 
-        
+
     }
 
     public function store_an_prod($id){
 
-        //dd($id);
-        $this->validates([
+        dd($id);
+        /*$this->validates([
             'orchard_id' => 'required',
             'ton_harvest' => 'required',
             'date_production' => 'required',
@@ -284,20 +284,20 @@ class OrchardController extends Component
         ]);
         session()->flash('message', $this->annual_production_id ? 'Produccion Anual Actualizada!' : 'Produccion Anual Creado!');
         //$this->closeModalPopover();
-        $this->reset_an_prod($id);
+        $this->reset_an_prod($id);*/
 
     }
     public function open_an_prod($id)
     {
         //dd($id);
         $annual_production = new AnnualProduction();
-        return view('livewire.orchards.create_an_prod', 
+        return view('livewire.orchards.create_an_prod',
         compact('annual_production'),[
             'orchards' => Orchard::all(),
         ]);
     }
     public function reset_an_prod($id){
-        
+
         $this->orchard_id = $id;
         $this->ton_harvest = '';
         $this->date_production = '';

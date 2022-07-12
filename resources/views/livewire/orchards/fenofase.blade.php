@@ -76,7 +76,8 @@
 
 <div>
     <div class="targetones">
-        @foreach($registros as $regist)
+        @dd($registration)
+        @foreach($registrosfenofase as $regist)
             <div class="espacio">
                 <div class="cards">
                     <h5>{{$regist->orchard->name_orchard}}</h5>
@@ -84,9 +85,10 @@
                 </div>
             </div>
         @endforeach
+
     </div>
     <div class="targetones">
-        @foreach($registros as $regist)
+        @foreach($registrosfenofase as $regist)
             <div>
                 <div class="linea">
                     <div class="circulo"><div class="subcirculo"></div></div>
@@ -97,10 +99,13 @@
         <div class="linea">
             <a href="{{route('agregarfenofase')}}"><div class="circulof">+</div></a>
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
+            @if($isDialogOpenRegistrofenofase)
+                @include('livewire.registro_phenophase.create')
+            @endif
         </div>
     </div>
     <div class="targetones">
-        @foreach($registros as $regist)
+        @foreach($registrosfenofase as $regist)
             <div class="espacio">
                 <div class="fecha">
                     <h5>{{$regist->date}}</h5>

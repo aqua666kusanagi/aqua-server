@@ -97,7 +97,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
     Route::get('produccion/{id}', [OrchardController::class,'Produccion'])->name('produccion');
-    Route::get('store_an_prod', [OrchardController::class,'store_an_prod'])->name('store_an_prod');
+    Route::get('store_an_prod/{id}', [OrchardController::class,'store_an_prod'])->name('store_an_prod');
     Route::get('open_an_prod/{id}', [OrchardController::class,'open_an_prod'])->name('open_an_prod');
 });
 Route::get('cliente',function (){

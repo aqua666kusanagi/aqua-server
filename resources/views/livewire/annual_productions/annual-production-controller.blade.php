@@ -66,7 +66,7 @@
             <div id="chart-container"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var datas = <?php echo json_encode($datas) ?>
+                var datas = [1,3,4,2,5,7,1,2,3,1,7,2]
 
                 Highcharts.chart('chart-container', {
                     title: {

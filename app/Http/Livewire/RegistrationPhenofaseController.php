@@ -11,24 +11,24 @@ use App\Models\Photograph;
 
 class RegistrationPhenofaseController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments,$registros;
-    public $isDialogOpen = 0;
+    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments,$registrofenofase=0,$registrofenofaseall;
+    public $isDialogOpenRegistroFenofase = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        ///$this->registration = RegistrationPhenophase::all();
-        $this->registros = RegistrationPhenophase::all();
-        $photos = Photograph::all();
-        /*return view('livewire.registro_phenophase.registration-phenofase-controller',[
+        $this->registration = RegistrationPhenophase::all();
+        //$this->registros = RegistrationPhenophase::all();
+        //$photos = Photograph::all();
+        return view('livewire.registro_phenophase.registration-phenofase-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ]);*/
-        return view('livewire.orchards.fenofase',[
+        ]);
+        /*return view('livewire.orchards.fenofase',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ],compact('photos'));
+        ],compact('photos'));*/
     }
 
     public function create()
@@ -111,14 +111,14 @@ class RegistrationPhenofaseController extends Component
         $this->closeModaldelete();
     }
 
-    public function Fenofase($id_orchard){
-        $registros=RegistrationPhenophase::all();
-        $huerto=Orchard::findOrFail($id_orchard);
+    public function fenoFase($id_orchard){
+        $this->registrofenofaseall=RegistrationPhenophase::all();
+        $this->registrofenofase=true;
+        //$huerto=Orchard::findOrFail($id_orchard);
         //dd($this->registros);
-
-        $photos = Photograph::all();
+        //$photos = Photograph::all();
         //dd($registros);
-        return view('livewire.orchards.fenofase',compact('huerto','registros','photos'));
+        //return view('livewire.orchards.fenofase',compact('huerto','photos'));
 
     }
     public function addfenofase(){
