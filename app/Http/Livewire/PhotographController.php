@@ -6,9 +6,11 @@ use Livewire\Component;
 use App\Models\Photograph;
 use App\Models\Orchard;
 use App\Models\TypePhotograph;
+use Livewire\WithFileUploads;
 
 class PhotographController extends Component
 {
+    use WithFileUploads;
     public $photographs, $photograph_id, $orchard_id, $type_photograph_id, $path, $date;
     public $isDialogOpen = 0;
     public $isconfirm =0;
@@ -51,7 +53,7 @@ class PhotographController extends Component
 
     private function resetCreateForm(){
         $this->orchard_id = '';
-        $this->type_photopgraph_id = '';
+        $this->type_photograph_id = '';
         $this->path = '';
         $this->date = '';
     }
@@ -70,7 +72,7 @@ class PhotographController extends Component
 
         Photograph::updateOrCreate(['id' => $this->photograph_id], [
             'orchard_id' => $this->orchard_id,
-            'type_photograph_id' => $this->type_photopgraph_id,
+            'type_photograph_id' => $this->type_photograph_id,
             'path' => $this->path,
             'date' => $this->date
         ]);

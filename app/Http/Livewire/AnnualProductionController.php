@@ -1,25 +1,45 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\AnnualProduction;
 use App\Models\Orchard;
-
+use Illuminate\Support\Facades\DB;
 
 class AnnualProductionController extends Component
 {
     public $annual_productions, $annual_production_id, $orchard_id, $ton_harvest, $date_production, $sale, $damage_percentage;
     public $isDialogOpen = 0;
-    public $isconfirm =0;
-    public $getid =0;
+    public $isconfirm = 0;
+    public $getid = 0;
 
 
     public function render()
     {
+        $sales = AnnualProduction::select(DB::raw("sale as count"))
+        ->pluck("count");
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest AS sum"))
+        ->pluck('sum');
+        //SELECT Month(date_production ) as month,SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
+        //SELECT SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
+        $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
+            ->whereYear('date_production', date('Y'))
+            ->groupBy(DB::raw("Month(date_production)"))
+            ->pluck('month');
+        $datas = array(0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $tonHarve) {
+            $datas[$tonHarve] = $tonHarvest[$index];
+        }
+        $datass = array(0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $sale) {
+            $datass[$sale] = $sales[$index];
+        }
         $this -> annual_productions = AnnualProduction::all();
-        return view('livewire.annual_productions.annual-production-controller', [
+        return view('livewire.annual_productions.annual-production-controller ', [
             'orchards' => Orchard::all(),
-        ]);
+        ], 
+        compact( 'datas', 'datass'));
     }
 
 
@@ -50,7 +70,8 @@ class AnnualProductionController extends Component
         $this->isconfirm = false;
     }
 
-    private function resetCreateForm(){
+    private function resetCreateForm()
+    {
 
         $this->orchard_id = '';
         $this->ton_harvest = '';
@@ -100,7 +121,8 @@ class AnnualProductionController extends Component
         $this->openModalPopover();
     }
 
-    public function ConfirmaDelete($id){
+    public function ConfirmaDelete($id)
+    {
         $this->openModaldelete();
         $this->getid = $id;
     }

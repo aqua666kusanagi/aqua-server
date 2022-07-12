@@ -82,6 +82,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('registro_phenophases', RegistrationPhenofaseController::class);
     Route::get('phenophase', PhenophaseController::class);
     Route::get('annual_production', AnnualProductionController::class);
+    //Route::get('chart_orchards', [ App\Http\Controllers\AnnualProductionController::class, 'index']);
     Route::get('sample_nutrients', SampleNutrientController::class);
     Route::get('nutrient_analysis', NutrientAnalysiController::class);
     Route::get('photographs', PhotographController::class);

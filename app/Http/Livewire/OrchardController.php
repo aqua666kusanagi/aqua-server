@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -9,6 +10,10 @@ use App\Models\TypeSoil;
 use App\Models\ClimateType;
 use App\Models\User;
 use App\Models\Phenophase;
+use App\Models\Photograph;
+use App\Models\AnnualProduction;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 use Livewire\WithFileUploads;
 
@@ -18,8 +23,8 @@ class OrchardController extends Component
     use WithFileUploads;
 
     public $orchards, $orchard_id,
-        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id , $user_id,
-        $name_orchard ,
+        $type_avocado_id, $type_topography_id, $type_soil_id, $climate_type_id, $user_id,
+        $name_orchard,
         $path_image,
         $location_orchard,
         $point,
@@ -29,11 +34,13 @@ class OrchardController extends Component
         $state,
         $creation_year,
         $planting_density,
-        $irrigation;
+        $irrigation,
+        //ANNUAL PRODUCTIONS
+        $ton_harvest, $date_production, $sale, $damage_percentage;
 
     public $isDialogOpen = 0;
-    public $isconfirm =0;
-    public $getid =0;
+    public $isconfirm = 0;
+    public $getid = 0;
 
 
 
@@ -42,7 +49,7 @@ class OrchardController extends Component
         $this->orchards = Orchard::all();
 
         return view('livewire.orchards.orchard-controller', [
-        //return view('show_orchards.index', [
+            //return view('show_orchards.index', [
             'type_avocados' => TypeAvocado::all(),
             'type_topographies' => TypeTopography::all(),
             'type_soils' => TypeSoil::all(),
@@ -80,7 +87,8 @@ class OrchardController extends Component
         $this->isconfirm = false;
     }
 
-    private function resetCreateForm(){
+    private function resetCreateForm()
+    {
 
         $this->orchard_id = '';
         $this->type_avocado_id = '';
@@ -125,7 +133,7 @@ class OrchardController extends Component
             'planting_density' => 'required|integer',
             'irrigation' => 'required',
         ]);
-        $this->path_image=$this->path_image->store('images', 'public');
+        $this->path_image = $this->path_image->store('images', 'public');
         //dd($this->path_image);
 
 
@@ -184,7 +192,8 @@ class OrchardController extends Component
         $this->openModalPopover();
     }
 
-    public function ConfirmaDelete($id){
+    public function ConfirmaDelete($id)
+    {
         $this->openModaldelete();
         $this->getid = $id;
     }
@@ -196,22 +205,84 @@ class OrchardController extends Component
         $this->closeModaldelete();
     }
 
-    public function Acciones($id){
+    public function Acciones($id)
+    {
         $datos = Orchard::findOrFail($id);
         //dd($datos);
-        return view('livewire.orchards.acciones_huerto',compact('datos'));
+        return view('livewire.orchards.acciones_huerto', compact('datos'));
     }
 
-    public function Informacion($id){
+    public function Informacion($id)
+    {
         $datos = Orchard::findOrFail($id);
         //dd($datos);
-        return view('livewire.orchards.informacion',compact('datos'));
+        return view('livewire.orchards.informacion', compact('datos'));
     }
-
-    public function Produccion($id){
+    /*
+    public function fenofase($id)
+    {
         $datos = Orchard::findOrFail($id);
         //dd($datos);
-        return view('livewire.orchards.produccion',compact('datos'));
-    }
+        $photos = Photograph::all();
+        return view('livewire.orchards.fenofase', compact('datos','photos'));
+    }*/
 
+    public function Produccion($id)
+    {
+        $sales = AnnualProduction::select(DB::raw("sale as count"))
+            ->pluck("count");
+        /*1
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest  as count"))
+            ->pluck('count');*/
+        /*2
+        $tonHarvest = AnnualProduction::select(DB::raw("count(ton_harvest) AS count"))
+        ->whereYear('date_production', date('Y'))
+        ->groupBy(DB::raw("Month(date_production)"))
+        ->pluck('count');*/
+        /*3
+        $tonHarvest = AnnualProduction::select(DB::raw("sum(ton_harvest) AS sum"))
+        ->groupBy(DB::raw("Month(date_production)"))
+        ->pluck('sum');
+        */
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest AS sum"))
+            ->pluck('sum');
+        //SELECT Month(date_production ) as month,SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
+        //SELECT SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
+        $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
+            ->whereYear('date_production', date('Y'))
+            ->groupBy(DB::raw("Month(date_production)"))
+            ->pluck('month');
+        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $tonHarve) {
+            $datas[$tonHarve] = $tonHarvest[$index];
+        }
+        $datass = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $sale) {
+            $datass[$sale] = $sales[$index];
+        }
+
+
+
+        $datos = Orchard::findOrFail($id);
+        $this->annual_productions = AnnualProduction::all();
+        return view(
+            'livewire.orchards.produccion',
+            compact('datos', 'datas', 'datass'),
+            [
+                'orchards' => Orchard::all(),
+            ],
+        );
+    }
+    /*
+    public function create_an_prod($id,Request $request){
+        $annual_production=AnnualProduction::create( $request->all());
+
+        AnnualProduction::create([
+            'orchard_id' => $id,
+            'ton_harvest' => $annual_production->ton_harvest,
+            'date_production' => $annual_production->date_production,
+            'sale' => $annual_production -> sale,
+            'damage_percentage' => $annual_production -> damage_percentage,
+        ]);
+    }*/
 }
