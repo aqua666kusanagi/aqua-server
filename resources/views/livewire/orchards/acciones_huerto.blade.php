@@ -33,7 +33,7 @@
     <ul>
         <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
         <li><a id="active2" href="{{asset('registro_phenophases')}}" target="contenido" onclick="feno1()">Fenofases_url</a></li>
-        <li><a id="active3" href="{{route('fenofase')}}" target="contenido" onclick="feno2()">Fenofases_route</a></li>
+        <li><a id="active3" href="{{route('fenofase',$datos->id)}}" target="contenido" onclick="feno2()">Fenofases_route</a></li>
         <li><a id="active4" href="{{route('produccion',$datos->id)}}" target="contenido" onclick="produ()">Producción</a></li>
         {{--<li><a id="active4" href="{{route('recomendacion',$datos->id)}}" target="contenido" onclick="reco()">Recomendaciones</a></li>--}}
         <li class="atras"><a href="{{asset("orchard")}}"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
