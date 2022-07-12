@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\RegistrationPhenophaseController;
 use Livewire\Component;
 use App\Models\RegistrationPhenophase;
 use App\Models\Orchard;
@@ -10,15 +11,15 @@ use App\Models\Photograph;
 
 class RegistrationPhenofaseController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments/*,$registros*/;
+    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments,$registros;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        //$this->registration = RegistrationPhenophase::all();
-        $registros = RegistrationPhenophase::all();
+        ///$this->registration = RegistrationPhenophase::all();
+        $this->registros = RegistrationPhenophase::all();
         $photos = Photograph::all();
         /*return view('livewire.registro_phenophase.registration-phenofase-controller',[
             'orchards' => Orchard::all(),
@@ -27,7 +28,7 @@ class RegistrationPhenofaseController extends Component
         return view('livewire.orchards.fenofase',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ],compact('registros','photos'));
+        ],compact('photos'));
     }
 
     public function create()

@@ -92,7 +92,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('acciones/{id}', [OrchardController::class,'Acciones'])->name('mas.detalles');
     Route::get('detalles/{id}', [OrchardController::class,'Informacion'])->name('informacion');
 
-
     Route::get('fenofase/{id}', [RegistrationPhenofaseController::class,'Fenofase'])->name('fenofase');
     Route::get('addfenofase', [RegistrationPhenofaseController::class,'addfenofase'])->name('agregarfenofase');
 

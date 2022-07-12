@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fenofase</title>
-
-    <style>
+ <style>
         hr {
             height: 5px;
             background-color: black;
@@ -66,19 +57,23 @@
         }
         .cards{
             width: 100px;
-            background-color: #16a34a;
+            background-color: #d1fae5;
+            border: 1px solid #9ca3af;
             border-radius: 20px;
             padding: 0.5px;
             text-align: center;
             float: left;
         }
+        .fecha{
+             width: 100px;
+             padding: 0.5px;
+             float: left;
+         }
         .salto{
             display: block;
         }
-    </style>
+ </style>
 
-</head>
-<body>
 <div>
     <div class="targetones">
         @foreach($registros as $regist)
@@ -86,7 +81,6 @@
                 <div class="cards">
                     <h5>{{$regist->orchard->name_orchard}}</h5>
                     <h5>{{$regist->phenophase->phenophase}}</h5>
-                    <h5>{{$regist->date}}</h5>
                 </div>
             </div>
         @endforeach
@@ -101,8 +95,18 @@
             </div>
         @endforeach
         <div class="linea">
-            <a href=""><div class="circulof">+</div></a>
+            <a href="{{route('agregarfenofase')}}"><div class="circulof">+</div></a>
+            <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
         </div>
+    </div>
+    <div class="targetones">
+        @foreach($registros as $regist)
+            <div class="espacio">
+                <div class="fecha">
+                    <h5>{{$regist->date}}</h5>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>
 
@@ -120,6 +124,4 @@
         </div>
     @endforeach
 </div>
-</body>
-</html>
 

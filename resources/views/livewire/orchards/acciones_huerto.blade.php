@@ -30,6 +30,16 @@
             float: right;
         }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/diseno.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/all.min.css')}}">
+    @livewireStyles
+    <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+
     <ul>
         <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
         <li><a id="active2" href="{{asset('registro_phenophases')}}" target="contenido" onclick="feno1()">Fenofases_url</a></li>
@@ -50,6 +60,12 @@
             @endif
         </iframe>
     </div>
+
+    @stack('modals')
+
+    <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
+        @livewireScripts
+    @yield('js')
 
     <script>
         function info(){
