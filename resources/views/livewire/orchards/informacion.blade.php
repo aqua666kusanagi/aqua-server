@@ -16,6 +16,6 @@
         </div>
     </div>
     <div class="px-4 py-4 mx-auto my-4 flex justify-center">
-        <img class="bg-gray-300 rounded-md h-72 w-1/2" src="{{url("storage/".$datos->path_image)}}" alt="Image no vista" >
+        <img class="bg-gray-300 rounded-md h-72 w-1" src="{{url("storage/".$datos->path_image)}}" alt="Image no vista" >
     </div>
 </div>

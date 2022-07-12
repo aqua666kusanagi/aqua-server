@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\RegistrationPhenophase;
 use App\Models\Orchard;
 use App\Models\Phenophase;
+use App\Models\Photograph;
 
 class RegistrationPhenofaseController extends Component
 {
@@ -106,7 +107,9 @@ class RegistrationPhenofaseController extends Component
     public function Fenofase($id_orchard){
         $registros = RegistrationPhenophase::all();
         $huerto=Orchard::findOrFail($id_orchard);
+        $photos = Photograph::all();
         //dd($registros);
-        return view('livewire.orchards.fenofase',compact('huerto','registros'));
+        return view('livewire.orchards.fenofase',compact('huerto','registros','photos'));
+
     }
 }

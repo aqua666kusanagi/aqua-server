@@ -10,6 +10,7 @@ use App\Models\TypeSoil;
 use App\Models\ClimateType;
 use App\Models\User;
 use App\Models\Phenophase;
+use App\Models\Photograph;
 use App\Models\AnnualProduction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -217,6 +218,14 @@ class OrchardController extends Component
         //dd($datos);
         return view('livewire.orchards.informacion', compact('datos'));
     }
+    /*
+    public function fenofase($id)
+    {
+        $datos = Orchard::findOrFail($id);
+        //dd($datos);
+        $photos = Photograph::all();
+        return view('livewire.orchards.fenofase', compact('datos','photos'));
+    }*/
 
     public function Produccion($id)
     {
@@ -251,6 +260,8 @@ class OrchardController extends Component
         foreach ($months as $index => $sale) {
             $datass[$sale] = $sales[$index];
         }
+
+
 
         $datos = Orchard::findOrFail($id);
         $this->annual_productions = AnnualProduction::all();

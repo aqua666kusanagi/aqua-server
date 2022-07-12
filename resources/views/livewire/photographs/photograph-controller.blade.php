@@ -30,6 +30,7 @@
                     <th class="px-4 py-2">Tipo Foto</th>
                     <th class="px-4 py-2">Archivo</th>
                     <th class="px-4 py-2">fecha</th>
+                    <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,8 +38,11 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $foto->id }}</td>
                         <td class="border px-4 py-2">{{ $foto->orchard->name_orchard }}</td>
-                        <td class="border px-4 py-2">{{ $foto->type_photograph->type_photograph }}</td>
-                        <td class="border px-4 py-2">{{ $foto->file }}</td>
+                        <td class="border px-4 py-2">{{ $foto->type_photo->type_photograph }}</td>
+                        <!--  <td class="border px-4 py-2">{{ $foto->path }}</td> -->
+                        <td>
+                            <img  alt="Image no vista" src="{{url("storage/".$foto->path)}}">
+                        </td>
                         <td class="border px-4 py-2">{{ $foto->date }}</td>
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
