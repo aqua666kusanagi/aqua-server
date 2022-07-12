@@ -131,9 +131,9 @@
             <div class="font-bold w-1/2">IMAGENES</div>
         </div>
     </div>
-    <div class="grid grid-cols-4 gap-4 ">
+    <div class="padd grid gap-4 grid-cols-3 ">
         @foreach ($photos as $image)
-        <div class="">
+        <div class="px-2">
             <img class="rounded-md h-72 w-1" alt="Image no vista" src="{{url("storage/".$image->path)}}">
         </div>
         @endforeach

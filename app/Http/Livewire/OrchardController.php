@@ -56,6 +56,7 @@ class OrchardController extends Component
             'climate_types' => ClimateType::all(),
             'users' => User::all(),
             'phenophases' => Phenophase::all(),
+            'photographs' => Photograph::all(),
         ]);
     }
 
@@ -197,38 +198,28 @@ class OrchardController extends Component
         $this->openModaldelete();
         $this->getid = $id;
     }
-
     public function delete()
     {
         Orchard::find($this->getid)->delete();
         session()->flash('message', 'Huerto Removido!');
         $this->closeModaldelete();
     }
-
     public function Acciones($id)
     {
         $datos = Orchard::findOrFail($id);
         //dd($datos);
         return view('livewire.orchards.acciones_huerto', compact('datos'));
     }
-
     public function Informacion($id)
     {
         $datos = Orchard::findOrFail($id);
         //dd($datos);
         return view('livewire.orchards.informacion', compact('datos'));
     }
-    /*
-    public function fenofase($id)
-    {
-        $datos = Orchard::findOrFail($id);
-        //dd($datos);
-        $photos = Photograph::all();
-        return view('livewire.orchards.fenofase', compact('datos','photos'));
-    }*/
-
     public function Produccion($id)
     {
+        //dd($id);
+        $modalOpen=0;
         $sales = AnnualProduction::select(DB::raw("sale as count"))
             ->pluck("count");
         /*1
@@ -261,28 +252,56 @@ class OrchardController extends Component
             $datass[$sale] = $sales[$index];
         }
 
-
-
         $datos = Orchard::findOrFail($id);
         $this->annual_productions = AnnualProduction::all();
         return view(
             'livewire.orchards.produccion',
-            compact('datos', 'datas', 'datass'),
+            compact('datos', 'datas', 'datass','modalOpen'),
             [
                 'orchards' => Orchard::all(),
             ],
         );
-    }
-    /*
-    public function create_an_prod($id,Request $request){
-        $annual_production=AnnualProduction::create( $request->all());
 
-        AnnualProduction::create([
-            'orchard_id' => $id,
-            'ton_harvest' => $annual_production->ton_harvest,
-            'date_production' => $annual_production->date_production,
-            'sale' => $annual_production -> sale,
-            'damage_percentage' => $annual_production -> damage_percentage,
+        
+    }
+
+    public function store_an_prod($id){
+
+        //dd($id);
+        $this->validates([
+            'orchard_id' => 'required',
+            'ton_harvest' => 'required',
+            'date_production' => 'required',
+            'sale' => 'required',
+            'damage_percentage' => 'required',
         ]);
-    }*/
+        AnnualProduction::Create(['id' => $this->annual_production_id], [
+            'orchard_id' => $id,
+            'ton_harvest' => $this->ton_harvest,
+            'date_production' => $this->date_production,
+            'sale' => $this->sale,
+            'damage_percentage' => $this->damage_percentage,
+        ]);
+        session()->flash('message', $this->annual_production_id ? 'Produccion Anual Actualizada!' : 'Produccion Anual Creado!');
+        //$this->closeModalPopover();
+        $this->reset_an_prod($id);
+
+    }
+    public function open_an_prod($id)
+    {
+        //dd($id);
+        $annual_production = new AnnualProduction();
+        return view('livewire.orchards.create_an_prod', 
+        compact('annual_production'),[
+            'orchards' => Orchard::all(),
+        ]);
+    }
+    public function reset_an_prod($id){
+        
+        $this->orchard_id = $id;
+        $this->ton_harvest = '';
+        $this->date_production = '';
+        $this->sale = '';
+        $this->damage_percentage = '';
+    }
 }
