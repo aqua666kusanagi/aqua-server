@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{asset('/css/app.css')}}">
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
@@ -18,51 +19,57 @@
                             <div class="shadow sm:rounded-md sm:overflow-hidden ">
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                                        <div class="grid grid-cols-6 gap-6">
-                                            <div class="col-span-6  ">
-                                                <div class="pt-2 pr-4 ">
-                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Fenofase </h3>
-                                                    <select wire:model="phenophase_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Selecciona Opción</option>
-                                                        @foreach($phenophases as $pheno)
-                                                        <option type="int" value="{{$pheno->id}}">{{$pheno->phenophase}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                            <div class="col-span-6  ">
-                                                <div class="pt-2 pr-4 ">
-                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
-                                                    <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Huertos </option>
-                                                        @foreach($orchards as $orcha)
-                                                        <option type="int" value="{{$orcha->id}}">{{$orcha->name_orchard}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                            <div class="col-span-6 ">
-                                                <div class="pt-2 pr-4">
-                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
-                                                    <div class=" ">
-                                                        <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Fecha" wire:model="date">
+                                        <div class="">
+                                            <div class="flex justify-between">
+                                                <div class="">
+                                                    <div class="pt-2 pr-4 ">
+                                                        <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Fenofase </h3>
+                                                        <select wire:model="phenophase_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                            <option value="">Selecciona Opción</option>
+                                                            @foreach($phenophases as $pheno)
+                                                                <option type="int" value="{{$pheno->id}}">{{$pheno->phenophase}}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                    @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
-                                            </div>
-                                            <div class="col-span-6 ">
-                                                <div class="pt-2 pr-4">
-                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Comentario</h3>
-                                                    <div class=" ">
-                                                        <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Comentarios" wire:model="comments">
+                                                <div class="">
+                                                    <div class="pt-2 pr-4 ">
+                                                        <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
+                                                        <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                            <option value="">Huertos </option>
+                                                            @foreach($orchards as $orcha)
+                                                                <option type="int" value="{{$orcha->id}}">{{$orcha->name_orchard}}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    @error('comments') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                    @error('phenophase_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>
+
+                                            <div class="flex justify-between">
+                                                <div class="">
+                                                    <div class="pt-2 pr-4">
+                                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
+                                                        <div class=" ">
+                                                            <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Fecha" wire:model="date">
+                                                        </div>
+                                                        @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="pt-2 pr-4">
+                                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Comentario</h3>
+                                                        <div class=" ">
+                                                            <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Comentarios" wire:model="comments">
+                                                        </div>
+                                                        @error('comments') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

@@ -9,18 +9,23 @@ use App\Models\Phenophase;
 
 class RegistrationPhenofaseController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments/*,$registros*/;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->registration = RegistrationPhenophase::all();
-        return view('livewire.registro_phenophase.registration-phenofase-controller',[
+        //$this->registration = RegistrationPhenophase::all();
+        $registros = RegistrationPhenophase::all();
+        /*return view('livewire.registro_phenophase.registration-phenofase-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ]);
+        ]);*/
+        return view('livewire.orchards.fenofase',[
+            'orchards' => Orchard::all(),
+            'phenophases' => Phenophase::all()
+        ],compact('registros'));
     }
 
     public function create()
@@ -104,9 +109,15 @@ class RegistrationPhenofaseController extends Component
     }
 
     public function Fenofase($id_orchard){
-        $registros = RegistrationPhenophase::all();
+        $registros=RegistrationPhenophase::all();
         $huerto=Orchard::findOrFail($id_orchard);
-        //dd($registros);
+        //dd($this->registros);
         return view('livewire.orchards.fenofase',compact('huerto','registros'));
+    }
+    public function addfenofase(){
+        return view('livewire.registro_phenophase.create',[
+            'orchards' => Orchard::all(),
+            'phenophases' => Phenophase::all()
+        ]);
     }
 }

@@ -30,11 +30,11 @@
             float: right;
         }
     </style>
-
     <ul>
         <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
-        <li><a id="active2" href="{{route('fenofase',$datos->id)}}" target="contenido" onclick="feno()">Fenofases</a></li>
-        <li><a id="active3" href="{{route('produccion',$datos->id)}}" target="contenido" onclick="produ()">Producción</a></li>
+        <li><a id="active2" href="{{asset('registro_phenophases')}}" target="contenido" onclick="feno1()">Fenofases_url</a></li>
+        <li><a id="active3" href="{{route('fenofase')}}" target="contenido" onclick="feno2()">Fenofases_route</a></li>
+        <li><a id="active4" href="{{route('produccion',$datos->id)}}" target="contenido" onclick="produ()">Producción</a></li>
         {{--<li><a id="active4" href="{{route('recomendacion',$datos->id)}}" target="contenido" onclick="reco()">Recomendaciones</a></li>--}}
         <li class="atras"><a href="{{asset("orchard")}}"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
     </ul>
@@ -44,7 +44,9 @@
     </div>
     <div class="box">
         <iframe src="{{route('informacion',$datos->id)}}" frameborder="0" name="contenido" class="w-full border border-indigo-400" height="450px">
-
+            @if(isset($slot))
+                {{$slot}}
+            @endif
         </iframe>
     </div>
 
@@ -55,17 +57,23 @@
             document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
             document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
         }
-        function feno(){
+        function feno1(){
             document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
             document.getElementById("active2").style.borderBottom="2px solid #16a34a";
             document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
             document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
         }
-        function produ(){
+        function feno2(){
             document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
             document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
             document.getElementById("active3").style.borderBottom="2px solid #16a34a";
             document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
+        }
+        function produ(){
+            document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
+            document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
+            document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
+            document.getElementById("active4").style.borderBottom="2px solid #16a34a";
         }
         function reco(){
             document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";

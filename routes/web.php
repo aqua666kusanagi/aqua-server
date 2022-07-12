@@ -90,10 +90,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('acciones/{id}', [OrchardController::class,'Acciones'])->name('mas.detalles');
     Route::get('detalles/{id}', [OrchardController::class,'Informacion'])->name('informacion');
+
+
     Route::get('fenofase/{id}', [RegistrationPhenofaseController::class,'Fenofase'])->name('fenofase');
-    Route::get('addfenofase', [RegistrationPhenofaseController::class,'create'])->name('agregar');
+    Route::get('addfenofase', [RegistrationPhenofaseController::class,'addfenofase'])->name('agregarfenofase');
+
+
     Route::get('produccion/{id}', [OrchardController::class,'Produccion'])->name('produccion');
-    //Route::get('recomendacciones/{id}', [OrchardController::class,'Acciones'])->name('recomendacion');
 
 });
 Route::get('cliente',function (){
@@ -108,3 +111,4 @@ Route::get("404",function(){
 
 
 
+//Route::get('recomendacciones/{id}', [OrchardController::class,'Acciones'])->name('recomendacion');
