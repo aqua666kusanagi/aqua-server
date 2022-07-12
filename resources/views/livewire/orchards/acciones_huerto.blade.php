@@ -54,7 +54,7 @@
     </div>
 
     <div class="box">
-        <iframe src="{{route('informacion',$datos->id)}}" frameborder="0" name="contenido" class="w-full border border-indigo-400" height="450px">
+        <iframe src="{{route('informacion',$datos->id)}}" frameborder="0" name="contenido" class="h-screen w-full border border-indigo-400" height="450px">
             @if(isset($slot))
                 {{$slot}}
             @endif

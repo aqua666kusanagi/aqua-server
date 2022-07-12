@@ -119,7 +119,7 @@
 </div>
 <div class="grid grid-cols-4 gap-4 ">
     @foreach ($photos as $image)
-        <div class="">
+        <div class="px-4">
             <img class="rounded-md h-72 w-1" alt="Image no vista" src="{{url("storage/".$image->path)}}">
         </div>
     @endforeach
