@@ -19,6 +19,7 @@ class RegistrationPhenofaseController extends Component
     {
         //$this->registration = RegistrationPhenophase::all();
         $registros = RegistrationPhenophase::all();
+        $photos = Photograph::all();
         /*return view('livewire.registro_phenophase.registration-phenofase-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
@@ -26,7 +27,7 @@ class RegistrationPhenofaseController extends Component
         return view('livewire.orchards.fenofase',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ],compact('registros'));
+        ],compact('registros','photos'));
     }
 
     public function create()
