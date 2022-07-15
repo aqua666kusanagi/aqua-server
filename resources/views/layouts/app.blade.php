@@ -560,7 +560,7 @@
                     <!-- Content -->
                     <div class="mt-2">
                         @if(isset($slot))
-                        {{$slot}}
+                            {{$slot}}
                         @endif
                     </div>
                 </main>

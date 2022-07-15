@@ -28,6 +28,8 @@ use App\Http\Livewire\AnnualProductionController;
 use App\Http\Livewire\SampleNutrientController;
 use App\Http\Livewire\PhotographController;
 
+use App\Http\Livewire\OrchardManagerController;
+
 use App\Http\Livewire\UsuerController;
 use Illuminate\Support\Facades\Route;
 
@@ -82,19 +84,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('registro_phenophases', RegistrationPhenofaseController::class);
     Route::get('phenophase', PhenophaseController::class);
     Route::get('annual_production', AnnualProductionController::class);
-    //Route::get('chart_orchards', [ App\Http\Controllers\AnnualProductionController::class, 'index']);
     Route::get('sample_nutrients', SampleNutrientController::class);
     Route::get('nutrient_analysis', NutrientAnalysiController::class);
     Route::get('photographs', PhotographController::class);
 
     Route::get('usuario', UsuerController::class);
 
+    Route::get('orchard_manager',OrchardManagerController::class);
+    Route::get('fenofases',[OrchardManagerController::class, 'Fenofases'])->name('fenofase');
+
     Route::get('acciones/{id}', [OrchardController::class,'Acciones'])->name('mas.detalles');
     Route::get('detalles/{id}', [OrchardController::class,'Informacion'])->name('informacion');
-
-    Route::get('fenofase/{id}', [RegistrationPhenofaseController::class,'Fenofase'])->name('fenofase');
-    Route::get('addfenofase', [RegistrationPhenofaseController::class,'addfenofase'])->name('agregarfenofase');
-
 
     Route::get('produccion/{id}', [OrchardController::class,'Produccion'])->name('produccion');
     Route::get('store_an_prod/{id}', [OrchardController::class,'store_an_prod'])->name('store_an_prod');

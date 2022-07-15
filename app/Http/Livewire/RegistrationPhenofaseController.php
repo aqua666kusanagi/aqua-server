@@ -111,16 +111,6 @@ class RegistrationPhenofaseController extends Component
         $this->closeModaldelete();
     }
 
-    public function fenoFase($id_orchard){
-        $this->registrofenofaseall=RegistrationPhenophase::all();
-        $this->registrofenofase=true;
-        //$huerto=Orchard::findOrFail($id_orchard);
-        //dd($this->registros);
-        //$photos = Photograph::all();
-        //dd($registros);
-        //return view('livewire.orchards.fenofase',compact('huerto','photos'));
-
-    }
     public function addfenofase(){
         return view('livewire.registro_phenophase.create',[
             'orchards' => Orchard::all(),
