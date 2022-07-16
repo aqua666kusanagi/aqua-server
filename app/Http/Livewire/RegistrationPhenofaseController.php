@@ -7,12 +7,11 @@ use Livewire\Component;
 use App\Models\RegistrationPhenophase;
 use App\Models\Orchard;
 use App\Models\Phenophase;
-use App\Models\Photograph;
 
 class RegistrationPhenofaseController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments,$registrofenofase=0,$registrofenofaseall;
-    public $isDialogOpenRegistroFenofase = 0;
+    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $isDialogOpen= 0;
     public $isconfirm =0;
     public $getid =0;
 
@@ -111,10 +110,4 @@ class RegistrationPhenofaseController extends Component
         $this->closeModaldelete();
     }
 
-    public function addfenofase(){
-        return view('livewire.registro_phenophase.create',[
-            'orchards' => Orchard::all(),
-            'phenophases' => Phenophase::all()
-        ]);
-    }
 }

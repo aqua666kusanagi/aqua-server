@@ -91,7 +91,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('usuario', UsuerController::class);
 
     Route::get('orchard_manager',OrchardManagerController::class);
-    Route::get('fenofases',[OrchardManagerController::class, 'Fenofases'])->name('fenofase');
 
     Route::get('acciones/{id}', [OrchardController::class,'Acciones'])->name('mas.detalles');
     Route::get('detalles/{id}', [OrchardController::class,'Informacion'])->name('informacion');

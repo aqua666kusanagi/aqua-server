@@ -1,5 +1,8 @@
+<x-app-layout>
 <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
+    <script>vermas()</script>
+    <script>info()</script>
 <div class="flex justify-between w-full px-4">
     <div class="px-4 py-4 my-4 w-1/2">
         <div class="flex justify-between my-3">
@@ -19,3 +22,4 @@
         <img class="bg-gray-300 rounded-md h-72 w-1" src="{{url("storage/".$datos->path_image)}}" alt="Image no vista" >
     </div>
 </div>
+</x-app-layout>

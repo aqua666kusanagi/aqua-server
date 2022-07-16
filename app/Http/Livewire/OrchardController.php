@@ -38,6 +38,8 @@ class OrchardController extends Component
         //ANNUAL PRODUCTIONS
         $ton_harvest, $date_production, $sale, $damage_percentage;
 
+    public $identificador=0;
+
     public $isDialogOpen = 0;
     public $isconfirm = 0;
     public $getid = 0;
@@ -206,12 +208,15 @@ class OrchardController extends Component
     }
     public function Acciones($id)
     {
+        $this->identificador=$id;
         $datos = Orchard::findOrFail($id);
         //dd($datos);
         return view('livewire.orchards.acciones_huerto', compact('datos'));
     }
+
     public function Informacion($id)
     {
+        $this->identificador=$id;
         $datos = Orchard::findOrFail($id);
         //dd($datos);
         return view('livewire.orchards.informacion', compact('datos'));

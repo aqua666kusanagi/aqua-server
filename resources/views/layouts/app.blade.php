@@ -559,9 +559,23 @@
 
                     <!-- Content -->
                     <div class="mt-2">
-                        @if(isset($slot))
-                            {{$slot}}
-                        @endif
+                        <div id="menu_navigation">
+                            <ul>
+                                <li><a id="active1" class="hoverr" href="#"  onclick="info()">Información</a></li>
+                                <li><a id="active2" class="hoverr" href="{{url('orchard_manager')}}"  onclick="feno1()">Fenofases</a></li>
+                                <li><a id="active3" class="hoverr" href="#"  onclick="produ()">Producción</a></li>
+                                <li><a id="active4" class="hoverr" href="#"  onclick="reco()">Recomendaciones</a></li>
+                                <li class="atras"><a href="{{asset("orchard")}}" onclick="regresar()"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <script src="{{asset('/js/operaciones.js')}}"></script>
+                        <input type="text" value="" name="idd">
+                        <div class="h-screen w-full">
+                                @if(isset($slot))
+                                    {{$slot}}
+                                @endif
+                        </div>
                     </div>
                 </main>
 
@@ -584,10 +598,8 @@
         </div>
     </div>
     @stack('modals')
-
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     @livewireScripts
-
     <script type="text/javascript">
         const setup = () => {
             const setTheme = (value) => {

@@ -96,10 +96,7 @@
             </div>
         @endforeach
         <div class="linea">
-            <button wire:click="{{$modal=false}}" onclick="btn()" class="circulof">+</button>
-            @if($modal)
-                @include('livewire.manager_orchards.create')
-            @endif
+            <button onclick="btn()" class="circulof">+</button>
         </div>
     </div>
     <div class="targetones">
