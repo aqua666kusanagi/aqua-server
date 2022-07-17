@@ -28,6 +28,8 @@ use App\Http\Livewire\AnnualProductionController;
 use App\Http\Livewire\SampleNutrientController;
 use App\Http\Livewire\PhotographController;
 
+use App\Http\Livewire\OrchardManagerController;
+
 use App\Http\Livewire\UsuerController;
 use Illuminate\Support\Facades\Route;
 
@@ -74,6 +76,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::get('type_soil', TypeSoilController::class);
         Route::get('climate_type', ClimateTypeController::class);
     });
+
     Route::get('workday', WorkdayController::class);
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);
@@ -87,6 +90,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('usuario', UsuerController::class);
 
+    Route::get('orchard_manager',OrchardManagerController::class);
+
+    Route::get('acciones/{id}', [OrchardController::class,'Acciones'])->name('mas.detalles');
+    Route::get('detalles/{id}', [OrchardController::class,'Informacion'])->name('informacion');
+
+    Route::get('produccion/{id}', [OrchardController::class,'Produccion'])->name('produccion');
+    Route::get('store_an_prod/{id}', [OrchardController::class,'store_an_prod'])->name('store_an_prod');
+    Route::get('open_an_prod/{id}', [OrchardController::class,'open_an_prod'])->name('open_an_prod');
 });
 Route::get('cliente',function (){
    return view('layouts.appuser');
@@ -100,3 +111,4 @@ Route::get("404",function(){
 
 
 
+//Route::get('recomendacciones/{id}', [OrchardController::class,'Acciones'])->name('recomendacion');

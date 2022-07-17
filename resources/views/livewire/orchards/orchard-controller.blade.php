@@ -39,8 +39,11 @@
                                 </div>
                                 <div>
                                     <div class="-mt-px flex divide-x divide-gray-200">
+                                        <input type="hidden" name="huerto_id" value="{{$orchard->id}}">
                                         <div class="w-0 flex-1 flex">
-                                            <a href="" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-green-600 font-medium border border-transparent rounded-bl-lg hover:text-indigo-500"><i class="fa-solid fa-magnifying-glass-plus"></i>Ver Mas</a>
+                                                <a href="{{route('informacion',$orchard->id)}}" onclick="vermas()" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-green-600 font-medium border border-transparent rounded-bl-lg hover:text-indigo-500">
+                                                            <i class="fa-solid fa-magnifying-glass-plus"></i>Ver Mas
+                                                </a>
                                         </div>
                                         <div class="w-0 flex-1 flex">
                                             <a  class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">

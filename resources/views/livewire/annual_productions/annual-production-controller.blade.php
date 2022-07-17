@@ -61,6 +61,114 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <h1>Toneladas cosechadas</h1>
+            <div id="chart-container"></div>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script>
+                var datas = [1,3,4,2,5,7,1,2,3,1,7,2]
+
+                Highcharts.chart('chart-container', {
+                    title: {
+                        text: 'Grafico del 2022'
+                    },
+                    subtitle: {
+                        text: 'toneladas y costos de venta'
+                    },
+                    xAxis: {
+                        categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Numero de toneladas vendidas'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    plotOptions: {
+                        series: {
+                            allowPointSelect: true
+                        }
+                    },
+                    series: [{
+                        name: 'Toneladas',
+                        data: datas
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxwidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizonal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+                });
+            </script>
+
+
+
+            <h1>Costo de venta por tonelada</h1>
+            <div id="chart-containers"></div>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script>
+                var datass = <?php echo json_encode($datass) ?>
+
+                Highcharts.chart('chart-containers', {
+                    title: {
+                        text: 'Grafico del 2022'
+                    },
+                    subtitle: {
+                        text: 'toneladas y costos de venta'
+                    },
+                    xAxis: {
+                        categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Costo de venta de toneladas'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    plotOptions: {
+                        series: {
+                            allowPointSelect: true
+                        }
+                    },
+                    series: [{
+                        name: 'costo',
+                        data: datass
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxwidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizonal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+                });
+            </script>
         </div>
     </div>
 </div>

@@ -36,6 +36,7 @@
                                                 </div>
                                                 @error('orchard_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
+                    
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="block text-sm font-medium text-gray-700 text-center">Toneladas de Cosecha</h3>

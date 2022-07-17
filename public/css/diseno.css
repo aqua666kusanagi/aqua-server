@@ -62,3 +62,110 @@
     line-height: 200%;
 
 }
+/*elementos del menu que mostraran detalles de los huertos*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #1a202c;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.hoverr:hover {
+    background-color: #0f766e;
+    color: white;
+    border-radius: 15px;
+    border-bottom: 2px solid #16a34a;
+}
+.atras{
+    float: right;
+}
+.atras:hover {
+    background: #0d9488;
+}
+/*ELEMENTOS DE DISEÑO QUE SE LE DARA A LA CLASE DE FENOFASES*/
+
+hr {
+    margin-top: 8px;
+    height: 5px;
+    background-color: black;
+    float: left;
+    width: 100px;
+}
+
+.linea{
+
+}
+.circulo {
+    width: 20px;
+    height: 20px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #16a34a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.circulof {
+    width: 25px;
+    height: 20px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 25px;
+    background: #1e40af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    color: white;
+}
+.circulof:hover{
+    width: 25px;
+    height: 25px;
+    background-color: #0d9488;
+}
+.subcirculo {
+    width: 10px;
+    height: 10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: black;
+    display: block;
+}
+.targetones{
+    display: flex;
+}
+.espacio{
+    width: 120px;
+    /*border: 2px solid #0d9488;*/
+}
+.cards{
+    width: 100px;
+    background-color: #d1fae5;
+    border: 1px solid #9ca3af;
+    border-radius: 20px;
+    padding: 0.5px;
+    text-align: center;
+    float: left;
+}
+.fecha{
+    width: 100px;
+    padding: 0.5px;
+    float: left;
+}

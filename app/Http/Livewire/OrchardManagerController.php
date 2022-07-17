@@ -2,34 +2,27 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Controllers\RegistrationPhenophaseController;
 use Livewire\Component;
+
 use App\Models\RegistrationPhenophase;
 use App\Models\Orchard;
 use App\Models\Phenophase;
 
-class RegistrationPhenofaseController extends Component
+class OrchardManagerController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
-    public $isDialogOpen= 0;
+    public $datos, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $modalCreate=0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->registration = RegistrationPhenophase::all();
-        //$this->registros = RegistrationPhenophase::all();
-        //$photos = Photograph::all();
-        return view('livewire.registro_phenophase.registration-phenofase-controller',[
+        $this->datos = RegistrationPhenophase::all();
+        return view('livewire.manager_orchards.orchard-manager-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
         ]);
-        /*return view('livewire.orchards.fenofase',[
-            'orchards' => Orchard::all(),
-            'phenophases' => Phenophase::all()
-        ],compact('photos'));*/
     }
-
     public function create()
     {
         $this->resetCreateForm();
@@ -38,12 +31,12 @@ class RegistrationPhenofaseController extends Component
 
     public function openModalPopover()
     {
-        $this->isDialogOpen = true;
+        $this->modalCreate = true;
     }
 
     public function closeModalPopover()
     {
-        $this->isDialogOpen = false;
+        $this->modalCreate = false;
     }
 
     public function openModaldelete()
@@ -109,5 +102,4 @@ class RegistrationPhenofaseController extends Component
         session()->flash('message', 'Registro eliminado!');
         $this->closeModaldelete();
     }
-
 }
