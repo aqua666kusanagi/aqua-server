@@ -7,22 +7,26 @@ use App\Models\AnnualProduction;
 use App\Models\Orchard;
 use Illuminate\Support\Facades\DB;
 
-class AnnualProductionController extends Component
+class OrchardProductionController extends Component
 {
     public $annual_productions, $annual_production_id, $orchard_id, $ton_harvest, $date_production, $sale, $damage_percentage;
-    public $isDialogOp = 0;
+    public $isModalOpen = 0;
     public $isconfirm = 0;
     public $getid = 0;
 
 
     public function render()
     {
+        
         $sales = AnnualProduction::select(DB::raw("sale as count"))
         ->pluck("count");
+        $tonHarvest = AnnualProduction::select(DB::raw("ton_harvest as counts"))
+        ->pluck("counts");
+        /*
         $tonHarvest = AnnualProduction::selectRaw('MONTH(date_production) as date')
             ->groupBy('date')
             ->selectRaw('sum(ton_harvest) as production')
-            ->pluck("production");
+            ->pluck("production");*/
         //dd($tonHarvest);
         //SELECT Month(date_production ) as month,SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
         //SELECT SUM(`ton_harvest`) as count from annual_productions GROUP BY Month(date_production)
@@ -39,7 +43,7 @@ class AnnualProductionController extends Component
             $datass[$sale] = $sales[$index];
         }
         $this -> annual_productions = AnnualProduction::all();
-        return view('livewire.annual_productions.annual-production-controller ', [
+        return view('livewire.orchards_production_manager.production ', [
             'orchards' => Orchard::all(),
         ],
         compact( 'datas', 'datass'));
@@ -48,19 +52,18 @@ class AnnualProductionController extends Component
 
     public function create()
     {
-
         $this->resetCreateForm();
         $this->openModalPopover();
     }
 
     public function openModalPopover()
     {
-        $this->isDialogOp = true;
+        $this->isModalOpen = true;
     }
 
     public function closeModalPopover()
     {
-        $this->isDialogOp = false;
+        $this->isModalOpen = false;
     }
 
     public function openModaldelete()

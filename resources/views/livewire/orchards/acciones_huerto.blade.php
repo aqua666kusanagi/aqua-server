@@ -2,7 +2,7 @@
     <ul>
         <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
         <li><a id="active2" href="{{url('orchard_manager')}}" onclick="feno1()">Fenofases</a></li>
-        <li><a id="active3" href="" target="contenido" onclick="produ()">Producción</a></li>
+        <li><a id="active3" href="{{url('orchard_production')}}" target="contenido" onclick="produ()">Producción</a></li>
         <li><a id="active4" href="" target="contenido" onclick="reco()">Recomendaciones</a></li>
         <li class="atras"><a href="{{asset("orchard")}}"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
     </ul>
