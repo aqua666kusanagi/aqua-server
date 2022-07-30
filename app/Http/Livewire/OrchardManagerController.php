@@ -10,96 +10,40 @@ use App\Models\Phenophase;
 
 class OrchardManagerController extends Component
 {
-    public $datos, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $orchard_id=0, $nav=0;
+    public $datos, $registration_phenophases_id, $phenophase_id, $date, $comments;
     public $modalCreate=0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->datos = RegistrationPhenophase::all();
-        return view('livewire.manager_orchards.orchard-manager-controller',[
+        if ($this->nav == 1){
+            $datos=$this->informacion();
+            //dd($datos);,['datos'=>$datos]
+            return view('livewire.manager_orchards.orchard-manager-controller',['datos_orchard'=>$datos]);
+            dd("render de orchard manager");
+        }else{
+            dd("entra en el else");
+            $this->datos = RegistrationPhenophase::all();
+            return view('livewire.manager_orchards.fenofase',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all()
-        ]);
+            ]);
+        }
     }
-    public function create()
+
+    public function mount($id){
+        $this->orchard_id=$id;
+        $this->nav=1;
+        $this->render();
+    }
+
+    public function informacion()
     {
-        $this->resetCreateForm();
-        $this->openModalPopover();
+        $datos = Orchard::findOrFail($this->orchard_id);
+        //dd($datos);
+        return $datos;
     }
 
-    public function openModalPopover()
-    {
-        $this->modalCreate = true;
-    }
-
-    public function closeModalPopover()
-    {
-        $this->modalCreate = false;
-    }
-
-    public function openModaldelete()
-    {
-        $this->isconfirm = true;
-    }
-
-    public function closeModaldelete()
-    {
-        $this->isconfirm = false;
-    }
-
-    private function resetCreateForm(){
-        $this->registration_phenophases_id = '';
-        $this->phenophase_id = '';
-        $this->orchard_id = '';
-        $this->date = '';
-        $this->comments = '';
-    }
-
-    public function store()
-    {
-        $this->validate([
-            'phenophase_id' => 'required',
-            'orchard_id' => 'required',
-            'date' => 'required',
-            'comments' => 'required'
-        ]);
-
-        RegistrationPhenophase::updateOrCreate(['id' => $this->registration_phenophases_id], [
-            'phenophase_id' => $this->phenophase_id,
-            'orchard_id' => $this->orchard_id,
-            'date' => $this->date,
-            'comments' => $this->comments
-        ]);
-
-        session()->flash('message', $this->registration_phenophases_id ? 'Registro actualizado!' : 'Registro Creado!');
-
-        $this->closeModalPopover();
-        $this->resetCreateForm();
-    }
-
-    public function edit($id)
-    {
-        $registro = RegistrationPhenophase::findOrFail($id);
-        $this->registration_phenophases_id = $id;
-        $this->phenophase_id = $registro->phenophase_id;
-        $this->orchard_id = $registro->orchard_id;
-        $this->date = $registro->date;
-        $this->comments = $registro->comments;
-
-        $this->openModalPopover();
-    }
-
-    public function ConfirmaDelete($id){
-        $this->openModaldelete();
-        $this->getid = $id;
-    }
-
-    public function delete()
-    {
-        RegistrationPhenophase::find($this->getid)->delete();
-        session()->flash('message', 'Registro eliminado!');
-        $this->closeModaldelete();
-    }
 }

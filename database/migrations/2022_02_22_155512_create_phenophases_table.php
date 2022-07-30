@@ -17,6 +17,7 @@ class CreatePhenophasesTable extends Migration
             $table->id();
             $table->string("phenophase",250);
             $table->string("description",250);
+            $table->string("image",250)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

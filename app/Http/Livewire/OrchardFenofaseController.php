@@ -2,26 +2,44 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Controllers\RegistrationPhenophaseController;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use App\Models\RegistrationPhenophase;
 use App\Models\Orchard;
 use App\Models\Phenophase;
+use App\Models\RegistrationPhenophase;
 
-class RegistrationPhenofaseController extends Component
+class OrchardFenofaseController extends Component
 {
-    public $registration, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $datos_huerto, $orchrad_id, $idd, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+
     public $isDialogOpen= 0;
     public $isconfirm =0;
     public $getid =0;
 
     public function render()
     {
-        $this->registration = RegistrationPhenophase::all();
-        return view('livewire.registro_phenophase.registration-phenofase-controller',[
+        $datos=$this->fenofase();
+        $this->datos_huerto=$datos;
+        $id_orchard=Orchard::findOrFail($this->idd);
+        return view('livewire.manager_orchards.orchard-fenofase-controller',[
             'orchards' => Orchard::all(),
-            'phenophases' => Phenophase::all()
+            'phenophases' => Phenophase::all(),
+            'datos_orchard'=>$id_orchard
         ]);
+    }
+
+    public function mount($id){
+        $this->orchard_id=$id;
+        $this->idd=$id;
+        $this->render();
+    }
+
+    public function fenofase()
+    {
+        $datos=RegistrationPhenophase::join("orchards","orchards.id","registration_phenophases.orchard_id")
+                                        ->where("registration_phenophases.orchard_id",$this->idd)
+                                        ->get();
+        return $datos;
     }
 
     public function create()
@@ -53,7 +71,7 @@ class RegistrationPhenofaseController extends Component
     private function resetCreateForm(){
         $this->registration_phenophases_id = '';
         $this->phenophase_id = '';
-        $this->orchard_id = '';
+        //$this->orchard_id = '';
         $this->date = '';
         $this->comments = '';
     }
@@ -103,5 +121,4 @@ class RegistrationPhenofaseController extends Component
         session()->flash('message', 'Registro eliminado!');
         $this->closeModaldelete();
     }
-
 }

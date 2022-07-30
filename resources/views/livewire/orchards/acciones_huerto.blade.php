@@ -1,39 +1,15 @@
-<x-app-layout>
-    <ul>
-        <li><a id="active1" href="{{route('informacion',$datos->id)}}" target="contenido" onclick="info()">Información</a></li>
-        <li><a id="active2" href="{{url('orchard_manager')}}" onclick="feno1()">Fenofases</a></li>
-        <li><a id="active3" href="" target="contenido" onclick="produ()">Producción</a></li>
-        <li><a id="active4" href="" target="contenido" onclick="reco()">Recomendaciones</a></li>
-        <li class="atras"><a href="{{asset("orchard")}}"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
-    </ul>
+ <div id="menu_navigation">
+        <input type="hidden" value="" name="idd">
+        <ul>
+            <li><a id="active1" class="hoverr" href="{{route('informacion',$datos_orchard->id)}}">Información</a></li>
+            <li><a id="active2" class="hoverr" href="{{route('fenofase',$datos_orchard->id)}}">Fenofases</a></li>
+            <li><a id="active3" class="hoverr" href="#"  onclick="produ()">Producción</a></li>
+            <li><a id="active4" class="hoverr" href="#"  onclick="reco()">Recomendaciones</a></li>
+            <li class="atras"><a href="{{asset("orchard")}}" onclick="regresar()"><i class="fa-solid fa-circle-arrow-left"></i></a></li>
+        </ul>
+ </div>
 
     <div class="container text-center">
         {{--$datos->name_orchard--}}
     </div>
-    <script>
-        function info(){
-            document.getElementById("active1").style.borderBottom="2px solid #16a34a";
-            document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-        }
-        function feno1(){
-            document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active2").style.borderBottom="2px solid #16a34a";
-            document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-        }
-        function produ(){
-            document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active3").style.borderBottom="2px solid #16a34a";
-            document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-        }
-        function reco(){
-            document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-            document.getElementById("active4").style.borderBottom="2px solid #16a34a";
-        }
-    </script>
-</x-app-layout>
+{{--<x-app-layout> </x-app-layout>--}}
