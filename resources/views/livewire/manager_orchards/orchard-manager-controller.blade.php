@@ -8,16 +8,28 @@
     <div class="flex justify-between w-full px-4">
         <div class="px-4 py-4 my-4 w-1/2">
             <div class="flex justify-between my-3">
-                <div class=" font-bold w-1/2">Nombre del huerto</div>
-                <div class="text-center w-1/2">{{$datos_orchard->name_orchard}}</div>
+                <div class=" font-bold w-1/2">Nombre del Huerto</div>
+                <div class="text-center w-1/2 font-semibold text-green-600">{{$datos_orchard->name_orchard}}</div>
             </div>
             <div class="flex justify-between my-3">
-                <div class=" font-bold w-1/2">Año de creación</div>
-                <div class="text-center w-1/2">{{$datos_orchard->creation_year}}</div>
+                <div class=" font-bold w-1/2">Año de Creación</div>
+                <div class="text-center w-1/2 font-semibold">{{$datos_orchard->creation_year}}</div>
             </div>
             <div class="flex justify-between my-3">
                 <div class=" font-bold w-1/2">Tipo de Aguacate</div>
-                <div class="text-center w-1/2">{{$datos_orchard->type_avo->type_avocado}}</div>
+                <div class="text-center w-1/2 font-semibold">{{$datos_orchard->type_avo->type_avocado}}</div>
+            </div>
+            <div class="flex justify-between my-3">
+                <div class=" font-bold w-1/2">Ubicación del Huerto</div>
+                <div class="text-center w-1/2 font-semibold">{{$datos_orchard->location_orchard}}</div>
+            </div>
+            <div class="flex justify-between my-3">
+                <div class=" font-bold w-1/2">Tipo de Suelo</div>
+                <div class="text-center w-1/2 font-semibold">{{$datos_orchard->type_soi->type_soil}}</div>
+            </div>
+            <div class="flex justify-between my-3">
+                <div class=" font-bold w-1/2">Tipo de Clima</div>
+                <div class="text-center w-1/2 font-semibold">{{$datos_orchard->climate_typ->climate_type}}</div>
             </div>
         </div>
         <div class="px-4 py-4 mx-auto my-4 flex justify-center">

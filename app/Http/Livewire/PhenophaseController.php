@@ -3,11 +3,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Phenophase;
+use Livewire\WithFileUploads;
 
 
 class PhenophaseController extends Component
 {
-    public $phenophases, $phenophase_id, $phenophase;
+    use WithFileUploads;
+
+    public $phenophases, $pheno_id, $phenophase, $description, $image;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -16,14 +19,12 @@ class PhenophaseController extends Component
     public function render()
     {
         $this->phenophases = Phenophase::all();
-
         return view('livewire.phenophases.phenophase-controller');
     }
 
 
     public function create()
     {
-
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -36,9 +37,6 @@ class PhenophaseController extends Component
     public function closeModalPopover()
     {
         $this->isDialogOpen = false;
-        $this->validate([
-            'phenophase.required' => '',
-        ]);
     }
 
     public function openModaldelete()
@@ -51,25 +49,33 @@ class PhenophaseController extends Component
         $this->isconfirm = false;
     }
 
-    private function resetCreateForm(){
-
+    private function resetCreateForm()
+    {
         $this->phenophase = '';
+        $this->description = '';
+        $this->image = '';
     }
 
     protected $message = [
         'phenophase.required' => 'Este campo debe estar lleno',
+        'description.required' => 'Este campo debe estar lleno',
+        'image.required' => 'Debes de agregar una imagen',
     ];
 
     public function store()
     {
-
         $this->validate([
-            'phenophase' => 'required|alpha_num',
+            'phenophase' => 'required',
+            'description' => 'required',
+            'image' => 'required',
         ]);
 
+        $this->image = $this->image->store('images_phenophases', 'public');
 
         Phenophase::updateOrCreate(['id' => $this->pheno_id], [
             'phenophase' => $this->phenophase,
+            'description' => $this->description,
+            'image' => $this->image,
         ]);
 
         session()->flash('message', $this->pheno_id ? 'Fenofase Actualizado!' : 'Fenofase Creado!');
@@ -82,8 +88,10 @@ class PhenophaseController extends Component
     public function edit($id)
     {
         $phenophases = Phenophase::findOrFail($id);
-        $this->phenophase_id = $id;
+        $this->pheno_id = $id;
         $this->phenophase = $phenophases->phenophase;
+        $this->description = $phenophases->description;
+        $this->image = $phenophases->image;
 
         $this->openModalPopover();
     }

@@ -1,4 +1,4 @@
-<div class="py-5 px-6">
+<div class="w-full">
     <style>
         hr {
             height: 5px;
@@ -24,7 +24,7 @@
         }
         .circulof {
             width: 30px;
-            height: 25px;
+            height: 20px;
             -moz-border-radius: 50%;
             -webkit-border-radius: 50%;
             border-radius: 25px;
@@ -37,7 +37,7 @@
         }
         .circulof:hover{
             width: 25px;
-            height: 25px;
+            height: 20px;
             background-color: #0d9488;
         }
         .subcirculo {
@@ -54,7 +54,7 @@
         }
         .espacio{
             width: 120px;
-            height: 120px;
+            margin-bottom: 10px;
             text-align: center;
             /*border: 2px solid #0d9488;*/
         }
@@ -75,18 +75,31 @@
             background-color: #9ca3af;
             border-radius: 15px;
         }
+        .fenoo{
+            margin-left: 25%;
+        }
     </style>
     @include('livewire.orchards.acciones_huerto')
-    <script>show_nav(), feno1()</script>
-    <div class="container px-10 py-10">
+    <script>show_nav(), feno()</script>
+    <div class="container px-10 py-4 border">
         <div class="targetones">
             @foreach($datos_huerto as $regist)
-                <div class="espacio">
-                    <div class="cards">
-                        <h5>{{$regist->orchard->name_orchard}}</h5>
-                        <h5>{{$regist->phenophase->phenophase}}</h5>
+                @if($regist->id == 1)
+                    <div class="espacio">
+                        <div class="cards">
+                            <h5>{{$regist->orchard->name_orchard}}</h5>
+                            <h5>{{$regist->phenophase->phenophase}}</h5>
+                        </div>
                     </div>
-                </div>
+                @endif
+                @if($regist->id > 1)
+                    <div class="espacio">
+                        <div class="cards">
+                            <h5>{{$regist->orchard->name_orchard}}</h5>
+                            <h5>{{$regist->phenophase->phenophase}}</h5>
+                        </div>
+                    </div>
+                @endif
             @endforeach
 
         </div>
@@ -113,17 +126,24 @@
                 </div>
             @endforeach
         </div>
+
+        <div style="margin-top: 20px">
+            <div class="font-bold w-full text-center">FENOFASES DISPONIBLES</div>
+            <br>
+            <div class="grid grid-cols-6 ">
+                @foreach($phenophases as $pheno)
+                    <div class="text-center">
+                        <h3 class="font-bold">{{$pheno->phenophase}}</h3>
+                        <div class="fenoo">
+                            <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="{{url("storage/".$pheno->image)}}" alt="Image no vista">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 
     @if($isDialogOpen)
         @include('livewire.manager_orchards.create')
     @endif
-
-    <br>
-
-    <div class="container">
-        <div class=" ">
-            <div class="font-bold w-1/2">IMAGENES</div>
-        </div>
-    </div>
 </div>

@@ -42,7 +42,6 @@ class Orchard extends Model
     public function type_soi(){
         return $this->hasOne('App\Models\TypeSoil','id','type_soil_id');
     }
-
     public function climate_typ(){
         return $this->hasOne('App\Models\ClimateType','id','climate_type_id');
     }

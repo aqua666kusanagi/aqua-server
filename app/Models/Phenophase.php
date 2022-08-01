@@ -11,8 +11,8 @@ class Phenophase extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-
         'phenophase',
         'description',
+        'image',
     ];
 }

@@ -21,10 +21,13 @@ class OrchardFenofaseController extends Component
         $datos=$this->fenofase();
         $this->datos_huerto=$datos;
         $id_orchard=Orchard::findOrFail($this->idd);
+        //$ciclo_fecha= DB::table('registration_phenophases')->select("DATE_ADD (date, interval 12month)")->where('id', '==',$this->idd)->get();
+        //$ciclo_fecha= DB::table('registration_phenophases')->selectRaw('DATE_ADD (date, interval 12month)')->where('id', '==',$this->idd)->get();
+        //$ciclo_fecha = DB::table('registration_phenophases')->where('id', '==',$this->idd)->value('DATE_ADD(date, interval 12 month)');
         return view('livewire.manager_orchards.orchard-fenofase-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all(),
-            'datos_orchard'=>$id_orchard
+            'datos_orchard' => $id_orchard,
         ]);
     }
 

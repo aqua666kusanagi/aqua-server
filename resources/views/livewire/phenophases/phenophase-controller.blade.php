@@ -30,6 +30,7 @@
                     <th class="px-4 py-2 w-20">Numero</th>
                     <th class="px-4 py-2">Fenofase</th>
                     <th class="px-4 py-2">Descripccion</th>
+                    <th class="px-4 py-2">Imagen</th>
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
@@ -39,7 +40,9 @@
                         <td class="border px-4 py-2">{{ $phenophase->id }}</td>
                         <td class="border px-4 py-2">{{ $phenophase->phenophase }}</td>
                         <td class="border px-4 py-2">{{ $phenophase->description }}</td>
-
+                        <td class="border px-4 py-4">
+                            <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" src="{{url("storage/".$phenophase->image)}}" alt="Image no vista">
+                        </td>
                         <td class="border px-4 py-2">
                             <div class="flex justify-between">
                                 <div>
