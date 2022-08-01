@@ -1,4 +1,8 @@
 <div class="py-12">
+    @include('livewire.orchards.acciones_huerto')
+
+    <script>show_nav(), produ()</script>
+
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="py-4">
             <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
@@ -17,56 +21,16 @@
             </div>
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
-            @if($isDialogOp)
+            @if($isModalOpen)
             @include('livewire.annual_productions.create')
             @endif
-            <table class="table-fixed w-full">
-                <thead>
-                    <tr class="bg-gray-300">
-                        <th class="px-4 py-2 w-20">Numero</th>
-                        <th class="px-4 py-2">Huerto</th>
-                        <th class="px-4 py-2">toneladas de cosecha</th>
-                        <th class="px-4 py-2">fecha de produccion</th>
-                        <th class="px-4 py-2">Venta</th>
-                        <th class="px-4 py-2">Porcentaje de daño</th>
 
-                        <th class="px-4 py-2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($annual_productions as $annual_production)
-                    <tr>
-                        <td class="border px-4 py-2">{{ $annual_production->id }}</td>
-                        <td class="border px-4 py-2">{{ $annual_production->orchard->name_orchard}}</td>
-                        <td class="border px-4 py-2">{{ $annual_production->ton_harvest }} Toneladas</td>
-                        <td class="border px-4 py-2">{{ $annual_production->date_production }}</td>
-                        <td class="border px-4 py-2">{{ $annual_production->sale }}</td>
-                        <td class="border px-4 py-2">{{ $annual_production->damage_percentage }} %</td>
-
-                        <td class="border px-4 py-2">
-                            <div class="flex justify-between">
-                                <div>
-                                    <button wire:click="edit({{ $annual_production->id }})" class="bg-green-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-pen-to-square"></i></button>
-                                </div>
-                                <div>
-                                    <button wire:click="ConfirmaDelete({{ $annual_production->id }})" class="bg-red-700 text-white font-bold py-2 px-4"><i class="fa-solid fa-trash-can"></i></button>
-                                    {{--<button wire:click="$emit('openModal', 'confirm-delete')">Open Modal</button>--}}
-                                    @if($isconfirm)
-                                    @include('livewire.confirm-delete')
-                                    @endif
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
 
             <h1>Toneladas cosechadas</h1>
             <div id="chart-container"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var datas = [1,3,4,2,5,7,1,2,3,1,7,2]
+                var datas = <?php echo json_encode($datas) ?>
 
                 Highcharts.chart('chart-container', {
                     title: {
