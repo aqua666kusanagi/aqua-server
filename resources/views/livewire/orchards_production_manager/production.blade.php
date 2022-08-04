@@ -22,7 +22,7 @@
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isModalOpen)
-            @include('livewire.annual_productions.create')
+                @include('livewire.annual_productions.create')
             @endif
 
 
@@ -30,7 +30,7 @@
             <div id="chart-container"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var datas = <?php echo json_encode($datas) ?>
+                var data_harvest = <?php echo json_encode($data_harvest) ?>
 
                 Highcharts.chart('chart-container', {
                     title: {
@@ -40,7 +40,7 @@
                         text: 'toneladas y costos de venta'
                     },
                     xAxis: {
-                        categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+                        categories: ['Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
                     },
                     yAxis: {
                         title: {
@@ -59,7 +59,10 @@
                     },
                     series: [{
                         name: 'Toneladas',
-                        data: datas
+                        data: data_harvest
+                        /*
+                        data:[1,100,400,200,42,65,121,543,654,895,210,321]
+                        */
                     }],
 
                     responsive: {
@@ -85,7 +88,7 @@
             <div id="chart-containers"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var datass = <?php echo json_encode($datass) ?>
+                var data_sales = <?php echo json_encode($data_sales) ?>
 
                 Highcharts.chart('chart-containers', {
                     title: {
@@ -114,7 +117,7 @@
                     },
                     series: [{
                         name: 'costo',
-                        data: datass
+                        data: data_sales
                     }],
 
                     responsive: {
