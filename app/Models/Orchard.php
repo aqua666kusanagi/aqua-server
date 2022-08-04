@@ -16,13 +16,12 @@ class Orchard extends Model
         'type_topography_id',
         'type_soil_id',
         'climate_type_id',
-        //'user_id',
-
+        'user_id',
         'name_orchard',
         'path_image',
         'location_orchard',
-        /*'point',
-        'area',*/
+        //'point',
+        //'area',
         'altitude',
         'surface',
         'state',
@@ -45,7 +44,7 @@ class Orchard extends Model
     public function climate_typ(){
         return $this->hasOne('App\Models\ClimateType','id','climate_type_id');
     }
-    public function us(){
+    public function user(){
         return $this->hasOne('App\Models\User','id','user_id');
     }
 

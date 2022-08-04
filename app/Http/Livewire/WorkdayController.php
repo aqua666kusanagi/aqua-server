@@ -11,7 +11,7 @@ use App\Models\Orchard;
 class WorkdayController extends Component
 {
     public $workday, $workday_id,
-            $user_id, $orchard_id,
+            $user_id, $orchard_id, $idd,
             $date_work,
             $general_expenses;
 
@@ -23,18 +23,28 @@ class WorkdayController extends Component
 
     public function render()
     {
-        $this->workday = Workday::all();
-
+        $datos=$this->workday();
+        $this->workday = $datos;
+        $id_orchard= Orchard::findOrFail($this->idd);
         return view('livewire.workdays.workday-controller', [
             'user' => User::all(),
             'orchard' => Orchard::all(),
+            'datos_orchard' => $id_orchard,
         ]);
     }
 
+    public function mount($id){
+        $this->orchard_id=$id;
+        $this->idd=$id;
+        $this->render();
+    }
+
+    public function workday(){
+
+    }
 
     public function create()
     {
-
         $this->resetCreateForm();
         $this->openModalPopover();
     }

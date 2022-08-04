@@ -10,7 +10,7 @@ use App\Models\RegistrationPhenophase;
 
 class OrchardFenofaseController extends Component
 {
-    public $datos_huerto, $orchrad_id, $idd, $registration_phenophases_id, $orchard_id, $phenophase_id, $date, $comments;
+    public $datos_huerto, $orchard_id , $idd, $registration_phenophases_id, $phenophase_id, $date, $comments;
 
     public $isDialogOpen= 0;
     public $isconfirm =0;
@@ -21,9 +21,7 @@ class OrchardFenofaseController extends Component
         $datos=$this->fenofase();
         $this->datos_huerto=$datos;
         $id_orchard=Orchard::findOrFail($this->idd);
-        //$ciclo_fecha= DB::table('registration_phenophases')->select("DATE_ADD (date, interval 12month)")->where('id', '==',$this->idd)->get();
-        //$ciclo_fecha= DB::table('registration_phenophases')->selectRaw('DATE_ADD (date, interval 12month)')->where('id', '==',$this->idd)->get();
-        //$ciclo_fecha = DB::table('registration_phenophases')->where('id', '==',$this->idd)->value('DATE_ADD(date, interval 12 month)');
+
         return view('livewire.manager_orchards.orchard-fenofase-controller',[
             'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all(),
@@ -74,7 +72,6 @@ class OrchardFenofaseController extends Component
     private function resetCreateForm(){
         $this->registration_phenophases_id = '';
         $this->phenophase_id = '';
-        //$this->orchard_id = '';
         $this->date = '';
         $this->comments = '';
     }

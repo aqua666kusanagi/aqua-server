@@ -14,11 +14,11 @@ class AlterTableUsersAddUserType extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        /*Schema::table('users', function (Blueprint $table) {
             $table->integer('user_type')
                 ->after('profile_photo_path')
                 ->default(2);
-        });
+        });*/
     }
 
     /**
@@ -28,8 +28,9 @@ class AlterTableUsersAddUserType extends Migration
      */
     public function down()
     {
+        /*
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn("user_type");
-        });
+        });*/
     }
 }

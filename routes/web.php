@@ -62,7 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/dashboard', OrchardController::class);
 
-    Route::get('orchard', OrchardController::class);
+    Route::get('orchard', OrchardController::class)->name('orchard');
 
     Route::middleware(['canAccess'])->group(function () {
         Route::get('chemical_elements', ChemicalElementController::class);
@@ -78,8 +78,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::get('type_soil', TypeSoilController::class);
         Route::get('climate_type', ClimateTypeController::class);
     });
-
-    Route::get('workday', WorkdayController::class);
+    //Route::get('workday', WorkdayController::class);
     Route::get('application', ApplicationController::class);
     Route::get('doses', DoseController::class);
     Route::get('activities', ActivitieController::class);
@@ -96,11 +95,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('fenofases/{id}', OrchardFenofaseController::class)->name('fenofase');
     Route::get('orchard_manager',OrchardManagerController::class);
     Route::get('orchard_production',OrchardProductionController::class);
+    Route::get('workday', WorkdayController::class);
 
 });
-Route::get('cliente',function (){
-   return view('layouts.appuser');
-});
+
 
 Route::get("404",function(){
    return view("error.404");

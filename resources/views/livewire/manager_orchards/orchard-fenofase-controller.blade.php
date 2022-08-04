@@ -68,12 +68,29 @@
             text-align: center;
             float: left;
         }
+        .cards:hover{
+            width: 120px;
+            height: 100px;
+            background-color: #d1fae5;
+            border: 1px solid #9ca3af;
+            border-radius: 20px;
+            padding: 0.5px;
+            text-align: center;
+        }
         .fecha{
             width: 100px;
             padding: 0.5px;
             float: left;
             background-color: #9ca3af;
             border-radius: 15px;
+        }
+        .fecha:hover{
+            width: 100px;
+            padding: 0.5px;
+            float: left;
+            background-color: #9ca3af;
+            border-radius: 15px;
+            font-family: "Bodoni MT Black";
         }
         .fenoo{
             margin-left: 25%;

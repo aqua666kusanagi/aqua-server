@@ -35,7 +35,7 @@
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" wire:model="orchard_id">
+                                            {{--<input type="hidden" wire:model="orchard_id">--}}
 
                                             <div class="flex justify-between">
                                                 <div class="">

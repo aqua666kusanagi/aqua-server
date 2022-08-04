@@ -90,24 +90,10 @@
                                             </div>
                                             @error('climate_type_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
-
-
-                                        {{--
-                                            <div class="">
-                                                <div class="pt-2 pr-4 flex">
-                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Usuario</h3>
-                                                    <select wire:model="user_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">--seleccionar--</option>
-                                                        @foreach($users as $users)
-                                                        <option type="int" value="{{$users->id}}">{{$users->name}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @error('user_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
-                                            --}}
-
+                                        <div>
+                                            {{--<input type="hidden" wire:model="user_id" value="{{$user->id}}">--}}
+                                        </div>
+                                        {{--*********************************IMAGE**********************************--}}
                                         Mensage:{{$path_image}}<br>
                                         Bandera:{{file_exists($path_image)}}
                                         <div class="rounded-lg col-span-6  ">

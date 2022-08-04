@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Orchard;
 use App\Models\TypeAvocado;
@@ -35,8 +36,7 @@ class OrchardController extends Component
         $creation_year,
         $planting_density,
         $irrigation,
-        //ANNUAL PRODUCTIONS
-        $ton_harvest, $date_production, $sale, $damage_percentage;
+        $idd;
 
     public $identificador=0;
 
@@ -48,24 +48,23 @@ class OrchardController extends Component
 
     public function render()
     {
-        $this->orchards = Orchard::all();
+        $this->idd=Auth::id();
+        $this->user_id=$this->idd;
+        $huertos=DB::table("orchards")->where("user_id",$this->idd)->get();
+        $this->orchards = $huertos;
 
         return view('livewire.orchards.orchard-controller', [
-            //return view('show_orchards.index', [
             'type_avocados' => TypeAvocado::all(),
             'type_topographies' => TypeTopography::all(),
             'type_soils' => TypeSoil::all(),
             'climate_types' => ClimateType::all(),
-            'users' => User::all(),
             'phenophases' => Phenophase::all(),
             'photographs' => Photograph::all(),
         ]);
     }
 
-
     public function create()
     {
-
         $this->resetCreateForm();
         $this->openModalPopover();
     }
@@ -92,18 +91,15 @@ class OrchardController extends Component
 
     private function resetCreateForm()
     {
-
-        $this->orchard_id = '';
         $this->type_avocado_id = '';
         $this->type_topography_id = '';
         $this->type_soil_id = '';
         $this->climate_type_id = '';
-        //$this->user_id = '';//obtenerlo de la sesion
         $this->name_orchard = '';
         $this->path_image = '';
         $this->location_orchard = '';
-        /*$this->point = '';
-        $this->area = '';*/
+        $this->point = '';
+        $this->area = '';
         $this->altitude = '';
         $this->surface = '';
         $this->state = '';
@@ -115,15 +111,12 @@ class OrchardController extends Component
 
     public function store()
     {
-        //dd($this->path_image);
-
         $this->validate([
             'type_avocado_id' => 'required|integer',
             'type_topography_id' => 'required|integer',
             'type_soil_id' => 'required|integer',
             'climate_type_id' => 'required|integer',
-            //'user_id' => 'required',//obtenerlo de la sesion
-            //'phenophase_id' => 'required|integer',//la fenofase se captura desde el monitoreo del huerto
+            'user_id' => 'required',
             'name_orchard' => 'required|string',
             'path_image' => 'required',
             'location_orchard' => 'required|string',
@@ -137,22 +130,18 @@ class OrchardController extends Component
             'irrigation' => 'required',
         ]);
         $this->path_image = $this->path_image->store('images', 'public');
-        //dd($this->path_image);
-
-
-
+        //dd($this->user_id);
         Orchard::updateOrCreate(['id' => $this->orchard_id], [
             'type_avocado_id' => $this->type_avocado_id,
             'type_topography_id' => $this->type_topography_id,
             'type_soil_id' => $this->type_soil_id,
             'climate_type_id' => $this->climate_type_id,
-            //'user_id' => $this->type_soil_id,
-            //'phenophase_id' => $this->phenophase_id,
+            'user_id' => $this->user_id,
             'name_orchard' => $this->name_orchard,
             'path_image' => $this->path_image,
             'location_orchard' => $this->location_orchard,
-            /*'point' => $this->type_soil_id,
-            'area' => $this->type_soil_id,*/
+            'point' => $this->point,
+            'area' => $this->area,
             'altitude' => $this->altitude,
             'surface' => $this->surface,
             'state' => $this->state,
