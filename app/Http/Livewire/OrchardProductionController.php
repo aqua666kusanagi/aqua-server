@@ -42,21 +42,21 @@ class OrchardProductionController extends Component
         //dd($months);
 
         
-        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $data_harvest = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         foreach ($months as $i=> $tonHarve) {
-            $datas[$tonHarve] = $tonHarvest[$i];
+            $data_harvest[$tonHarve] = $tonHarvest[$i];
         }
-        $datass = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $data_sales = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         foreach ($months as $i => $sale) {
-            $datass[$sale] = $sales[$i];
+            $data_sales[$sale] = $sales[$i];
         }
         //dd($datas);
-        dd($datass);
-        return view('livewire.orchards_production_manager.new_production ', [
+        //dd($datass);
+        return view('livewire.orchards_production_manager.production ', [
             'orchards' => Orchard::all(),
             'datos_orchard' => $id_orchard,
         ],
-        compact( 'datas', 'datass'));
+        compact( 'data_harvest', 'data_sales'));
 
         
 

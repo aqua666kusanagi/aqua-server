@@ -47,7 +47,8 @@
 
                     series: [{
                         name: 'Toneladas',
-                        data: datas
+                        data: /*datas*/
+                            [1,3,1,6,3,8,4,9,2,4,1,0]
                     }],
 
 
