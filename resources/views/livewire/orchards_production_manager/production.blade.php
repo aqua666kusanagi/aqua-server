@@ -30,7 +30,7 @@
             <div id="chart-container"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var data_harvest = <?php echo json_encode($data_harvest) ?>
+                var data_harve = <?php echo json_encode($data_harvest) ?>
 
                 Highcharts.chart('chart-container', {
                     title: {
@@ -59,7 +59,7 @@
                     },
                     series: [{
                         name: 'Toneladas',
-                        data: data_harvest
+                        data: data_harve
                         /*
                         data:[1,100,400,200,42,65,121,543,654,895,210,321]
                         */
@@ -88,7 +88,7 @@
             <div id="chart-containers"></div>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script>
-                var data_sales = <?php echo json_encode($data_sales) ?>
+                var data_sale = <?php echo json_encode($data_sales) ?>
 
                 Highcharts.chart('chart-containers', {
                     title: {
@@ -117,7 +117,7 @@
                     },
                     series: [{
                         name: 'costo',
-                        data: data_sales
+                        data: data_sale
                     }],
 
                     responsive: {
