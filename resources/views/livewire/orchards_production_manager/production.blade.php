@@ -22,7 +22,7 @@
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isModalOpen)
-            @include('livewire.annual_productions.create')
+                @include('livewire.annual_productions.create')
             @endif
 
 
@@ -40,7 +40,7 @@
                         text: 'toneladas y costos de venta'
                     },
                     xAxis: {
-                        categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+                        categories: ['Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
                     },
                     yAxis: {
                         title: {
@@ -60,6 +60,9 @@
                     series: [{
                         name: 'Toneladas',
                         data: datas
+                        /*
+                        data:[1,100,400,200,42,65,121,543,654,895,210,321]
+                        */
                     }],
 
                     responsive: {
