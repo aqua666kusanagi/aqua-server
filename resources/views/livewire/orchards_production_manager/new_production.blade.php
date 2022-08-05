@@ -24,14 +24,14 @@
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isModalOpen)
-                @include('livewire.orchards_production_manager.create')
+            @include('livewire.orchards_production_manager.create')
             @endif
 
             <div class=" rounded-lg  bg-green-100 px-4 pl-6 py-2 border w-full ">
                 <div class=" text-center">
                     <h1>Toneladas y costo de venta</h1>
                 </div>
-            </div> 
+            </div>
             <canvas id="myChart1" width="400" height="150"></canvas>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
@@ -62,7 +62,7 @@
                                     'rgba(153, 102, 255, 1)',
                                     'rgba(255, 159, 64, 1)'
                                 ],
-                                borderWidth: 2
+                                borderWidth: 2,
                             },
                             {
                                 label: 'Costo de venta',
@@ -91,6 +91,16 @@
                         scales: {
                             y: {
                                 beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Toneladas y costo de ventas'
+                            },
+                            subtitle: {
+                                display: true,
+                                text: 'Año 2022'
                             }
                         }
                     }
