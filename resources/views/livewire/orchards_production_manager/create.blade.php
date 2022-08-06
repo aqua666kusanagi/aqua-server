@@ -7,12 +7,12 @@
 
         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
             <div>
-                <div class="mx-auto flex items-center justify-center h-12 w-full rounded-full bg-gray-50">
+                <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full text-center">
                     <!-- Heroicon name: outline/check -->
                     {{--<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>--}}
-                    <h3 class="items-center">NUEVO MODO DE APLICACION</h3>
+                    <h3 class="items-center">NUEVA PRODUCCION</h3>
                 </div>
                 <div class="mt-3 text-center sm:mt-5">
                     <div class="mt-2">
@@ -22,7 +22,7 @@
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
                                         <div class="grid grid-cols-6 gap-6">
-                                            
+                                            <!--
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4 ">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
@@ -36,7 +36,7 @@
                                                 </div>
                                                 @error('orchard_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-                    
+                    -->
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="block text-sm font-medium text-gray-700 text-center">Toneladas de Cosecha</h3>

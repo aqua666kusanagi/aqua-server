@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\AnnualProduction;
 use App\Models\Orchard;
+use Illuminate\Database\Console\Migrations\RefreshCommand;
 use Illuminate\Support\Facades\DB;
 
 class OrchardProductionController extends Component
@@ -42,17 +43,18 @@ class OrchardProductionController extends Component
         //dd($months);
 
         
-        $data_harvest = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        foreach ($months as $i=> $tonHarve) {
-            $data_harvest[$tonHarve] = $tonHarvest[$i];
+        $data_harvest = array(0, 0, 0,   0, 0, 0,   0, 0, 0,   0, 0, 0);
+        foreach ($months as $i => $tonHarve) {
+            $data_harvest[$tonHarve-1] = $tonHarvest[$i];
         }
-        $data_sales = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $data_sales = array(0, 0, 0,     0, 0, 0,   0, 0, 0,   0, 0, 0);
         foreach ($months as $i => $sale) {
-            $data_sales[$sale] = $sales[$i];
+            $data_sales[$sale-1] = $sales[$i];
         }
-        //dd($datas);
-        //dd($datass);
-        return view('livewire.orchards_production_manager.production ', [
+        //dd($data_harvest);
+        //dd($data_sales);
+        
+        return view('livewire.orchards_production_manager.new_production ', [
             'orchards' => Orchard::all(),
             'datos_orchard' => $id_orchard,
         ],
@@ -120,22 +122,21 @@ class OrchardProductionController extends Component
     {
 
         $this->validate([
-            'orchard_id' => 'required',
             'ton_harvest' => 'required',
             'date_production' => 'required',
             'sale' => 'required',
             'damage_percentage' => 'required',
         ]);
 
-
+        $id_orchard = Orchard::findOrFail($this->idd);
         AnnualProduction::updateOrCreate(['id' => $this->annual_production_id], [
-            'orchard_id' => $this->orchard_id,
+            'orchard_id' => $id_orchard->id,
             'ton_harvest' => $this->ton_harvest,
             'date_production' => $this->date_production,
             'sale' => $this->sale,
             'damage_percentage' => $this->damage_percentage,
         ]);
-
+        //dd($id_orchard->id);
         session()->flash('message', $this->annual_production_id ? 'Produccion Anual Actualizada!' : 'Produccion Anual Creado!');
 
         $this->closeModalPopover();
