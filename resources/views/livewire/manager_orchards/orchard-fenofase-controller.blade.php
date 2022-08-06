@@ -100,7 +100,7 @@
     <script>show_nav(), feno()</script>
     <div class="container px-10 py-4 border">
         <div class="targetones">
-            @foreach($datos_huerto as $regist)
+            @foreach($fenofases as $regist)
                 @if($regist->id == 1)
                     <div class="espacio">
                         <div class="cards">
@@ -122,7 +122,7 @@
         </div>
         <div class="targetones">
             <div class="linea"></div>
-            @foreach($datos_huerto as $regist)
+            @foreach($fenofases as $regist)
                 <div>
                     <div>
                         <div class="circulo"><div class="subcirculo"></div></div>
@@ -135,7 +135,7 @@
             </div>
         </div>
         <div class="targetones">
-            @foreach($datos_huerto as $regist)
+            @foreach($fenofases as $regist)
                 <div class="espacio">
                     <div class="fecha">
                         <h5>{{$regist->date}}</h5>

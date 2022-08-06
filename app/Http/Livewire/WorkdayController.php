@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Workday;
 use App\Models\User;
@@ -23,12 +25,9 @@ class WorkdayController extends Component
 
     public function render()
     {
-        $datos=$this->workday();
-        $this->workday = $datos;
+        $this->workday = $this->workday();
         $id_orchard= Orchard::findOrFail($this->idd);
         return view('livewire.workdays.workday-controller', [
-            'user' => User::all(),
-            'orchard' => Orchard::all(),
             'datos_orchard' => $id_orchard,
         ]);
     }
@@ -36,11 +35,19 @@ class WorkdayController extends Component
     public function mount($id){
         $this->orchard_id=$id;
         $this->idd=$id;
+        $this->user_id=Auth::id();
         $this->render();
     }
 
     public function workday(){
-
+        $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
+            ->join("users","users.id","workdays.user_id")
+            ->where("workdays.orchard_id",$this->idd)
+            ->where("users.id",$this->user_id)
+            ->select("workdays.*")
+            ->get();
+        //$datos=DB::table("workdays")->where("orchard_id",$this->idd)->get();
+        return $datos;
     }
 
     public function create()
@@ -70,8 +77,7 @@ class WorkdayController extends Component
     }
 
     private function resetCreateForm(){
-
-        $this->user_id = '';
+        //$this->user_id = '';
         //$this->orchard_id = '';
         $this->date_work = '';
         $this->general_expenses = '';
@@ -83,7 +89,7 @@ class WorkdayController extends Component
 
         $this->validate([
             'user_id' => 'required',
-            //'orchard_id' => 'required',
+            'orchard_id' => 'required',
             'date_work' => 'required',
             'general_expenses' => 'required',
         ]);
@@ -91,7 +97,7 @@ class WorkdayController extends Component
 
         Workday::updateOrCreate(['id' => $this->workday_id], [
             'user_id' => $this->user_id,
-            //'orchard_id' => $this->orchard_id,
+            'orchard_id' => $this->orchard_id,
             'date_work' => $this->date_work,
             'general_expenses' => $this->general_expenses,
         ]);

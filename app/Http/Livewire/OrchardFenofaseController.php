@@ -10,7 +10,7 @@ use App\Models\RegistrationPhenophase;
 
 class OrchardFenofaseController extends Component
 {
-    public $datos_huerto, $orchard_id , $idd, $registration_phenophases_id, $phenophase_id, $date, $comments;
+    public $fenofases, $orchard_id , $idd, $registration_phenophases_id, $phenophase_id, $date, $comments;
 
     public $isDialogOpen= 0;
     public $isconfirm =0;
@@ -18,12 +18,9 @@ class OrchardFenofaseController extends Component
 
     public function render()
     {
-        $datos=$this->fenofase();
-        $this->datos_huerto=$datos;
+        $this->fenofases=$this->fenofase();
         $id_orchard=Orchard::findOrFail($this->idd);
-
         return view('livewire.manager_orchards.orchard-fenofase-controller',[
-            'orchards' => Orchard::all(),
             'phenophases' => Phenophase::all(),
             'datos_orchard' => $id_orchard,
         ]);
