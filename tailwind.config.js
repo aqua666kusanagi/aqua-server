@@ -7,12 +7,10 @@ module.exports = {
     ],
 
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './storage/framework/views/livewire/*.php',
-        './resources/views/layouts/*.blade.php',
-        './resources/views/livewire/**/*.blade.php',
+        "./resources/**/*.blade.php",
+        "./resources/views/livewire/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
     ],
 
     theme: {
