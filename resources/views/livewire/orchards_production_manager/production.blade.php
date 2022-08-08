@@ -1,7 +1,9 @@
 <div class="py-12">
     @include('livewire.orchards.acciones_huerto')
 
-    <script>show_nav(), produ()</script>
+    <script>
+        show_nav(), produ()
+    </script>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="py-4">
@@ -22,120 +24,85 @@
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isModalOpen)
-                @include('livewire.annual_productions.create')
+            @include('livewire.orchards_production_manager.create')
             @endif
 
-
-            <h1>Toneladas cosechadas</h1>
-            <div id="chart-container"></div>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <div class=" rounded-lg  bg-green-100 px-4 pl-6 py-2 border w-full ">
+                <div class=" text-center">
+                    <h1>Toneladas y costo de venta</h1>
+                </div>
+            </div>
+            <canvas id="myChart1" width="400" height="150"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
-                var data_harve = <?php echo json_encode($data_harvest) ?>
+                const data_harve = <?php echo json_encode($data_harvest) ?>,
+                    data_sale = <?php echo json_encode($data_sales) ?>
 
-                Highcharts.chart('chart-container', {
-                    title: {
-                        text: 'Grafico del 2022'
-                    },
-                    subtitle: {
-                        text: 'toneladas y costos de venta'
-                    },
-                    xAxis: {
-                        categories: ['Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Numero de toneladas vendidas'
-                        }
-                    },
-                    legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'middle'
-                    },
-                    plotOptions: {
-                        series: {
-                            allowPointSelect: true
-                        }
-                    },
-                    series: [{
-                        name: 'Toneladas',
-                        data: data_harve
-                        /*
-                        data:[1,100,400,200,42,65,121,543,654,895,210,321]
-                        */
-                    }],
-
-                    responsive: {
-                        rules: [{
-                            condition: {
-                                maxwidth: 500
+                const ctx = document.getElementById('myChart1').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        datasets: [{
+                                label: 'toneladas',
+                                data: data_harve,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 2,
                             },
-                            chartOptions: {
-                                legend: {
-                                    layout: 'horizonal',
-                                    align: 'center',
-                                    verticalAlign: 'bottom'
-                                }
+                            {
+                                label: 'Costo de venta',
+                                data: data_sale,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 2
+                            },
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
                             }
-                        }]
+                        },
+                        plugins: {
+                            subtitle: {
+                                display: true,
+                                text: 'Año 2022'
+                            }
+                        }
                     }
                 });
             </script>
-
-
-
-            <h1>Costo de venta por tonelada</h1>
-            <div id="chart-containers"></div>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script>
-                var data_sale = <?php echo json_encode($data_sales) ?>
-
-                Highcharts.chart('chart-containers', {
-                    title: {
-                        text: 'Grafico del 2022'
-                    },
-                    subtitle: {
-                        text: 'toneladas y costos de venta'
-                    },
-                    xAxis: {
-                        categories: ['inicio año', 'Ene', 'Feb', 'Mar', 'Abril', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Costo de venta de toneladas'
-                        }
-                    },
-                    legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'middle'
-                    },
-                    plotOptions: {
-                        series: {
-                            allowPointSelect: true
-                        }
-                    },
-                    series: [{
-                        name: 'costo',
-                        data: data_sale
-                    }],
-
-                    responsive: {
-                        rules: [{
-                            condition: {
-                                maxwidth: 500
-                            },
-                            chartOptions: {
-                                legend: {
-                                    layout: 'horizonal',
-                                    align: 'center',
-                                    verticalAlign: 'bottom'
-                                }
-                            }
-                        }]
-                    }
-                });
-            </script>
+            
         </div>
     </div>
 </div>
