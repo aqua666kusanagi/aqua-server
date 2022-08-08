@@ -8,49 +8,39 @@
         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
             <div>
                 <div class="justify-center   rounded-full bg-gray-100">
-                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO DIA DE TRABAJO</h3>
+                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVO DIA DE TRABAJO EN EL HUERTO {{$datos_orchard->name_orchard}}</h3>
                 </div>
                 <form>
                         <div class="shadow sm:rounded-md sm:overflow-hidden ">
                             <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                 <div class="bg-white py-6 px-4 sm:p-6 ">
                                     <div class="flex">
-                                        <h3 class="items-center pt-2 pr-4 py-4">Usuario</h3>
                                         <div class="pt-2 pr-4 w-full">
-                                            <select wire:model="user_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                <option value="">--Usuario--</option>
-                                                @foreach($user as $users)
-                                                    <option type="int" value="{{$users->id}}">{{$users->name}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            {{--<h3 class="items-center pt-2 pr-4 py-4">Usuario</h3>
+                                            <input type="hidden" wire:model="user_id">--}}
                                         </div>
                                     </div>
 
                                     <div class="pt-2 pr-4">
-                                        <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                            <option value="">--Nombre del Huerto--</option>
-                                            @foreach($orchard as $orchards)
-                                                <option type="int" value="{{$orchards->id}}">{{$orchards->name_orchard }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        {{--<input type="hidden" wire:model="orchard_id">--}}
                                     </div>
 
-                                    <div class="pt-2 pr-4">
-                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha de trabajo</h3>
-                                        <div class=" ">
-                                            <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Dia a trabajar" wire:model="date_work">
+                                    <div class="flex justify-between w-full">
+                                        <div class="pt-2 pr-4">
+                                            <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha de trabajo</h3>
+                                            <div class=" ">
+                                                <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Dia a trabajar" wire:model="date_work">
+                                            </div>
+                                            @error('date_work') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
-                                        @error('date_work') <span class="text-red-500">{{ $message }}</span>@enderror
-                                    </div>
 
-                                    <div class="pt-2 pr-4">
-                                        <h3 class="block text-sm font-medium text-gray-700 text-center">Gastos Generales</h3>
-                                        <div class=" ">
-                                            <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Ingrese Cantidad" wire:model="general_expenses">
+                                        <div class="pt-2 pr-4">
+                                            <h3 class="block text-sm font-medium text-gray-700 text-center">Gastos Generales</h3>
+                                            <div class=" ">
+                                                <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Ingrese Cantidad" wire:model="general_expenses">
+                                            </div>
+                                            @error('general_expenses') <span class="text-red-500">{{ $message }}</span>@enderror
                                         </div>
-                                        @error('general_expenses') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
                             </div>

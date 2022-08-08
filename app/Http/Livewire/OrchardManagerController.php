@@ -20,16 +20,7 @@ class OrchardManagerController extends Component
     {
         if ($this->nav == 1){
             $datos=$this->informacion();
-            //dd($datos);,['datos'=>$datos]
             return view('livewire.manager_orchards.orchard-manager-controller',['datos_orchard'=>$datos]);
-            dd("render de orchard manager");
-        }else{
-            dd("entra en el else");
-            $this->datos = RegistrationPhenophase::all();
-            return view('livewire.manager_orchards.fenofase',[
-            'orchards' => Orchard::all(),
-            'phenophases' => Phenophase::all()
-            ]);
         }
     }
 

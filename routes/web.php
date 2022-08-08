@@ -93,9 +93,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('detalles/{id}', OrchardManagerController::class)->name('informacion');
     Route::get('fenofases/{id}', OrchardFenofaseController::class)->name('fenofase');
-    Route::get('orchard_manager',OrchardManagerController::class);
     Route::get('orchard_production/{id}',OrchardProductionController::class)->name('produccion');
-    Route::get('workday', WorkdayController::class);
+    Route::get('workday/{id}', WorkdayController::class)->name('dias_trabajo');
 });
 
 
@@ -103,8 +102,3 @@ Route::get("404",function(){
    return view("error.404");
 });
 
-
-
-
-
-//Route::get('recomendacciones/{id}', [OrchardController::class,'Acciones'])->name('recomendacion');
