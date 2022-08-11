@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content_calendar')
-    <script src="https://cdn.tailwindcss.com"></script>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="flex h-full flex-col">
+    {{--<script src="https://cdn.tailwindcss.com"></script>--}}
     @include('livewire.orchards.acciones_huerto')
     <script>show_nav(), activi()</script>
   <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-4 px-6">
@@ -34,7 +34,7 @@
       </div>
       <div class="hidden md:ml-4 md:flex md:items-center">
         <div class="relative">
-          <button type="button" class="flex items-center rounded-md border border-gray-300 bg-white py-2 pl-3 pr-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" id="menu-button" aria-expanded="false" aria-haspopup="true">
+          <button type="button" onclick="item_nav()" class="flex items-center rounded-md border border-gray-300 bg-white py-2 pl-3 pr-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" id="menu-button" aria-expanded="false" aria-haspopup="true">
             Day view
             <!-- Heroicon name: solid/chevron-down -->
             <svg class="ml-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -42,15 +42,19 @@
             </svg>
           </button>
 
-          <div class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-            <div class="py-1" role="none">
-              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Day view</a>
-              <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Week view</a>
-              <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Month view</a>
-              <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Year view</a>
+            <div id="contenido">
+                holaaaaaaaaaaaaaaaaaaaaaaaaa
             </div>
-          </div>
+
+            <div class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5"    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div  class="py-1" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Day view</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Week view</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Month view</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Year view</a>
+                </div>
+            </div>
         </div>
 
         <div class="ml-6 h-6 w-px bg-gray-300"></div>
@@ -64,17 +68,6 @@
             <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
           </svg>
         </button>
-
-        <!--
-          Dropdown menu, show/hide based on menu state.
-
-          Entering: "transition ease-out duration-100"
-            From: "transform opacity-0 scale-95"
-            To: "transform opacity-100 scale-100"
-          Leaving: "transition ease-in duration-75"
-            From: "transform opacity-100 scale-100"
-            To: "transform opacity-0 scale-95"
-        -->
         <div class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
           <div class="py-1" role="none">
             <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
@@ -284,27 +277,8 @@
         <div>S</div>
       </div>
       <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
-        <!--
-          Always include: "py-1.5 hover:bg-gray-100 focus:z-10"
-          Is current month, include: "bg-white"
-          Is not current month, include: "bg-gray-50"
-          Is selected or is today, include: "font-semibold"
-          Is selected, include: "text-white"
-          Is not selected, is not today, and is current month, include: "text-gray-900"
-          Is not selected, is not today, and is not current month, include: "text-gray-400"
-          Is today and is not selected, include: "text-indigo-600"
 
-          Top left day, include: "rounded-tl-lg"
-          Top right day, include: "rounded-tr-lg"
-          Bottom left day, include: "rounded-bl-lg"
-          Bottom right day, include: "rounded-br-lg"
-        -->
         <button type="button" class="rounded-tl-lg bg-gray-50 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
-          <!--
-            Always include: "mx-auto flex h-7 w-7 items-center justify-center rounded-full"
-            Is selected and is today, include: "bg-indigo-600"
-            Is selected and is not today, include: "bg-gray-900"
-          -->
           <time datetime="2021-12-27" class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">27</time>
         </button>
         <button type="button" class="bg-gray-50 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">

@@ -107,3 +107,11 @@ function reco(){
     document.getElementById("active7").style.borderRight="1px solid #c5c7cc";
 }
 
+//PARTE DEL CALENDARIO drow
+//document.getElementById('contenido_dentro').style.display = 'none';
+function item_nav(){
+    document.getElementById("contenido_dentro").style.display = 'none';
+}
+function item_nav_show(){
+    document.getElementById("contenido_dentro").style.display = '';
+}

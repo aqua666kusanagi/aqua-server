@@ -1,6 +1,4 @@
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/tailwind.css')}}" />
-
+<div>
     @include('livewire.orchards.acciones_huerto')
 
     <script>show_nav(), info()</script>
@@ -36,7 +34,7 @@
             <img class="bg-gray-300 rounded-md h-72 w-full" src="{{url("storage/".$datos_orchard->path_image)}}" alt="Image no vista" >
         </div>
     </div>
-
+</div>
 
 {{--
     <div>
