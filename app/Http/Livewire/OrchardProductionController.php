@@ -23,7 +23,16 @@ class OrchardProductionController extends Component
             ->where("annual_productions.orchard_id", $this->idd)
             ->get();
 
+        $data_harvest=$this->annual_production();
+        $data_sales=$this->annual_production();
+        return view('livewire.orchards_production_manager.new_production ', [
+            'orchards' => Orchard::all(),
+            'datos_orchard' => $id_orchard,
+        ],
+        compact( 'data_harvest', 'data_sales'));
+    }
 
+    public function annual_production(){
         $sales = AnnualProduction::selectRaw('MONTH(date_production) as date')
             ->groupBy('date')
             ->selectRaw('sum(sale) as production')
@@ -51,28 +60,11 @@ class OrchardProductionController extends Component
         foreach ($months as $i => $sale) {
             $data_sales[$sale-1] = $sales[$i];
         }
-        //dd($data_harvest);
-        //dd($data_sales);
-        
-        return view('livewire.orchards_production_manager.new_production ', [
-            'orchards' => Orchard::all(),
-            'datos_orchard' => $id_orchard,
-        ],
-        compact( 'data_harvest', 'data_sales'));
-
-        
-
-/*
-        return view(
-            'livewire.orchards_production_manager.new_production ',
-            [
-                'orchards' => Orchard::all(),
-                'datos_orchard' => $id_orchard,
-            ],
-            compact('sales', 'tonHarvest','months')
-        );*/
+//dd($data_harvest);
+//dd($data_sales);
+        return $data_harvest;
+        return $data_sales;
     }
-
 
     public function mount($id)
     {
