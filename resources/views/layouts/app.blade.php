@@ -564,6 +564,7 @@
                                 @if(isset($slot))
                                     {{$slot}}
                                 @endif
+                                @yield('content_calendar')
                         </div>
                     </div>
                 </main>
