@@ -11,8 +11,7 @@ use App\Models\Phenophase;
 class OrchardManagerController extends Component
 {
     public $orchard_id=0, $nav=0;
-    public $datos, $registration_phenophases_id, $phenophase_id, $date, $comments;
-    public $modalCreate=0;
+    public $datos;
     public $isconfirm =0;
     public $getid =0;
 

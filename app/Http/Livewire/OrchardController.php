@@ -49,7 +49,8 @@ class OrchardController extends Component
     public function render()
     {
         $this->idd=Auth::id();
-        $this->user_id=$this->id;
+        //dd($this->idd);
+        $this->user_id=$this->idd;
         $huertos=DB::table("orchards")->where("user_id",$this->idd)->get();
         $this->orchards = $huertos;
 

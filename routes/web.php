@@ -97,7 +97,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('orchard_production/{id}',OrchardProductionController::class)->name('produccion');
     Route::get('workday/{id}', WorkdayController::class)->name('dias_trabajo');
 
-    Route::get('calendar', CalendarController::class);
+    Route::get('calendar/{id}', CalendarController::class)->name('calendario');
 });
 
 
