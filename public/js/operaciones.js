@@ -107,11 +107,18 @@ function reco(){
     document.getElementById("active7").style.borderRight="1px solid #c5c7cc";
 }
 
-//PARTE DEL CALENDARIO drow
+/*//PARTE DEL CALENDARIO drow
 //document.getElementById('contenido_dentro').style.display = 'none';
 function item_nav(){
     document.getElementById("contenido_dentro").style.display = 'none';
 }
 function item_nav_show(){
     document.getElementById("contenido_dentro").style.display = '';
+}
+*/
+function hoysi(){
+    document.getElementById("today").style.backgroundColor="#6366f1";
+}
+function otrodiasi(){
+    document.getElementById("otherday").style.backgroundColor="#6366f1";
 }
