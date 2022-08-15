@@ -32,6 +32,7 @@ use App\Http\Livewire\OrchardManagerController;
 use App\Http\Livewire\OrchardFenofaseController;
 use App\Http\Livewire\OrchardProductionController;
 use App\Http\Livewire\CalendarController;
+use App\Http\Livewire\OrchardCalendarController;
 
 use App\Http\Livewire\UsuerController;
 use Illuminate\Support\Facades\Route;
@@ -98,6 +99,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('workday/{id}', WorkdayController::class)->name('dias_trabajo');
 
     Route::get('calendar/{id}', CalendarController::class)->name('calendario');
+
+    Route::get('orchard_calendar/', OrchardCalendarController::class);
+
 });
 
 
