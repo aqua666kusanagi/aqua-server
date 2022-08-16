@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class CalendarController extends Component
 {
-    public $fecha,$anio,$mess,$dia;
+    public $fecha,$anio,$mess,$dia, $contador;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $id_orchard, $datos_orchard;
 
@@ -35,6 +35,8 @@ class CalendarController extends Component
         $this->nextmonth=$data['next'];
 
         $this->workday = $this->workday();
+        dd($this->workday);
+        $this->contador = count($this->workday);
 
         return view('livewire.manager_orchards.calendar-controller',[
             'data' => $data,

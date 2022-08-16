@@ -176,27 +176,27 @@
                                 @if($dias['dia'] == $dia)
                                     @foreach($workday as $work)
                                         @if($dias['fecha'] == $work->date_work)
-                                            {{--<button type="button" class="bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                            <button type="button" class="bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                 <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                            </button>--}}
-                                            <script>hoysi()</script>
+                                            </button>
+                                        @elseif($work->id == $contador)
+                                            <button id="today" type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
+                                            </button>
                                         @endif
                                     @endforeach
-                                    <button id="today" type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                    </button>
                                 @else
                                     @foreach($workday as $work)
                                         @if($work->date_work == $dias['fecha'])
-                                            {{--<button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                            <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                 <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
-                                            </button>--}}
-                                            <script>otrodiasi()</script>
+                                            </button>
+                                        @elseif($work->id == $contador)
+                                            <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                <time id="otherday" class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                                            </button>
                                         @endif
                                     @endforeach
-                                    <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                        <time id="otherday" class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
-                                    </button>
                                 @endif
                             @else
                                 <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
@@ -208,71 +208,6 @@
                 </div>
             </div>
             {{--++++++++++++++++++++++++++++++++++++++++++++CALE DE PRUEBA++++++++++++++++++++++++++++++++++++++++++--}}
-            <div class="hidden w-1/2 flex-none border-l border-gray-100 py-10 px-8 md:block">
-                <div class="flex items-center text-center text-gray-900 w-1/2">
-                    <button type="button" wire:click="last_year()" class="-m-1.5 flex flex-none items-center justify-center p-1.5 text-gray-600 hover:text-gray-900">
-                        <span class="sr-only">Previous month</span>
-                        <!-- Heroicon name: solid/chevron-left -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="flex-auto font-semibold">{{ $mespanish }} {{ $data['year'] }}</div>
-                    <button type="button" wire:click="next_year()" class="-m-1.5 flex flex-none items-center justify-center p-1.5 text-gray-600 hover:text-gray-900">
-                        <span class="sr-only">Next month</span>
-                        <!-- Heroicon name: solid/chevron-right -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-6 grid grid-cols-7 text-center text-xs leading-6 text-gray-500">
-                    <div>Lunes</div>
-                    <div>Martes</div>
-                    <div>Miercoles</div>
-                    <div>Jueves</div>
-                    <div>Viernes</div>
-                    <div>Sabado</div>
-                    <div>Domingo</div>
-                </div>
-                <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
-                    @foreach($data['calendar'] as $semanas )
-                        @foreach($semanas['datos'] as $dias)
-                            @if($dias['mes'] == $mesingles)
-                                @if($dias['dia'] == $dia)
-                                    @foreach($workday as $work)
-                                        @if($dias['fecha'] == $work->date_work)
-                                            {{--<button type="button" class="bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                            </button>--}}
-                                            <script>hoysi()</script>
-                                        @endif
-                                    @endforeach
-                                    <button id="today" type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                    </button>
-                                @else
-                                    @foreach($workday as $work)
-                                        @if($work->date_work == $dias['fecha'])
-                                            {{--<button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
-                                            </button>--}}
-                                            <script>otrodiasi()</script>
-                                        @endif
-                                    @endforeach
-                                    <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                        <time id="otherday" class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
-                                    </button>
-                                @endif
-                            @else
-                                <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
-                                    <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">...</time>
-                                </button>
-                            @endif
-                        @endforeach
-                    @endforeach
-                </div>
-            </div>
         </div>
     </div>
 </div>
