@@ -4,65 +4,50 @@ namespace App\Http\Livewire;
 
 use App\Models\Orchard;
 use App\Models\Workday;
+use App\Models\Phenophase;
+use App\Models\RegistrationPhenophase;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CalendarController extends Component
 {
-    public $fecha,$anio,$mess,$dia, $contador;
+    public $mess,$dia;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
-    public $id_orchard, $datos_orchard;
+    public $user_id, $id_orchard, $datos_orchard;
 
-    public $workday, $workday_id, $found=0,
-        $user_id, $orchard_id,
-        $date_work,
-        $general_expenses;
-    public $isDialogOpen = 0;
+    public $windowevent=0, $isconfirm =0, $getid =0;
+
+    public $workday, $workday_id, $found=0, $date_work, $general_expenses;
+    public $modalworkday = 0;
 
     public function render()
     {
-        $this->fecha=date("Y-m-d");
-        $this->anio=date("Y");
+        $datos_orchard=$this->datos_orchard;
+
         $this->mess=date("m");
         $this->dia=date("d");
         $data=$this->data;
         $mesingles=$this->mesingles;
         $mespanish=$this->mespanish;
-        $datos_orchard=$this->datos_orchard;
-
         $this->lastmosth=$data['last'];
         $this->nextmonth=$data['next'];
 
         $this->workday = $this->workday();
-        dd($this->workday);
-        $this->contador = count($this->workday);
 
-        return view('livewire.manager_orchards.calendar-controller',[
+        return view('livewire.calendar_orchards.calendar-controller',[
+            'datos_orchard' => $datos_orchard,
             'data' => $data,
             'mesingles' => $mesingles,
             'mespanish' => $mespanish,
-            'datos_orchard' => $datos_orchard,
         ]);
     }
 
     public function mount($id){
         $this->id_orchard=$id;
         $this->datos_orchard=Orchard::findOrFail($this->id_orchard);
-        $this->orchard_id=$id;
         $this->user_id=Auth::id();
         $this->calendario();
-    }
-
-    public function workday(){
-        $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
-            ->join("users","users.id","workdays.user_id")
-            ->where("workdays.orchard_id",$this->orchard_id)
-            ->where("users.id",$this->user_id)
-            ->select("workdays.*")
-            ->get();
-        //$datos=DB::table("workdays")->where("orchard_id",$this->idd)->get();
-        return $datos;
     }
 
     public function calendario(){
@@ -90,6 +75,7 @@ class CalendarController extends Component
 
         $this->render();
     }
+
     public function next_year(){
         $this->data = $this->calendar_month($this->nextmonth);
         $this->mesingles = $this->data['month'];
@@ -101,6 +87,7 @@ class CalendarController extends Component
     }
 
     //*********************************************************************
+
     public static function calendar_month($month){
         //$mes = date("Y-m");
         $mes = $month;
@@ -213,56 +200,44 @@ class CalendarController extends Component
         return $mes;
     }
 
-    // FUNCIONES PARA AGREGAR DIAS DE TRABAJO AL CALENDARIO
-    public function create()
+    // FUNCIONES PARA LOS EVENETOS
+    public function openevent(){
+        $this->windowevent=true;
+    }
+    public function closeevent(){
+        $this->windowevent=false;
+    }
+    public function openModaldelete()
     {
-        $this->resetCreateForm();
-        $this->openModalPopover();
+        $this->isconfirm = true;
+    }
+    public function closeModaldelete()
+    {
+        $this->isconfirm = false;
+    }
+    public function ConfirmaDelete($id){
+        $this->openModaldelete();
+        $this->getid = $id;
     }
 
-    public function openModalPopover()
+    // FUNCIONES PARA LOS DIAS DE TRABAJO
+    public function workday(){
+        $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
+            ->join("users","users.id","workdays.user_id")
+            ->where("workdays.orchard_id",$this->id_orchard)
+            ->where("users.id",$this->user_id)
+            ->select("workdays.*")
+            ->get();
+        //$datos=DB::table("workdays")->where("orchard_id",$this->idd)->get();
+        return $datos;
+    }
+    public function openmodalworkday()
     {
-        $this->isDialogOpen = true;
+        $this->modalworkday = true;
+    }
+    public function closemodalworkday()
+    {
+        $this->modalworkday = false;
     }
 
-    public function closeModalPopover()
-    {
-        $this->isDialogOpen = false;
-    }
-    private function resetCreateForm(){
-        //$this->user_id = '';
-        //$this->orchard_id = '';
-        $this->date_work = '';
-        $this->general_expenses = '';
-    }
-    public function store()
-    {
-        $this->validate([
-            'user_id' => 'required',
-            'orchard_id' => 'required',
-            'date_work' => 'required',
-            'general_expenses' => 'required',
-        ]);
-        Workday::updateOrCreate(['id' => $this->workday_id], [
-            'user_id' => $this->user_id,
-            'orchard_id' => $this->orchard_id,
-            'date_work' => $this->date_work,
-            'general_expenses' => $this->general_expenses,
-        ]);
-        session()->flash('message', $this->workday_id ? 'Dia de Trabajo Actualizado!' : 'Dia de Trabajo Creado!');
-
-        $this->closeModalPopover();
-        $this->resetCreateForm();
-    }
-    public function edit($id)
-    {
-        $workday = Workday::findOrFail($id);
-        $this->workday_id = $id;
-        $this->user_id = $workday->user_id;
-        $this->orchard_id = $workday->orchard_id;
-        $this->date_work = $workday->date_work;
-        $this->general_expenses = $workday->general_expenses;
-
-        $this->openModalPopover();
-    }
 }

@@ -93,12 +93,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('usuario', UsuerController::class);
 
+    Route::get('calendar/{id}', CalendarController::class)->name('calendario');
+
     Route::get('detalles/{id}', OrchardManagerController::class)->name('informacion');
     Route::get('fenofases/{id}', OrchardFenofaseController::class)->name('fenofase');
     Route::get('orchard_production/{id}',OrchardProductionController::class)->name('produccion');
     Route::get('workday/{id}', WorkdayController::class)->name('dias_trabajo');
-
-    Route::get('calendar/{id}', CalendarController::class)->name('calendario');
 
     Route::get('orchard_calendar/', OrchardCalendarController::class);
 

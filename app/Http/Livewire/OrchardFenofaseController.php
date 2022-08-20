@@ -10,7 +10,7 @@ use App\Models\RegistrationPhenophase;
 
 class OrchardFenofaseController extends Component
 {
-    public $fenofases, $orchard_id , $idd, $registration_phenophases_id, $phenophase_id, $date, $comments;
+    public $fenofases, $orchard_id , $idd, $registration_phenophases_id, $phenophase_id, $date, $comments, $fecha_inicio=0, $cont=0, $fechca_cierre=0;
 
     public $isDialogOpen= 0;
     public $isconfirm =0;
@@ -19,8 +19,12 @@ class OrchardFenofaseController extends Component
     public function render()
     {
         $this->fenofases=$this->fenofase();
+        $this->cont=count($this->fenofases);
+        $this->fechca_cierre=$this->ciclo();
+
         $id_orchard=Orchard::findOrFail($this->idd);
-        return view('livewire.manager_orchards.orchard-fenofase-controller',[
+
+        return view('livewire.fenofase_orchards.orchard-fenofase-controller',[
             'phenophases' => Phenophase::all(),
             'datos_orchard' => $id_orchard,
         ]);
@@ -34,10 +38,19 @@ class OrchardFenofaseController extends Component
 
     public function fenofase()
     {
+        $this->fecha_inicio=RegistrationPhenophase::join("orchards","orchards.id","registration_phenophases.orchard_id")
+                            ->where("registration_phenophases.orchard_id",$this->idd)
+                            ->limit(1)
+                            ->get();
         $datos=RegistrationPhenophase::join("orchards","orchards.id","registration_phenophases.orchard_id")
                                         ->where("registration_phenophases.orchard_id",$this->idd)
                                         ->get();
         return $datos;
+    }
+
+    public function ciclo(){
+        $fechca_cierre=RegistrationPhenophase::findOrFail($this->idd);
+        return $fechca_cierre;
     }
 
     public function create()

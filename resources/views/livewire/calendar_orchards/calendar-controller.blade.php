@@ -1,24 +1,33 @@
 <div>
     <script src="https://cdn.tailwindcss.com"></script>
     @include('livewire.orchards.acciones_huerto')
-    <script>show_nav(), activi()</script>
-
+    <script>show_nav(), feno()</script>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="flex h-full flex-col">
-        <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-4 px-6">
+        <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-2 px-6 my-3" style="border-top: 2px solid #8cdeaa; white-space: normal">
             <div>
                 <h1 class="text-lg font-semibold leading-6 text-gray-900">
-                    <time class="sm:hidden">{{$fecha}}</time>
+                    <time class="sm:hidden">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                     <time class="hidden sm:inline">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                 </h1>
                 <p class="mt-1 text-sm text-gray-900">{{$datos_orchard->name_orchard}} , Localización: {{$datos_orchard->location_orchard}} , Año de creación: {{$datos_orchard->creation_year}}</p>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
-                <button type="button" wire:click="create()" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+ Dia Trabajo</button>
-                <div>
-                    @if($isDialogOpen)
-                        @include('livewire.workdays.create')
+                <div x-data="{ isActive: true, open: false}">
+                    <button type="button" @click="$event.preventDefault(); open = !open"  role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                            class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+ Evento</button>
+
+                    <div role="menu" x-show="open" class="border border-gray-300 my-3 rounded-lg" style="margin-left: 15px">
+                        {{--<button type="button" class="bg-gray-200 w-full">Fenofase</button>--}}
+                        <a href="{{route('fenofase',$datos_orchard->id)}}">
+                            <button type="button"  class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
+                        </a><br>
+                        <button type="button" wire:click="openmodalworkday()"  @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Actividad</button><br>
+                    </div>
+                    @if($windowevent)
+                    @endif
+                    @if($modalworkday)
                     @endif
                 </div>
             </div>
@@ -174,29 +183,35 @@
                         @foreach($semanas['datos'] as $dias)
                             @if($dias['mes'] == $mesingles)
                                 @if($dias['dia'] == $dia)
+                                    @php $bantoday=true;@endphp
                                     @foreach($workday as $work)
                                         @if($dias['fecha'] == $work->date_work)
                                             <button type="button" class="bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                 <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
                                             </button>
-                                        @elseif($work->id == $contador)
-                                            <button id="today" type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                            </button>
+                                            @php $bantoday=false;@endphp
                                         @endif
                                     @endforeach
+                                    @if($bantoday)
+                                        <button id="today" type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
+                                        </button>
+                                    @endif
                                 @else
+                                    @php $ban=true;@endphp
                                     @foreach($workday as $work)
                                         @if($work->date_work == $dias['fecha'])
                                             <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                 <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
                                             </button>
-                                        @elseif($work->id == $contador)
-                                            <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                <time id="otherday" class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
-                                            </button>
+                                            @php $ban=false;@endphp
                                         @endif
                                     @endforeach
+                                    @if($ban)
+                                        <button type="button" class="bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                                        </button>
+                                    @endif
                                 @endif
                             @else
                                 <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">

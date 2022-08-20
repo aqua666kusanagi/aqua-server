@@ -1274,6 +1274,10 @@ video {
   opacity: 1;
 }.opacity-50 {
   opacity: 0.5;
+}.opacity-15 {
+     opacity: 0.15;
+ }.opacity-25 {
+    opacity: 0.25;
 }.opacity-75 {
   opacity: 0.75;
 }.shadow-xl {

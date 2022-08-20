@@ -1,7 +1,7 @@
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" aria-hidden="true"></div>
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" {{--wire:click="closemodalfenofase()"--}} aria-hidden="true"></div>
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="px-4 py-3 bg-gray-100 sm:px-6 flex justify-center">
                                     <span class=" bg-red-700 mt-3 flex  rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                                        <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                        <button wire:click="closeModalPopover()" {{--wire:click="closemodalfenofase()"--}} type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                             Cerrar
                                         </button>
                                     </span>

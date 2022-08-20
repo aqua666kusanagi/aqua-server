@@ -83,7 +83,7 @@ li a {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
+/* Change the link color to #111 (black) on hover  All of this is to class Acciones Huerto*/
 .hoverr:hover {
     background-color: #0f766e;
     color: white;
@@ -106,9 +106,6 @@ hr {
     width: 100px;
 }
 
-.linea{
-
-}
 .circulo {
     width: 20px;
     height: 20px;

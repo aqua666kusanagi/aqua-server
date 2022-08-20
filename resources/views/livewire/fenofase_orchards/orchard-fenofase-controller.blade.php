@@ -96,9 +96,20 @@
             margin-left: 25%;
         }
     </style>
-    @include('livewire.orchards.acciones_huerto')
-    <script>show_nav(), feno()</script>
+    {{--@include('livewire.orchards.acciones_huerto')
+    <script>show_nav(), feno()</script>--}}
     <div class="container px-10 py-4 border">
+        <ul>
+            <li>
+                <div class="text-center w-full text-teal-900">
+                    <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).</h1>
+                </div>
+            </li>
+            <li class="atras rounded-full">
+                <a href="{{route('calendario',$datos_orchard->id)}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
+            </li>
+        </ul>
+        <br>
         <div class="targetones">
             @foreach($fenofases as $regist)
                 @if($regist->id == 1)
@@ -131,6 +142,8 @@
                 </div>
             @endforeach
             <div>
+                @php($anio_ini=0);@endphp
+                @foreach($fecha_inicio as $inicio)
                 <button wire:click="create()" class="circulof">+</button>
             </div>
         </div>
@@ -161,6 +174,6 @@
     </div>
 
     @if($isDialogOpen)
-        @include('livewire.manager_orchards.create')
+        @include('livewire.fenofase_orchards.create')
     @endif
 </div>
