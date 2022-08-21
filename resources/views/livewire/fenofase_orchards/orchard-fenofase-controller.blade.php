@@ -1,114 +1,18 @@
 <div class="w-full">
-    <style>
-        hr {
-            height: 5px;
-            background-color: black;
-            float: left;
-            width: 100px;
-        }
-
-        .linea{
-            width: 40px;
-        }
-        .circulo {
-            width: 20px;
-            height: 20px;
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            background: #16a34a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            float: left;
-        }
-        .circulof {
-            width: 30px;
-            height: 20px;
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            border-radius: 25px;
-            background: #1e40af;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            float: left;
-            color: white;
-        }
-        .circulof:hover{
-            width: 25px;
-            height: 20px;
-            background-color: #0d9488;
-        }
-        .subcirculo {
-            width: 10px;
-            height: 10px;
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            background-color: black;
-            display: block;
-        }
-        .targetones{
-            display: flex;
-        }
-        .espacio{
-            width: 120px;
-            margin-bottom: 10px;
-            text-align: center;
-            /*border: 2px solid #0d9488;*/
-        }
-        .cards{
-            width: 100px;
-            height: 100px;
-            background-color: #d1fae5;
-            border: 1px solid #9ca3af;
-            border-radius: 20px;
-            padding: 0.5px;
-            text-align: center;
-            float: left;
-        }
-        .cards:hover{
-            width: 120px;
-            height: 100px;
-            background-color: #d1fae5;
-            border: 1px solid #9ca3af;
-            border-radius: 20px;
-            padding: 0.5px;
-            text-align: center;
-        }
-        .fecha{
-            width: 100px;
-            padding: 0.5px;
-            float: left;
-            background-color: #9ca3af;
-            border-radius: 15px;
-        }
-        .fecha:hover{
-            width: 100px;
-            padding: 0.5px;
-            float: left;
-            background-color: #9ca3af;
-            border-radius: 15px;
-            font-family: "Bodoni MT Black";
-        }
-        .fenoo{
-            margin-left: 25%;
-        }
-    </style>
     {{--@include('livewire.orchards.acciones_huerto')
     <script>show_nav(), feno()</script>--}}
-    <div class="container px-10 py-4 border">
-        <ul>
-            <li>
-                <div class="text-center w-full text-teal-900">
-                    <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).</h1>
-                </div>
-            </li>
-            <li class="atras rounded-full">
-                <a href="{{route('calendario',$datos_orchard->id)}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
-            </li>
-        </ul>
+    <ul class="flex justify-between">
+        <li class="w-3/4">
+            <div class="text-right text-teal-900">
+                <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).</h1>
+            </div>
+        </li>
+        <li class="atras rounded-full">
+            <a href="{{route('calendario',$datos_orchard->id)}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
+        </li>
+    </ul>
+    <div class="container px-10">
+        <div class="suraya w-full"></div>
         <br>
         <div class="targetones">
             @foreach($fenofases as $regist)
@@ -129,7 +33,6 @@
                     </div>
                 @endif
             @endforeach
-
         </div>
         <div class="targetones">
             <div class="linea"></div>
@@ -142,8 +45,6 @@
                 </div>
             @endforeach
             <div>
-                @php($anio_ini=0);@endphp
-                @foreach($fecha_inicio as $inicio)
                 <button wire:click="create()" class="circulof">+</button>
             </div>
         </div>

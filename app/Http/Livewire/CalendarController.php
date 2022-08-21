@@ -3,9 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Models\Orchard;
-use App\Models\Workday;
 use App\Models\Phenophase;
 use App\Models\RegistrationPhenophase;
+use App\Models\Workday;
+use App\Models\TypeJob;
+use App\Models\Activity;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -18,8 +20,11 @@ class CalendarController extends Component
 
     public $windowevent=0, $isconfirm =0, $getid =0;
 
-    public $workday, $workday_id, $found=0, $date_work, $general_expenses;
+    public $workdays, $workday_id, $found=0, $date_work, $general_expenses, $work_day=0, $day_clear, $day_added;
     public $modalworkday = 0;
+
+    public $activiti, $activities_id, $type_job_id, $cost;
+    public $modalactiviti=0;
 
     public function render()
     {
@@ -33,7 +38,7 @@ class CalendarController extends Component
         $this->lastmosth=$data['last'];
         $this->nextmonth=$data['next'];
 
-        $this->workday = $this->workday();
+        $this->workdays = $this->workday();
 
         return view('livewire.calendar_orchards.calendar-controller',[
             'datos_orchard' => $datos_orchard,
@@ -220,7 +225,7 @@ class CalendarController extends Component
         $this->getid = $id;
     }
 
-    // FUNCIONES PARA LOS DIAS DE TRABAJO
+    // FUNCIONES PARA LOS DIAS DE TRABAJO y ACTIVIDADES
     public function workday(){
         $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
             ->join("users","users.id","workdays.user_id")
@@ -230,6 +235,23 @@ class CalendarController extends Component
             ->get();
         //$datos=DB::table("workdays")->where("orchard_id",$this->idd)->get();
         return $datos;
+    }
+    public  function activitiesxday(){
+        $actividad=Activity::join("workdays","workdays.id","activities.workday_id")
+                            ->join("type_jobs","type_jobs.id","activities.type_job_id")
+                            ->where("activities.workday_id",)
+                            ->get();
+    }
+    public function activitiesxmes(){
+
+    }
+    public function add_activiti($fecha){
+        $this->day_clear=$fecha;
+        dd($this->day_clear);
+        $this->openmodalworkday();
+    }
+    public function edit_activiti(){
+        $this->openmodalworkday();
     }
     public function openmodalworkday()
     {
