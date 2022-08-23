@@ -11,20 +11,20 @@ use App\Models\Activity;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class CalendarController extends Component
 {
-    public $mess,$dia;
+    public $data_select, $mess,$dia;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
     public $windowevent=0, $isconfirm =0, $getid =0;
 
-    public $workdays, $workday_id, $found=0, $date_work, $general_expenses, $work_day=0, $day_clear, $day_added;
+    public $workdays, $workday_id, $date_work, $general_expenses;
     public $modalworkday = 0;
 
-    public $activiti, $activities_id, $type_job_id, $cost;
-    public $modalactiviti=0;
+    public $activities, $activities_id, $type_job_id, $cost;
 
     public function render()
     {
@@ -33,18 +33,21 @@ class CalendarController extends Component
         $this->mess=date("m");
         $this->dia=date("d");
         $data=$this->data;
+        //dd($data);
         $mesingles=$this->mesingles;
         $mespanish=$this->mespanish;
         $this->lastmosth=$data['last'];
         $this->nextmonth=$data['next'];
 
         $this->workdays = $this->workday();
+        $this->activities = $this->activitiesxmes();
 
         return view('livewire.calendar_orchards.calendar-controller',[
             'datos_orchard' => $datos_orchard,
             'data' => $data,
             'mesingles' => $mesingles,
             'mespanish' => $mespanish,
+            'type_jobs' =>TypeJob::all(),
         ]);
     }
 
@@ -243,12 +246,49 @@ class CalendarController extends Component
                             ->get();
     }
     public function activitiesxmes(){
-
+        $datos=Activity::join('workdays','workdays.id','activities.workday_id')
+            ->join('type_jobs','type_jobs.id','activities.type_job_id')
+            ->where("workdays.orchard_id",$this->id_orchard)
+            ->select('activities.*')
+            ->get();
+        return $datos;
     }
-    public function add_activiti($fecha){
-        $this->day_clear=$fecha;
-        dd($this->day_clear);
-        $this->openmodalworkday();
+    public function storeworkday(){
+        $this->validate([
+           'user_id' => 'required',
+            //'orchard_id' => 'required',
+            'date_work' => 'required',
+            'general_expenses' => 'required'
+        ]);
+
+        Workday::updateOrCreate(['id' => $this->workday_id],[
+           'user_id' => $this->user_id,
+           'orchard_id' => $this->id_orchard,
+           'date_work' => $this->date_work,
+           'general_expenses' => $this->general_expenses,
+        ]);
+        //dd(Workday::latest('id')->first());
+        $this->workday_id=Workday::latest('id')->first();
+        //dd($this->workday_id->id);
+        $this->storeactiviti();
+    }
+    public function storeactiviti(){
+        $this->validate([
+            //'workday_id' => 'required',
+            'type_job_id' => 'required',
+            'cost' => 'required',
+        ]);
+        Activity::updateOrCreate(['id' => $this->activities_id],[
+            'workday_id' => $this->workday_id->id,
+            'type_job_id' => $this->type_job_id,
+            'cost' => $this->cost,
+        ]);
+        $this->workday_id = '';
+        $this->date_work = '';
+        $this->general_expenses = '';
+        $this->type_job_id = '';
+        $this->cost = '';
+        $this->closemodalworkday();
     }
     public function edit_activiti(){
         $this->openmodalworkday();

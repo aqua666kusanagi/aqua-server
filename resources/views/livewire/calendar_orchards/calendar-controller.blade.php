@@ -189,7 +189,6 @@
                                         @foreach($workdays as $work)
                                             @if($dias['fecha'] == $work->date_work)
                                                 <form class="w-full" action="">
-                                                    <input type="hidden" value="{{$work->id}}" name="day_added">
                                                     <button type="button" wire:click="edit_activiti()" class="w-full bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                         <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
                                                     </button>
@@ -199,8 +198,7 @@
                                         @endforeach
                                         @if($bantoday)
                                             <form class="w-full" action="">
-                                                <input type="hidden" value="{{$dias['fecha']}}" name="day_clear">
-                                                <button type="button" wire:click="add_activiti({{$dias['fecha']}})" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                     <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
                                                 </button>
                                             </form>
@@ -210,7 +208,6 @@
                                         @foreach($workdays as $work)
                                             @if($work->date_work == $dias['fecha'])
                                                 <form action="">
-                                                    <input type="hidden" value="{{$work->id}}" name="day_added">
                                                     <button type="button" wire:click="edit_activiti()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                         <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
                                                     </button>
@@ -220,8 +217,7 @@
                                         @endforeach
                                         @if($ban)
                                             <form action="">
-                                                <input type="hidden" value="{{$dias['fecha']}}" name="day_clear">
-                                                <button type="button" wire:click="add_activiti({{$dias['fecha']}})" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                     <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
                                                 </button>
                                             </form>
