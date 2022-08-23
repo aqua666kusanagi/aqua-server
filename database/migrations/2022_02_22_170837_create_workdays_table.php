@@ -19,6 +19,7 @@ class CreateWorkdaysTable extends Migration
             $table->foreignIdFor(\App\Models\Orchard::class)->nullable()->constrained();
             $table->date('date_work');
             $table->text('general_expenses');
+            $table->string("description",250);
             $table->timestamps();
             $table->softDeletes();
         });

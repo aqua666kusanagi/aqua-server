@@ -1,7 +1,9 @@
 <div>
     <script src="https://cdn.tailwindcss.com"></script>
     @include('livewire.orchards.acciones_huerto')
-    <script>show_nav(), feno()</script>
+    <script>
+        show_nav(), feno()
+    </script>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="flex h-full flex-col">
         <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-2 px-6 my-3" style="border-top: 2px solid #8cdeaa; white-space: normal">
@@ -15,20 +17,25 @@
             <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
                 <div x-data="{ isActive: true, open: false}">
-                    <button type="button" @click="$event.preventDefault(); open = !open"  role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                            class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+ Accion</button>
+                    <button type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+ Accion</button>
 
                     <div role="menu" x-show="open" class="border border-gray-300 my-3 rounded-lg" style="margin-left: 15px">
+                        <a href="{{route('photograph',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fotografias</button>
+                        </a>
+                        <a href="{{route('produccion',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Produccion</button>
+                        </a>
                         {{--<button type="button" class="bg-gray-200 w-full">Fenofase</button>--}}
                         <a href="{{route('fenofase',$datos_orchard->id)}}">
-                            <button type="button"  class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
                         </a><br>
-                        <button type="button" wire:click="openmodalworkday()"  @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Actividad</button><br>
+                        <button type="button" wire:click="openmodalworkday()" @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Actividad</button><br>
                     </div>
                     @if($windowevent)
                     @endif
                     @if($modalworkday)
-                        @include('livewire.calendar_orchards.create_worday_activity')
+                    @include('livewire.calendar_orchards.create_worday_activity')
                     @endif
                 </div>
             </div>
@@ -182,6 +189,7 @@
                     </div>
                     <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
                         @foreach($data['calendar'] as $semanas)
+                        {{--HEAD--}}
                             @foreach($semanas['datos'] as $dias)
                                 @if($dias['mes'] == $mesingles)
                                     @if($dias['dia'] == $dia)

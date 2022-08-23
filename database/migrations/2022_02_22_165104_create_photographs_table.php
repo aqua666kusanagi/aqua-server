@@ -22,6 +22,7 @@ class CreatePhotographsTable extends Migration
 
             $table->string("path",250);
             $table->date('date');
+            $table->string("note",250);
 
             $table->timestamps();
             $table->softDeletes();

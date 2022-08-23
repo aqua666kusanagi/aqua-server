@@ -31,6 +31,7 @@ use App\Http\Livewire\PhotographController;
 use App\Http\Livewire\OrchardManagerController;
 use App\Http\Livewire\OrchardFenofaseController;
 use App\Http\Livewire\OrchardProductionController;
+use App\Http\Livewire\OrchardPhotographController;
 use App\Http\Livewire\CalendarController;
 use App\Http\Livewire\OrchardCalendarController;
 
@@ -97,6 +98,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('detalles/{id}', OrchardManagerController::class)->name('informacion');
     Route::get('fenofases/{id}', OrchardFenofaseController::class)->name('fenofase');
+    Route::get('photographs/{id}', OrchardPhotographController::class)->name('photograph');
     Route::get('orchard_production/{id}',OrchardProductionController::class)->name('produccion');
     Route::get('workday/{id}', WorkdayController::class)->name('dias_trabajo');
 
