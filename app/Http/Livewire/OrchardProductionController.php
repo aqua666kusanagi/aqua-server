@@ -14,6 +14,7 @@ class OrchardProductionController extends Component
     public $isModalOpen = 0;
     public $isconfirm = 0;
     public $getid = 0;
+    public $idd;
 
 
     public function render()
@@ -22,9 +23,9 @@ class OrchardProductionController extends Component
         $this->annual_productions = AnnualProduction::join("orchards", "orchards.id", "annual_productions.orchard_id")
             ->where("annual_productions.orchard_id", $this->idd)
             ->get();
-
-        $data_harvest=$this->annual_production();
-        $data_sales=$this->annual_production();
+        //dd($id_orchard->id);
+        $data_harvest=$this->annual_production_harvest();
+        $data_sales=$this->annual_production_sales();
         return view('livewire.orchards_production_manager.new_production ', [
             'orchards' => Orchard::all(),
             'datos_orchard' => $id_orchard,
@@ -32,37 +33,42 @@ class OrchardProductionController extends Component
         compact( 'data_harvest', 'data_sales'));
     }
 
-    public function annual_production(){
-        $sales = AnnualProduction::selectRaw('MONTH(date_production) as date')
-            ->groupBy('date')
-            ->selectRaw('sum(sale) as production')
-            ->pluck("production");
-        //dd($sales);
-
+    public function annual_production_harvest(){
+        $id_orchard = Orchard::findOrFail($this->idd);
         $tonHarvest = AnnualProduction::selectRaw('MONTH(date_production) as date')
             ->groupBy('date')
-            ->selectRaw('sum(ton_harvest) as production')
+            ->selectRaw('sum(ton_harvest) as production')->where("annual_productions.orchard_id", $id_orchard->id)
             ->pluck("production");
         //dd($tonHarvest);
-
         $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
-            ->whereYear('date_production', date('Y'))
+            ->whereYear('date_production', date('Y'))->where("annual_productions.orchard_id", $id_orchard->id)
             ->groupBy(DB::raw("Month(date_production)"))
             ->pluck('month');
         //dd($months);
-
-        
         $data_harvest = array(0, 0, 0,   0, 0, 0,   0, 0, 0,   0, 0, 0);
         foreach ($months as $i => $tonHarve) {
             $data_harvest[$tonHarve-1] = $tonHarvest[$i];
         }
+//dd($data_harvest);
+        return $data_harvest;
+    }
+    public function annual_production_sales(){
+        $id_orchard = Orchard::findOrFail($this->idd);
+        $sales = AnnualProduction::selectRaw('MONTH(date_production) as date')
+            ->groupBy('date')
+            ->selectRaw('sum(sale) as production')->where("annual_productions.orchard_id", $id_orchard->id)
+            ->pluck("production");
+        //dd($sales);
+        $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
+            ->whereYear('date_production', date('Y'))->where("annual_productions.orchard_id", $id_orchard->id)
+            ->groupBy(DB::raw("Month(date_production)"))
+            ->pluck('month');
+        //dd($months);
         $data_sales = array(0, 0, 0,     0, 0, 0,   0, 0, 0,   0, 0, 0);
         foreach ($months as $i => $sale) {
             $data_sales[$sale-1] = $sales[$i];
         }
-//dd($data_harvest);
 //dd($data_sales);
-        return $data_harvest;
         return $data_sales;
     }
 
