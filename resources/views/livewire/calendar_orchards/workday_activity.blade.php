@@ -1,4 +1,4 @@
-<div class="bg-green-100" style="padding: 20px">
+<div class="bg-green-100 rounded-lg" style="padding: 20px">
     <header class="w-full text-center text-teal-900 font-extrabold">
         Actividades
     </header>
@@ -30,7 +30,16 @@
                                                     <div class="w-36 py-2">{{$activity->typejob->type_job}}</div>
                                                     <div class="w-36 py-2">{{$activity->workday->date_work}}</div>
                                                     <div class="w-36 py-2">{{$activity->cost}}</div>
-                                                    <div class="w-36 py-2">{{$activity->status}}</div>
+                                                    @if($activity->satatus = "no")
+                                                        <div class="w-36 py-1 px-4">
+                                                            <button class="w-full rounded-lg py-1 border border-indigo-400 bg-pink-50">Iniciar</button>
+                                                        </div>
+                                                    @elseif($activity->satatus = "si")
+                                                        <div class="w-36 py-1 px-4">
+                                                            <div class="w-full rounded-lg py-1 border border-indigo-400 bg-indigo-50">Finalizado</div>
+                                                        </div>
+                                                    @endif
+                                                    {{--<div class="w-36 py-2">{{$activity->status}}</div>--}}
                                                 </div>
                                                 <div class="flex justify-center">
                                                     <div class="suraya-blue"></div>

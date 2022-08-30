@@ -30,8 +30,7 @@
                         <a href="{{route('fenofase',$datos_orchard->id)}}">
                             <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
                         </a><br>
-                        <button type="button" wire:click="openmodalworkday()" @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Actividad</button><br>
-                    </div>
+                     </div>
                     @if($windowevent)
                     @endif
                     @if($modal)
