@@ -15,84 +15,54 @@ function info(){
     document.getElementById("active1").style.borderLeft="1px solid #c5c7cc";
     document.getElementById("active1").style.borderRight="1px solid #c5c7cc";
     document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-    /*document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";*/
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
+    document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
 }
 
-function feno(){
+function calend(){
     //active2
     document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
     document.getElementById("active2").style.borderBottom="2px solid #16a34a";
     document.getElementById("active2").style.borderLeft="1px solid #c5c7cc";
     document.getElementById("active2").style.borderRight="1px solid #c5c7cc";
-    /*document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";*/
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
+    document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
 }
 
-/*function produ(){
-    //active3
+function reco(){
+    //active7
     document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
     document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
     document.getElementById("active3").style.borderBottom="2px solid #16a34a";
     document.getElementById("active3").style.borderLeft="1px solid #c5c7cc";
     document.getElementById("active3").style.borderRight="1px solid #c5c7cc";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
 }
-function workd(){
-    //active4
-    document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #16a34a";
-    document.getElementById("active4").style.borderLeft="1px solid #c5c7cc";
-    document.getElementById("active4").style.borderRight="1px solid #c5c7cc";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
+//FUNCIONES PARA LA SEGUNDA NAVEGACION
+function feno(){
+    document.getElementById("nav1").style.borderBottom="2px solid #8cdeaa";
+    document.getElementById("nav1").style.borderLeft="1px solid #c5c7cc";
+    document.getElementById("nav1").style.borderRight="1px solid #c5c7cc";
+    document.getElementById("nav2").style.borderBottom="2px solid #ffffff";
+    document.getElementById("nav2").style.borderBottom="2px solid #ffffff";
+    /*document.getElementById("Fenofase").style.display='';
+    document.getElementById("Actividad").style.display='none';
+    document.getElementById("Produccion").style.display='none';*/
 }
 function activi(){
-    //active5
-    document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #16a34a";
-    document.getElementById("active5").style.borderLeft="1px solid #c5c7cc";
-    document.getElementById("active5").style.borderRight="1px solid #c5c7cc";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
+    document.getElementById("nav1").style.borderBottom="2px solid #ffffff";
+    document.getElementById("nav2").style.borderBottom="2px solid #8cdeaa";
+    document.getElementById("nav2").style.borderLeft="1px solid #c5c7cc";
+    document.getElementById("nav2").style.borderRight="1px solid #c5c7cc";
+    document.getElementById("nav3").style.borderBottom="2px solid #ffffff";
+    /*document.getElementById("Fenofase").style.display='none';
+    document.getElementById("Actividad").style.display='';
+    document.getElementById("Produccion").style.display='none';*/
 }
-function foto(){
-    //active6
-    document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #16a34a";
-    document.getElementById("active6").style.borderLeft="1px solid #c5c7cc";
-    document.getElementById("active6").style.borderRight="1px solid #c5c7cc";
-    document.getElementById("active7").style.borderBottom="2px solid #f3f4f6";
-}*/
-function reco(){
-    //active7
-    document.getElementById("active1").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active2").style.borderBottom="2px solid #f3f4f6";
-    /*document.getElementById("active3").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active4").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active5").style.borderBottom="2px solid #f3f4f6";
-    document.getElementById("active6").style.borderBottom="2px solid #f3f4f6";*/
-    document.getElementById("active7").style.borderBottom="2px solid #16a34a";
-    document.getElementById("active7").style.borderLeft="1px solid #c5c7cc";
-    document.getElementById("active7").style.borderRight="1px solid #c5c7cc";
+function produ(){
+    document.getElementById("nav1").style.borderBottom="2px solid #ffffff";
+    document.getElementById("nav2").style.borderBottom="2px solid #ffffff";
+    document.getElementById("nav3").style.borderBottom="2px solid #8cdeaa";
+    document.getElementById("nav3").style.borderLeft="1px solid #c5c7cc";
+    document.getElementById("nav3").style.borderRight="1px solid #c5c7cc";
+    /*document.getElementById("Fenofase").style.display='none';
+    document.getElementById("Actividad").style.display='none';
+    document.getElementById("Produccion").style.display='';*/
 }
-

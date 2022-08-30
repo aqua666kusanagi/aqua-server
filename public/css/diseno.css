@@ -101,6 +101,11 @@ li a {
     height: 3px;
     background-color: #8cdeaa;
 }
+.suraya-blue{
+    height: 2px;
+    background-color: #93bbfa;
+    width: 95%;
+}
 hr {
     margin-top: 8px;
     height: 5px;

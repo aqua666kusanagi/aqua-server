@@ -12,19 +12,24 @@ use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\Constraint\Count;
 
 class CalendarController extends Component
 {
-    public $data_select, $mess,$dia;
+    public $mess,$dia;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
+    public $modalfenofase=0, $modalworkday=0, $modalproduccion=0, $clickedit=0, $modal=0;
+
     public $windowevent=0, $isconfirm =0, $getid =0;
 
-    public $workdays, $workday_id, $date_work, $general_expenses;
-    public $modalworkday = 0;
+    public $workdays, $workday_id, $date_work, $general_expenses, $description, $idfinal;
+    public $clicksave= true;
 
-    public $activities, $activities_id, $type_job_id, $cost;
+    public $activities, $activities_id, $type_job_id, $cost, $activitiesxday, $table_activities;
+
+    public $phenophases, $month, $cont;
 
     public function render()
     {
@@ -39,6 +44,8 @@ class CalendarController extends Component
         $this->lastmosth=$data['last'];
         $this->nextmonth=$data['next'];
 
+        $this->phenophases = $this->fenofase();
+        $this->cont=count($this->phenophases);
         $this->workdays = $this->workday();
         $this->activities = $this->activitiesxmes();
 
@@ -73,7 +80,6 @@ class CalendarController extends Component
 
         $this->render();
     }
-
     public function last_year(){
         $this->data = $this->calendar_month($this->lastmosth);
         $this->mesingles = $this->data['month'];
@@ -83,7 +89,6 @@ class CalendarController extends Component
 
         $this->render();
     }
-
     public function next_year(){
         $this->data = $this->calendar_month($this->nextmonth);
         $this->mesingles = $this->data['month'];
@@ -93,9 +98,6 @@ class CalendarController extends Component
 
         $this->render();
     }
-
-    //*********************************************************************
-
     public static function calendar_month($month){
         //$mes = date("Y-m");
         $mes = $month;
@@ -207,7 +209,7 @@ class CalendarController extends Component
         }
         return $mes;
     }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FUNCIONES PARA LOS EVENETOS
     public function openevent(){
         $this->windowevent=true;
@@ -228,6 +230,20 @@ class CalendarController extends Component
         $this->getid = $id;
     }
 
+    //FENOFASES---------------------------------------------------------------------------------------------------------
+    public function fenofase(){
+        $datos=RegistrationPhenophase::join("orchards","orchards.id","registration_phenophases.orchard_id")
+            ->where("registration_phenophases.orchard_id",$this->id_orchard)
+            ->get();
+        return $datos;
+    }
+    public function openmodalfenofase(){
+
+    }
+    public function closemodalfenofase(){
+
+    }
+
     // FUNCIONES PARA LOS DIAS DE TRABAJO y ACTIVIDADES
     public function workday(){
         $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
@@ -239,11 +255,14 @@ class CalendarController extends Component
         //$datos=DB::table("workdays")->where("orchard_id",$this->idd)->get();
         return $datos;
     }
-    public  function activitiesxday(){
-        $actividad=Activity::join("workdays","workdays.id","activities.workday_id")
-                            ->join("type_jobs","type_jobs.id","activities.type_job_id")
-                            ->where("activities.workday_id",)
-                            ->get();
+    public  function activitiesxday($id){
+        $datos=Activity::join('workdays','workdays.id','activities.workday_id')
+            ->join('type_jobs','type_jobs.id','activities.type_job_id')
+            ->where("workdays.orchard_id",$this->id_orchard)
+            ->where("workdays.id", $id)
+            ->select('activities.*')
+            ->get();
+        return $datos;
     }
     public function activitiesxmes(){
         $datos=Activity::join('workdays','workdays.id','activities.workday_id')
@@ -256,21 +275,20 @@ class CalendarController extends Component
     public function storeworkday(){
         $this->validate([
            'user_id' => 'required',
-            //'orchard_id' => 'required',
             'date_work' => 'required',
-            'general_expenses' => 'required'
+            'general_expenses' => 'required',
+            'description' => 'required',
         ]);
-
+        //dd($this->description);
         Workday::updateOrCreate(['id' => $this->workday_id],[
            'user_id' => $this->user_id,
            'orchard_id' => $this->id_orchard,
            'date_work' => $this->date_work,
            'general_expenses' => $this->general_expenses,
+           'description' => $this->description,
         ]);
-        //dd(Workday::latest('id')->first());
-        $this->workday_id=Workday::latest('id')->first();
-        //dd($this->workday_id->id);
-        $this->storeactiviti();
+        $this->idfinal=Workday::latest('id')->first();
+        $this->clicksave = false;
     }
     public function storeactiviti(){
         $this->validate([
@@ -279,27 +297,66 @@ class CalendarController extends Component
             'cost' => 'required',
         ]);
         Activity::updateOrCreate(['id' => $this->activities_id],[
-            'workday_id' => $this->workday_id->id,
+            'workday_id' => $this->idfinal->id,
             'type_job_id' => $this->type_job_id,
             'cost' => $this->cost,
+            'status' => 'no',
         ]);
-        $this->workday_id = '';
-        $this->date_work = '';
-        $this->general_expenses = '';
+
         $this->type_job_id = '';
         $this->cost = '';
-        $this->closemodalworkday();
+
+        $this->activitiesxday = $this->activitiesxday($this->idfinal->id);
+        $this->table_activities = true;
     }
-    public function edit_activiti(){
-        $this->openmodalworkday();
+    public function edit_activiti($id){
+        $actividad = Activity::findOrFail($id);
+        $this->activities_id = $id;
+        $this->workday_id = $actividad->workday_id;
+        $this->type_job_id = $actividad->type_job_sample;
+        $this->cost = $actividad->cost;
+
+        $this->clickedit = true;
+        $this->modalworkday=true;
     }
-    public function openmodalworkday()
-    {
+    public function openmodalworkday(){
         $this->modalworkday = true;
     }
-    public function closemodalworkday()
-    {
+    public function closemodalworkday(){
+        $this->general_expenses = '';
         $this->modalworkday = false;
+    }
+
+    //PRODUCCION--------------------------------------------------------------------------------------------------------
+    public function openmodalproduccion(){
+
+    }
+    public function closemodalprodeccion(){
+
+    }
+
+    //->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+    public function openmodal($fecha)
+    {
+        $this->date_work=$fecha;
+        $this->modal = true;
+        $this->modalworkday = true;
+    }
+    public function closemodal()
+    {
+        $this->workday_id = '';
+        $this->idfinal = '';
+        $this->date_work = '';
+        $this->general_expenses = '';
+        $this->clicksave = true;
+        $this->table_activities = false;
+
+        $this->modalfenofase = false;
+        $this->modalworkday = false;
+        $this->modalproduccion = false;
+
+        $this->clickedit = false;
+        $this->modal = false;
     }
 
 }

@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->foreignIdFor(Workday::class)->nullable()->constrained();
             $table->foreignIdFor(TypeJob::class)->nullable()->constrained();
             $table->double("cost",4,2)->nullable();
+            $table->string('status', 50)->nullable();
 
             $table->timestamps();
             $table->softDeletes();
