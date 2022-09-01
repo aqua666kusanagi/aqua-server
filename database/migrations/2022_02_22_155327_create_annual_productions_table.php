@@ -18,10 +18,10 @@ class CreateAnnualProductionsTable extends Migration
             $table->id();
             $table->foreignIdFor(Orchard::class)->nullable()->constrained();
 
-            $table->integer("ton_harvest");
+            $table->double("ton_harvest");
             $table->date('date_production');
-            $table->integer("sale");
-            $table->integer("damage_percentage");
+            $table->double("sale");
+            $table->double("damage_percentage");
 
             $table->timestamps();
             $table->softDeletes();

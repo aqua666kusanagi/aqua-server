@@ -1,3 +1,24 @@
+MIGRATIONS AND SEEDERS
+
+RUN SEEDER
+	php artisan db:seed --class=NombreSeeder
+
+	php artisan db:seed --class = ApplicationModeSeeder
+	php artisan db:seed --class = ChemicalElementSeeder
+	php artisan db:seed --class = ClimateTypeSeeder
+	php artisan db:seed --class = PhenophaseSeeder
+	php artisan db:seed --class = ProductCategorySeeder
+	php artisan db:seed --class = TypeAvocadoSeeder
+	php artisan db:seed --class = TypeJobSeeder
+	php artisan db:seed --class = TypePhotographSeeder
+	php artisan db:seed --class = TypeSoilSeeder
+	php artisan db:seed --class = TypeTopographySeeder
+	php artisan db:seed --class = UnitSeeder
+
+Link storage
+	php artisan storage:link
+
+
 <!--
 <x-slot name="header">
     <h2 class="text-center">Laravel JetStream Livewire CRUD Aplication Modes</h2>
@@ -287,3 +308,6 @@ class="h-screen pb-14 bg-right bg-cover" style="background-image:url({{asset('im
     https://documentation.help/MySQL-5.0-es/ch18s04.html
 
 
+
+
+    
