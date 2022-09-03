@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class OrchardPhotographController extends Component
 {
     use WithFileUploads;
-    public $photographs, $photograph_id, $orchard_id, $type_photograph_id, $path, $date;
+    public $photographs, $photograph_id, $orchard_id, $type_photograph_id, $path, $date,$note;
     public $isDialogOpen = 0;
     public $isconfirm =0;
     public $getid =0;
@@ -72,6 +72,7 @@ class OrchardPhotographController extends Component
         $this->type_photograph_id = '';
         $this->path = '';
         $this->date = '';
+        $this->note = '';
     }
 
     public function store()
@@ -81,6 +82,7 @@ class OrchardPhotographController extends Component
             'type_photograph_id' => 'required',
             'path' => 'required',
             'date' => 'required',
+            'note' => 'required',
         ]);
         $this->path=$this->path->store('images/photographs', 'public');
         //dd($this->path);
@@ -89,7 +91,8 @@ class OrchardPhotographController extends Component
             'orchard_id' => $id_orchard->id,
             'type_photograph_id' => $this->type_photograph_id,
             'path' => $this->path,
-            'date' => $this->date
+            'date' => $this->date,
+            'note' => $this->note,
         ]);
 
         session()->flash('message', $this->photograph_id ? 'Fotografia actualizada!' : 'Fotografia Creada!');
@@ -106,6 +109,7 @@ class OrchardPhotographController extends Component
         $this->type_photograph_id = $photographs->type_photograph_id;
         $this->path = $photographs->path;
         $this->date = $photographs->date;
+        $this->note = $photographs->note;
         $this->openModalPopover();
     }
 

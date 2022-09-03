@@ -26,10 +26,9 @@
                         <a href="{{route('produccion',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
                             <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Produccion</button>
                         </a>
-                        {{--<button type="button" class="bg-gray-200 w-full">Fenofase</button>--}}
-                        <a href="{{route('fenofase',$datos_orchard->id)}}">
+                        <a href="{{route('fenofase',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
                             <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
-                        </a><br>
+                        </a>
                         <button type="button" wire:click="openmodalworkday()" @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Actividad</button><br>
                     </div>
                     @if($windowevent)
@@ -190,53 +189,53 @@
                     <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
                         @foreach($data['calendar'] as $semanas)
                         {{--HEAD--}}
-                            @foreach($semanas['datos'] as $dias)
-                                @if($dias['mes'] == $mesingles)
-                                    @if($dias['dia'] == $dia)
-                                        @php $bantoday=true;@endphp
-                                        @foreach($workdays as $work)
-                                            @if($dias['fecha'] == $work->date_work)
-                                                <form class="w-full" action="">
-                                                    <button type="button" wire:click="edit_activiti()" class="w-full bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                                    </button>
-                                                </form>
-                                                @php $bantoday=false;@endphp
-                                            @endif
-                                        @endforeach
-                                        @if($bantoday)
-                                            <form class="w-full" action="">
-                                                <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                    <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
-                                                </button>
-                                            </form>
-                                        @endif
-                                    @else
-                                        @php $ban=true;@endphp
-                                        @foreach($workdays as $work)
-                                            @if($work->date_work == $dias['fecha'])
-                                                <form action="">
-                                                    <button type="button" wire:click="edit_activiti()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
-                                                    </button>
-                                                </form>
-                                                @php $ban=false;@endphp
-                                            @endif
-                                        @endforeach
-                                        @if($ban)
-                                            <form action="">
-                                                <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                    <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
-                                                </button>
-                                            </form>
-                                        @endif
-                                    @endif
-                                @else
-                                    <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
-                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">...</time>
-                                    </button>
-                                @endif
-                            @endforeach
+                        @foreach($semanas['datos'] as $dias)
+                        @if($dias['mes'] == $mesingles)
+                        @if($dias['dia'] == $dia)
+                        @php $bantoday=true;@endphp
+                        @foreach($workdays as $work)
+                        @if($dias['fecha'] == $work->date_work)
+                        <form class="w-full" action="">
+                            <button type="button" wire:click="edit_activiti()" class="w-full bg-indigo-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
+                            </button>
+                        </form>
+                        @php $bantoday=false;@endphp
+                        @endif
+                        @endforeach
+                        @if($bantoday)
+                        <form class="w-full" action="">
+                            <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 font-semibold text-white">{{$dias['dia']}}</time>
+                            </button>
+                        </form>
+                        @endif
+                        @else
+                        @php $ban=true;@endphp
+                        @foreach($workdays as $work)
+                        @if($work->date_work == $dias['fecha'])
+                        <form action="">
+                            <button type="button" wire:click="edit_activiti()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                            </button>
+                        </form>
+                        @php $ban=false;@endphp
+                        @endif
+                        @endforeach
+                        @if($ban)
+                        <form action="">
+                            <button type="button" wire:click="openmodalworkday()" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                            </button>
+                        </form>
+                        @endif
+                        @endif
+                        @else
+                        <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
+                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">...</time>
+                        </button>
+                        @endif
+                        @endforeach
                         @endforeach
                     </div>
                 </div>

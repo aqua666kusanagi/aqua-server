@@ -40,11 +40,9 @@
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="block text-sm font-medium text-gray-700 text-center">Toneladas de Cosecha</h3>
-                                                    <select wire:model="ton_harvest" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Toneladas de Cosecha</option>
-                                                        @for($var=0; $var<=1000;$var=$var+1) <option type="int" value="{{$var}}">{{$var}} Toneladas</option>
-                                                            @endfor
-                                                    </select>
+                                                    <div class=" ">
+                                                        <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Toneladas de cosecha" wire:model="ton_harvest">
+                                                    </div>
                                                     @error('ton_harvest') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>
@@ -69,11 +67,9 @@
                                             <div class="col-span-6 ">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="block text-sm font-medium text-gray-700 text-center">Porcentaje de Daño</h3>
-                                                    <select wire:model="damage_percentage" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Porcentaje de Daño</option>
-                                                        @for($var=0; $var<=100;$var=$var+1) <option type="int" value="{{$var}}"> {{$var}} %</option>
-                                                            @endfor
-                                                    </select>
+                                                    <div class=" ">
+                                                        <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Porcentaje de daño" wire:model="damage_percentage">
+                                                    </div>
                                                     @error('damage_percentage') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>

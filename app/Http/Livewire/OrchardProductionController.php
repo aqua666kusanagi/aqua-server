@@ -14,7 +14,7 @@ class OrchardProductionController extends Component
     public $isModalOpen = 0;
     public $isconfirm = 0;
     public $getid = 0;
-    public $idd;
+    public $idd,$route;
 
 
     public function render()
@@ -71,6 +71,15 @@ class OrchardProductionController extends Component
 //dd($data_sales);
         return $data_sales;
     }
+
+
+    public function change($id)
+    {
+        //return redirect()->to(url()->previous());
+        //back();
+        return redirect()->route('calendar/{{$id}}');
+    }
+    
 
     public function mount($id)
     {

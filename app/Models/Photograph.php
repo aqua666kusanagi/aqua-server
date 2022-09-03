@@ -16,7 +16,7 @@ class Photograph extends Model
         'type_photograph_id',
         'path',
         'date',
-
+        'note',
     ];
 
     public function type_photo(){
