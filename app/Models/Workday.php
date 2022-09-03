@@ -16,7 +16,7 @@ class Workday extends Model
         'orchard_id',
         'date_work',
         'general_expenses',
-
+        'description',
     ];
 
     public function user(){

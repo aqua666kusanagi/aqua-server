@@ -16,7 +16,7 @@ class Activity extends Model
         'workday_id',
         'type_job_id',
         'cost',
-
+        'status',
     ];
 
     public function workday(){

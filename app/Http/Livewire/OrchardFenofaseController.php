@@ -19,8 +19,8 @@ class OrchardFenofaseController extends Component
     public function render()
     {
         $this->fenofases=$this->fenofase();
-        $this->cont=count($this->fenofases);
-        $this->fechca_cierre=$this->ciclo();
+        //$this->cont=count($this->fenofases);
+        //$this->fechca_cierre=$this->ciclo();
 
         $id_orchard=Orchard::findOrFail($this->idd);
 

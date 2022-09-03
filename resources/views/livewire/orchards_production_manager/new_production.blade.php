@@ -1,14 +1,23 @@
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " type="button" value="GoBack" onclick="Previous()"></div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:w-full sm:p-6">
-            <div>
 
+
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" aria-hidden="true"></div>
+
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+
+        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:w-full sm:p-6">
+            <div>
                 <div class="py-12">
 
+                    <!-- 
+                    @include('livewire.orchards.acciones_huerto')
+                
+                    <script>
+                        show_nav(), produ()
+                    </script>
+-->
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
                         <div class="py-4">
                             <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
                                 <h3 class="text-center px-2 py-2 ">Produccion Anual</h3>
@@ -50,7 +59,8 @@
                                             <h1>Toneladas y costo de venta</h1>
                                         </div>
                                     </div>
-                                    <canvas id="myChart" width="800" height="450"></canvas>
+
+                                    <canvas id="myChart" width="800" height="450"></canvas>=
                                     <script>
                                         const data_harve = <?php echo json_encode($data_harvest) ?>
 
@@ -136,8 +146,6 @@
                                     </script>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
