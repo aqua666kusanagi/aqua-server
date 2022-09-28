@@ -16,7 +16,7 @@ use PHPUnit\Framework\Constraint\Count;
 
 class CalendarController extends Component
 {
-    public $mess,$dia;
+    public $mess,$dia,$mes_actual;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
@@ -37,6 +37,7 @@ class CalendarController extends Component
 
         $this->mess=date("m");
         $this->dia=date("d");
+        $this->mes_actual=$this->month_actual($this->mess);
         $data=$this->data;
         //dd($data);
         $mesingles=$this->mesingles;
@@ -206,6 +207,35 @@ class CalendarController extends Component
         }
         else {
             $mes = $month;
+        }
+        return $mes;
+    }
+    public function month_actual($month){
+        $mes='';
+        if ($month == "01"){
+            $mes="Jan";
+        }elseif ($month == "02"){
+            $mes="Feb";
+        }elseif ($month == "03"){
+            $mes="Mar";
+        }elseif ($month == "04"){
+            $mes="Apr";
+        }elseif ($month == "5"){
+            $mes="May";
+        }elseif ($month == "06"){
+            $mes="Jun";
+        }elseif ($month == "07"){
+            $mes="Jul";
+        }elseif ($month == "08"){
+            $mes="Aug";
+        }elseif ($month == "09"){
+            $mes="Sep";
+        }elseif ($month == "10"){
+            $mes="Oct";
+        }elseif ($month == "11"){
+            $mes="Nov";
+        }elseif ($month == "12"){
+            $mes="Dec";
         }
         return $mes;
     }
