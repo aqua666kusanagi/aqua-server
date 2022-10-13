@@ -10,17 +10,8 @@
                 <div class="justify-center   rounded-full bg-gray-100">
                     <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">Actividades para el dia {{$date_work}}</h3>
                 </div>
-                <div class="w-full px-4">
-                    <ul class="flex justify-between">
-                        <li class="w-full"><button id="nav1" class="hoverr py-3 w-full" wire:click="openmodalfenofase">Fenofases</button></li>
-                        <li class="w-full"><button id="nav2" class="hoverr py-3 w-full" wire:click="openmodalworkday">Actividades</button></li>
-                        <li class="w-full"><button id="nav3" class="hoverr py-3 w-full" wire:click="openmodalproduccion">Produccion</button></li>
-                    </ul>
-                </div>
-                    {{-----------------------------------------------FENOFASES----------------------------------------}}
-
                     {{----------------------------------------------ACTIVIDADES---------------------------------------}}
-                <div id="Actividad">
+                <div id="Actividad" class="border rounded-lg my-4">
                     <form>
                         @if($modalworkday)
                             <div class="px-7">
@@ -117,7 +108,6 @@
                             </div>
                         @endif
                     </form>
-                    <script>activi()</script>
                 </div>
                     {{-----------------------------------------------PRODUCCION---------------------------------------}}
             </div>

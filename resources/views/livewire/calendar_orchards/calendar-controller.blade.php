@@ -6,8 +6,8 @@
     </script>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="flex h-full flex-col">
-        <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-2 px-6 my-3" style="border-top: 2px solid #8cdeaa; white-space: normal">
-            <div>
+        <header class="relative z-20 flex flex-none items-center justify-between border-b border border-gray-200 py-2 px-6 my-3" style="border-top: 2px solid #8cdeaa; white-space: normal">
+            <div class="">
                 <h1 class="text-lg font-semibold leading-6 text-gray-900">
                     <time class="sm:hidden">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                     <time class="hidden sm:inline">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
@@ -21,7 +21,7 @@
 
                     <div role="menu" x-show="open" class="border border-gray-300 my-3 rounded-lg" style="margin-left: 15px">
                         <a href="{{route('photograph',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fotografias</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Galeria Fotos</button>
                         </a>
                         <a href="{{route('produccion',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
                             <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Produccion</button>
@@ -29,7 +29,6 @@
                         <a href="{{route('fenofase',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
                             <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
                         </a>
-                        <button type="button" wire:click="openmodalworkday()" @click="$event.preventDefault(); open = !open" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Actividad</button><br>
                     </div>
                     @if($windowevent)
                     @endif
@@ -197,23 +196,25 @@
                             @foreach($semanas['datos'] as $dias)
                                 @if($dias['mes'] == $mesingles)
                                     @if($dias['dia'] == $dia)
-                                        @php $bantoday=true;@endphp
-                                        @foreach($workdays as $work)
-                                            @if($dias['fecha'] == $work->date_work)
+                                        @if($dias['mes'] == $mes_actual)
+                                            @php $bantoday=true;@endphp
+                                            @foreach($workdays as $work)
+                                                @if($dias['fecha'] == $work->date_work)
+                                                    <form class="w-full" action="">
+                                                        <button type="button" wire:click="edit_activiti('{{$work->id}}')" class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500 font-semibold">{{$dias['dia']}}</time>
+                                                        </button>
+                                                    </form>
+                                                    @php $bantoday=false;@endphp
+                                                @endif
+                                            @endforeach
+                                            @if($bantoday)
                                                 <form class="w-full" action="">
-                                                    <button type="button" wire:click="edit_activiti('{{$work->id}}')" class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500 font-semibold">{{$dias['dia']}}</time>
+                                                    <button type="button" wire:click="openmodal('{{$dias['fecha']}}')" class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full font-semibold">{{$dias['dia']}}</time>
                                                     </button>
                                                 </form>
-                                                @php $bantoday=false;@endphp
                                             @endif
-                                        @endforeach
-                                        @if($bantoday)
-                                            <form class="w-full" action="">
-                                                <button type="button" wire:click="openmodal('{{$dias['fecha']}}')" class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                    <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full font-semibold">{{$dias['dia']}}</time>
-                                                </button>
-                                            </form>
                                         @endif
                                     @else
                                         @php $ban=true;@endphp
@@ -237,7 +238,7 @@
                                     @endif
                                 @else
                                     <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
-                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">...</time>
+                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
                                     </button>
                                 @endif
                             @endforeach

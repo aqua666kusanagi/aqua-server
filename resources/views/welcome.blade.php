@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -613,7 +613,7 @@
 
 <body class="antialiased leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
 
-    <div class="w-full text-center bg-green-400 py-4 font-semibold">
+    <div class="w-full text-center {{--bg-green-400--}} py-4 font-semibold" style="background: #059669">
         <div class="text-white">
             HANUC - Una version mejorada
         </div>
@@ -635,15 +635,15 @@
                 @if (Route::has('login'))
                 <div class="hidden fixed top-4 right-0 px-6 sm:block">
                     @auth
-                    <a href="{{route('orchard')}}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">HOME</a>
+                    <a href="{{route('orchard')}}" class="text-sm text-blue-300 dark:text-green-600 underline font-bold">HOME</a>
 
                     <!--<a href="{{ route('password.update') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Restaurar Contraseña</a>-->
 
                     @else
-                    <a href="{{ route('login') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Iniciar Sesion</a>
+                    <a href="{{ route('login') }}" class="text-sm text-blue-300 dark:text-green-600 underline font-bold">Iniciar Sesion</a>
 
                     @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-green-600 dark:text-green-600 underline font-bold">Registrarse</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-blue-300 dark:text-green-600 underline font-bold">Registrarse</a>
                     @endif
 
                     <!--<a href="{{ route('password.email') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Olvide Contraseña</a>-->
