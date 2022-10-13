@@ -17,11 +17,17 @@ class ApplicationController extends Component
 
     public function render()
     {
-        $this->applications = Application::all();
+        //$this->applications = Application::all();
         return view('livewire.applications.application-controller',[
             'workdays' => Workday::all(),
             'application_modes' => ApplicationMode::all()
         ]);
+    }
+    public function mount($id){
+        $this->application_id=$id;
+        $this->applications=Workday::findOrFail($this->application_id);
+        dd($this->applications);
+        $this->render();
     }
 
     public function create()

@@ -267,12 +267,6 @@ class CalendarController extends Component
             ->get();
         return $datos;
     }
-    public function openmodalfenofase(){
-
-    }
-    public function closemodalfenofase(){
-
-    }
 
     // FUNCIONES PARA LOS DIAS DE TRABAJO y ACTIVIDADES
     public function workday(){
@@ -348,6 +342,14 @@ class CalendarController extends Component
 
         $this->clickedit = true;
         $this->modalworkday=true;
+    }
+    public function do_activiti($id_activiti, $id_workday){
+        //dd('entra a actualizar actividad');
+        Activity::updateOrCreate(['id' => $id_activiti],[
+            'status' => 'si'
+        ]);
+        //dd('actualizo');
+        $this->activitiesxday = $this->activitiesxday($id_workday);
     }
     public function openmodalworkday(){
         $this->modalworkday = true;

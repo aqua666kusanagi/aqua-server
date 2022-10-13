@@ -64,18 +64,18 @@
 }
 /*elementos del menu que mostraran detalles de los huertos*/
 
-ul {
+.navul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-li {
+.navli {
     float: left;
 }
 
-li a {
+.navli a {
     display: block;
     color: #1a202c;
     text-align: center;
@@ -92,6 +92,8 @@ li a {
 }
 .atras{
     float: right;
+    padding: 14px 16px;
+    border-radius: 15px;
 }
 .atras:hover {
     background: #0d9488;

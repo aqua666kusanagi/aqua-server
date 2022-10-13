@@ -3,7 +3,7 @@
         Actividades
     </header>
     <div class="suraya w-full"></div>
-    <div class="flex justify-between text-center font-semibold">
+    <div class="flex justify-between text-center font-semibold text-indigo-500">
         <div class="w-36">
             Actividad
         </div>
@@ -30,13 +30,17 @@
                                                     <div class="w-36 py-2">{{$activity->typejob->type_job}}</div>
                                                     <div class="w-36 py-2">{{$activity->workday->date_work}}</div>
                                                     <div class="w-36 py-2">{{$activity->cost}}</div>
-                                                    @if($activity->satatus = "no")
+                                                    @if($activity->status == "no")
                                                         <div class="w-36 py-1 px-4">
-                                                            <button class="w-full rounded-lg py-1 border border-indigo-400 bg-pink-50">Iniciar</button>
+                                                            {{'id->'}}
+                                                            {{$activity->id}}
+                                                            {{$activity->status}}
+                                                            {{--<a href="{{route('aplicacion',$work->id)}}" type="button" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-pink-50">Realizar</a>--}}
+                                                            <button wire:click="do_activiti({{$activity->id}},{{$activity->workday->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-pink-50" type="button">Realizar</button>
                                                         </div>
-                                                    @elseif($activity->satatus = "si")
+                                                    @elseif($activity->status == "si")
                                                         <div class="w-36 py-1 px-4">
-                                                            <div class="w-full rounded-lg py-1 border border-indigo-400 bg-indigo-50">Finalizado</div>
+                                                            <div class="w-full rounded-lg py-1 border border-indigo-400 bg-indigo-500 text-white">Finalizado</div>
                                                         </div>
                                                     @endif
                                                     {{--<div class="w-36 py-2">{{$activity->status}}</div>--}}

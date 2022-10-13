@@ -82,7 +82,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::get('climate_type', ClimateTypeController::class);
     });
     //Route::get('workday', WorkdayController::class);
-    Route::get('application', ApplicationController::class);
+    Route::get('application/{id}', ApplicationController::class)->name('aplicacion');
     Route::get('doses', DoseController::class);
     Route::get('activities', ActivitieController::class);
     Route::get('registro_phenophases', RegistrationPhenofaseController::class);
