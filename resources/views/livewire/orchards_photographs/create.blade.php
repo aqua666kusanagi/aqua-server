@@ -5,10 +5,14 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3">
             <div>
-                <div class="justify-center   rounded-full bg-gray-100">
-                    <h3 class="text-center px-2 py-2 bg-green-100 rounded-full">NUEVA FOTOGRAFIA</h3>
+                <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full text-center">
+                    <!-- Heroicon name: outline/check -->
+                    {{--<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>--}}
+                    <h3 class="items-center">NUEVA FOTOGRAFIA</h3>
                 </div>
 
                 <div class="mt-3 text-center sm:mt-5">
@@ -18,25 +22,10 @@
                             <div class="shadow sm:rounded-md sm:overflow-hidden ">
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-6">
 
-                                            <!--
-                                            <div class="col-span-6 ">
-                                                <div class="pt-2 pr-4 ">
-                                                    <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Huerto </h3>
-                                                    <select wire:model="orchard_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                        <option value="">Selecciona Huerto</option>
-                                                        @foreach($orchards as $huerto)
-                                                        <option type="int" value="{{$huerto->id}}">{{$huerto->name_orchard}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @error('orchard_id') <span class="text-red-500">{{ $message }}</span>@enderror
-                                            </div>
--->
-                                            <div class="col-span-6 ">
-                                                <div class="pt-2 pr-4 ">
+                                            <div class="col-span-3 ">
+                                                <div class=" pt-2 pr-4 ">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">Tipo de Foto </h3>
                                                     <select wire:model="type_photograph_id" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                         <option value="">Tipo de Foto</option>
@@ -48,9 +37,28 @@
                                                 </div>
                                                 @error('type_photograph_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-                                            Mensage:{{$path}}<br>
-                                            Bandera:{{file_exists($path)}}
-                                            <div class="rounded-lg col-span-6  ">
+
+                                            <div class="col-span-3 ">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
+                                                    <div class=" ">
+                                                        <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Fecha" wire:model="date">
+                                                    </div>
+                                                    @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-span-3">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="text-center block text-sm font-medium text-gray-700">Nota</h3>
+                                                    <div class="">
+                                                        <textarea name="note" cols="30" rows="" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Nota" wire:model="note"></textarea>
+                                                    </div>
+                                                    @error('note') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="rounded-lg col-span-3  ">
                                                 <label class="text-center block text-sm font-medium text-gray-700"> Cargar Imagen </label>
                                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                                                     <div class="space-y-1 text-center items-center">
@@ -74,42 +82,28 @@
                                                 </div>
                                                 @error('path') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-                                            <div class="col-span-6 ">
-                                                <div class="pt-2 pr-4">
-                                                    <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
-                                                    <div class=" ">
-                                                        <input type="date" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Fecha" wire:model="date">
-                                                    </div>
-                                                    @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-span-6">
-                                                <div class="pt-2 pr-4">
-                                                    <h3 class="text-center block text-sm font-medium text-gray-700">Nota</h3>
-                                                    <div class="">
-                                                        <input name="note" type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Nota" wire:model="note">
-                                                    </div>
-                                                    @error('note') <span class="text-red-500">{{ $message }}</span>@enderror
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="px-4 py-3 bg-gray-100 sm:px-6 flex justify-center">
-                                    <span class=" bg-red-700 mt-3 flex  rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                    <span class=" bg-red-700 mt-3 flex rounded-md shadow-sm sm:mt-0 sm:w-auto">
                                         <button wire:click="closeModalPopover()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-600 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                             Cerrar
                                         </button>
                                     </span>
                                     <span class="px-7"></span>
-                                    <span class="bg-green-700 hover:bg- text-white font-bold flex   rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2  text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    <span class="bg-green-700 mt-3 text-white font-bold flex rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 text-base leading-6 font-bold text-white shadow-sm  hover:bg-green-800 focus:outline-none focus:border-green-900 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                             Guardar
                                         </button>
                                     </span>
                                 </div>
                             </div>
                         </form>
+
+
+                        
                     </div>
                 </div>
             </div>
