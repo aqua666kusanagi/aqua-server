@@ -22,7 +22,7 @@
                             <div class="shadow sm:rounded-md sm:overflow-hidden ">
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                                        <div class="grid grid-cols-6 gap-6">
+                                        <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-6">
 
                                             <div class="col-span-3 ">
                                                 <div class=" pt-2 pr-4 ">
@@ -37,6 +37,7 @@
                                                 </div>
                                                 @error('type_photograph_id') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
+
                                             <div class="col-span-3 ">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="block text-sm font-medium text-gray-700 text-center">Fecha</h3>
@@ -46,6 +47,7 @@
                                                     @error('date') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>
+
                                             <div class="col-span-3">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Nota</h3>
@@ -55,6 +57,7 @@
                                                     @error('note') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
                                             </div>
+
                                             <div class="rounded-lg col-span-3  ">
                                                 <label class="text-center block text-sm font-medium text-gray-700"> Cargar Imagen </label>
                                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
@@ -98,6 +101,9 @@
                                 </div>
                             </div>
                         </form>
+
+
+                        
                     </div>
                 </div>
             </div>
