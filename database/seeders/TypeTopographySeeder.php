@@ -18,12 +18,24 @@ class TypeTopographySeeder extends Seeder
         //TypeTopography::factory(10)->create();
         $type_topography=[
             [
-                'type_topography' => 'nombre de la topografia',
-                'description' => 'descripcion general',
+                'type_topography' => 'Llano',
+                'description' => 'Cuando las pendientes son nulas o menores del 2%',
             ],
             [
-                'type_topography' => 'nombre de la topografia',
-                'description' => 'descripcion general',
+                'type_topography' => 'Ondulado',
+                'description' => 'Cuando la pendiente es 2-8% y se alternan pequeñas colinas',
+            ],
+            [
+                'type_topography' => 'Fuertemente Ondulado',
+                'description' => 'Cuando la pendiente es 8-16% y se alternan colinas y pequeños cerros',
+            ],
+            [
+                'type_topography' => 'Colinado',
+                'description' => 'Cuando la pendiente es 16-30%, son superficies no erosionadas',
+            ],
+            [
+                'type_topography' => 'Montañoso',
+                'description' => 'Cuando la pendiente es mayor de 30%, hay diferencia de altitud desde los valles a las cumbres',
             ],
         ];
         DB::table('type_topographies')->insert ($type_topography);
