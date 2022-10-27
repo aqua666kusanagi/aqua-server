@@ -22,7 +22,7 @@ class CalendarController extends Component
 
     public $modalfenofase=0, $modalworkday=0, $modalproduccion=0, $clickedit=0, $modal=0;
 
-    public $windowevent=0, $isconfirm =0, $getid =0;
+    public $isconfirm =0, $getid =0;
 
     public $workdays, $workday_id, $date_work, $general_expenses, $description, $idfinal;
     public $clicksave= true;
@@ -240,13 +240,6 @@ class CalendarController extends Component
         return $mes;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // FUNCIONES PARA LOS EVENETOS
-    public function openevent(){
-        $this->windowevent=true;
-    }
-    public function closeevent(){
-        $this->windowevent=false;
-    }
     public function openModaldelete()
     {
         $this->isconfirm = true;
@@ -344,11 +337,9 @@ class CalendarController extends Component
         $this->modalworkday=true;
     }
     public function do_activiti($id_activiti, $id_workday){
-        //dd('entra a actualizar actividad');
         Activity::updateOrCreate(['id' => $id_activiti],[
             'status' => 'si'
         ]);
-        //dd('actualizo');
         $this->activitiesxday = $this->activitiesxday($id_workday);
     }
     public function openmodalworkday(){
