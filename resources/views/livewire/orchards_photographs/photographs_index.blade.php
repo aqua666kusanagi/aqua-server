@@ -9,7 +9,8 @@
 
                         <div class="py-4">
                             <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
-                                <h3 class="text-center px-2 py-2 ">FOTOGRAFIAS</h3>
+                                <h3 class="text-center px-2 py-2 ">FOTOGRAFIAS DEL HUERTO</h3>
+                                <p class=" text-center">{{ $nombre_huerto }}</p>
                             </div>
                         </div>
 
@@ -25,13 +26,7 @@
                             </div>
                             @endif
                             <!-- Poner el espaciado -->
-                            <div class="flex ">
-                                <div>
-                                    <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
-                                    @if($isDialogOpen)
-                                    @include('livewire.orchards_photographs.create')
-                                    @endif
-                                </div>
+                            <div class="flex justify-between">
                                 <div>
                                     <button class="bg-primary text-white font-bold py-2 px-4 rounded my-3 " onclick="Previous()">Regresar</button>
                                     <script>
@@ -40,32 +35,41 @@
                                         }
                                     </script>
                                 </div>
+                                <div>
+                                    <button wire:click="create()" class="ease-in-out duration-300 bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                    @if($isDialogOpen)
+                                    @include('livewire.orchards_photographs.create')
+                                    @endif
+                                </div>
                             </div>
 
                             <div class="padd grid gap-4 grid-cols-3 ">
                                 @foreach($photographs as $foto)
-                                <div class="rounded-lg ring-4 ring-green-500 ring-opacity-50 shadow-lg shadow-cyan-500/50">
+                                <div class="rounded-lg  ring-opacity-50 shadow-lg shadow-cyan-500/50">
 
                                     <ul role="list" class="lg:grid grid grid-cols-1 gap-6 ">
-                                        <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 ">
-                                            <div class="w-full flex items-center justify-between p-6 space-x-6">
-                                                <div class="flex-1 truncate">
-                                                    <div class=" items-center space-x-3">
-                                                        <div class="ml-6 truncate ">{{ $foto->orchard->name_orchard }}</div>
-                                                        <!--   <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{Auth::user()->name}}</span>   -->
-                                                    </div>
-                                                    <div class=" ml-6 text-gray-500 text-sm truncate">{{ $foto->type_photo->type_photograph }}</div>
-                                                    <td class="border px-4 py-2">{{ $foto->date }}</td>
-
+                                        <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                                            <div class="max-w-sm rounded overflow-hidden ">
+                                                <div class="border-y-4 border-green-200">
+                                                    <img width="350px" height="350px" class=" rounded " alt="Image no vista" src="{{url("storage/".$foto->path)}}">
                                                 </div>
-                                                <td>
-                                                    <img class="w-20 h-20 bg-gray-300 rounded-full flex-shrink-0" alt="Image no vista" src="{{url("storage/".$foto->path)}}">
-                                                </td>
+
+                                                <div class="px-6 py-4">
+                                                    <p class=" ml-6 text-gray-500 text-sm truncate text-center">{{ $foto->type_photo->type_photograph }}</p>
+                                                    <p class="ml-6 truncate text-center">{{ $foto->date }}</p>
+                                                    <p class="text-gray-700 text-base">
+                                                        <td class="border px-4 py-2">{{ $foto->note }}</td>
+                                                    </p>
+                                                </div>
+                                                <!--
+                                                <div class="px-6 pt-4 pb-2">
+                                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                                                </div>
+                                    -->
 
                                             </div>
                                             <div>
                                                 <div class="-mt-px flex divide-x divide-gray-200">
-
                                                     <div class="w-0 flex-1 flex">
                                                         <a class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                                             <button wire:click="edit({{ $foto->id }})" class="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-full ml-3"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -81,6 +85,7 @@
                                                 </div>
                                             </div>
                                         </li>
+
                                     </ul>
                                 </div>
                                 @endforeach

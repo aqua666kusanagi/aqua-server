@@ -1,10 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-
-    plugins: [
-        require('@tailwindcss/forms'),
-    ],
+    mode: "jit",
+    plugins: [require("@tailwindcss/forms")],
 
     content: [
         "./resources/**/*.blade.php",
@@ -16,14 +14,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
-
         },
     },
 
-    plugins:{
+    plugins: {
         tailwindcss: {},
         autoprefixer: {},
-    } [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    }[(require("@tailwindcss/forms"), require("@tailwindcss/typography"))],
 };

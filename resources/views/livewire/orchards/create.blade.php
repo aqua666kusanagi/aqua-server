@@ -5,9 +5,9 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
 
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3">
+        <div class="relative inline-block align-bottom bg-white rounded-lg px-4  text-left overflow-hidden shadow-xl transform transition-all w-2/3">
             <div>
-                <div class=" bg-white py-6 px-4 space-y-6 sm:p-6">
+                <div class=" bg-white  px-4  sm:p-6">
                     <div class="mt-6  lg:py-6 flex items-center justify-center h-12 w-full rounded-lg ring-4 ring-green-500 ring-opacity-50 ">
                         <h3 class="items-center text-black text-2xl">HUERTO</h3>
                     </div>
@@ -21,7 +21,7 @@
                             <div class="shadow sm:rounded-md sm:overflow-hidden ">
                                 <div class=" sm:rounded-md sm:overflow-hidden shadow-lg shadow-indigo-500/40">
                                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6 ">
-                                        <div class="grid  sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6">
+                                        <div class="grid  sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 place-content-center">
 
                                             <div class="col-span-3 lg:col-span-4 md:col-span-4">
                                                 <div class="pt-2 pr-4">
@@ -98,13 +98,17 @@
                                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md ">
                                                     <div class="space-y-1 text-center items-center">
                                                         @if ($path_image)
-                                                        <img src="{{method_exists($path_image, 'TemporaryUrl')?$path_image->TemporaryUrl():asset("storage/". $path_image)}}" alt="no carga imagen" width="100px" height="100px">
+                                                        <div class="pb-2">
+                                                            <img src="{{method_exists($path_image, 'TemporaryUrl')?$path_image->TemporaryUrl():asset("storage/". $path_image)}}" alt="no carga imagen" width="200px" height="200px">
+                                                        </div>
+                                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                            <span>Cargar Imagen</span>
+                                                            <input id="file-upload" name="file-upload" type="file" class="sr-only" class="sshadow appearance-none border rounded-full" placeholder="Path image" wire:model="path_image">
+                                                        </label>
                                                         @else
                                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                         </svg>
-                                                        @endif
-
                                                         <div class="flex text-sm text-gray-600">
                                                             <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                                 <span>Cargar Imagen</span>
@@ -113,12 +117,13 @@
                                                             <p class="pl-1"> o arrastrar y soltar </p>
                                                         </div>
                                                         <p class="text-xs text-gray-500">PNG, JPG, GIF hasta 10MB</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 @error('path_image') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-4 md:col-span-4">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Ubicacion</h3>
                                                     <div class="">
@@ -128,7 +133,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Punto</h3>
                                                     <div class="">
@@ -138,7 +143,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Area</h3>
                                                     <div class="">
@@ -148,7 +153,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Altitud</h3>
                                                     <div class="">
@@ -158,7 +163,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Superficie</h3>
                                                     <div class="w-full">
@@ -175,7 +180,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Dist. de plantado</h3>
                                                     <div class="w-full">
@@ -197,7 +202,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Estado</h3>
                                                     <div class="">
@@ -211,7 +216,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Año de Creacion</h3>
                                                     <div class="">
@@ -226,7 +231,7 @@
                                             </div>
                                             {{--*********************CALCULO DE SI ES HECT O MTRS*******************--}}
                                             {{--<script src="{{asset('js/operaciones.js')}}"></script>--}}
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Densidad de plantado</h3>
                                                     <div class="">
@@ -236,7 +241,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-span-3">
+                                            <div class="col-span-3 lg:col-span-2 md:col-span-2">
                                                 <div class="pt-2 pr-4">
                                                     <h3 class="text-center block text-sm font-medium text-gray-700 pr-4">¿Se riega?</h3>
                                                     <select type="text" wire:model="irrigation" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -247,7 +252,7 @@
                                                 </div>
                                                 @error('irrigation') <span class="text-red-500">{{ $message }}</span>@enderror
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

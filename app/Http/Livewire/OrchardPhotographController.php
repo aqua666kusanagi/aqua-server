@@ -21,7 +21,8 @@ class OrchardPhotographController extends Component
     public function render()
     {
         $id_orchard = Orchard::findOrFail($this->idd);
-        //dd($id_orchard->id);
+        $nombre_huerto=$id_orchard->name_orchard;
+        //dd($nombre_huerto);
         //$this->photographs = Photograph::all();
         //$this->photographs = Photograph::all()->where('photographs.orchard_id', $id_orchard->id);
         //$this->photographs = DB::select('select * from photographs where photograph.orchard_id ', $id_orchard->id);
@@ -32,6 +33,7 @@ class OrchardPhotographController extends Component
             'orchards' => Orchard::all(),
             'type_photographs' => TypePhotograph::all(),
             'datos_orchard' => $id_orchard,
+            'nombre_huerto' => $nombre_huerto,
         ]);
     }
 

@@ -1,11 +1,7 @@
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " wire:click="closeModalPopover()" aria-hidden="true"></div>
-
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " type="button" value="GoBack" onclick="Previous()"></div>
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-
         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full  sm:p-6">
             <div>
                 <div class="py-12">
@@ -35,13 +31,7 @@
                             </div>
                             @endif
                             <!-- Poner el espaciado -->
-                            <div class="flex ">
-                                <div>
-                                    <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
-                                    @if($isModalOpen)
-                                    @include('livewire.orchards_production_manager.create')
-                                    @endif
-                                </div>
+                            <div class="flex justify-between ">
                                 <div>
                                     <button class="bg-primary text-white font-bold py-2 px-4 rounded my-3 " onclick="Previous()">Regresar</button>
                                     <script>
@@ -50,10 +40,16 @@
                                         }
                                     </script>
                                 </div>
+                                <div>
+                                    <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                    @if($isModalOpen)
+                                    @include('livewire.orchards_production_manager.create')
+                                    @endif
+                                </div>
                             </div>
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                            <div class="flex">
-                                <div class="w-1/2 p-4">
+                            <div class=" grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
+                                <div class="w1/2 col-span-1">
                                     <div class=" rounded-lg  bg-green-100 px-4 pl-6 py-2 border w-full p-4">
                                         <div class=" text-center">
                                             <h1>Toneladas y costo de venta</h1>
@@ -107,7 +103,7 @@
                                         });
                                     </script>
                                 </div>
-                                <div class="w-1/2 p-4">
+                                <div class=" col-span-1">
                                     <div class=" rounded-lg  bg-green-100 px-4 pl-6 py-2 border w-full p-4">
                                         <div class=" text-center ">
                                             <h1>Toneladas y costo de venta</h1>

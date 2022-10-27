@@ -39,7 +39,7 @@ class OrchardProductionController extends Component
             ->groupBy('date')
             ->selectRaw('sum(ton_harvest) as production')->where("annual_productions.orchard_id", $id_orchard->id)
             ->pluck("production");
-        //dd($tonHarvest);
+        //   dd($tonHarvest);
         $months = AnnualProduction::select(DB::raw("Month(date_production ) as month"))
             ->whereYear('date_production', date('Y'))->where("annual_productions.orchard_id", $id_orchard->id)
             ->groupBy(DB::raw("Month(date_production)"))
