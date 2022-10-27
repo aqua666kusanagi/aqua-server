@@ -34,62 +34,15 @@
             <img class="bg-gray-300 rounded-md h-72 w-full" src="{{url("storage/".$datos_orchard->path_image)}}" alt="Image no vista" >
         </div>
     </div>
-</div>
-
-{{--
-    <div>
-    <script>show_nav()</script>
-    <script>feno1()</script>
-
-    {{dd($datos_orchard)}}
-
-    <div class="px-10 py-10">
-        <div class="targetones">
-            @foreach($datos as $regist)
-                <div class="espacio">
-                    <div class="cards">
-                        <h5>{{$regist->orchard->name_orchard}}</h5>
-                        <h5>{{$regist->phenophase->phenophase}}</h5>
-                    </div>
-                </div>
-            @endforeach
-
-        </div>
-        <div class="targetones">
-            @foreach($datos as $regist)
-                <div>
-                    <div class="linea">
-                        <div class="circulo"><div class="subcirculo"></div></div>
-                        <hr>
-                    </div>
-                </div>
-            @endforeach
-            <div class="linea">
-                <button wire:click="create()" class="circulof">+</button>
-                @if($modalCreate)
-                    @include('livewire.manager_orchards.create')
-                @endif
+    <div class="w-full flex justify-between">
+        <div class="w-1/2"></div>
+        <div class="w-1/2">
+            <div class="flex flex-auto px-3">
+                <div class="font-semibold">Actividades Pendientes:</div>
+                <div class="w-4"></div>
+                <div class="font-bold">5</div>
             </div>
-        </div>
-        <div class="targetones">
-            @foreach($datos as $regist)
-                <div class="espacio">
-                    <div class="fecha">
-                        <h5>{{$regist->date}}</h5>
-                    </div>
-                </div>
-            @endforeach
+            <div class="px-3 text-blue-500"><a href="{{route('calendario',$datos_orchard->id)}}">ir a las actividades</a></div>
         </div>
     </div>
-
-    <br>
-
-    <div class="">
-        <div class=" ">
-            <div class="font-bold w-1/2">IMAGENES</div>
-        </div>
-    </div>
-
 </div>
-
---}}

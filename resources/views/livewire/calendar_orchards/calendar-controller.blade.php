@@ -17,21 +17,22 @@
             <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
                 <div x-data="{ isActive: true, open: false}">
-                    <button type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+ Accion</button>
+                    <button type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                            class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        + Agregar
+                    </button>
 
                     <div role="menu" x-show="open" class="border border-gray-300 my-3 rounded-lg" style="margin-left: 15px">
                         <a href="{{route('photograph',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Galeria Fotos</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Galeria Fotos</button>
                         </a>
                         <a href="{{route('produccion',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Produccion</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Produccion</button>
                         </a>
                         <a href="{{route('fenofase',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Fenofase</button>
                         </a>
                     </div>
-                    @if($windowevent)
-                    @endif
                     @if($modal)
                         @include('livewire.calendar_orchards.create_worday_activity')
                     @endif
@@ -73,7 +74,7 @@
                         <span class="mt-3 flex h-8 w-8 items-center justify-center rounded-full text-base font-semibold text-gray-900">25</span>
                     </button>
                 </div>
-                {{-------------------------------------------------------MESES----------------------------------------}}
+                {{-------------------------------------------MESES FENOFASES------------------------------------------}}
                 <div class="flex w-full flex-auto">
                     <div class="w-16 flex-none bg-white ring-1 ring-gray-100"></div>
                     <div class="grid flex-auto grid-cols-1 grid-rows-1">

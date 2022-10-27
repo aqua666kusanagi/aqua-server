@@ -17,24 +17,34 @@ class TypeJobSeeder extends Seeder
     {
         $data = [
             [
-                'type_job' =>    'Poda',
+                'type_job' =>    'Podar',
                 'description' =>    'Despuntar la planta para que ramifique y no crezca en una sola direccion',
+                'type' => 'suplemento'
             ],
             [
-                'type_job' =>    'Abonado',
+                'type_job' =>    'Abonar',
                 'description' =>   'Abonar suplementos por encima de la superficie de la planta',
+                'type' => 'sin_suplemento'
             ],
             [
-                'type_job' =>    'Riego de agua',
+                'type_job' =>    'Regar agua',
                 'description' =>    'Regar cantidad de agua suficiente para su frezcura',
+                'type' => 'sin_suplemento'
             ],
             [
-                'type_job' =>    'Cosecha',
+                'type_job' =>    'Cosechar',
                 'description' =>    'Cortar los agucates maduros de los arboles',
+                'type' => 'sin_suplemento'
             ],
             [
-                'type_job' =>    'Empaquetado',
+                'type_job' =>    'Empaquetadar',
                 'description' =>    'Empaquetar los aguacates para su exportacion',
+                'type' => 'sin_suplemento'
+            ],
+            [
+                'type_job' =>    'Fumigar',
+                'description' =>    'Aplica insectisida al huerto',
+                'type' => 'suplemento'
             ]
         ];
         DB::table('type_jobs')->insert($data);

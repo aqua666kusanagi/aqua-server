@@ -17,6 +17,7 @@ class CreateTypeJobsTable extends Migration
             $table->id();
             $table->string("type_job",250);
             $table->string("description",250);
+            $table->string("type", 250);
             $table->timestamps();
             $table->softDeletes();
         });
