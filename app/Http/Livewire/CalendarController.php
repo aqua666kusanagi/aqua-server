@@ -20,7 +20,7 @@ class CalendarController extends Component
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
-    public $modalfenofase=0, $modalworkday=0, $modalproduccion=0, $modal=0;
+    public  $modalworkday=0,  $modal=0, $clickedit=0;
 
     public $isconfirm =0, $getid =0;
 
@@ -365,12 +365,8 @@ class CalendarController extends Component
         $this->general_expenses = '';
         $this->clicksave = true;
         $this->table_activities = false;
-
-        $this->modalfenofase = false;
-        $this->modalworkday = false;
-        $this->modalproduccion = false;
-
         $this->clickedit = false;
+        $this->modalworkday = false;
         $this->modal = false;
     }
 
