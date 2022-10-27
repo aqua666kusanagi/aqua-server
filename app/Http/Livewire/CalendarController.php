@@ -20,7 +20,7 @@ class CalendarController extends Component
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
-    public $modalfenofase=0, $modalworkday=0, $modalproduccion=0, $clickedit=0, $modal=0;
+    public $modalfenofase=0, $modalworkday=0, $modalproduccion=0, $modal=0;
 
     public $isconfirm =0, $getid =0;
 
@@ -239,7 +239,7 @@ class CalendarController extends Component
         }
         return $mes;
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////Para confirmar la eliminacion de un dia de trabajo///////////////////////////////////
     public function openModaldelete()
     {
         $this->isconfirm = true;
@@ -296,7 +296,6 @@ class CalendarController extends Component
             'general_expenses' => 'required',
             'description' => 'required',
         ]);
-        //dd($this->description);
         Workday::updateOrCreate(['id' => $this->workday_id],[
            'user_id' => $this->user_id,
            'orchard_id' => $this->id_orchard,
@@ -326,15 +325,8 @@ class CalendarController extends Component
         $this->activitiesxday = $this->activitiesxday($this->idfinal->id);
         $this->table_activities = true;
     }
-    public function edit_activiti($id){
-        $actividad = Activity::findOrFail($id);
-        $this->activities_id = $id;
-        $this->workday_id = $actividad->workday_id;
-        $this->type_job_id = $actividad->type_job_sample;
-        $this->cost = $actividad->cost;
+    public function do_worday_activiti_aplication($id_workday,$type_job){
 
-        $this->clickedit = true;
-        $this->modalworkday=true;
     }
     public function do_activiti($id_activiti, $id_workday){
         Activity::updateOrCreate(['id' => $id_activiti],[
