@@ -36,6 +36,9 @@
                     @if($modal)
                         @include('livewire.calendar_orchards.create_worday_activity')
                     @endif
+                    @if($modalaplication)
+                        @include('livewire.calendar_orchards.update_activiti')
+                    @endif
                 </div>
             </div>
         </header>
@@ -202,7 +205,7 @@
                                             @foreach($workdays as $work)
                                                 @if($dias['fecha'] == $work->date_work)
                                                     <form class="w-full" action="">
-                                                        <button type="button" {{--wire:click="edit_activiti('{{$work->id}}')"--}} class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                        <button type="button" class="w-full bg-gray-500 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                             <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500 font-semibold">{{$dias['dia']}}</time>
                                                         </button>
                                                     </form>
@@ -222,7 +225,7 @@
                                         @foreach($workdays as $work)
                                             @if($work->date_work == $dias['fecha'])
                                                 <form action="">
-                                                    <button type="button" {{--wire:click="edit_activiti('{{$work->id}}')"--}} class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                    <button type="button" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
                                                         <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
                                                     </button>
                                                 </form>

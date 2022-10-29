@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Application;
 use App\Models\Orchard;
 use App\Models\Phenophase;
 use App\Models\RegistrationPhenophase;
 use App\Models\Workday;
 use App\Models\TypeJob;
 use App\Models\Activity;
+use App\Models\ApplicationMode;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -20,6 +22,8 @@ class CalendarController extends Component
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
+    public $phenophases, $month, $cont;
+
     public  $modalworkday=0,  $modal=0, $clickedit=0;
 
     public $isconfirm =0, $getid =0;
@@ -29,7 +33,8 @@ class CalendarController extends Component
 
     public $activities, $activities_id, $type_job_id, $cost, $activitiesxday, $table_activities;
 
-    public $phenophases, $month, $cont;
+    public $application_id,$application_modes, $aplication_workday_id, $aplication_mode_id,$day_aplication, $type_job, $note, $id_actividad;
+    public $modalaplication=0;
 
     public function render()
     {
@@ -239,7 +244,7 @@ class CalendarController extends Component
         }
         return $mes;
     }
-    ///////////////////////////////Para confirmar la eliminacion de un dia de trabajo///////////////////////////////////
+    ///////////////////////Para confirmar la eliminacion de un dia de trabajo, aun no se usan///////////////////////////
     public function openModaldelete()
     {
         $this->isconfirm = true;
@@ -308,7 +313,6 @@ class CalendarController extends Component
     }
     public function storeactiviti(){
         $this->validate([
-            //'workday_id' => 'required',
             'type_job_id' => 'required',
             'cost' => 'required',
         ]);
@@ -325,32 +329,29 @@ class CalendarController extends Component
         $this->activitiesxday = $this->activitiesxday($this->idfinal->id);
         $this->table_activities = true;
     }
-    public function do_worday_activiti_aplication($id_workday,$type_job){
-
-    }
     public function do_activiti($id_activiti, $id_workday){
         Activity::updateOrCreate(['id' => $id_activiti],[
             'status' => 'si'
         ]);
         $this->activitiesxday = $this->activitiesxday($id_workday);
     }
-    public function openmodalworkday(){
-        $this->modalworkday = true;
+    public function do_worday_activiti_aplication(){
+        $this->validate([
+            'aplication_workday_id'=>'required',
+            'aplication_mode_id'=> 'required',
+            'day_aplication'=>'required',
+            'note'=>'required',
+        ]);
+        Application::updateOrCreate(['id'=>$this->application_id],[
+            'workday_id'=>$this->aplication_workday_id,
+            'application_mode_id'=>$this->aplication_mode_id,
+            'date'=>$this->day_aplication,
+            'note'=>$this->note,
+        ]);
+        $this->do_activiti($this->id_actividad,$this->aplication_workday_id);
+        $this->closemodalaplication();
     }
-    public function closemodalworkday(){
-        $this->general_expenses = '';
-        $this->modalworkday = false;
-    }
-
-    //PRODUCCION--------------------------------------------------------------------------------------------------------
-    public function openmodalproduccion(){
-
-    }
-    public function closemodalprodeccion(){
-
-    }
-
-    //->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+    //->->->->->->->->->->->->->->->->->->->->->->->->->->-MODALES Y BANDERAS>->->->->->->->->->->->->->->->->->->->->->
     public function openmodal($fecha)
     {
         $this->date_work=$fecha;
@@ -369,5 +370,28 @@ class CalendarController extends Component
         $this->modalworkday = false;
         $this->modal = false;
     }
-
+    public function openmodalworkday(){
+        $this->modalworkday = true;
+    }
+    public function closemodalworkday(){
+        $this->general_expenses = '';
+        $this->modalworkday = false;
+    }
+    public function openmodalaplication($id_workday,$type_job, $activiti_id){
+        $this->application_modes=ApplicationMode::all();
+        $this->aplication_workday_id=$id_workday;
+        $this->type_job=$type_job;
+        $this->day_aplication=date('Y-m-d');
+        $this->id_actividad=$activiti_id;
+        $this->modalaplication=true;
+    }
+    public function closemodalaplication(){
+        $this->application_id='';
+        $this->aplication_workday_id='';
+        $this->type_job='';
+        $this->day_aplication='';
+        $this->note='';
+        $this->id_actividad='';
+        $this->modalaplication=false;
+    }
 }
