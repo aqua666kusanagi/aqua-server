@@ -615,23 +615,20 @@
 
     <div class="w-full text-center {{--bg-green-400--}} py-4 font-semibold" style="background: #059669">
         <div class="text-white">
-            HANUC - Una version mejorada
+            HANUC - Una versión mejorada
         </div>
     </div>
 
     <div class="h-screen pb-14 bg-right bg-cover">
         <!--Nav-->
         <div class="w-full container mx-auto p-6">
-
             <div class="w-full flex items-center justify-between">
                 <a class="flex items-center text-green-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                     <img src="{{asset('images/logo.jpeg')}}" alt="" width="5%" height="5%"> HANUC
                 </a>
-
                 <div class="flex w-1/2 justify-end content-center">
 
                 </div>
-
                 @if (Route::has('login'))
                 <div class="hidden fixed top-4 right-0 px-6 sm:block">
                     @auth
@@ -645,9 +642,7 @@
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-blue-300 dark:text-green-600 underline font-bold">Registrarse</a>
                     @endif
-
-                    <!--<a href="{{ route('password.email') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Olvide Contraseña</a>-->
-
+                    {{--<a href="{{ route('password.email') }}" class="text-sm text-green-600 dark:text-green-600 underline font-bold">Olvide Contraseña</a>--}}
                     @endauth
                 </div>
                 @endif
@@ -799,7 +794,7 @@
             </div>
             <!--Footer-->
             <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-                <a class="text-gray-900 no-underline hover:no-underline font-semibold" href="#">-------------------> &copy; HANUC 2022 <-------------------< /a>
+                <a class="text-gray-900 no-underline hover:no-underline font-semibold" href="#">-------------------> &copy; HANUC 2022 <------------------- </a>
             </div>
 
         </div>

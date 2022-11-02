@@ -19,7 +19,7 @@ class TypeJobSeeder extends Seeder
             [
                 'type_job' =>    'Podar',
                 'description' =>    'Despuntar la planta para que ramifique y no crezca en una sola direccion',
-                'type' => 'suplemento'
+                'type' => 'sin_suplemento'
             ],
             [
                 'type_job' =>    'Abonar',
