@@ -94,6 +94,9 @@
                                                         @endforeach
                                                     @endif
                                                 </div>
+                                                <div>
+                                                    Presupuesto Restante:
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="px-4 py-3 bg-gray-100 sm:px-6 flex justify-center">

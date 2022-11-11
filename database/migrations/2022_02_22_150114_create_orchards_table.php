@@ -35,7 +35,7 @@ class CreateOrchardsTable extends Migration
             // Add a Polygon spatial data field named area
             $table->polygon('area')->nullable();//GUARDAR EL POLIGONO
 
-            $table->double("altitude",7,2);//Altura sobre nivel del MAR
+            $table->double("altitude",7,2);//Altura sobre nivel del MAR en
             $table->double("surface",7,2);
             $table->integer("state");
             $table->year('creation_year');

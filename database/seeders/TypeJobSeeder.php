@@ -22,12 +22,7 @@ class TypeJobSeeder extends Seeder
                 'type' => 'sin_suplemento'
             ],
             [
-                'type_job' =>    'Abonar',
-                'description' =>   'Abonar suplementos por encima de la superficie de la planta',
-                'type' => 'sin_suplemento'
-            ],
-            [
-                'type_job' =>    'Regar agua',
+                'type_job' =>    'Riego',
                 'description' =>    'Regar cantidad de agua suficiente para su frezcura',
                 'type' => 'sin_suplemento'
             ],
@@ -45,7 +40,12 @@ class TypeJobSeeder extends Seeder
                 'type_job' =>    'Fumigar',
                 'description' =>    'Aplica insectisida al huerto',
                 'type' => 'suplemento'
-            ]
+            ],
+            [
+                'type_job' =>    'Abonar',
+                'description' =>   'Abonar suplementos por encima de la superficie de la planta',
+                'type' => 'suplemento'
+            ],
         ];
         DB::table('type_jobs')->insert($data);
     }

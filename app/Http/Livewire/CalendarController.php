@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\Constraint\Count;
+use Carbon\Carbon;
 
 class CalendarController extends Component
 {
@@ -31,7 +32,7 @@ class CalendarController extends Component
     public $workdays, $workday_id, $date_work, $general_expenses, $description, $idfinal;
     public $clicksave= true;
 
-    public $activities, $activities_id, $type_job_id, $cost, $activitiesxday, $table_activities;
+    public $activities, $activities_id, $type_job_id, $cost, $activitiesxday, $table_activities, $dia_mes;
 
     public $application_id,$application_modes, $aplication_workday_id, $aplication_mode_id,$day_aplication, $type_job, $note, $id_actividad;
     public $modalaplication=0;
@@ -172,7 +173,6 @@ class CalendarController extends Component
     }
     public static function spanish_month($month)
     {
-
         $mes = $month;
         if ($month=="Jan") {
             $mes = "Enero";
@@ -204,8 +204,8 @@ class CalendarController extends Component
         elseif ($month=="Oct") {
             $mes = "Octubre";
         }
-        elseif ($month=="Oct") {
-            $mes = "December";
+        elseif ($month=="Nov") {
+            $mes = "Noviembre";
         }
         elseif ($month=="Dec") {
             $mes = "Diciembre";
@@ -268,6 +268,23 @@ class CalendarController extends Component
 
     // FUNCIONES PARA LOS DIAS DE TRABAJO y ACTIVIDADES
     public function workday(){
+        /*$dia_mess=Workday::join("orchards","orchards.id","workdays.orchard_id")
+            ->join("users","users.id","workdays.user_id")
+            ->where("workdays.orchard_id",$this->id_orchard)
+            ->where("users.id",$this->user_id)
+            ->select("workdays.*")
+            ->get();
+        $cont=0;
+        while ($cont < $dia_mess->count()):
+            $cont++;
+        endwhile;
+        $strdias=[$cont];
+        $this->dia_mes=[$cont];
+        for ($i=0; $i<$dia_mess->count(); $i++){
+            $strdias[$i]=strtotime($dia_mess[$i]->date_work);
+            $this->dia_mes[$i]=date('d',$strdias[$i]);
+        }
+        //dd($this->>dia_mes)*/
         $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
             ->join("users","users.id","workdays.user_id")
             ->where("workdays.orchard_id",$this->id_orchard)
@@ -388,6 +405,7 @@ class CalendarController extends Component
     public function closemodalaplication(){
         $this->application_id='';
         $this->aplication_workday_id='';
+        $this->aplication_mode_id='';
         $this->type_job='';
         $this->day_aplication='';
         $this->note='';
