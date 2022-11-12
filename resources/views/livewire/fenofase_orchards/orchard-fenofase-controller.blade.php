@@ -1,15 +1,17 @@
 <div class="w-full">
-    {{--@include('livewire.orchards.acciones_huerto')
-    <script>show_nav(), feno()</script>--}}
-    <ul class="flex justify-between">
-        <li class="w-3/4">
-            <div class="text-right text-teal-900">
-                <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).</h1>
+    <ul class="flex justify-between w-full">
+        <li class="w-11/12">
+            <div class="text-right text-teal-900 w-full text-center">
+                <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).
+                    <br>Ciclo Fenologico para el huerto: {{$datos_orchard->name_orchard}}
+                </h1>
             </div>
         </li>
-        <li class="atras rounded-full">
-            <a href="{{route('calendario',$datos_orchard->id)}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
-        </li>
+        <div class="w-1/12 py-3">
+            <li class="">
+                <a class="atras rounded-full" href="{{route('calendario',$datos_orchard->id)}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
+            </li>
+        </div>
     </ul>
     <div class="container px-10">
         <div class="suraya w-full"></div>
@@ -19,7 +21,7 @@
                 @if($regist->id == 1)
                     <div class="espacio">
                         <div class="cards">
-                            <h5>{{$regist->orchard->name_orchard}}</h5>
+                            {{--<h5>{{$regist->orchard->name_orchard}}</h5>--}}
                             <h5>{{$regist->phenophase->phenophase}}</h5>
                         </div>
                     </div>

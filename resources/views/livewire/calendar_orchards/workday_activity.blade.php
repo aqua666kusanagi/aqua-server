@@ -1,7 +1,8 @@
-<div class="bg-green-100 rounded-lg" style="padding: 20px">
-    <header class="w-full text-center text-teal-900 font-extrabold">
-        Actividades
-    </header>
+<header class="w-full text-center text-teal-900 font-extrabold">
+    Actividades en el mes de <br> {{$mespanish}}
+</header>
+<div class=" w-full"></div>
+<div class="bg-green-50 rounded-lg" style="padding: 10px">
     <div class="suraya w-full"></div>
     <div class="flex justify-between text-center font-semibold text-indigo-500">
         <div class="w-1/5">
@@ -21,7 +22,7 @@
         </div>
     </div>
     <div class="suraya w-full"></div>
-    <div>
+    <div class="">
         @foreach($data['calendar'] as $semanas)
             @foreach($semanas['datos'] as $dias)
                 @if($dias['mes'] == $mesingles)
@@ -39,9 +40,9 @@
                                                     @if($activity->status == "no")
                                                         <div class="w-1/5 py-1 px-4">
                                                             @if($activity->typejob->type == "suplemento")
-                                                                <button wire:click="openmodalaplication({{$activity->workday->id}},'{{$activity->typejob->type_job}}',{{$activity->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-pink-50 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                                <button wire:click="openmodalaplication({{$activity->workday->id}},'{{$activity->typejob->type_job}}',{{$activity->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
                                                             @else
-                                                                <button wire:click="do_activiti({{$activity->id}},{{$activity->workday->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-pink-50" type="button"><i class="fa-solid fa-right-to-bracket"></i></button>
+                                                                <button wire:click="do_activiti({{$activity->id}},{{$activity->workday->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-right-to-bracket"></i></button>
                                                             @endif
                                                         </div>
                                                     @elseif($activity->status == "si")

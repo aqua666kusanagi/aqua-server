@@ -12,13 +12,13 @@
                     <time class="sm:hidden">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                     <time class="hidden sm:inline">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                 </h1>
-                <p class="mt-1 text-sm text-gray-900">{{$datos_orchard->name_orchard}} , Localización: {{$datos_orchard->location_orchard}} , Año de creación: {{$datos_orchard->creation_year}}</p>
+                <p class="mt-1 text-sm text-gray-900 font-semibold">{{$datos_orchard->name_orchard}} , Localización: {{$datos_orchard->location_orchard}} , Año de creación: {{$datos_orchard->creation_year}}</p>
             </div>
             <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
                 <div x-data="{ isActive: true, open: false}">
                     <button type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                            class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         + Agregar
                     </button>
 
@@ -65,13 +65,13 @@
                         </button>
                     </div>
                     <div class="mt-6 grid grid-cols-7 text-center text-xs leading-6 text-gray-500">
-                        <div>Lunes</div>
-                        <div>Martes</div>
-                        <div>Miercoles</div>
-                        <div>Jueves</div>
-                        <div>Viernes</div>
-                        <div>Sabado</div>
-                        <div>Domingo</div>
+                        <div class="hover:text-black">Lunes</div>
+                        <div class="hover:text-black">Martes</div>
+                        <div class="hover:text-black">Miercoles</div>
+                        <div class="hover:text-black">Jueves</div>
+                        <div class="hover:text-black">Viernes</div>
+                        <div class="hover:text-black">Sabado</div>
+                        <div class="hover:text-black">Domingo</div>
                     </div>
                     <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
                         @foreach($data['calendar'] as $semanas)
@@ -130,8 +130,7 @@
                 </div>
             </div>
             {{--++++++++++++++++++++++++++++++++++++++++++++ACTIVIDADES++++++++++++++++++++++++++++++++++++++++++--}}
-            <div class="w-1/2 py-10 px-7">
-                <div class="py-10"></div>
+            <div class="w-1/2 py-8 px-10">
                 @include('livewire.calendar_orchards.workday_activity')
             </div>
         </div>
