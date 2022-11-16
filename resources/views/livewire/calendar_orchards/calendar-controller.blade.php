@@ -17,20 +17,20 @@
             <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
                 <div x-data="{ isActive: true, open: false}">
-                    <button type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                    <button data-dropdown-toggle="dropdown" type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" 
                             class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                        + Agregar
+                        Acciones extra
                     </button>
 
                     <div role="menu" x-show="open" class="border border-gray-300 my-3 rounded-lg" style="margin-left: 15px">
                         <a href="{{route('photograph',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Galeria Fotos</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Galeria de fotos</button>
                         </a>
                         <a href="{{route('produccion',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Produccion</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Mi produccion </button>
                         </a>
                         <a href="{{route('fenofase',$datos_orchard->id)}}" type="button" class="bg-gray-200 w-full">
-                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">+ Fenofase</button>
+                            <button type="button" class="py-2 bg-gray-200 border border-gray-300 w-full px-3">Fenofase</button>
                         </a>
                     </div>
                     @if($modal)
