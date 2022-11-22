@@ -26,6 +26,8 @@ class OrchardProductionController extends Component
         //dd($id_orchard->id);
         $data_harvest=$this->annual_production_harvest();
         $data_sales=$this->annual_production_sales();
+        //dd($data_harvest);
+        //dd($data_sales);
         return view('livewire.orchards_production_manager.new_production ', [
             'orchards' => Orchard::all(),
             'datos_orchard' => $id_orchard,
@@ -49,9 +51,11 @@ class OrchardProductionController extends Component
         foreach ($months as $i => $tonHarve) {
             $data_harvest[$tonHarve-1] = $tonHarvest[$i];
         }
-//dd($data_harvest);
+        //dd($data_harvest);
         return $data_harvest;
     }
+
+
     public function annual_production_sales(){
         $id_orchard = Orchard::findOrFail($this->idd);
         $sales = AnnualProduction::selectRaw('MONTH(date_production) as date')
@@ -68,7 +72,7 @@ class OrchardProductionController extends Component
         foreach ($months as $i => $sale) {
             $data_sales[$sale-1] = $sales[$i];
         }
-//dd($data_sales);
+        //dd($data_sales);
         return $data_sales;
     }
 
