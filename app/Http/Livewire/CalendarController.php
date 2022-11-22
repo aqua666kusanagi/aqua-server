@@ -268,23 +268,6 @@ class CalendarController extends Component
 
     // FUNCIONES PARA LOS DIAS DE TRABAJO y ACTIVIDADES
     public function workday(){
-        /*$dia_mess=Workday::join("orchards","orchards.id","workdays.orchard_id")
-            ->join("users","users.id","workdays.user_id")
-            ->where("workdays.orchard_id",$this->id_orchard)
-            ->where("users.id",$this->user_id)
-            ->select("workdays.*")
-            ->get();
-        $cont=0;
-        while ($cont < $dia_mess->count()):
-            $cont++;
-        endwhile;
-        $strdias=[$cont];
-        $this->dia_mes=[$cont];
-        for ($i=0; $i<$dia_mess->count(); $i++){
-            $strdias[$i]=strtotime($dia_mess[$i]->date_work);
-            $this->dia_mes[$i]=date('d',$strdias[$i]);
-        }
-        //dd($this->>dia_mes)*/
         $datos=Workday::join("orchards","orchards.id","workdays.orchard_id")
             ->join("users","users.id","workdays.user_id")
             ->where("workdays.orchard_id",$this->id_orchard)
