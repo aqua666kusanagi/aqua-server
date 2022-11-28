@@ -1,4 +1,4 @@
-<!--
+
 <div>
     @include('livewire.orchards.acciones_huerto')
 
@@ -19,7 +19,7 @@
                     <iframe class="p-2 w-full  rounded-xl h-100 lg:h-96" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60292.79868338321!2d-100.1283831!3d19.1820985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd63813218f41f%3A0xb687c3a1fb52897c!2sValle%20de%20Bravo%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1668547463864!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <!--    <img class="mt-4 object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
                 -->
-<!--
+
                 </div>
 
                 <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 bg-gray-100 rounded-xl items-center grid justify-items-center">
@@ -98,43 +98,120 @@
 
 </div>
 
+    <title>Reverse Geocoding</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+      /**
+       * @license
+       * Copyright 2019 Google LLC. All Rights Reserved.
+       * SPDX-License-Identifier: Apache-2.0
+       */
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 8,
+          center: { lat: 40.731, lng: -73.997 },
+        });
+        const geocoder = new google.maps.Geocoder();
+        const infowindow = new google.maps.InfoWindow();
 
+        document.getElementById("submit").addEventListener("click", () => {
+          geocodeLatLng(geocoder, map, infowindow);
+        });
+      }
+
+      function geocodeLatLng(geocoder, map, infowindow) {
+        const input = document.getElementById("latlng").value;
+        const latlngStr = input.split(",", 2);
+        const latlng = {
+          lat: parseFloat(latlngStr[0]),
+          lng: parseFloat(latlngStr[1]),
+        };
+
+        geocoder
+          .geocode({ location: latlng })
+          .then((response) => {
+            if (response.results[0]) {
+              map.setZoom(11);
+
+              const marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+              });
+
+              infowindow.setContent(response.results[0].formatted_address);
+              infowindow.open(map, marker);
+            } else {
+              window.alert("No results found");
+            }
+          })
+          .catch((e) => window.alert("Geocoder failed due to: " + e));
+      }
+
+      window.initMap = initMap;
+    </script>
+    <style>
+      /**
+       * @license
+       * Copyright 2019 Google LLC. All Rights Reserved.
+       * SPDX-License-Identifier: Apache-2.0
+       */
+      /* 
+       * Always set the map height explicitly to define the size of the div element
+       * that contains the map. 
+       */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: "Roboto", "sans-serif";
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #floating-panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+
+      #latlng {
+        width: 225px;
+      }
+    </style>
 
 <div>
     MAPA
 </div>
 
-                    -->
-
-
-
-
-
-
-
-                    <!DOCTYPE html>
-<html>
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0">
-    <title>Maps JavaScript API</title>
-	<style> 
-  	#map {
-        height: 100%;
-        }
-     
-        html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        }
-	</style> 
-</head>  
-	<body>
-		<div id ="map"> </div> 
-	<script>
-
-
-	</script>
-	</body> 
-</html>
+    <div id="floating-panel">
+      <input id="latlng" type="text" value="40.714224,-73.961452" />
+      <input id="submit" type="button" value="Reverse Geocode" />
+    </div>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMb67_ULC5BeRZD2T75ES111lCpbrfhnc&callback=initMap&v=weekly"
+      defer
+    ></script>
