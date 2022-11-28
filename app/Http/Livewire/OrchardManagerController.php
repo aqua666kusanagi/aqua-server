@@ -18,7 +18,7 @@ class OrchardManagerController extends Component
     public function render()
     {
         if ($this->nav == 1){
-            $datos=$this->informacion();
+            $datos=$this->informacion();           
             return view('livewire.manager_orchards.orchard-manager-controller',['datos_orchard'=>$datos]);
         }
     }

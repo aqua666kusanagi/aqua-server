@@ -1,3 +1,4 @@
+<!--
 <div>
     @include('livewire.orchards.acciones_huerto')
 
@@ -18,6 +19,7 @@
                     <iframe class="p-2 w-full  rounded-xl h-100 lg:h-96" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60292.79868338321!2d-100.1283831!3d19.1820985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd63813218f41f%3A0xb687c3a1fb52897c!2sValle%20de%20Bravo%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1668547463864!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <!--    <img class="mt-4 object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
                 -->
+<!--
                 </div>
 
                 <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 bg-gray-100 rounded-xl items-center grid justify-items-center">
@@ -95,3 +97,44 @@
 
 
 </div>
+
+
+
+<div>
+    MAPA
+</div>
+
+                    -->
+
+
+
+
+
+
+
+                    <!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Maps JavaScript API</title>
+	<style> 
+  	#map {
+        height: 100%;
+        }
+     
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+	</style> 
+</head>  
+	<body>
+		<div id ="map"> </div> 
+	<script>
+
+
+	</script>
+	</body> 
+</html>
