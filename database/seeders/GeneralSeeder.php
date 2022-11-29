@@ -87,15 +87,15 @@ class GeneralSeeder extends Seeder
 
         $type_photographs = [
             [
-                'type_photograph' =>    'Normal',
+                'type_photograph' =>    'Huerto',
                 'description' =>    '',
             ],
             [
-                'type_photograph' =>    'grande',
+                'type_photograph' =>    'Aguacate',
                 'description' =>    '',
             ],
             [
-                'type_photograph' =>    'peque',
+                'type_photograph' =>    'Follaje',
                 'description' =>    '',
             ],
         ];
