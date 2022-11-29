@@ -21,6 +21,9 @@
     });
   }
 
+
+
+
   function geocodeLatLng(geocoder, map, infowindow) {
     const input = document.getElementById("latlng").value;
     const latlngStr = input.split(",", 2);
@@ -51,6 +54,10 @@
       .catch((e) => window.alert("Geocoder failed due to: " + e));
   }
 
+  //AUTOEJECUTAR
+  //SINTAXIS
+  //(function foo(){} ());
+
   window.initMap = initMap;
 </script>
 <style>
@@ -65,7 +72,9 @@
        */
   #map {
     height: 100%;
-    margin:10px 3px 10px 5px; /* 10px arriba, 3px derecha, 30px abajo, 5px izquierda */;
+    margin: 10px 3px 10px 5px;
+    /* 10px arriba, 3px derecha, 30px abajo, 5px izquierda */
+    ;
   }
 
   html,

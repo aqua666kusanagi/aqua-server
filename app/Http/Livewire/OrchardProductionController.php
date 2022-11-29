@@ -14,28 +14,37 @@ class OrchardProductionController extends Component
     public $isModalOpen = 0;
     public $isconfirm = 0;
     public $getid = 0;
-    public $idd,$route;
+    public $idd, $route;
+
 
 
     public function render()
     {
+
+
+
         $id_orchard = Orchard::findOrFail($this->idd);
         $this->annual_productions = AnnualProduction::join("orchards", "orchards.id", "annual_productions.orchard_id")
             ->where("annual_productions.orchard_id", $this->idd)
             ->get();
         //dd($id_orchard->id);
-        $data_harvest=$this->annual_production_harvest();
-        $data_sales=$this->annual_production_sales();
+        $data_harvest = $this->annual_production_harvest();
+        $data_sales = $this->annual_production_sales();
         //dd($data_harvest);
         //dd($data_sales);
-        return view('livewire.orchards_production_manager.new_production ', [
-            'orchards' => Orchard::all(),
-            'datos_orchard' => $id_orchard,
-        ],
-        compact( 'data_harvest', 'data_sales'));
+        return view(
+            'livewire.orchards_production_manager.new_production ',
+            [
+                'orchards' => Orchard::all(),
+                'datos_orchard' => $id_orchard,
+
+            ],
+            compact('data_harvest', 'data_sales')
+        );
     }
 
-    public function annual_production_harvest(){
+    public function annual_production_harvest()
+    {
         $id_orchard = Orchard::findOrFail($this->idd);
         $tonHarvest = AnnualProduction::selectRaw('MONTH(date_production) as date')
             ->groupBy('date')
@@ -49,14 +58,13 @@ class OrchardProductionController extends Component
         //dd($months);
         $data_harvest = array(0, 0, 0,   0, 0, 0,   0, 0, 0,   0, 0, 0);
         foreach ($months as $i => $tonHarve) {
-            $data_harvest[$tonHarve-1] = $tonHarvest[$i];
+            $data_harvest[$tonHarve - 1] = $tonHarvest[$i];
         }
         //dd($data_harvest);
         return $data_harvest;
     }
-
-
-    public function annual_production_sales(){
+    public function annual_production_sales()
+    {
         $id_orchard = Orchard::findOrFail($this->idd);
         $sales = AnnualProduction::selectRaw('MONTH(date_production) as date')
             ->groupBy('date')
@@ -70,54 +78,44 @@ class OrchardProductionController extends Component
         //dd($months);
         $data_sales = array(0, 0, 0,     0, 0, 0,   0, 0, 0,   0, 0, 0);
         foreach ($months as $i => $sale) {
-            $data_sales[$sale-1] = $sales[$i];
+            $data_sales[$sale - 1] = $sales[$i];
         }
         //dd($data_sales);
         return $data_sales;
     }
-
-
     public function change($id)
     {
         //return redirect()->to(url()->previous());
         //back();
         return redirect()->route('calendar/{{$id}}');
     }
-    
-
     public function mount($id)
     {
         $this->orchard_id = $id;
         $this->idd = $id;
         $this->render();
     }
-
     public function create()
     {
         $this->resetCreateForm();
         $this->openModalPopover();
     }
-
     public function openModalPopover()
     {
         $this->isModalOpen = true;
     }
-
     public function closeModalPopover()
     {
         $this->isModalOpen = false;
     }
-
     public function openModaldelete()
     {
         $this->isconfirm = true;
     }
-
     public function closeModaldelete()
     {
         $this->isconfirm = false;
     }
-
     private function resetCreateForm()
     {
 
@@ -127,8 +125,6 @@ class OrchardProductionController extends Component
         $this->sale = '';
         $this->damage_percentage = '';
     }
-
-
     public function store()
     {
 
@@ -153,8 +149,6 @@ class OrchardProductionController extends Component
         $this->closeModalPopover();
         $this->resetCreateForm();
     }
-
-
     public function edit($id)
     {
         $annual_productions = AnnualProduction::findOrFail($id);
@@ -167,17 +161,19 @@ class OrchardProductionController extends Component
 
         $this->openModalPopover();
     }
-
     public function ConfirmaDelete($id)
     {
         $this->openModaldelete();
         $this->getid = $id;
     }
-
     public function delete()
     {
         AnnualProduction::find($this->getid)->delete();
         session()->flash('message', 'Elemento Activo eliminado!');
         $this->closeModaldelete();
     }
+
+
+
+    
 }
