@@ -5,19 +5,16 @@
 <div class="bg-green-50 rounded-lg" style="padding: 10px">
     <div class="suraya w-full"></div>
     <div class="flex justify-between text-center font-semibold text-indigo-500">
-        <div class="w-1/5">
+        <div class="w-1/4">
             Actividad
         </div>
-        <div class="w-1/5">
-            Día
-        </div>
-        <div class="w-1/5">
+        <div class="w-1/4">
             Costo
         </div>
-        <div class="w-1/5">
+        <div class="w-1/4">
             Visualizar
         </div>
-        <div class="w-1/5">
+        <div class="w-1/4">
             Estado
         </div>
     </div>
@@ -26,38 +23,57 @@
         @foreach($data['calendar'] as $semanas)
             @foreach($semanas['datos'] as $dias)
                 @if($dias['mes'] == $mesingles)
-                        @foreach($workdays as $work)
-                                @if($dias['fecha'] == $work->date_work)
-                                    @foreach($activities as $activity)
-                                            @if($activity->workday->id == $work->id)
-                                                <div class="flex justify-between text-center font-semibold">
-                                                    <div class="w-1/5 py-2">{{$activity->typejob->type_job}}</div>
-                                                    <div class="w-1/5 py-2">{{date('d',strtotime($activity->workday->date_work))}}</div>
-                                                    <div class="w-1/5 py-2">$ {{$activity->cost}}</div>
-                                                    <div class="w-1/5 py-2 content-center">
-                                                        <button class="bg-green-700 text-white rounded-full w-1/2 hover:bg-green-500">ver</button>
-                                                    </div>
-                                                    @if($activity->status == "no")
-                                                        <div class="w-1/5 py-1 px-4">
-                                                            @if($activity->typejob->type == "suplemento")
-                                                                <button wire:click="openmodalaplication({{$activity->workday->id}},'{{$activity->typejob->type_job}}',{{$activity->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
-                                                            @else
-                                                                <button wire:click="do_activiti({{$activity->id}},{{$activity->workday->id}})" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-right-to-bracket"></i></button>
-                                                            @endif
-                                                        </div>
-                                                    @elseif($activity->status == "si")
-                                                        <div class="w-1/5 py-1 px-4">
-                                                            <div class="w-full rounded-lg py-1 {{--border border-indigo-400 bg-indigo-500--}} "><i class="fa-solid fa-check-double"></i></div>
-                                                        </div>
-                                                    @endif
+                    @foreach($workdays as $work)
+                        @if($dias['fecha'] == $work->date_work)
+                            <div class="flex justify-center">
+                                <div class="suraya-blue"></div>
+                            </div>
+                            <div class="flex justify-center text-center font-bold rounded-lg bg-gray-200">{{$work->date_work}}</div>
+                            <div class="flex justify-center">
+                                <div class="suraya-blue"></div>
+                            </div>
+                            @foreach($activities as $activity)
+                                @if($activity->workday->id == $work->id)
+                                    <div class="flex justify-between text-center font-semibold">
+                                        <div class="w-1/4 py-2">{{$activity->typejob->type_job}}</div>
+                                        {{--<div class="w-1/5 py-2">{{date('d',strtotime($activity->workday->date_work))}}</div>--}}
+                                        <div class="w-1/4 py-2">$ {{$activity->cost}}</div>
+                                        <div class="w-1/4 py-2 content-center">
+                                            <button data-tooltip-target="tooltip-activiti{{$activity->id}}" class="bg-green-700 text-white rounded-full w-1/2 hover:bg-green-500">ver</button>
+                                            <div id="tooltip-activiti{{$activity->id}}" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                {{$activity->typejob->description}}
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+                                        </div>
+                                        @if($activity->status == "pendiente")
+                                            <div class="w-1/4 py-1 px-4">
+                                                @if($activity->typejob->type == "suplemento")
+                                                    <button wire:click="openmodalaplication({{$activity->workday->id}},'{{$activity->typejob->type_job}}',{{$activity->id}})" data-tooltip-target="tooltip-pendiente" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                @else
+                                                    <button wire:click="do_activiti({{$activity->id}},{{$activity->workday->id}})" data-tooltip-target="tooltip-pendiente" class="w-full px-2 rounded-lg py-1 border border-indigo-400 bg-red-300 hover:bg-red-500 hover:text-white" type="button"><i class="fa-solid fa-right-to-bracket"></i></button>
+                                                @endif
+                                                <div id="tooltip-pendiente" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                    La actividad esta pendiente <br> Aun no se realiza
+                                                    <div class="tooltip-arrow" data-popper-arrow></div>
                                                 </div>
-                                                <div class="flex justify-center">
-                                                    <div class="suraya-blue"></div>
+                                            </div>
+                                        @elseif($activity->status == "realizado")
+                                            <div class="w-1/4 py-1 px-4">
+                                                <div class="w-full rounded-lg py-1 " data-tooltip-target="tooltip-realizado"><i class="fa-solid fa-check-double"></i></div>
+                                                <div id="tooltip-realizado" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                    Actividad Realizada
+                                                    <div class="tooltip-arrow" data-popper-arrow></div>
                                                 </div>
-                                            @endif
-                                    @endforeach
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="flex justify-center">
+                                        {{--<div class="suraya-blue"></div>--}}
+                                    </div>
                                 @endif
-                        @endforeach
+                            @endforeach
+                        @endif
+                    @endforeach
                 @endif
             @endforeach
         @endforeach

@@ -17,7 +17,7 @@
             <div class="flex items-center w-48">
                 <div class="ml-6 h-6 w-px bg-gray-300"></div>
                 <div x-data="{ isActive: true, open: false}">
-                    <button data-dropdown-toggle="dropdown" type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true" 
+                    <button data-dropdown-toggle="dropdown" type="button" @click="$event.preventDefault(); open = !open" role="button" aria-haspopup="true"
                             class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         Acciones extra
                     </button>
@@ -75,10 +75,11 @@
                     </div>
                     <div class="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
                         @foreach($data['calendar'] as $semanas)
-                        {{--HEAD--}}
+                            {{--HEAD--}}
                             @foreach($semanas['datos'] as $dias)
                                 @if($dias['mes'] == $mesingles)
                                     @if($dias['dia'] == $dia)
+                                        {{--PARA EL DIA DE HOY--}}
                                         @if($dias['mes'] == $mes_actual)
                                             @php $bantoday=true;@endphp
                                             @foreach($workdays as $work)
@@ -99,28 +100,99 @@
                                                 </form>
                                             @endif
                                         @endif
-                                    @else
-                                        @php $ban=true;@endphp
-                                        @foreach($workdays as $work)
-                                            @if($work->date_work == $dias['fecha'])
+                                    @elseif($dias['dia'] >= $dia)
+                                        {{--SI EL DIA ES MAYOR QUE HOY PERO SI LA FECHA ES MAYOR QUE LA FECHA COMPLETA REAL--}}
+                                        @if($dias['fecha'] > $fecha_completa)
+                                            @php $ban=true;@endphp
+                                            @foreach($workdays as $work)
+                                                @if($work->date_work == $dias['fecha'])
+                                                    <form action="">
+                                                        <button type="button" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                                                        </button>
+                                                    </form>
+                                                    @php $ban=false;@endphp
+                                                @endif
+                                            @endforeach
+                                            @if($ban)
                                                 <form action="">
-                                                    <button type="button" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
-                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                                                    <button type="button" wire:click="openmodal('{{$dias['fecha']}}')" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10 hover:border-gray-900">
+                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
                                                     </button>
                                                 </form>
-                                                @php $ban=false;@endphp
                                             @endif
-                                        @endforeach
-                                        @if($ban)
-                                            <form action="">
-                                                <button type="button" wire:click="openmodal('{{$dias['fecha']}}')" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10 hover:border-gray-900">
-                                                    <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
-                                                </button>
-                                            </form>
+                                        @else
+                                            @php $ban=true;@endphp
+                                            @foreach($workdays as $work)
+                                                @if($work->date_work == $dias['fecha'])
+                                                    <form action="">
+                                                        <button type="button" class="w-full bg-gray-50 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                                                        </button>
+                                                    </form>
+                                                    @php $ban=false;@endphp
+                                                @endif
+                                            @endforeach
+                                            @if($ban)
+                                                <form action="">
+                                                    <button type="button" data-tooltip-target="tooltip-day-passed" class="w-full bg-gray-50 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10 hover:border-gray-900">
+                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                                                    </button>
+                                                    <div id="tooltip-day-passed" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                        Fuera de Tiempo
+                                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                                    </div>
+                                                </form>
+                                            @endif
+                                        @endif
+                                    @else
+                                        {{--SI EL DIA ES MENOR QUE HOY PERO SI LA FECHA COMPLETA ES MAYOR QUE LA FECHA COMPLETA ACTUAL--}}
+                                        @if($dias['fecha'] > $fecha_completa)
+                                            @php $ban=true;@endphp
+                                            @foreach($workdays as $work)
+                                                @if($work->date_work == $dias['fecha'])
+                                                    <form action="">
+                                                        <button type="button" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                                                        </button>
+                                                    </form>
+                                                    @php $ban=false;@endphp
+                                                @endif
+                                            @endforeach
+                                            @if($ban)
+                                                <form action="">
+                                                    <button type="button" wire:click="openmodal('{{$dias['fecha']}}')" class="w-full bg-white border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10 hover:border-gray-900">
+                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        @else
+                                            @php $ban=true;@endphp
+                                            @foreach($workdays as $work)
+                                                @if($work->date_work == $dias['fecha'])
+                                                    <form action="">
+                                                        <button type="button" class="w-full bg-gray-50 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10">
+                                                            <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500">{{$dias['dia']}}</time>
+                                                        </button>
+                                                    </form>
+                                                    @php $ban=false;@endphp
+                                                @endif
+                                            @endforeach
+                                            @if($ban)
+                                                <form action="">
+                                                    <button type="button" data-tooltip-target="tooltip-day-passed" class="w-full bg-gray-50 border border-gray-100  py-1.5 text-gray-900 hover:bg-gray-100 focus:z-10 hover:border-gray-900">
+                                                        <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
+                                                    </button>
+                                                    <div id="tooltip-day-passed" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                        Fuera de Tiempo
+                                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                                    </div>
+                                                </form>
+                                            @endif
                                         @endif
                                     @endif
                                 @else
-                                    <button type="button" class="bg-gray-100 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
+                                    <button type="button" class="bg-gray-200 border border-gray-200 py-1.5 text-gray-400 hover:bg-gray-100 focus:z-10">
                                         <time class="mx-auto flex h-7 w-7 items-center justify-center rounded-full">{{$dias['dia']}}</time>
                                     </button>
                                 @endif
