@@ -9,8 +9,8 @@
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 8,
       center: {
-        lat: 40.731,
-        lng: -73.997
+        lat: 19.169934938511595,
+        lng: -100.12769729634527, 
       },
     });
     const geocoder = new google.maps.Geocoder();
@@ -31,7 +31,6 @@
       lat: parseFloat(latlngStr[0]),
       lng: parseFloat(latlngStr[1]),
     };
-
     geocoder
       .geocode({
         location: latlng
@@ -44,7 +43,6 @@
             position: latlng,
             map: map,
           });
-
           infowindow.setContent(response.results[0].formatted_address);
           infowindow.open(map, marker);
         } else {

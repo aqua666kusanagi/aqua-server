@@ -4,6 +4,46 @@
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full  sm:p-6">
             <div>
+                <div>
+                    {{-- The Master doesn't talk, he acts. --}}
+                    <div class="calendar">
+                        <div></div>
+                        <div class="cabecera">
+                            <i class="fas fa-angle-left nav" wire:click="decrementar('m')"></i>
+                            <div>{{ $meses[$countMes] }}</div>
+                            <i class="fas fa-angle-right nav" wire:click="incrementar('m')"></i>
+
+                            <i class="fas fa-angle-left nav" wire:click="decrementar('a')"></i>
+                            <div><span class="year">{{ $anio }}</span></div>
+                            <i class="fas fa-angle-right nav " wire:click="incrementar('a')"></i>
+                        </div>
+
+                        <div class="days">
+                            @foreach ($etiquetaDias as $dia)
+                            <span>{{ $dia }}</span>
+                            @endforeach
+                        </div>
+
+                        <div class="dates">
+                            @php
+                            $extraClass = "";
+                            @endphp
+
+                            @while ($inicioCalendario <= $finCalendario) @php $extraClass=$inicioCalendario->format('m') != $fecha->format('m') ? 'deshabilitado' : '';
+                                $extraClass .= $inicioCalendario->isToday() ? ' today ' : '';
+                                @endphp
+
+                                <button class="{{ $extraClass }}">
+                                    <time>{{ $inicioCalendario->format('j') }}</time>
+                                </button>
+
+                                @php
+                                $inicioCalendario->addDay();
+                                @endphp
+                                @endwhile
+                        </div>
+                    </div>
+                </div>
                 <div class="py-12">
 
                     <!-- 
