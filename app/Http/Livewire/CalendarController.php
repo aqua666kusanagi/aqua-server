@@ -19,7 +19,7 @@ use Carbon\Carbon;
 
 class CalendarController extends Component
 {
-    public $mess,$dia,$mes_actual;
+    public $mess,$dia,$mes_actual,$fecha_completa;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
 
@@ -44,6 +44,8 @@ class CalendarController extends Component
         $this->mess=date("m");
         $this->dia=date("d");
         $this->mes_actual=$this->month_actual($this->mess);
+        $this->fecha_completa=date("Y-m-d");
+        //dd($this->fecha_completa);
         $data=$this->data;
         //dd($data);
         $mesingles=$this->mesingles;
@@ -52,10 +54,12 @@ class CalendarController extends Component
         $this->nextmonth=$data['next'];
 
         $this->phenophases = $this->fenofase();
+        //dd($this->phenophases);
         $this->cont=count($this->phenophases);
         $this->workdays = $this->workday();
+        //dd($this->workdays);
         $this->activities = $this->activitiesxmes();
-
+        //dd($this->activities);
         return view('livewire.calendar_orchards.calendar-controller',[
             'datos_orchard' => $datos_orchard,
             'data' => $data,
@@ -296,17 +300,17 @@ class CalendarController extends Component
     }
     public function storeworkday(){
         $this->validate([
-           'user_id' => 'required',
+            'user_id' => 'required',
             'date_work' => 'required',
             'general_expenses' => 'required',
             'description' => 'required',
         ]);
         Workday::updateOrCreate(['id' => $this->workday_id],[
-           'user_id' => $this->user_id,
-           'orchard_id' => $this->id_orchard,
-           'date_work' => $this->date_work,
-           'general_expenses' => $this->general_expenses,
-           'description' => $this->description,
+            'user_id' => $this->user_id,
+            'orchard_id' => $this->id_orchard,
+            'date_work' => $this->date_work,
+            'general_expenses' => $this->general_expenses,
+            'description' => $this->description,
         ]);
         $this->idfinal=Workday::latest('id')->first();
         $this->clicksave = false;
@@ -320,7 +324,7 @@ class CalendarController extends Component
             'workday_id' => $this->idfinal->id,
             'type_job_id' => $this->type_job_id,
             'cost' => $this->cost,
-            'status' => 'no',
+            'status' => 'pendiente',
         ]);
 
         $this->type_job_id = '';
@@ -331,7 +335,7 @@ class CalendarController extends Component
     }
     public function do_activiti($id_activiti, $id_workday){
         Activity::updateOrCreate(['id' => $id_activiti],[
-            'status' => 'si'
+            'status' => 'realizado'
         ]);
         $this->activitiesxday = $this->activitiesxday($id_workday);
     }

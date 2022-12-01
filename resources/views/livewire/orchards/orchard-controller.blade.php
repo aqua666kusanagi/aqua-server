@@ -15,7 +15,11 @@
                     class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>-->
             <div class="flex items-center justify-between  dark:border-primary-darker px- py-4 sm:rounded-lg padd" style="background-image:url({{asset('images/fondoaguacate.jpg')}});">
                 <h1 class="text-2xl font-semibold text-gray-200 mx-auto">MIS HUERTOS</h1>
-                <button wire:click="create()" class="hover:bg-green-800 bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
+                <button wire:click="create()" data-tooltip-target="tooltip-add-orchard" class="hover:bg-green-800 bg-primary text-white font-bold py-2 px-4 rounded my-3 "><i class="fa-solid fa-plus"></i></button>
+                <div id="tooltip-add-orchard" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                    Registrar Huerto
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
             </div>
 
             @if($isDialogOpen)
