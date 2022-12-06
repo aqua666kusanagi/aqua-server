@@ -5,7 +5,7 @@
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen content-start"></span>
 
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3 content-start">
+        <div class="relative inline-blockrelative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3 content-start">
             <div class="content-start">
                 <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full text-center content-start">
                     <!-- Heroicon name: outline/check -->

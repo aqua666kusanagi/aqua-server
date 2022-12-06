@@ -1,5 +1,5 @@
 <div>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     @include('livewire.orchards.acciones_huerto')
     <script>
         show_nav(), calend()
