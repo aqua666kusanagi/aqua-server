@@ -71,7 +71,7 @@
 
                         <div class="padd grid gap-4 grid-cols-3 ">
                             @foreach($photographs as $foto)
-                            <div class="rounded-lg  ring-opacity-50 shadow-lg shadow-cyan-500/50 ">
+                            <div class="rounded-lg   ">
                                 <ul role="list" class="lg:grid grid grid-cols-1 gap-6 ">
                                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                                         <div class="">

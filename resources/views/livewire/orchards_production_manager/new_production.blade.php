@@ -1,49 +1,14 @@
-<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " type="button" value="GoBack" onclick="Previous()"></div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full  sm:p-6">
-            <div>
-                <div>
-                    {{-- The Master doesn't talk, he acts. --}}
-                    <div class="calendar">
-                        <div></div>
-                        <div class="cabecera">
-                            <i class="fas fa-angle-left nav" wire:click="decrementar('m')"></i>
-                            <div>{{ $meses[$countMes] }}</div>
-                            <i class="fas fa-angle-right nav" wire:click="incrementar('m')"></i>
+<div class="fixed z-10 inset-0 overflow-y-auto " aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 ">
 
-                            <i class="fas fa-angle-left nav" wire:click="decrementar('a')"></i>
-                            <div><span class="year">{{ $anio }}</span></div>
-                            <i class="fas fa-angle-right nav " wire:click="incrementar('a')"></i>
-                        </div>
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " onclick="Previous()" aria-hidden="true"></div>
 
-                        <div class="days">
-                            @foreach ($etiquetaDias as $dia)
-                            <span>{{ $dia }}</span>
-                            @endforeach
-                        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen "></span>
 
-                        <div class="dates">
-                            @php
-                            $extraClass = "";
-                            @endphp
+        <div class="relative inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3 content-start">
+            <div class="">
 
-                            @while ($inicioCalendario <= $finCalendario) @php $extraClass=$inicioCalendario->format('m') != $fecha->format('m') ? 'deshabilitado' : '';
-                                $extraClass .= $inicioCalendario->isToday() ? ' today ' : '';
-                                @endphp
 
-                                <button class="{{ $extraClass }}">
-                                    <time>{{ $inicioCalendario->format('j') }}</time>
-                                </button>
-
-                                @php
-                                $inicioCalendario->addDay();
-                                @endphp
-                                @endwhile
-                        </div>
-                    </div>
-                </div>
                 <div class="py-12">
 
                     <!-- 
@@ -71,7 +36,7 @@
                             </div>
                             @endif
                             <!-- Poner el espaciado -->
-                            <div class="flex justify-between ">
+                            <div class="flex justify-between py-2">
                                 <div>
                                     <button class="bg-primary text-white font-bold py-2 px-4 rounded my-3 " onclick="Previous()">Regresar</button>
                                     <script>
@@ -79,6 +44,24 @@
                                             window.history.back()
                                         }
                                     </script>
+                                </div>
+                                <div class="">
+                                    <div class="grid justify-items-center">
+
+                                        <div class="rounded-full flex bg-gray-100 px-8 py-2">
+                                            <div class="flex px-4">
+                                                <i class="fas fa-angle-left nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="decrementar('m')"></i>
+                                                <div class="px-2 text-2xl mt-2">{{ $meses[$countMes] }}</div>
+                                                <i class="fas fa-angle-right nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="incrementar('m')"></i>
+                                            </div>
+
+                                            <div class="flex px-4">
+                                                <i class="fas fa-angle-left nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="decrementar('a')"></i>
+                                                <div class=" px-2 text-2xl mt-2"><span class="year">{{ $anio }}</span></div>
+                                                <i class="fas fa-angle-right nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="incrementar('a')"></i>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>

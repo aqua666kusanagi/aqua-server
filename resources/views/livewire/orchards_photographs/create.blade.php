@@ -3,7 +3,6 @@
 
         <div class="fixed inset-0 bg-black opacity-50 transition-opacity content-start" wire:click="closeModalPopover()" aria-hidden="true"></div>
 
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen content-start"></span>
 
         <div class="relative inline-blockrelative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3 content-start">
             <div class="content-start">
