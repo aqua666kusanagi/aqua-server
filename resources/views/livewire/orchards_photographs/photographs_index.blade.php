@@ -1,10 +1,13 @@
 <div class="fixed z-10 inset-0 overflow-y-auto " aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " type="button" value="GoBack" onclick="Previous()"></div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-full sm:p-6">
-            <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 ">
+
+        <div class="fixed inset-0 bg-black opacity-50 transition-opacity " onclick="Previous()" aria-hidden="true"></div>
+
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen "></span>
+
+        <div class="relative inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-2/3 content-start">
+            <div class="">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
 
                     <div class="py-4">
                         <div class="rounded-full bg-green-100 px-4 pl-6 py-2 border w-full">
@@ -13,7 +16,7 @@
                         </div>
                     </div>
 
-                    <div class=" overflow-hidden shadow-xl sm:rounded-lg px-4 py-4 bg-gray-200">
+                    <div class=" overflow-hidden shadow-xl sm:rounded-lg px-4 py-4 bg-gray-200 my-8  mb-20 ">
                         <!-- ALgo de seccion-->
                         @if (session()->has('message'))
                         <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
@@ -25,7 +28,7 @@
                         </div>
                         @endif
                         <!-- Poner el espaciado -->
-                        <div class="flex justify-between">
+                        <div class="flex justify-between ">
                             <div>
                                 <button class="ease-in duration-300 bg-primary text-white font-bold py-2 px-4 rounded my-3 " onclick="Previous()">Regresar</button>
                                 <script>
@@ -42,48 +45,23 @@
 
                                     <div class="rounded-full flex bg-gray-100 px-8 py-2">
                                         <div class="flex px-4">
-                                            <button class="fas fa-angle-left nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="decrementar('m')"></button>
-                                            <div class="px-2 text-2xl mt-1">{{ $meses[$countMes] }}</div>
-                                            <button class="fas fa-angle-right nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="incrementar('m')"></button>
+                                            <i class="fas fa-angle-left nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="decrementar('m')"></i>
+                                            <div class="px-2 text-2xl mt-2">{{ $meses[$countMes] }}</div>
+                                            <i class="fas fa-angle-right nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="incrementar('m')"></i>
                                         </div>
 
                                         <div class="flex px-4">
                                             <i class="fas fa-angle-left nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="decrementar('a')"></i>
-                                            <div class="px-2 text-2xl mt-1"><span class="year">{{ $anio }}</span></div>
+                                            <div class=" px-2 text-2xl mt-2"><span class="year">{{ $anio }}</span></div>
                                             <i class="fas fa-angle-right nav rounded-full p-4 bg-gray-100 hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-300" wire:click="incrementar('a')"></i>
                                         </div>
-                                    </div>
-<!--
-                                    <div class="days">
-                                        @foreach ($etiquetaDias as $dia)
-                                        <span>{{ $dia }}</span>
-                                        @endforeach
-                                    </div>-->
-
-                                    <div class="dates">
-                                        @php
-                                        $extraClass = "";
-                                        @endphp
-
-                                        @while ($inicioCalendario <= $finCalendario) @php $extraClass=$inicioCalendario->format('m') != $fecha->format('m') ? 'deshabilitado' : '';
-                                            $extraClass .= $inicioCalendario->isToday() ? ' today ' : '';
-                                            @endphp
-<!--
-                                            <button class="{{ $extraClass }}">
-                                                <time>{{ $inicioCalendario->format('j') }}</time>
-                                            </button>
-                                -->
-                                            @php
-                                            $inicioCalendario->addDay();
-                                            @endphp
-                                            @endwhile
                                     </div>
                                 </div>
                             </div>
 
 
                             <div>
-                                <button wire:click="create()" class="ease-out duration-300 bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                <button wire:click="create()" class=" duration-300 bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
                                 @if($isDialogOpen)
                                 @include('livewire.orchards_photographs.create')
                                 @endif
@@ -93,7 +71,7 @@
 
                         <div class="padd grid gap-4 grid-cols-3 ">
                             @foreach($photographs as $foto)
-                            <div class="rounded-lg  ring-opacity-50 shadow-lg shadow-cyan-500/50 ">
+                            <div class="rounded-lg   ">
                                 <ul role="list" class="lg:grid grid grid-cols-1 gap-6 ">
                                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                                         <div class="">
@@ -140,5 +118,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

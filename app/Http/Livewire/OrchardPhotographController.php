@@ -14,19 +14,16 @@ class OrchardPhotographController extends Component
 {
     use WithFileUploads;
     public $photographs, $photograph_id, $orchard_id, $type_photograph_id, $path, $date,$note;
-    public $isDialogOpen = 0;
+    public $isDialogOpen =0;
     public $isconfirm =0;
     public $getid =0;
     public $idd;
 
     protected $currentDateTime;
 
-    public $inicioCalendario;
-    public $finCalendario;
     public $fecha;
-    public $anio;
+    public $anio=0;
     public $countMes = 1;
-    public $etiquetaDias = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
     public $meses = [ 1 => 'Enero',
                       2 => 'Febrero',
                       3 => 'Marzo',
@@ -44,19 +41,25 @@ class OrchardPhotographController extends Component
     {
         $id_orchard = Orchard::findOrFail($this->idd);
         $nombre_huerto=$id_orchard->name_orchard;
-        //dd($nombre_huerto);
-        //$this->photographs = Photograph::all();
-        //$this->photographs = Photograph::all()->where('photographs.orchard_id', $id_orchard->id);
-        //$this->photographs = DB::select('select * from photographs where photograph.orchard_id ', $id_orchard->id);
+
+
         $this->photographs = Photograph::join("orchards", "orchards.id", "photographs.orchard_id")
-            ->where("photographs.orchard_id", $id_orchard->id)
-            ->get();
+        ->where("photographs.orchard_id", $id_orchard->id)
+        ->whereYear("photographs.date",$this->anio)
+        ->whereMonth("photographs.date",$this->countMes)
+        ->get();
+
+        //dd($this->anio);
+        //dd($this->countMes);
+        //dd($this->meses);
+            
         return view('livewire.orchards_photographs.photographs_index', [
             'orchards' => Orchard::all(),
             'type_photographs' => TypePhotograph::all(),
             'datos_orchard' => $id_orchard,
             'nombre_huerto' => $nombre_huerto,
         ]);
+        
     }
     public function create()
     {
@@ -149,17 +152,23 @@ class OrchardPhotographController extends Component
 
     //////////////////////////////////////////////////////inicializamos calendario
     public function mount($id)
-    {
+    { 
         $this->orchard_id = $id;
         $this->idd = $id;
         $this->render();
         $this->currentDateTime = now();
+        $this->currentDateTime->day= 10;
 
-        $this->countMes = $this->currentDateTime->format('n');
-        $this->inicioCalendario = $this->currentDateTime->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
-        $this->finCalendario = $this->currentDateTime->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
+        //dd($this->currentDateTime);
+
+
+        $this->countMes = $this->currentDateTime->format('m');
+        
         $this->fecha = $this->currentDateTime->copy();
         $this->anio = $this->currentDateTime->copy()->format('Y');
+        $this->currentDateTime->day= 10;
+     
+        //dd($this->anio);
     }
 
     /**
@@ -170,32 +179,17 @@ class OrchardPhotographController extends Component
         // Creamos una instacia de la fecha con el mes, y año que está en la vista
         $this->currentDateTime = Carbon::createFromFormat('n/Y', $this->countMes.'/'.$this->anio);
 
+        $this->currentDateTime->day= 10;
+        
         // Si el parametro es M es porque se incrementa un mes,
         // por lo que nos valemos del metodo addMonth de Carbon
         if ($objeto == "m") {
-            $this->inicioCalendario = $this->currentDateTime->copy()
-                                            ->addMonth()
-                                            ->firstOfMonth()
-                                            ->startOfWeek(Carbon::SUNDAY);
-            $this->finCalendario = $this->currentDateTime->copy()
-                                        ->addMonth()
-                                        ->lastOfMonth()
-                                        ->endOfWeek(Carbon::SATURDAY);
-
-            // establecemos los valores para mes y año que figuran en la vista
+            //->addMonthsNoOverflow()
             $this->countMes = (int) $this->currentDateTime->copy()->addMonth()->format('n');
             $this->anio = (int) $this->currentDateTime->copy()->addMonth()->format('Y');
+            
         } else {
-            // Si el parametro es A es porque se incrementa un año,
-            // por lo que nos valemos del metodo addYear de Carbon
-            $this->inicioCalendario = $this->currentDateTime->copy()
-                                            ->addYear()
-                                            ->firstOfMonth()
-                                            ->startOfWeek(Carbon::SUNDAY);
-            $this->finCalendario = $this->currentDateTime->copy()
-                                        ->addYear()
-                                        ->lastOfMonth()
-                                        ->endOfWeek(Carbon::SATURDAY);
+
             // establecemos los valores para mes y año que figuran en la vista
             $this->countMes = (int) $this->currentDateTime->copy()->addYear()->format('n');
             $this->anio = (int) $this->currentDateTime->copy()->addYear()->format('Y');
@@ -210,28 +204,12 @@ class OrchardPhotographController extends Component
     public function decrementar($objeto)
     {
         $this->currentDateTime = Carbon::createFromFormat('n/Y', $this->countMes.'/'.$this->anio);
-
+        $this->currentDateTime->day= 10;
         if ($objeto == "m") {
-            $this->inicioCalendario = $this->currentDateTime->copy()
-                                            ->subMonth()
-                                            ->firstOfMonth()
-                                            ->startOfWeek(Carbon::SUNDAY);
-            $this->finCalendario = $this->currentDateTime->copy()
-                                        ->subMonth()
-                                        ->lastOfMonth()
-                                        ->endOfWeek(Carbon::SATURDAY);
 
             $this->countMes = (int) $this->currentDateTime->copy()->subMonth()->format('n');
             $this->anio = (int) $this->currentDateTime->copy()->subMonth()->format('Y');
         } else {
-            $this->inicioCalendario = $this->currentDateTime->copy()
-                                            ->subYear()
-                                            ->firstOfMonth()
-                                            ->startOfWeek(Carbon::SUNDAY);
-            $this->finCalendario = $this->currentDateTime->copy()
-                                        ->subYear()
-                                        ->lastOfMonth()
-                                    ->endOfWeek(Carbon::SATURDAY);
 
             $this->countMes = (int) $this->currentDateTime->copy()->subYear()->format('n');
             $this->anio = (int) $this->currentDateTime->copy()->subYear()->format('Y');
