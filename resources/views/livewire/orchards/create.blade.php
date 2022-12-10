@@ -1,3 +1,94 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script>
+    /**
+     * @license
+     * Copyright 2019 Google LLC. All Rights Reserved.
+     * SPDX-License-Identifier: Apache-2.0
+     */
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: {
+                lat: 40.731,
+                lng: -73.997
+            },
+        });
+        const geocoder = new google.maps.Geocoder();
+        const infowindow = new google.maps.InfoWindow();
+
+        document.getElementById("submit").addEventListener("click", () => {
+            geocodeLatLng(geocoder, map, infowindow);
+        });
+    }
+
+
+
+
+    function geocodeLatLng(geocoder, map, infowindow) {
+        const input = document.getElementById("latlng").value;
+        const latlngStr = input.split(",", 2);
+        const latlng = {
+            lat: parseFloat(latlngStr[0]),
+            lng: parseFloat(latlngStr[1]),
+        };
+
+        geocoder
+            .geocode({
+                location: latlng
+            })
+            .then((response) => {
+                if (response.results[0]) {
+                    map.setZoom(11);
+
+                    const marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map,
+                    });
+
+                    infowindow.setContent(response.results[0].formatted_address);
+                    infowindow.open(map, marker);
+                } else {
+                    window.alert("No results found");
+                }
+            })
+            .catch((e) => window.alert("Geocoder failed due to: " + e));
+    }
+
+    //AUTOEJECUTAR
+    //SINTAXIS
+    //(function foo(){} ());
+
+    window.initMap = initMap;
+</script>
+<style>
+    /**
+         * @license
+         * Copyright 2019 Google LLC. All Rights Reserved.
+         * SPDX-License-Identifier: Apache-2.0
+         */
+    /*
+         * Always set the map height explicitly to define the size of the div element
+         * that contains the map.
+         */
+    #map {
+        height: 100%;
+        margin: 10px 3px 10px 5px;
+        /* 10px arriba, 3px derecha, 30px abajo, 5px izquierda */
+    ;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #latlng {
+        width: 225px;
+    }
+</style>
+
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
@@ -128,6 +219,29 @@
                                                     <h3 class="text-center block text-sm font-medium text-gray-700">Ubicacion</h3>
                                                     <div class="">
                                                         <input type="text" class="text-center mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Localizacion de Huerto" wire:model="location_orchard">
+                                                    </div>
+                                                    @error('location_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-span-4 lg:col-span-6 md:col-span-4 my-4 mx-4 px-4 border border-indigo-400">
+                                                <div class="pt-2 pr-4">
+                                                    <h3 class="text-center block text-sm font-bold text-gray-700">Localizacion Geografica</h3>
+                                                    <div class="w-full flex justify-between">
+                                                        <div class="w-1/4">Abra el mapa para ubicar el huerto geograficamente--></div>
+                                                        <div class="w-3/4">
+                                                            <div class="p-2 w-full  rounded-xl h-100 lg:h-96">
+                                                                <button id="update_map" wire:click.prevent="openModalPopover()"  class="text-center  border border-gray-700 bg-gray-200 rounded-lg font-semibold text-green-600">Actualizar mapa</button>
+                                                                <div class="my-4">
+                                                                    <input id="latlng" type="text" value="40.714224,datos orchard" />
+                                                                    <input id="submit" type="button" value="Reverse Geocode" />
+                                                                    <div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="map"></div>
+                                                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMb67_ULC5BeRZD2T75ES111lCpbrfhnc&callback=initMap&v=weekly" defer></script>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     @error('location_orchard') <span class="text-red-500">{{ $message }}</span>@enderror
                                                 </div>
@@ -278,3 +392,71 @@
             </div>
         </div>
     </div>
+</div>
+<script>
+    var boton=document.getElementById('update_map');
+
+    boton.onclick=getmap();
+
+    function getmap(){
+        /**g
+         * @license
+         * Copyright 2019 Google LLC. All Rights Reserved.
+         * SPDX-License-Identifier: Apache-2.0
+         */
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: {
+                    lat: 40.731,
+                    lng: -73.997
+                },
+            });
+            const geocoder = new google.maps.Geocoder();
+            const infowindow = new google.maps.InfoWindow();
+
+            document.getElementById("submit").addEventListener("click", () => {
+                geocodeLatLng(geocoder, map, infowindow);
+            });
+        }
+
+
+
+
+        function geocodeLatLng(geocoder, map, infowindow) {
+            const input = document.getElementById("latlng").value;
+            const latlngStr = input.split(",", 2);
+            const latlng = {
+                lat: parseFloat(latlngStr[0]),
+                lng: parseFloat(latlngStr[1]),
+            };
+
+            geocoder
+                .geocode({
+                    location: latlng
+                })
+                .then((response) => {
+                    if (response.results[0]) {
+                        map.setZoom(11);
+
+                        const marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map,
+                        });
+
+                        infowindow.setContent(response.results[0].formatted_address);
+                        infowindow.open(map, marker);
+                    } else {
+                        window.alert("No results found");
+                    }
+                })
+                .catch((e) => window.alert("Geocoder failed due to: " + e));
+        }
+
+        //AUTOEJECUTAR
+        //SINTAXIS
+        //(function foo(){} ());
+
+        window.initMap = initMap;
+    }
+</script>

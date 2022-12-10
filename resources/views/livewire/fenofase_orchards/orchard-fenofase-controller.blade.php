@@ -1,8 +1,8 @@
 <div class="w-full">
     <ul class="flex justify-between w-full">
         <li class="w-11/12">
-            <div class="text-right text-teal-900 w-full text-center">
-                <h1 class="font-bold py-3">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).
+            <div class="text-right text-teal-900 w-full text-center flex justify-center">
+                <h1 class="font-bold py-3 text-center">Recuerde que las fenofases del huerto tienen que tener un ciclo (inicio y fin).
                     <br>Ciclo Fenologico para el huerto: {{$datos_orchard->name_orchard}}
                 </h1>
             </div>
@@ -42,7 +42,7 @@
                 <div>
                     <div>
                         <div class="circulo"><div class="subcirculo"></div></div>
-                        <hr>
+                        <hr class="hrr">
                     </div>
                 </div>
             @endforeach

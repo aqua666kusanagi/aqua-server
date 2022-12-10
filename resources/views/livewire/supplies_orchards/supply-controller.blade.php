@@ -20,7 +20,7 @@
             @endif
             <button wire:click="create()" class="bg-primary text-white font-bold py-2 px-4 rounded my-3"><i class="fa-solid fa-plus"></i> Agregar</button>
             @if($isDialogOpen)
-                @include('livewire.supplies.create')
+                @include('livewire.supplies_orchards.create')
             @endif
             {{--****FERTILIZANTES, INZECTICIDASA, AGUA, ABONO************************************************************************************************--}}
             <div class="container py-4 my-4 grid grid-cols-3 gap-4 px-2 py-2">

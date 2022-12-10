@@ -54,7 +54,7 @@
 
 
                             <!-- BOTONES MENU -->
-                            <a href="{{url('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                            <a href="{{url('supplies_orchards')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                 <i class="fa-solid fa-angles-right"></i>
                                 Suplementos
                             </a>
@@ -399,7 +399,7 @@
                                     Dosis
                                 </a>
 
-                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                <a href="{{asset('supplies_orchards')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Suplementos
                                 </a>

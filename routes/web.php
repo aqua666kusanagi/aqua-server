@@ -76,7 +76,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::get('type_topograps', TypeTopographicController::class);
         Route::get('type_jobs', TypeJobController::class);
         Route::get('product_categories', ProductCategoryController::class);
-        Route::get('supplies', SupplyController::class);
+        Route::get('supplies_orchards', SupplyController::class);
         Route::get('active_elements', ActiveElementController::class);
         Route::get('type_soil', TypeSoilController::class);
         Route::get('climate_type', ClimateTypeController::class);

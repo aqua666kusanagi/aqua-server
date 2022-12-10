@@ -40,7 +40,7 @@ class OrchardController extends Component
 
     public $identificador=0;
 
-    public $isDialogOpen = 0;
+    public $isDialogOpen = 0, $btn_maps=0;
     public $isconfirm = 0;
     public $getid = 0;
 

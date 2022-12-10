@@ -15,7 +15,10 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     {{--Estilos de toltip--}}
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+    {{--SCRIPT PARA HACER TOLTIPS--}}
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    {{--Scripts de ALPHINE para tooltips--}}
+    {{--<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>--}}
 </head>
 
 <body>
@@ -189,7 +192,7 @@
                                     <i class="fa-solid fa-angles-right"></i>
                                     Elemento activo
                                 </a>
-                                <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                <a href="{{asset('supplies_orchards')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                     <i class="fa-solid fa-angles-right"></i>
                                     Suplementos
                                 </a>
@@ -512,7 +515,7 @@
                                         Dosis
                                     </a>
 
-                                    <a href="{{asset('supplies')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                                    <a href="{{asset('supplies_orchards')}}" role="menuitem" class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                                         <i class="fa-solid fa-angles-right"></i>
                                         Suplementos
                                     </a>

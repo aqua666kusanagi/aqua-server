@@ -21,7 +21,7 @@ class ActiveElementController extends Component
 
         return view('livewire.active_elements.active-element-controller', [
             'chemical_elements' => ChemicalElement::all(),
-            'supplies' => Supply::all(),
+            'supplies_orchards' => Supply::all(),
         ]);
     }
 

@@ -17,7 +17,7 @@ class SupplyController extends Component
     {
         $this->supply = Supply::all();
 
-        return view('livewire.supplies.supply-controller', [
+        return view('livewire.supplies_orchards.supply-controller', [
             'product_categories' => ProductCategory::all()
         ]);
     }

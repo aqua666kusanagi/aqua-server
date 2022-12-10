@@ -10,6 +10,10 @@ use App\Models\Workday;
 use App\Models\TypeJob;
 use App\Models\Activity;
 use App\Models\ApplicationMode;
+use App\Models\NutrientAnalysi;
+use App\Models\Supply;
+use App\Models\ProductCategory;
+
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -37,6 +41,12 @@ class CalendarController extends Component
     public $application_id,$application_modes, $aplication_workday_id, $aplication_mode_id,$day_aplication, $type_job, $note, $id_actividad;
     public $modalaplication=0;
 
+    public $nutrient_analysis, $nutrient_analysi_id, $date_sample, $image_nutrient_analysi;
+    public $modalnutrient_analysi=0;
+
+    public $supplies, $supplie_id, $name_supplie, $n_registry_supplie, $data_sheet_supplie, $security_supplie, $product_category_id_supplie;
+    public $modalsupplie=0;
+
     public function render()
     {
         $datos_orchard=$this->datos_orchard;
@@ -45,9 +55,9 @@ class CalendarController extends Component
         $this->dia=date("d");
         $this->mes_actual=$this->month_actual($this->mess);
         $this->fecha_completa=date("Y-m-d");
-        //dd($this->fecha_completa);
+
         $data=$this->data;
-        //dd($data);
+     //   dd($data);
         $mesingles=$this->mesingles;
         $mespanish=$this->mespanish;
         $this->lastmosth=$data['last'];
@@ -60,12 +70,15 @@ class CalendarController extends Component
         //dd($this->workdays);
         $this->activities = $this->activitiesxmes();
         //dd($this->activities);
+        $this->nutrient_analysis= $this->nutrient_analysi();
+        //dd($this->nutrient_analysis);
         return view('livewire.calendar_orchards.calendar-controller',[
             'datos_orchard' => $datos_orchard,
             'data' => $data,
             'mesingles' => $mesingles,
             'mespanish' => $mespanish,
             'type_jobs' =>TypeJob::all(),
+            'produc_category' => ProductCategory::all(),
         ]);
     }
 
@@ -88,19 +101,20 @@ class CalendarController extends Component
         //dd($this->mespanish); //Obtenemos el nombre del mes actual en español
         $this->mesingles = $this->data['month'];
         //dd($this->mesingles); //Obtenemos el nombre del mes actual en ingles
-
         $this->render();
     }
     public function last_year(){
+        //dd('entra al mes anterior');
         $this->data = $this->calendar_month($this->lastmosth);
         $this->mesingles = $this->data['month'];
         // obtener mes en espanol
         $this->mespanish = $this->spanish_month($this->mesingles);
         $this->mesingles = $this->data['month'];
-
+        //return redirect('livewire.calendar_orchards.calendar-controller');
         $this->render();
     }
     public function next_year(){
+        //dd('entra al mes posterior');
         $this->data = $this->calendar_month($this->nextmonth);
         $this->mesingles = $this->data['month'];
         // obtener mes en espanol
@@ -355,7 +369,23 @@ class CalendarController extends Component
         $this->do_activiti($this->id_actividad,$this->aplication_workday_id);
         $this->closemodalaplication();
     }
+    //Funciones para Analicis Nutricional
+    public function nutrient_analysi(){
+        $datos=NutrientAnalysi::join('orchards', 'orchards.id','nutrient_analysis.orchard_id')
+                                ->where("nutrient_analysis.orchard_id", $this->id_orchard)
+                                ->get();
+        return $datos;
+    }
+    public function save_nutrient_analisi(){
+        $this->validate([
+           'date_sample' => 'required',
+            'path' => 'required'
+        ]);
+
+    }
+
     //->->->->->->->->->->->->->->->->->->->->->->->->->->-MODALES Y BANDERAS>->->->->->->->->->->->->->->->->->->->->->
+    //Modal para agregar un dia de trabajo
     public function openmodal($fecha)
     {
         $this->date_work=$fecha;
@@ -374,6 +404,7 @@ class CalendarController extends Component
         $this->modalworkday = false;
         $this->modal = false;
     }
+    //Despues de agregrar el dia de trabajo, agregar las actividades
     public function openmodalworkday(){
         $this->modalworkday = true;
     }
@@ -381,6 +412,7 @@ class CalendarController extends Component
         $this->general_expenses = '';
         $this->modalworkday = false;
     }
+    //modales para agregar una aplicacion de actividad
     public function openmodalaplication($id_workday,$type_job, $activiti_id){
         $this->application_modes=ApplicationMode::all();
         $this->aplication_workday_id=$id_workday;
@@ -398,5 +430,13 @@ class CalendarController extends Component
         $this->note='';
         $this->id_actividad='';
         $this->modalaplication=false;
+    }
+    //Modales para Analicis Nutricional
+    public function openmodalnuetrient_analysis($fecha){
+        $this->date_sample=$fecha;
+        $this->modalnutrient_analysi=true;
+    }
+    public function closemodalnuetrient_analysis(){
+        $this->modalnutrient_analysi=false;
     }
 }
