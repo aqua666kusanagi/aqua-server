@@ -20,9 +20,12 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\Constraint\Count;
 use Carbon\Carbon;
+use Livewire\WithFileUploads;
 
 class CalendarController extends Component
 {
+    use WithFileUploads;
+
     public $mess,$dia,$mes_actual,$fecha_completa;
     public $data, $mesingles, $mespanish, $lastmosth, $nextmonth;
     public $user_id, $id_orchard, $datos_orchard;
@@ -41,8 +44,8 @@ class CalendarController extends Component
     public $application_id,$application_modes, $aplication_workday_id, $aplication_mode_id,$day_aplication, $type_job, $note, $id_actividad;
     public $modalaplication=0;
 
-    public $nutrient_analysis, $nutrient_analysi_id, $date_sample, $image_nutrient_analysi;
-    public $modalnutrient_analysi=0;
+    public $nutrient_analysis, $nutrient_analysi_id, $date_sample, $path_nutrient_analysi;
+    public $modalnutrient_analysi=0, $modalview_nutrient_analysi=0;
 
     public $supplies, $supplie_id, $name_supplie, $n_registry_supplie, $data_sheet_supplie, $security_supplie, $product_category_id_supplie;
     public $modalsupplie=0;
@@ -377,11 +380,22 @@ class CalendarController extends Component
         return $datos;
     }
     public function save_nutrient_analisi(){
+        //dd('Entra a la funcion para guardar el path');
         $this->validate([
            'date_sample' => 'required',
-            'path' => 'required'
+            'path_nutrient_analysi' => 'required'
+        ],[
+            'path.required' => 'Agrega el archivo.',
+            'path.max' => 'El archivo no debe ser mayor a 5mb.',
+            'path.mimes' => 'El archivo debe ser un PDF',
         ]);
-
+        $this->path_nutrient_analysi=$this->path_nutrient_analysi->store('file_nutrient_analysis','public');
+        NutrientAnalysi::updateOrCreate(['id'=>$this->nutrient_analysi_id],[
+            'orchard_id' => $this->id_orchard,
+            'date_sample' => $this->date_sample,
+            'path' => $this->path_nutrient_analysi,
+        ]);
+        $this->closemodalnuetrient_analysis();
     }
 
     //->->->->->->->->->->->->->->->->->->->->->->->->->->-MODALES Y BANDERAS>->->->->->->->->->->->->->->->->->->->->->
@@ -438,5 +452,13 @@ class CalendarController extends Component
     }
     public function closemodalnuetrient_analysis(){
         $this->modalnutrient_analysi=false;
+        $this->date_sample=0;
+        $this->path_nutrient_analysi=0;
+    }
+    public  function openmodalview_nuetrient_analysis(){
+        $this->modalview_nutrient_analysi=true;
+    }
+    public  function closemodalview_nuetrient_analysis(){
+        $this->modalview_nutrient_analysi=false;
     }
 }

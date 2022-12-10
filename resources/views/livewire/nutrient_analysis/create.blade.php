@@ -17,26 +17,20 @@
                         <!--FORMULARIO-->
                         <form>
                             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                {{--<div class="">
-                                    <div class="mb-4">
-                                        <input type="text" class="shadow rounded-lg appearance-none border w-full" placeholder="File" wire:model="date_sample">
-                                        @error('date_sample') <span class="text-red-500">{{ $message }}</span>@enderror
-                                    </div>
-                                </div>--}}
-
                                 <div class="">
                                     <div class="mb-4">
-                                        <input type="text" class="shadow rounded-lg appearance-none border w-full" placeholder="Path" wire:model="image_nutrient_analysi">
+                                        <input type="file" wire:model="path_nutrient_analysi" class="form-control shadow rounded-lg appearance-none border w-full" placeholder="Inserte el archivo word o pdf">
                                         @error('path') <span class="text-red-500">{{ $message }}</span>@enderror
                                     </div>
                                 </div>
+
 
                             </div>
 
 
                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex  flex justify-center">
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <button wire:click.prevent="" type="button"
+                                    <button wire:click.prevent="save_nutrient_analisi()" type="button"
                                             class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-800 text-base leading-6 font-bold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                                         Guardar
                                     </button>

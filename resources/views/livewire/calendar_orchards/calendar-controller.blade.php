@@ -10,7 +10,7 @@
             <div class="">
                 <h1 class="text-lg font-semibold leading-6 text-gray-900">
                     <time class="sm:hidden">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
-                    <time class="hidden sm:inline">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
+                    <time class="sm:inline">{{ $dia }} {{ $mespanish }} {{ $data['year'] }}</time>
                 </h1>
                 <p class="mt-1 text-sm text-gray-900 font-semibold">{{$datos_orchard->name_orchard}} , Localización: {{$datos_orchard->location_orchard}} , Año de creación: {{$datos_orchard->creation_year}}</p>
             </div>
@@ -128,7 +128,7 @@
                 <div class="font-extrabold text-xl text-center w-full">Análisis Nutricional</div>
                 <div class="w-full">
                     <div class="flex justify-end px-10">
-                        <button type="button" wire:click="openmodalnuetrient_analysis()" data-tooltip-target="tooltip-add_analysis" class="border bg-green-500 hover:bg-green-800 font-bold text-white py-1 px-2 rounded">+</button>
+                        <button type="button" wire:click="openmodalnuetrient_analysis('{{$fecha_completa}}')" data-tooltip-target="tooltip-add_analysis" class="border bg-green-500 hover:bg-green-800 font-bold text-white py-1 px-2 rounded">+</button>
                         <div id="tooltip-add_analysis" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                             Agregar Analicis Nutricional
                             <div class="tooltip-arrow" data-popper-arrow></div>
@@ -137,22 +137,27 @@
                             @include('livewire.nutrient_analysis.create')
                         @endif
                     </div>
-                    <div class="grid  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+                    <div class="grid  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 px-2 py-2">
                         @foreach($nutrient_analysis as $nutrient_analy)
-                            <div class="h-10 border">
-                                <div>
-                                    <img src="" alt="img">
+                            <div class="border bg-indigo-50 py-2 px-2 rounded-lg mx-4 my-3">
+                                <div class="flex justify-center border bg-green-200 rounded-lg font-bold">
+                                    <div>Análisis del dia {{$nutrient_analy->date_sample}}</div>
                                 </div>
-                                <div>
-                                    Nombre del archivo: file
-                                    <button>Descargar</button>
+                                <br>
+                                <div class="flex justify-between px-4">
+                                    <button wire:click="openmodalview_nuetrient_analysis('{{$nutrient_analy->id}}')" class=" rounded-lg bg-indigo-300 border py-1 px-2 hover:bg-indigo-600 font-medium hover:text-white">Visualizar</button>
+                                    <button class=" rounded-lg bg-indigo-300 border py-1 px-2 hover:bg-indigo-600 font-medium hover:text-white">Descargar</button>
                                 </div>
-                                <div>
-                                    <button>Editar registro</button>
+                                <br>
+                                <div class="flex justify-end">
+                                    <button class=" rounded-lg border bg-green-500 py-1 px-2 hover:bg-green-800 font-medium hover:text-white">Modificar Archivo</button>
                                 </div>
                             </div>
                         @endforeach
                     </div>
+                    @if($modalview_nutrient_analysi)
+                        @include('livewire.nutrient_analysis.view_nutrient_analysi')
+                    @endif
                 </div>
             </div>
             <div class="flex justify-between">
